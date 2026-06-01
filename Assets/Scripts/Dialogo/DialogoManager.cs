@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 
 public class DialogoManager : MonoBehaviour 
 {
@@ -14,9 +16,19 @@ public class DialogoManager : MonoBehaviour
     public TextMeshProUGUI cajaTexto;
     public Image imgPersonaje;
 
-    
+
+    [Header("EfectoMaquina")]
+
+    public float velocidadTexto = 0.05f;
+    private bool escribiendo = false;
+    private Coroutine efectoMaquinaCoroutine;
+
+
     private DialogoSistema conversacionActual;
     private int lineaActual = 0;
+    private bool ignorarInputEsteFrame = false;
+
+
 
     private void Awake()
     {
@@ -29,9 +41,28 @@ public class DialogoManager : MonoBehaviour
     {
         if (panelDialogo.activeSelf)
         {
-             if (Keyboard.current.fKey.wasPressedThisFrame)
+            if (ignorarInputEsteFrame)
             {
-                SiguienteLinea();
+                ignorarInputEsteFrame = false;      
+                return;
+
+            }
+
+
+            if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
+            {
+               
+                if (escribiendo)
+                {
+                    StopCoroutine(efectoMaquinaCoroutine);
+                    cajaTexto.text = conversacionActual.dialogos[lineaActual].dialogo;
+                    escribiendo = false;
+                }
+                else
+                {
+                    SiguienteLinea();
+                }
+
             }
         }
     }
@@ -42,6 +73,7 @@ public class DialogoManager : MonoBehaviour
         conversacionActual = nuevoDialogo;
         lineaActual = 0; 
         panelDialogo.SetActive(true); 
+        ignorarInputEsteFrame = true;
         MostrarLinea();
     }
 
@@ -62,6 +94,15 @@ public class DialogoManager : MonoBehaviour
             {
                 imgPersonaje.sprite = fila.personaje;
             }
+
+
+            if (efectoMaquinaCoroutine != null)
+            {
+                StopCoroutine(efectoMaquinaCoroutine);
+            }
+
+            efectoMaquinaCoroutine = StartCoroutine(EscribirTexto(fila.dialogo));
+
         }
         else
         {
@@ -71,6 +112,19 @@ public class DialogoManager : MonoBehaviour
     }
 
    
+    private IEnumerator EscribirTexto (string textoCompleto)
+    {
+        escribiendo = true;
+        cajaTexto.text = "";
+
+        foreach (char letra in textoCompleto)
+        {
+            cajaTexto.text += letra;
+            yield return new WaitForSeconds(velocidadTexto);
+        }
+        escribiendo = false;
+    }
+
     public void SiguienteLinea()
     {
         lineaActual++; 
