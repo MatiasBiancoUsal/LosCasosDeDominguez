@@ -11,12 +11,23 @@ public class InteraccionObjeto : MonoBehaviour
     [Header("Tiempos de Espera (Modifícalos en el Inspector)")]
     [SerializeField] private float segundosEsperaAnimacion = 3.0f;
 
-    private bool yaSeHizoClick = false;
+    private bool yaSeInteractuo = false;
 
-    private void OnMouseDown()
+    // Update se ejecuta una vez por fotograma
+    private void Update()
     {
-        if (yaSeHizoClick) return;
-        yaSeHizoClick = true;
+        // Detecta si el jugador presiona la tecla 'A'
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            IntentarInteraccion();
+        }
+    }
+
+    private void IntentarInteraccion()
+    {
+        // Evita que se vuelva a activar si ya se presionó antes
+        if (yaSeInteractuo) return;
+        yaSeInteractuo = true;
 
         if (panelParaAbrir != null)
         {
