@@ -540,7 +540,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1458922541856868968, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1506447968}
   m_SourcePrefab: {fileID: 100100000, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
 --- !u!1001 &80750228
 PrefabInstance:
@@ -758,7 +761,7 @@ GameObject:
   - component: {fileID: 246756550}
   - component: {fileID: 246756549}
   - component: {fileID: 246756553}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Telefono
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +829,7 @@ MonoBehaviour:
   panelParaAbrir: {fileID: 422372628}
   animatorDelObjeto: {fileID: 246756553}
   nombreAnimacion: New Animation
-  segundosEsperaAnimacion: 3
+  segundosEsperaAnimacion: 20
 --- !u!212 &246756551
 SpriteRenderer:
   serializedVersion: 2
@@ -1037,7 +1040,6 @@ GameObject:
   m_Component:
   - component: {fileID: 319075157}
   - component: {fileID: 319075159}
-  - component: {fileID: 319075160}
   - component: {fileID: 319075161}
   m_Layer: 0
   m_Name: OficinaHoracio_Puerta_0
@@ -1120,20 +1122,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &319075160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319075156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bd9a305a140294992c3b216445644e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  panelPrefab: {fileID: 519571183}
-  datosScriptableObject: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}
 --- !u!68 &319075161
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2921,6 +2909,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1506447967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1458922541856868968, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
+  m_PrefabInstance: {fileID: 59390743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1506447968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506447967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bd9a305a140294992c3b216445644e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogoObjeto
+  conversacion: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}
 --- !u!1 &1512188345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,7 +3101,6 @@ GameObject:
   - component: {fileID: 1565070224}
   - component: {fileID: 1565070226}
   - component: {fileID: 1565070225}
-  - component: {fileID: 1565070227}
   m_Layer: 0
   m_Name: OficinaHoracio_Diplomas_0
   m_TagString: Untagged
@@ -3112,8 +3117,8 @@ Transform:
   m_GameObject: {fileID: 1565070223}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.65, y: 0.8300004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -12.65, y: 0.8215, z: 0}
+  m_LocalScale: {x: 1, y: 0.9951, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1175415488}
@@ -3223,20 +3228,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1565070227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565070223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bd9a305a140294992c3b216445644e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ActivarPanelMouse
-  panelPrefab: {fileID: 519571183}
-  datosScriptableObject: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}
 --- !u!1 &1576036730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,6 +3485,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626773236}
   m_CullTransparentMesh: 1
+--- !u!1 &1705244515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1458922541856868968, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
+  m_PrefabInstance: {fileID: 1908445126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1705244521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705244515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bd9a305a140294992c3b216445644e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogoObjeto
+  conversacion: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}
 --- !u!1 &1751609442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,7 +3957,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1458922541856868968, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1705244521}
   m_SourcePrefab: {fileID: 100100000, guid: 8b839f74fc62e434f888a5ef7659b66a, type: 3}
 --- !u!1 &1923800897
 GameObject:
