@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 39175307}
   - component: {fileID: 39175306}
   - component: {fileID: 39175305}
+  - component: {fileID: 39175308}
   m_Layer: 0
-  m_Name: Personaje
-  m_TagString: Untagged
+  m_Name: Personaje Horacio
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,8 +222,8 @@ Transform:
   m_GameObject: {fileID: 39175301}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.72, y: -5.3399997, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.9307, y: -1.8273, z: 0}
+  m_LocalScale: {x: 0.5353454, y: 0.5353454, z: 0.5353454}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -315,6 +316,28 @@ MonoBehaviour:
   speed: 4
   efectoClicPrefab: {fileID: 3165547931209837004, guid: 454ac3f743cf48445b5c1d1b63ad7e31, type: 3}
   tiempoDeVidaEfecto: 0.5
+--- !u!95 &39175308
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39175301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e243d353c9258fc48878fee62cdf24f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &59390743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1953,7 +1976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1063847636
 MonoBehaviour:
   m_ObjectHideFlags: 0

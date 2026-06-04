@@ -13,10 +13,13 @@ public class movimiento : MonoBehaviour
     private Vector2 target;
     private Camera Cam;
 
+    private Animator animator;
     void Start()
     {
         target = transform.position;
         Cam = Camera.main;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -35,5 +38,14 @@ public class movimiento : MonoBehaviour
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        if ((Vector2)transform.position != target)
+        {
+            animator.SetBool("estaCaminando", true);
+        }
+        else
+        {
+            animator.SetBool("estaCaminando", false);
+        }
     }
 }
