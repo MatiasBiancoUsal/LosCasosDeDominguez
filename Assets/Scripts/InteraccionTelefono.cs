@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class InteraccionObjeto : MonoBehaviour
+public class InteraccionTelefono : MonoBehaviour
 {
     [Header("Configuración de UI y Animación")]
     [SerializeField] private GameObject panelParaAbrir;
@@ -11,12 +11,23 @@ public class InteraccionObjeto : MonoBehaviour
     [Header("Tiempos de Espera (Modifícalos en el Inspector)")]
     [SerializeField] private float segundosEsperaAnimacion = 3.0f;
 
-    private bool yaSeHizoClick = false;
+    private bool yaSeInteractuo = false;
 
-    private void OnMouseDown()
+    // Update se ejecuta una vez por fotograma
+    private void Update()
     {
-        if (yaSeHizoClick) return;
-        yaSeHizoClick = true;
+        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            IntentarInteraccion();
+        }
+    }
+
+    private void IntentarInteraccion()
+    {
+       
+        if (yaSeInteractuo) return;
+        yaSeInteractuo = true;
 
         if (panelParaAbrir != null)
         {

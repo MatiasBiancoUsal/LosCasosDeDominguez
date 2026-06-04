@@ -4,10 +4,24 @@ public class TutorialTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialUI;
 
-    private void OnMouseDown()
+    private void Update()
     {
-        tutorialUI.SetActive(false);
+        
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            CerrarTutorial();
+        }
+    }
 
+    private void CerrarTutorial()
+    {
+        
+        if (tutorialUI != null)
+        {
+            tutorialUI.SetActive(false);
+        }
+
+        
         gameObject.SetActive(false);
     }
 }
