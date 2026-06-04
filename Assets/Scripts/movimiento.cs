@@ -7,18 +7,17 @@ public class movimiento : MonoBehaviour
     [SerializeField] private float speed;
 
     [Header("Efecto de Clic")]
-    [SerializeField] private GameObject efectoClicPrefab; 
+    [SerializeField] private GameObject efectoClicPrefab;
     [SerializeField] private float tiempoDeVidaEfecto = 0.5f;
 
     private Vector2 target;
     private Camera Cam;
-
     private Animator animator;
+
     void Start()
     {
         target = transform.position;
         Cam = Camera.main;
-
         animator = GetComponent<Animator>();
     }
 
@@ -32,7 +31,6 @@ public class movimiento : MonoBehaviour
             if (efectoClicPrefab != null)
             {
                 GameObject nuevoEfecto = Instantiate(efectoClicPrefab, new Vector3(target.x, target.y, 0f), Quaternion.identity);
-
                 Destroy(nuevoEfecto, tiempoDeVidaEfecto);
             }
         }
@@ -42,6 +40,15 @@ public class movimiento : MonoBehaviour
         if ((Vector2)transform.position != target)
         {
             animator.SetBool("estaCaminando", true);
+
+            if (target.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (target.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
         }
         else
         {
