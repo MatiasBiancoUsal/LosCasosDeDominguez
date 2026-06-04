@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CinematicController : MonoBehaviour
 {
@@ -13,19 +13,23 @@ public class CinematicController : MonoBehaviour
     [Header("Objetos a pausar durante el video")]
     [SerializeField] private GameObject jugador;
 
+    [Header("Escena a cargar al finalizar")]
+    [SerializeField] private string nombreEscena;
+
     void Start()
     {
         if (cinematicPanel != null)
         {
             cinematicPanel.SetActive(true);
         }
-        //Para que el jugador no se pueda mover hasta que termine la cinematica
-        if (jugador != null) jugador.SetActive(false);
+
+        // Para que el jugador no se pueda mover hasta que termine la cinemática
+        if (jugador != null)
+            jugador.SetActive(false);
 
         if (videoPlayer != null)
         {
             videoPlayer.timeUpdateMode = VideoTimeUpdateMode.GameTime;
-
             videoPlayer.loopPointReached += OnCinematicEnd;
             videoPlayer.Play();
         }
@@ -44,12 +48,14 @@ public class CinematicController : MonoBehaviour
     {
         Debug.Log("¡La cinemática terminó con éxito!");
 
-        if (jugador != null) jugador.SetActive(true);
+        if (jugador != null)
+            jugador.SetActive(true);
 
         if (cinematicPanel != null)
-        {
             cinematicPanel.SetActive(false);
-        }
+
+        if (!string.IsNullOrEmpty(nombreEscena))
+            SceneManager.LoadScene(nombreEscena);
     }
 
     void OnDestroy()
