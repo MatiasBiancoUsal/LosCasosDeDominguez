@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class InteraccionObjeto : MonoBehaviour
+public class InteraccionTelefono : MonoBehaviour
 {
     [Header("Configuración de UI y Animación")]
     [SerializeField] private GameObject panelParaAbrir;
@@ -16,7 +16,7 @@ public class InteraccionObjeto : MonoBehaviour
     // Update se ejecuta una vez por fotograma
     private void Update()
     {
-        // Detecta si el jugador presiona la tecla 'A'
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             IntentarInteraccion();
@@ -25,7 +25,7 @@ public class InteraccionObjeto : MonoBehaviour
 
     private void IntentarInteraccion()
     {
-        // Evita que se vuelva a activar si ya se presionó antes
+       
         if (yaSeInteractuo) return;
         yaSeInteractuo = true;
 
