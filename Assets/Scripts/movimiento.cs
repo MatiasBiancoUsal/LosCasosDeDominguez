@@ -28,18 +28,15 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
-        // 1. Detectar el clic
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseWorldPos = Cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
 
-            // Lanzamos el rayo para detectar si tocamos el suelo
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0f, capaSuelo);
 
             if (hit.collider != null)
             {
-                // Si usas Tags, asegúrate de que el suelo se llame "piso" en minúsculas como acá
                 if (hit.collider.CompareTag("piso"))
                 {
                     target = hit.point;
@@ -53,20 +50,9 @@ public class movimiento : MonoBehaviour
             }
         }
 
-        // 3. Controlar Animación y Giro (Flip)
-        // Usamos una pequeña tolerancia (0.1f) para evitar que el personaje "tiemble" al llegar
-        if (Vector2.Distance(transform.position, target) > 0.1f)
+        if (Vector2.Distance(rb.position, target) > 0.15f)
         {
             animator.SetBool("estaCaminando", true);
-
-            if (target.x > transform.position.x)
-            {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if (target.x < transform.position.x)
-            {
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
         }
         else
         {
@@ -76,12 +62,31 @@ public class movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(rb.position, target) > 0.1f)
+        float distancia = Vector2.Distance(rb.position, target);
+
+        if (distancia > 0.15f)
         {
-            Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, target, speed *  Time.fixedDeltaTime);
+            Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+
+            float direccionHaciaTargetX = target.x - rb.position.x;
+
+            if (Mathf.Abs(direccionHaciaTargetX) > 0.05f)
+            {
+                if (direccionHaciaTargetX > 0)
+                {
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                }
+            }
 
             rb.MovePosition(nuevaPosicion);
-
+        }
+        else
+        {
+            rb.position = target;
         }
     }
 }
