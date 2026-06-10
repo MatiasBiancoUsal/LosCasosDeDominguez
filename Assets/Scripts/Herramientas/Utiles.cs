@@ -1,0 +1,1 @@
+public enum Modo { auto, manual }
