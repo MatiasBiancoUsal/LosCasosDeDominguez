@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InteraccionSimple : MonoBehaviour
+public class DetectorHover : MonoBehaviour
 {
    
     public GameObject botonFlotante;
