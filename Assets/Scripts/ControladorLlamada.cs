@@ -5,7 +5,7 @@ public class ControladorLlamada : MonoBehaviour
 {
     public void AceptarLlamada()
     {
-        SceneManager.LoadScene("Escena2");
+        SceneManager.LoadScene(3);
     }
 
     public void RechazarLlamada()
