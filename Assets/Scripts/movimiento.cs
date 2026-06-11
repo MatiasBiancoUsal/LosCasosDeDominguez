@@ -6,6 +6,10 @@ public class movimiento : MonoBehaviour
 {
     [SerializeField] private float speed;
 
+<<<<<<< HEAD
+    private Vector2 target;
+    private Camera Cam;
+=======
     [Header("Efecto de Clic")]
     [SerializeField] private GameObject efectoClicPrefab;
     [SerializeField] private float tiempoDeVidaEfecto = 0.5f;
@@ -17,19 +21,33 @@ public class movimiento : MonoBehaviour
     private Camera Cam;
     private Animator animator;
     private Rigidbody2D rb;
+>>>>>>> e664795eb9cbba5a7eebf0ddce98f61d5acdc02c
 
     void Start()
     {
         target = transform.position;
         Cam = Camera.main;
+<<<<<<< HEAD
+=======
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+>>>>>>> e664795eb9cbba5a7eebf0ddce98f61d5acdc02c
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+<<<<<<< HEAD
+            Vector3 worldPoint = Cam.ScreenToWorldPoint(Input.mousePosition);
+            target = new Vector2(worldPoint.x, worldPoint.y);
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+    }
+
+}
+=======
             Vector3 mouseWorldPos = Cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
 
@@ -90,3 +108,4 @@ public class movimiento : MonoBehaviour
         }
     }
 }
+>>>>>>> e664795eb9cbba5a7eebf0ddce98f61d5acdc02c
