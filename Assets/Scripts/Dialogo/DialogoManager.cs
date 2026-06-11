@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.Events;
 
 
 public class DialogoManager : MonoBehaviour 
@@ -28,7 +29,14 @@ public class DialogoManager : MonoBehaviour
     private int lineaActual = 0;
     private bool ignorarInputEsteFrame = false;
 
+    [Header("Cuando termina aquí llamamos a más cosas")]
+    public UnityEvent _alTerminarDialogo;
 
+    // Interno, maneja el estado
+    bool terminoDialogo;
+
+    // sea puede ller externo en otras scripts para saber si el dialogo ya termino
+    public bool TerminoDialogo { get { return terminoDialogo; } }
 
     private void Awake()
     {
@@ -134,5 +142,7 @@ public class DialogoManager : MonoBehaviour
     public void CerrarDialogo()
     {
         panelDialogo.SetActive(false);
+        _alTerminarDialogo.Invoke();
+        terminoDialogo = false;
     }
 }

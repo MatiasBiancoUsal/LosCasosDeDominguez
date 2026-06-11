@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class PanelNotificacion : MonoBehaviour
 {
-    public Vector2 _timer = new Vector2(15, 30);
+    //public Vector2 _timer = new Vector2(15, 30);
     public GameObject _pantallaNotifi;
     public PanelMisiones _panelMisiones;
 
@@ -11,12 +11,12 @@ public class PanelNotificacion : MonoBehaviour
 
     private void Start()
     {
-        float tim = Random.Range(_timer.x, _timer.y);
+        //float tim = Random.Range(_timer.x, _timer.y);
 
-        Invoke(nameof(EjecutarEvento), tim);
+        //Invoke(nameof(EjecutarEvento), tim);
     }
 
-    void EjecutarEvento()
+    public void EjecutarEvento()
     {
         _alAcabarElTimer.Invoke();
     }
