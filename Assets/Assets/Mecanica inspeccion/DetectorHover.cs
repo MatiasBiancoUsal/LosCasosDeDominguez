@@ -11,6 +11,7 @@ public class DetectorHover : MonoBehaviour
    
     private void OnMouseEnter()
     {
+        //Debug.LogWarning($"mouse pasa por encima de {gameObject.name} ");
         if (botonFlotante != null)
         {
             botonFlotante.SetActive(true);
