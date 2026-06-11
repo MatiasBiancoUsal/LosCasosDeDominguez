@@ -4,10 +4,10 @@ public class ClickParteCuerpo : MonoBehaviour
 {
     [SerializeField] private DesbloquearPistaTexto textoADesbloquear;
 
-    private void OnMouseDown()
+    private void OnMouseEnter()
     {
-         Debug.Log("CLICK DETECTADO");
-         
+        Debug.Log("MOUSE ENCIMA");
+
         if (textoADesbloquear != null)
         {
             textoADesbloquear.Desbloquear();
