@@ -1,22 +1,18 @@
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class ActivadorCinematicas : MonoBehaviour
 {
-    public Modo _modo;
-    public VideoPlayer _videoPlayer;
+    
+    public Animator anim;
+    public Canvas canva;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(_modo == Modo.auto)
-        {
-            _videoPlayer.Play();
-        }
+        
     }
-
-    public void Reproducir()
+    public void termina()
     {
-        _videoPlayer.Play();
+        SceneManager.LoadScene(2);
     }
 }
