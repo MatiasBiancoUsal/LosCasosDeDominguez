@@ -69,6 +69,9 @@ public class movimiento : MonoBehaviour
             Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
 
             float direccionHaciaTargetX = target.x - rb.position.x;
+            float direccionHaciaTargetY = target.y - rb.position.y;
+
+            animator.SetFloat("velocidadY", direccionHaciaTargetY);
 
             if (Mathf.Abs(direccionHaciaTargetX) > 0.05f)
             {
