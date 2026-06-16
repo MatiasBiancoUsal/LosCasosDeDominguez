@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class MenuPausa : MonoBehaviour
     public GameObject panelSonidos;
 
     private bool juegoPausado = false;
+    public GameObject objetoSonidoActivo;
+    public GameObject objetoSonidoDesactivado;
+
+    private bool sonidoActivo = true;
 
     private void Update()
     {
@@ -92,6 +97,26 @@ public class MenuPausa : MonoBehaviour
         else
         {
             PausarJuego();
+        }
+    }
+
+    public void AlternarSonido()
+    {
+        sonidoActivo = !sonidoActivo;
+
+        if (sonidoActivo)
+        {
+            objetoSonidoActivo.SetActive(true);
+            objetoSonidoDesactivado.SetActive(false);
+            AudioListener.volume = 1f;
+            Debug.Log("Sonido Activado");
+        }
+        else
+        {
+            objetoSonidoActivo.SetActive(false);
+            objetoSonidoDesactivado.SetActive(true);
+            AudioListener.volume = 0f;
+            Debug.Log("Sonido Desactivado");
         }
     }
 }
