@@ -33,7 +33,10 @@ public class ObjetoInteractivo : MonoBehaviour
         // Abrir investigación con Q
         if (puedeInvestigar && Input.GetKeyDown(KeyCode.Q))
         {
-            canvasInvestigacion.SetActive(true);
+            if (canvasInvestigacion != null)
+            {
+                canvasInvestigacion.SetActive(true);
+            }
         }
     }
 

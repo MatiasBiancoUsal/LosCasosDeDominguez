@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8130245802776597727}
   - component: {fileID: 3768854389274900576}
   - component: {fileID: 1853211870635146085}
+  - component: {fileID: -1719124427693438818}
+  - component: {fileID: 8497437834928715272}
   m_Layer: 6
   m_Name: Objeto Interactivo (Preset)
   m_TagString: Untagged
@@ -144,6 +146,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &-1719124427693438818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458922541856868968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd004bcbed419664aa4d4cac747127e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractivo
+  _canvasG: {fileID: 8108612726271233547}
+  canvasInvestigacion: {fileID: 0}
+  _fadeRango: {x: 0, y: 1}
+  _velocidad: 5
+  _visualizador: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &8497437834928715272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458922541856868968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -1719124427693438818}
+          m_TargetAssemblyTypeName: ObjetoInteractivo, Assembly-CSharp
+          m_MethodName: Mostrar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -1719124427693438818}
+          m_TargetAssemblyTypeName: ObjetoInteractivo, Assembly-CSharp
+          m_MethodName: Ocultar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3094126404224553785
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,8 +244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchoredPosition: {x: 0.000023365, y: 0}
+  m_SizeDelta: {x: 99.25, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3718550901019394246
 CanvasRenderer:
@@ -211,7 +275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4213362297224908368, guid: 4f741d05289c5054b8ad06d324387831, type: 3}
+  m_Sprite: {fileID: -5469852748305298318, guid: d5fadbb00e69a6149ab7bf4d37f88501, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
