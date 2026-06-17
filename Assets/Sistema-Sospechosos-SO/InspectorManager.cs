@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.InputSystem;
 
 public class InspectionManager : MonoBehaviour
 {
-    [Header("Suspect")]
+    [Header("Sospechoso actual")]
     public SuspectData currentSuspect;
 
     [Header("UI")]
@@ -13,13 +14,17 @@ public class InspectionManager : MonoBehaviour
     public TMP_Text suspectNameText;
     public Image suspectPortraitImage;
 
+    [Header("Panel")]
+    [SerializeField] private GameObject inspectionPanel;
+
     private HashSet<ClueData> discoveredClues = new HashSet<ClueData>();
 
-
-    //memoria de sospechosos para guardar el progreso de pistas descubiertas
+    // Memoria de pistas descubiertas por sospechoso
     private Dictionary<SuspectData, HashSet<ClueData>> suspectDiscoveries =
         new Dictionary<SuspectData, HashSet<ClueData>>();
 
+    // Evita que la misma Q que abre el panel lo cierre instantáneamente
+    private bool ignoreNextQ = false;
 
     private void Start()
     {
@@ -27,8 +32,37 @@ public class InspectionManager : MonoBehaviour
         {
             SetSuspect(currentSuspect);
         }
+
+        if (inspectionPanel != null)
+        {
+            inspectionPanel.SetActive(false);
+        }
     }
 
+    private void Update()
+    {
+        if (Keyboard.current == null)
+            return;
+
+        if (ignoreNextQ)
+        {
+            ignoreNextQ = false;
+            return;
+        }
+
+        if (inspectionPanel == null)
+            return;
+
+        if (!inspectionPanel.activeSelf)
+            return;
+
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            inspectionPanel.SetActive(false);
+
+            Debug.Log("Panel de inspección cerrado.");
+        }
+    }
 
     public void InspectZone(InspectionZone zone)
     {
@@ -60,15 +94,19 @@ public class InspectionManager : MonoBehaviour
 
     private void AddClueToUI(ClueData clue)
     {
+        if (cluesText == null)
+            return;
+
         cluesText.text +=
             "• " + clue.clueName + "\n" +
             clue.description + "\n\n";
     }
 
-
-    ///reconstruye la UI de pistas desde cero, útil para cambiar de sospechoso o al iniciar el juego
     private void RebuildClueUI()
     {
+        if (cluesText == null)
+            return;
+
         cluesText.text = "";
 
         foreach (ClueData clue in discoveredClues)
@@ -79,18 +117,24 @@ public class InspectionManager : MonoBehaviour
 
     public void SetSuspect(SuspectData suspect)
     {
-        Debug.Log("SetSuspect llamado con: " + suspect.suspectName);
-
-        // Guardar progreso del sospechoso actual
-        if (currentSuspect != null)
+        if (suspect == null)
         {
-            suspectDiscoveries[currentSuspect] =
-                new HashSet<ClueData>(discoveredClues);
+            Debug.LogWarning("SetSuspect recibió un sospechoso nulo.");
+            return;
         }
+
+        Debug.Log("SetSuspect llamado con " + suspect.suspectName);
+
+        // Guardar progreso del sospechoso anterior
+       // if (currentSuspect != null)
+        //{
+         //   suspectDiscoveries[currentSuspect] =
+          //      new HashSet<ClueData>(discoveredClues);
+       // }
 
         currentSuspect = suspect;
 
-        // Recuperar progreso anterior
+        // Recuperar progreso previo si existe
         if (suspectDiscoveries.ContainsKey(suspect))
         {
             discoveredClues =
@@ -101,9 +145,33 @@ public class InspectionManager : MonoBehaviour
             discoveredClues = new HashSet<ClueData>();
         }
 
-        suspectNameText.text = suspect.suspectName;
-        suspectPortraitImage.sprite = suspect.portrait;
+        // Actualizar UI
+        if (suspectNameText != null)
+        {
+            suspectNameText.text = suspect.suspectName;
+        }
+
+        if (suspectPortraitImage != null)
+        {
+            suspectPortraitImage.sprite = suspect.portrait;
+        }
 
         RebuildClueUI();
+
+        // Si hay panel asignado, lo abrimos
+        if (inspectionPanel != null)
+        {
+            inspectionPanel.SetActive(true);
+        }
+
+        // Ignorar la misma Q que abrió el panel
+        ignoreNextQ = true;
+
+        Debug.Log("Inspeccionando a: " + suspect.suspectName);
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("InspectionManager desactivado.");
     }
 }
