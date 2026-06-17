@@ -20,6 +20,16 @@ public class InspectionManager : MonoBehaviour
     private Dictionary<SuspectData, HashSet<ClueData>> suspectDiscoveries =
         new Dictionary<SuspectData, HashSet<ClueData>>();
 
+
+    private void Start()
+    {
+        if (currentSuspect != null)
+        {
+            SetSuspect(currentSuspect);
+        }
+    }
+
+
     public void InspectZone(InspectionZone zone)
     {
         if (currentSuspect == null)
@@ -69,6 +79,8 @@ public class InspectionManager : MonoBehaviour
 
     public void SetSuspect(SuspectData suspect)
     {
+        Debug.Log("SetSuspect llamado con: " + suspect.suspectName);
+
         // Guardar progreso del sospechoso actual
         if (currentSuspect != null)
         {
