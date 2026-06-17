@@ -1,24 +1,32 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class ActivarDialogo : MonoBehaviour
 {
     public DialogoSistema conversacion;
 
- 
+    private DetectorHover hover;
 
-void Update()
-{
-    // activar el dialogo con la i de interrogar :)
-    if (Keyboard.current.iKey.wasPressedThisFrame)
+    private void Awake()
     {
-            DialogoManager.Instance.IniciarDialogo(conversacion);
-            Debug.Log("Dialogo activado");
+        hover = GetComponent<DetectorHover>();
 
-
+        if (hover == null)
+        {
+            Debug.LogError("No se encontró DetectorHover en " + gameObject.name);
         }
     }
 
+    private void Update()
+    {
+        // Solo abre el diálogo si el mouse está sobre ESTE personaje
+        if (hover != null &&
+            hover.MouseEstaEncima &&
+            Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            DialogoManager.Instance.IniciarDialogo(conversacion);
 
+            Debug.Log("Diálogo activado: " + conversacion.name);
+        }
+    }
 }
