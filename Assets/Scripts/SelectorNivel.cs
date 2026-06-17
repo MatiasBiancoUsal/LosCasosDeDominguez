@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class SelectorNivel : MonoBehaviour
 {
@@ -13,5 +13,11 @@ public class SelectorNivel : MonoBehaviour
         {
             SceneManager.LoadScene(nombreDeLaEscena);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Click en " + gameObject.name);
+        CargarNivelBoton();
     }
 }
