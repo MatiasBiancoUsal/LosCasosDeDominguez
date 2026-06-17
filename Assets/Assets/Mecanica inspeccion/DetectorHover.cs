@@ -33,16 +33,16 @@ public class DetectorHover : MonoBehaviour
     private void Update()
     {
         // si el mouse está encima del objeto y apretas la q abre inspeccion de objetos
-        if (mouseEstaEncima && Input.GetKeyDown(KeyCode.Q))
-        {
-            EjecutarInspeccion();
-        }
+        //if (mouseEstaEncima && Input.GetKeyDown(KeyCode.Q))
+        //{
+           // EjecutarInspeccion();
+        //}
     }
 
     
-    private void EjecutarInspeccion()
-    {
-        Debug.Log("Abriendo inspección de objetos...");
+    //private void EjecutarInspeccion()
+    //{
+    //    Debug.Log("Abriendo inspección de objetos...");
         
-    }
+    //}
 }
