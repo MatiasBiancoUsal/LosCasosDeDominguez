@@ -51,6 +51,7 @@ public class MenuPausa : MonoBehaviour
 
     public void ContinuarJuego()
     {
+        Debug.Log("SE HIZO CLICK");
         panelPausaPrincipal.SetActive(false);
 
         if (panelInstrucciones != null) panelInstrucciones.SetActive(false);

@@ -5,10 +5,8 @@ public class PanelMisiones : MonoBehaviour
     public GameObject _panel;
     UI_Input_Base uiib;
 
-    public GameObject lineaNuevaMision;
 
-    // Arrastrá acá la puerta que querés desbloquear desde el Inspector
-    public SelectorNivel puertaQueSeDesbloquea;
+    public GameObject lineaNuevaMision;
 
     private void Awake()
     {
@@ -22,7 +20,7 @@ public class PanelMisiones : MonoBehaviour
 
     public void Panel()
     {
-        if (!EstadoPanel)
+        if(!EstadoPanel)
         {
             EstadoPanel = true;
         }
@@ -44,12 +42,6 @@ public class PanelMisiones : MonoBehaviour
         {
             lineaNuevaMision.SetActive(true);
             Debug.Log("Nueva línea de misión activada en la libreta.");
-        }
-
-        if (puertaQueSeDesbloquea != null)
-        {
-            puertaQueSeDesbloquea.desbloqueado = true;
-            Debug.Log("Puerta desbloqueada.");
         }
     }
 }
