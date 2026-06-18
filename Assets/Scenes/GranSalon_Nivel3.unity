@@ -1613,6 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &400894858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,6 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &424908577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,6 +1957,7 @@ GameObject:
   - component: {fileID: 452406762}
   - component: {fileID: 452406763}
   - component: {fileID: 452406764}
+  - component: {fileID: 452406765}
   m_Layer: 0
   m_Name: GranSalon_MesaComedor_0
   m_TagString: Untagged
@@ -2079,6 +2082,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &452406765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452406761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1.2
 --- !u!1001 &482045328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2657,6 +2673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
+  desbloqueado: 0
 --- !u!114 &607954214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,7 +2848,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10000
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8256294327243385949, guid: e2d9ff0e1efa0aa4ab66427d14011b1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3462,7 +3479,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10000
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1884492793101682251, guid: f8fe83f1e26fe6b48a2c9f3b78766b7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3961,6 +3978,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845244899}
   - component: {fileID: 845244900}
+  - component: {fileID: 845244901}
   m_Layer: 0
   m_Name: Fondo_0
   m_TagString: Untagged
@@ -4030,7 +4048,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -3
+  m_SortingOrder: -10000
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5130558894233647175, guid: 83e48fedb5b6e41489931b727d25c6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4042,6 +4060,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &845244901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845244898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 130
 --- !u!1 &862789551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4084,7 @@ GameObject:
   - component: {fileID: 862789552}
   - component: {fileID: 862789553}
   - component: {fileID: 862789554}
+  - component: {fileID: 862789555}
   m_Layer: 0
   m_Name: GranSalon_SillonPrincipal_0
   m_TagString: Untagged
@@ -4177,6 +4209,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &862789555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862789551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -0.5
 --- !u!1 &866441741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5413,6 +5458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
+  desbloqueado: 0
 --- !u!1 &1196517335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5686,6 +5732,7 @@ GameObject:
   - component: {fileID: 1260088183}
   - component: {fileID: 1260088185}
   - component: {fileID: 1260088184}
+  - component: {fileID: 1260088186}
   m_Layer: 0
   m_Name: GranSalon_Pared_0
   m_TagString: Untagged
@@ -5801,7 +5848,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5026006039909653542, guid: c0d3c129492c9294f861009f8833ca00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5813,6 +5860,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1260088186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260088182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 100
 --- !u!1 &1299865151
 GameObject:
   m_ObjectHideFlags: 0
@@ -6194,7 +6254,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5012331115371432966, guid: 05b38e095a86ba04387fe45bde0fe18e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6488,7 +6548,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7439539161997803520, guid: 1dd685d5369f2fb4eabc79a2485e29a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6830,6 +6890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1508967540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6976,6 +7037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1553961785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7577,8 +7639,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 713661539
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 760058600049143939, guid: 46a66a01fe0faf042b66eee1ffd356cd, type: 3}
@@ -7832,6 +7894,7 @@ GameObject:
   - component: {fileID: 1731871432}
   - component: {fileID: 1731871433}
   - component: {fileID: 1731871434}
+  - component: {fileID: 1731871435}
   m_Layer: 0
   m_Name: GranSalon_Estante_0
   m_TagString: Untagged
@@ -7956,6 +8019,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1731871435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731871431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1.8
 --- !u!1 &1734668312
 GameObject:
   m_ObjectHideFlags: 0
@@ -8050,6 +8126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1744216606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8155,6 +8232,7 @@ GameObject:
   - component: {fileID: 1746830580}
   - component: {fileID: 1746830579}
   - component: {fileID: 1746830581}
+  - component: {fileID: 1746830582}
   m_Layer: 0
   m_Name: GranSalon_SillonBiblioteca_0
   m_TagString: Untagged
@@ -8279,6 +8357,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1746830582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746830578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &1747052318
 GameObject:
   m_ObjectHideFlags: 0
@@ -8344,7 +8435,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -32768
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2700264160885184850, guid: 02631c6acbc527b40934696205af39ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8482,7 +8573,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -32768
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6997548194883193061, guid: 02631c6acbc527b40934696205af39ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8926,6 +9017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1864934055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9221,6 +9313,7 @@ GameObject:
   - component: {fileID: 1917661346}
   - component: {fileID: 1917661345}
   - component: {fileID: 1917661347}
+  - component: {fileID: 1917661348}
   m_Layer: 0
   m_Name: GranSalon_SillonesYLampara_0
   m_TagString: Untagged
@@ -9345,6 +9438,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1917661348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917661344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1.7
 --- !u!1 &1925750904
 GameObject:
   m_ObjectHideFlags: 0
@@ -9985,6 +10091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1980245894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10369,7 +10476,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -32768
   m_MaskInteraction: 0
   m_Sprite: {fileID: -280629371779856440, guid: 02631c6acbc527b40934696205af39ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10464,6 +10571,7 @@ GameObject:
   - component: {fileID: 2123493210}
   - component: {fileID: 2123493212}
   - component: {fileID: 2123493213}
+  - component: {fileID: 2123493214}
   m_Layer: 7
   m_Name: GranSalon_Piso_0
   m_TagString: piso
@@ -10533,7 +10641,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2764379361408237364, guid: 808be5be21c75834eadb657313e12d21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10863,6 +10971,19 @@ PolygonCollider2D:
       - {x: 10.106982, y: -5.947592}
       - {x: 10.40667, y: -5.8164783}
   m_UseDelaunayMesh: 1
+--- !u!114 &2123493214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123493209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 100
 --- !u!1001 &81513335084821417
 PrefabInstance:
   m_ObjectHideFlags: 0

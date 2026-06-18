@@ -945,7 +945,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2000
+  m_SortingOrder: -32768
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5130558894233647175, guid: 83e48fedb5b6e41489931b727d25c6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1248,6 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
+  desbloqueado: 0
 --- !u!114 &302667491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2215,7 +2216,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -100
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2314531250171116600, guid: 3e46b6241b109a84ab6f0ebcea28ddb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3288,6 +3289,7 @@ GameObject:
   - component: {fileID: 742015612}
   - component: {fileID: 742015611}
   - component: {fileID: 742015613}
+  - component: {fileID: 742015614}
   m_Layer: 0
   m_Name: Puerta__0
   m_TagString: Untagged
@@ -3342,7 +3344,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -1000
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4557428876806571540, guid: 0e848aa386ee0924393b75f15150bfdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3455,6 +3457,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: GranSalon_Nivel3
+  desbloqueado: 0
+--- !u!114 &742015614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742015607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: 0
 --- !u!1 &746849298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &767826646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3932,6 +3949,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 839507538797807734, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: puertaQueSeDesbloquea
+      value: 
+      objectReference: {fileID: 742015613}
     - target: {fileID: 1726337040296989021, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4016,6 +4037,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -6671079865629270754, guid: 780c64e66c7c04c418cd4bac81c7af1e, type: 3}
+    - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4857096908272981442, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_SortingOrder
       value: 11
@@ -4023,6 +4048,10 @@ PrefabInstance:
     - target: {fileID: 6033182934733256156, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_Name
       value: Msiones (Con Contenido)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500460368020354742, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 33.56006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4495,7 +4524,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1000
+  m_SortingOrder: -3276
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4055000037544554243, guid: de916958b63f55a499d95a87c05bc72e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4570,6 +4599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1025148914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5282,6 +5312,7 @@ GameObject:
   - component: {fileID: 1159403409}
   - component: {fileID: 1159403408}
   - component: {fileID: 1159403410}
+  - component: {fileID: 1159403411}
   m_Layer: 0
   m_Name: Paraguas_1
   m_TagString: Untagged
@@ -5406,6 +5437,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1159403411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159403407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -0.9
 --- !u!1 &1160017398
 GameObject:
   m_ObjectHideFlags: 0
@@ -5450,6 +5494,7 @@ GameObject:
   - component: {fileID: 1233051333}
   - component: {fileID: 1233051332}
   - component: {fileID: 1233051334}
+  - component: {fileID: 1233051335}
   m_Layer: 0
   m_Name: Mesa central__0
   m_TagString: Untagged
@@ -5574,6 +5619,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1233051335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233051331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &1240344387
 GameObject:
   m_ObjectHideFlags: 0
@@ -6319,6 +6377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1277440019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6695,6 +6754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1364597496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7352,6 +7412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1660057526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7534,6 +7595,7 @@ GameObject:
   - component: {fileID: 1783673463}
   - component: {fileID: 1783673462}
   - component: {fileID: 1783673464}
+  - component: {fileID: 1783673465}
   m_Layer: 0
   m_Name: Perchero_1
   m_TagString: Untagged
@@ -7658,6 +7720,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1783673465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783673461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1.7
 --- !u!1 &1814895798
 GameObject:
   m_ObjectHideFlags: 0
@@ -7975,7 +8050,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: -100
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5355056086355199492, guid: 62e72feada044f34fa24f6442bc7bec2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8209,7 +8284,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3276
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6742848906845339258, guid: 8353ed941e7879b46b3bcc65b7e86624, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8649,6 +8724,7 @@ GameObject:
   - component: {fileID: 2005230125}
   - component: {fileID: 2005230124}
   - component: {fileID: 2005230126}
+  - component: {fileID: 2005230127}
   m_Layer: 0
   m_Name: Mesa jarron_1
   m_TagString: Untagged
@@ -8773,6 +8849,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2005230127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005230123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &2052423723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8825,6 +8914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &2052423726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8971,6 +9061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &2068218779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9342,7 +9433,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5133410768679365504, guid: 3ee9689d486eae3408707e0429df946d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
