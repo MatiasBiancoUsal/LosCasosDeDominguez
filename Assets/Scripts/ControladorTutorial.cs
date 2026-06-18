@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ControladorTutorial : MonoBehaviour
 {
     [Header("Panel del tutorial")]
     public GameObject panelTutorial;
+    public GameObject SegundoTutorial;
 
     public static bool tutorialActivo;
 
@@ -16,9 +19,18 @@ public class ControladorTutorial : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void PasarASegundoTutorial()
+    {
+        panelTutorial.SetActive(false);
+        SegundoTutorial.SetActive(true);
+
+        Time.timeScale = 1f;
+    }
+
     public void CerrarTutorial()
     {
         panelTutorial.SetActive(false);
+        SegundoTutorial.SetActive(false);
 
         tutorialActivo = false;
 
