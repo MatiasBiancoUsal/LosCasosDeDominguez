@@ -9,8 +9,11 @@ public class DetectorHover : MonoBehaviour
     // Permite que otros scripts sepan si el mouse está sobre este objeto
     public bool MouseEstaEncima => mouseEstaEncima;
 
+
     private void OnMouseEnter()
+
     {
+        Debug.Log("ENTER DETECTOR HOVER ELISA");
         if (botonFlotante != null)
         {
             botonFlotante.SetActive(true);
