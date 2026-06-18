@@ -217,11 +217,11 @@ RectTransform:
   - {fileID: 1292689100}
   - {fileID: 1988225660}
   - {fileID: 854520362}
+  - {fileID: 1284896303}
   - {fileID: 1504545171}
   - {fileID: 152907343}
   - {fileID: 1003764256}
   - {fileID: 1820516691}
-  - {fileID: 1284896303}
   - {fileID: 561783258}
   - {fileID: 349020350}
   - {fileID: 161446986}
@@ -3719,7 +3719,7 @@ GameObject:
   - component: {fileID: 800147860}
   - component: {fileID: 800147859}
   - component: {fileID: 800147858}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Icon Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4038,6 +4038,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6671079865629270754, guid: 780c64e66c7c04c418cd4bac81c7af1e, type: 3}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9003906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1
       objectReference: {fileID: 0}
@@ -4048,6 +4052,10 @@ PrefabInstance:
     - target: {fileID: 6033182934733256156, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_Name
       value: Msiones (Con Contenido)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728741289906548145, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500460368020354742, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4906,7 +4914,7 @@ GameObject:
   - component: {fileID: 1107672654}
   - component: {fileID: 1107672653}
   - component: {fileID: 1107672652}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5444,7 +5452,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159403407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
   m_Name: 
@@ -5626,7 +5634,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233051331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
   m_Name: 
@@ -6924,7 +6932,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397497982}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
   m_Name: 
@@ -7727,7 +7735,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783673461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
   m_Name: 
@@ -8305,7 +8313,7 @@ Transform:
   m_GameObject: {fileID: 1978454411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -566.72, y: -245.4, z: 0}
+  m_LocalPosition: {x: -566.72, y: -245.4, z: -0.1}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8856,7 +8864,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005230123}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
   m_Name: 
@@ -9060,7 +9068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
+  nombreDeLaEscena: GranSalon_Nivel3
   desbloqueado: 0
 --- !u!114 &2068218779
 MonoBehaviour:
@@ -9650,7 +9658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2559724820078692259, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2559724820078692259, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9952,7 +9960,7 @@ GameObject:
   - component: {fileID: 8130245802658259235}
   - component: {fileID: 8130245802658259233}
   - component: {fileID: 8130245802658259237}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Elisa Objeto Interactivo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10250,7 +10258,7 @@ GameObject:
   - component: {fileID: 3718550900531934521}
   - component: {fileID: 3909647807420022163}
   - component: {fileID: 997977604177391013}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Icon Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10765,7 +10773,7 @@ GameObject:
   - component: {fileID: 4673122593015814539}
   - component: {fileID: 1712022831181794655}
   - component: {fileID: 3929456293049678459}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11136,7 +11144,7 @@ Transform:
   m_GameObject: {fileID: 1458922541637844887}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.76, y: -2.16, z: 0}
+  m_LocalPosition: {x: 2.76, y: -2.16, z: -0.1}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -11204,7 +11212,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -11342,7 +11350,7 @@ GameObject:
   - component: {fileID: 8250867261680547774}
   - component: {fileID: 4572526888620142982}
   - component: {fileID: 8108612726186163188}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

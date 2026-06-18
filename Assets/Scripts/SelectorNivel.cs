@@ -25,6 +25,7 @@ public class SelectorNivel : MonoBehaviour
         if (desbloqueado)
         {
             CargarNivelBoton();
+            Debug.Log("desbloqueado: " + desbloqueado);
         }
         else
         {
