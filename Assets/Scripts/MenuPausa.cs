@@ -15,6 +15,19 @@ public class MenuPausa : MonoBehaviour
 
     private bool sonidoActivo = true;
 
+
+    private void Start()
+    {
+        Time.timeScale = 1f; // Fuerza a que el tiempo del juego corra normalmente
+        juegoPausado = false;
+
+        // Si el panel de pausa inicia abierto por error en el inspector, lo cerramos
+        if (panelPausaPrincipal != null)
+        {
+            panelPausaPrincipal.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
@@ -119,5 +132,12 @@ public class MenuPausa : MonoBehaviour
             AudioListener.volume = 0f;
             Debug.Log("Sonido Desactivado");
         }
+    }
+
+    public void DespausarPostTutorial()
+    {
+        Time.timeScale = 1f;
+        juegoPausado = false;
+        Debug.Log("Tutorial cerrado: Tiempo reanudado");
     }
 }

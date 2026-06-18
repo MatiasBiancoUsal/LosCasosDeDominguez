@@ -2099,6 +2099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1 &390066950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2407,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 227222625}
+        m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
+        m_MethodName: DespausarPostTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &431207580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,7 +2666,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -5469852748305298318, guid: d5fadbb00e69a6149ab7bf4d37f88501, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4045,6 +4058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1 &733145138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4537,6 +4551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
+  desbloqueado: 0
 --- !u!114 &1078807497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5673,6 +5688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1001 &1389287816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6598,6 +6614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorTutorial
   panelTutorial: {fileID: 19637480}
+  SegundoTutorial: {fileID: 19637480}
 --- !u!4 &1681527796
 Transform:
   m_ObjectHideFlags: 0
@@ -6896,6 +6913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1 &1739639365
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,6 +7994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1 &1956120046
 GameObject:
   m_ObjectHideFlags: 0
@@ -8122,6 +8141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!114 &1977153128 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4564325435030203627, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
@@ -8209,7 +8229,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -5469852748305298318, guid: d5fadbb00e69a6149ab7bf4d37f88501, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8843,6 +8863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
+  desbloqueado: 0
 --- !u!1 &2108145970
 GameObject:
   m_ObjectHideFlags: 0
