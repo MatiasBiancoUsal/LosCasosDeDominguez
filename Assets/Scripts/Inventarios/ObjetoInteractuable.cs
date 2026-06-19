@@ -20,9 +20,7 @@ public class ObjetoInteractuable : MonoBehaviour
 
     [Header("Sistema de Inspección")]
     [SerializeField] private SuspectData suspectData;
-
     [SerializeField] private InspectionManager inspectionManager;
-
     [SerializeField] private GameObject inspectionPanel;
 
     private bool mouseEncima;
@@ -31,23 +29,31 @@ public class ObjetoInteractuable : MonoBehaviour
     private void Update()
     {
         if (Keyboard.current == null) return;
+
+        // 1. CERRAR CON LA TECLA 'X'
+        // Funciona siempre que el panel esté abierto, sin importar dónde esté el mouse
+        if (panelAbierto && Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            CerrarPanelActual();
+            return; // Corta el Update aquí para evitar conflictos en el mismo fotograma
+        }
+
+        // 2. ABRIR CON LA TECLA 'Q'
+        // Requiere estrictamente que el mouse esté posicionado sobre el objeto
         if (!mouseEncima) return;
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            Debug.Log("Q apretada sobre: " + gameObject.name);
-
             switch (tipoDeObjeto)
             {
                 case TipoInteraccion.DesbloquearPista:
 
-                    // Desbloquea el ítem en el inventario
+                    // Desbloquea el ítem en el inventario si está asignado
                     if (itemEnInventario != null)
                     {
                         itemEnInventario.Desbloquear();
                     }
 
-                    // Abre o cierra el panel de información antiguo
                     if (ObjetoInfoManager.Instance != null)
                     {
                         if (!panelAbierto)
@@ -57,20 +63,15 @@ public class ObjetoInteractuable : MonoBehaviour
                         }
                         else
                         {
-                            ObjetoInfoManager.Instance.CerrarPanel();
-                            panelAbierto = false;
+                            // Permite que presionar la Q de nuevo también lo cierre si sigues apuntando al objeto
+                            CerrarPanelActual();
                         }
                     }
-                    else
-                    {
-                        Debug.LogError("CRÍTICO: No se encuentra ObjetoInfoManager en la escena.");
-                    }
-
                     break;
 
                 case TipoInteraccion.DesbloquearSospechoso:
 
-                    // Desbloquea al sospechoso en el inventario
+                    // Desbloquea al sospechoso en el inventario si está asignado
                     if (itemEnInventario != null)
                     {
                         itemEnInventario.Desbloquear();
@@ -92,13 +93,14 @@ public class ObjetoInteractuable : MonoBehaviour
                             inspectionPanel.SetActive(true);
                         }
 
+                        // IMPORTANTE: Ahora el script sabe que el panel de sospechoso está activo
+                        panelAbierto = true;
                         Debug.Log("Inspeccionando a: " + suspectData.suspectName);
                     }
                     else
                     {
                         Debug.LogError("Falta asignar InspectionManager o SuspectData.");
                     }
-
                     break;
             }
         }
@@ -107,12 +109,34 @@ public class ObjetoInteractuable : MonoBehaviour
     private void OnMouseEnter()
     {
         mouseEncima = true;
-        Debug.Log("Mouse ENTRÓ a: " + gameObject.name);
     }
 
     private void OnMouseExit()
     {
         mouseEncima = false;
-        Debug.Log("Mouse SALIÓ de: " + gameObject.name);
+    }
+
+    // Función interna encargada de apagar la UI según el tipo de objeto actual
+    private void CerrarPanelActual()
+    {
+        panelAbierto = false;
+
+        if (tipoDeObjeto == TipoInteraccion.DesbloquearPista && ObjetoInfoManager.Instance != null)
+        {
+            ObjetoInfoManager.Instance.CerrarPanel();
+            Debug.Log("Panel de pista cerrado.");
+        }
+        else if (tipoDeObjeto == TipoInteraccion.DesbloquearSospechoso && inspectionPanel != null)
+        {
+            inspectionPanel.SetActive(false);
+            Debug.Log("Panel de sospechoso cerrado.");
+        }
+    }
+
+    // Función pública para que los botones de la UI (haciendo clic con el mouse)
+    // puedan cerrar el panel y resetear el script correctamente
+    public void ForzarCierreDesdeUI()
+    {
+        CerrarPanelActual();
     }
 }
