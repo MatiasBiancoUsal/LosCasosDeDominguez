@@ -25,6 +25,11 @@ public class TutorialControl : MonoBehaviour
 
         tutorialActivo = false;
 
-        Time.timeScale = 1f;
+        MenuPausa menuPausa = FindFirstObjectByType<MenuPausa>();
+
+        if (menuPausa != null)
+        {
+            menuPausa.ContinuarJuego();
+        }
     }
 }

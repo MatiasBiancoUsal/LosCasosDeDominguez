@@ -18,10 +18,10 @@ public class MenuPausa : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1f; // Fuerza a que el tiempo del juego corra normalmente
+        Time.timeScale = 1f; 
         juegoPausado = false;
 
-        // Si el panel de pausa inicia abierto por error en el inspector, lo cerramos
+        // Por si el panel de pausa inicia abierto por error en el inspector (pasaba en oficina de Horacio)
         if (panelPausaPrincipal != null)
         {
             panelPausaPrincipal.SetActive(false);
@@ -30,30 +30,14 @@ public class MenuPausa : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (juegoPausado)
-            {
-                bool enSubmenu = false;
-
-                if (panelInstrucciones != null && panelInstrucciones.activeSelf) enSubmenu = true;
-                if (panelSonidos != null && panelSonidos.activeSelf) enSubmenu = true;
-
-                if (enSubmenu)
-                {
-                    VolverAlMenuPausaPrincipal();
-                }
-                else
-                {
-                    ContinuarJuego();
-                }
-            }
-            else
-            {
-                PausarJuego();
-            }
+        Debug.Log("juegoPausado = " + juegoPausado);
+        // La P solo abre el menú de pausa
+        if (Input.GetKeyDown(KeyCode.P) && !juegoPausado) 
+        { 
+            PausarJuego(); 
         }
     }
+
 
     public void PausarJuego()
     {
@@ -64,7 +48,8 @@ public class MenuPausa : MonoBehaviour
 
     public void ContinuarJuego()
     {
-        Debug.Log("SE HIZO CLICK");
+        Debug.Log("CONTINUAR JUEGO");
+
         panelPausaPrincipal.SetActive(false);
 
         if (panelInstrucciones != null) panelInstrucciones.SetActive(false);
