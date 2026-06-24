@@ -952,6 +952,54 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1641000672628118571, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
   m_PrefabInstance: {fileID: 2129456966}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86565796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86565797}
+  - component: {fileID: 86565798}
+  m_Layer: 0
+  m_Name: ControBiblioteca
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86565797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86565796}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.672623, y: 22.51886, z: 0}
+  m_LocalScale: {x: 0.5208334, y: 0.5208334, z: 0.5208334}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 246226426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86565798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86565796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67e7cec1e4e8614dbfa9cbe33023919, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BibliotecaIluminada
+  libros: {fileID: 1870686116}
+  colliderLibros: {fileID: 1870686115}
+  sortingOscuro: -10
+  sortingIluminado: 10
 --- !u!1 &100788568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +2018,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 86565797}
   - {fileID: 1044917915}
   - {fileID: 1347714962}
   - {fileID: 1288879070}
@@ -3455,6 +3504,7 @@ MonoBehaviour:
   suspectData: {fileID: 11400000, guid: a7b367b833ab7124fbe8d6997004e35e, type: 2}
   inspectionManager: {fileID: 0}
   inspectionPanel: {fileID: 0}
+  esLampara: 0
 --- !u!114 &715950039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4344,6 +4394,7 @@ MonoBehaviour:
   suspectData: {fileID: 0}
   inspectionManager: {fileID: 0}
   inspectionPanel: {fileID: 0}
+  esLampara: 0
 --- !u!114 &830451118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7029,6 +7080,7 @@ MonoBehaviour:
   suspectData: {fileID: 0}
   inspectionManager: {fileID: 0}
   inspectionPanel: {fileID: 0}
+  esLampara: 0
 --- !u!114 &1680178547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8046,6 +8098,7 @@ MonoBehaviour:
   suspectData: {fileID: 0}
   inspectionManager: {fileID: 0}
   inspectionPanel: {fileID: 0}
+  esLampara: 0
 --- !u!114 &1870686114
 MonoBehaviour:
   m_ObjectHideFlags: 0

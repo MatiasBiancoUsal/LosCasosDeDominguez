@@ -23,6 +23,9 @@ public class ObjetoInteractuable : MonoBehaviour
     [SerializeField] private InspectionManager inspectionManager;
     [SerializeField] private GameObject inspectionPanel;
 
+    [Header("Objeto Especial")]
+    [SerializeField] private bool esLampara = false;
+
     private bool mouseEncima;
     private bool panelAbierto = false;
 
@@ -74,7 +77,13 @@ public class ObjetoInteractuable : MonoBehaviour
                     // Desbloquea al sospechoso en el inventario si está asignado
                     if (itemEnInventario != null)
                     {
-                        itemEnInventario.Desbloquear();
+                         itemEnInventario.Desbloquear();
+
+                    if (esLampara)
+                    {
+                        EstadoJuego.tieneLampara = true;
+                        Debug.Log("Lámpara obtenida.");
+                    }
                     }
 
                     Debug.Log("Sospechoso desbloqueado.");
