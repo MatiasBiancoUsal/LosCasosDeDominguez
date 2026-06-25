@@ -2562,7 +2562,7 @@ GameObject:
   - component: {fileID: 742015613}
   - component: {fileID: 742015614}
   - component: {fileID: 742015615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Puerta__0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2757,6 +2757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
   botonFlotante: {fileID: 1474106063}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &746849298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,13 +3885,13 @@ GameObject:
   - component: {fileID: 1122407916}
   - component: {fileID: 1122407912}
   - component: {fileID: 1122407915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Libreta_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1122407912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3902,6 +3905,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
   botonFlotante: {fileID: 508803317}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!212 &1122407913
 SpriteRenderer:
   serializedVersion: 2
@@ -7224,6 +7230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
   botonFlotante: {fileID: 1529006954}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1872683716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8952,6 +8961,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5469852748305298318, guid: d5fadbb00e69a6149ab7bf4d37f88501, type: 3}
     - target: {fileID: 2109885151249521938, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109885151249521938, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -9063,13 +9076,25 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3517897420585000295, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_Name
       value: Hojas_1
       objectReference: {fileID: 0}
     - target: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6237109732644765542, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7101338285632467430, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_Size.x

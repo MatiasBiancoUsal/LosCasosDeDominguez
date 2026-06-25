@@ -30,7 +30,7 @@ public class MenuPausa : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("juegoPausado = " + juegoPausado);
+        //Debug.Log("juegoPausado = " + juegoPausado);
         // La P solo abre el menú de pausa
         if (Input.GetKeyDown(KeyCode.P) && !juegoPausado) 
         { 
