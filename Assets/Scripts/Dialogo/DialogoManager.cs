@@ -32,7 +32,7 @@ public class DialogoManager : MonoBehaviour
     /// <summary>
     /// ----------- NO AFECTA
     /// </summary>
-    [Header("Cuando termina aquí llamamos a más cosas")]
+    [Header("Cuando termina acá llamamos a más cosas")]
     public UnityEvent _alTerminarDialogo;
     /// <summary>
     /// -----------
@@ -41,7 +41,7 @@ public class DialogoManager : MonoBehaviour
     // Interno, maneja el estado
     bool terminoDialogo;
 
-    // sea puede ller externo en otras scripts para saber si el dialogo ya termino
+    // sea puede leer externo en otras scripts para saber si el dialogo ya termino
     public bool TerminoDialogo { get { return terminoDialogo; } }
 
     private void Awake()
