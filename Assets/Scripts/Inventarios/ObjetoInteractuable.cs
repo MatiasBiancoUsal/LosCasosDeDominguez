@@ -33,16 +33,12 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        // 1. CERRAR CON LA TECLA 'X'
-        // Funciona siempre que el panel esté abierto, sin importar dónde esté el mouse
         if (panelAbierto && Keyboard.current.xKey.wasPressedThisFrame)
         {
             CerrarPanelActual();
-            return; // Corta el Update aquí para evitar conflictos en el mismo fotograma
+            return; 
         }
 
-        // 2. ABRIR CON LA TECLA 'Q'
-        // Requiere estrictamente que el mouse esté posicionado sobre el objeto
         if (!mouseEncima) return;
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
@@ -51,7 +47,6 @@ public class ObjetoInteractuable : MonoBehaviour
             {
                 case TipoInteraccion.DesbloquearPista:
 
-                    // Desbloquea el ítem en el inventario si está asignado
                     if (itemEnInventario != null)
                     {
                         itemEnInventario.Desbloquear();
@@ -66,7 +61,6 @@ public class ObjetoInteractuable : MonoBehaviour
                         }
                         else
                         {
-                            // Permite que presionar la Q de nuevo también lo cierre si sigues apuntando al objeto
                             CerrarPanelActual();
                         }
                     }
@@ -74,26 +68,18 @@ public class ObjetoInteractuable : MonoBehaviour
 
                 case TipoInteraccion.DesbloquearSospechoso:
 
-                    // Desbloquea al sospechoso en el inventario si está asignado
                     if (itemEnInventario != null)
                     {
-                         itemEnInventario.Desbloquear();
+                        itemEnInventario.Desbloquear();
 
-                    if (esLampara)
-                    {
-                        EstadoJuego.tieneLampara = true;
-                        Debug.Log("Lámpara obtenida.");
+                        if (esLampara)
+                        {
+                            EstadoJuego.tieneLampara = true;
+                        }
                     }
-                    }
 
-                    Debug.Log("Sospechoso desbloqueado.");
-
-                    // Abre el panel de inspección del sospechoso
                     if (inspectionManager != null && suspectData != null)
                     {
-                        Debug.Log("Panel: " + inspectionPanel);
-                        Debug.Log("Suspect: " + suspectData.name);
-                        Debug.Log("Manager: " + inspectionManager.name);
 
                         inspectionManager.SetSuspect(suspectData);
 
@@ -102,13 +88,7 @@ public class ObjetoInteractuable : MonoBehaviour
                             inspectionPanel.SetActive(true);
                         }
 
-                        // IMPORTANTE: Ahora el script sabe que el panel de sospechoso está activo
                         panelAbierto = true;
-                        Debug.Log("Inspeccionando a: " + suspectData.suspectName);
-                    }
-                    else
-                    {
-                        Debug.LogError("Falta asignar InspectionManager o SuspectData.");
                     }
                     break;
             }
@@ -125,7 +105,6 @@ public class ObjetoInteractuable : MonoBehaviour
         mouseEncima = false;
     }
 
-    // Función interna encargada de apagar la UI según el tipo de objeto actual
     private void CerrarPanelActual()
     {
         panelAbierto = false;
@@ -133,17 +112,13 @@ public class ObjetoInteractuable : MonoBehaviour
         if (tipoDeObjeto == TipoInteraccion.DesbloquearPista && ObjetoInfoManager.Instance != null)
         {
             ObjetoInfoManager.Instance.CerrarPanel();
-            Debug.Log("Panel de pista cerrado.");
         }
         else if (tipoDeObjeto == TipoInteraccion.DesbloquearSospechoso && inspectionPanel != null)
         {
             inspectionPanel.SetActive(false);
-            Debug.Log("Panel de sospechoso cerrado.");
         }
     }
 
-    // Función pública para que los botones de la UI (haciendo clic con el mouse)
-    // puedan cerrar el panel y resetear el script correctamente
     public void ForzarCierreDesdeUI()
     {
         CerrarPanelActual();

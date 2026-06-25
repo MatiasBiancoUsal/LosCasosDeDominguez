@@ -25,7 +25,6 @@ public class ObjetoInfoManager : MonoBehaviour
     {
         if (data == null)
         {
-            Debug.LogError("¡Le estás pasando un ScriptableObject vacío al Manager!");
             return;
         }
 
@@ -33,7 +32,6 @@ public class ObjetoInfoManager : MonoBehaviour
         imgObjeto.sprite = data.imagenObjeto;
 
         panelInfo.SetActive(true);
-        Debug.Log("¡El Manager activó el panel para: " + data.nombreObjeto + "!");
     }
 
     public void CerrarPanel()

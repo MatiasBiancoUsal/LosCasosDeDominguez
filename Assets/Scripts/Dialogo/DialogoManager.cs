@@ -29,8 +29,8 @@ public class DialogoManager : MonoBehaviour
     private int lineaActual = 0;
     private bool ignorarInputEsteFrame = false;
 
-    [Header("Cuando termina aquí llamamos a más cosas")]
-    public UnityEvent _alTerminarDialogo;
+    //[Header("Cuando termina aquí llamamos a más cosas")]
+    //public UnityEvent _alTerminarDialogo;
 
     // Interno, maneja el estado
     bool terminoDialogo;
@@ -142,7 +142,6 @@ public class DialogoManager : MonoBehaviour
     public void CerrarDialogo()
     {
         panelDialogo.SetActive(false);
-        _alTerminarDialogo.Invoke();
         terminoDialogo = false;
     }
 }
