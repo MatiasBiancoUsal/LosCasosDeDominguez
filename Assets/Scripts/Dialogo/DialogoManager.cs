@@ -29,13 +29,19 @@ public class DialogoManager : MonoBehaviour
     private int lineaActual = 0;
     private bool ignorarInputEsteFrame = false;
 
-    [Header("Cuando termina aquí llamamos a más cosas")]
+    /// <summary>
+    /// ----------- NO AFECTA
+    /// </summary>
+    [Header("Cuando termina acá llamamos a más cosas")]
     public UnityEvent _alTerminarDialogo;
+    /// <summary>
+    /// -----------
+    /// </summary>
 
     // Interno, maneja el estado
     bool terminoDialogo;
 
-    // sea puede ller externo en otras scripts para saber si el dialogo ya termino
+    // sea puede leer externo en otras scripts para saber si el dialogo ya termino
     public bool TerminoDialogo { get { return terminoDialogo; } }
 
     private void Awake()
@@ -142,7 +148,9 @@ public class DialogoManager : MonoBehaviour
     public void CerrarDialogo()
     {
         panelDialogo.SetActive(false);
-        _alTerminarDialogo.Invoke();
         terminoDialogo = false;
+
+        /// NO AFECTA SI NO HAY NADA
+        _alTerminarDialogo.Invoke();
     }
 }
