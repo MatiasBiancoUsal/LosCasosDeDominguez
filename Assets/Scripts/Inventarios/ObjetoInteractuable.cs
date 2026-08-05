@@ -45,8 +45,10 @@ public class ObjetoInteractuable : MonoBehaviour
         // Requiere estrictamente que el mouse esté posicionado sobre el objeto
         if (!mouseEncima) return;
 
+        
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
+            Debug.Log("Mouse sobre el objeto.");
             switch (tipoDeObjeto)
             {
                 case TipoInteraccion.DesbloquearPista:
