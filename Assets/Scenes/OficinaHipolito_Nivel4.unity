@@ -4033,6 +4033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 1
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 0}
   itemEnInventario: {fileID: 0}
   suspectData: {fileID: 11400000, guid: 67d4b1cb754169f4d890ac32434e4185, type: 2}
@@ -4051,7 +4052,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  conversacion: {fileID: 11400000, guid: 87dbed08de52d2045b72d6167aaa81f5, type: 2}
+  dialogosPosibles:
+  - clavePlayerPref: Carta
+    dialogo: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}
+    claveObjetoRequerido: Tiene la carta
+  - clavePlayerPref: Inicio
+    dialogo: {fileID: 11400000, guid: 87dbed08de52d2045b72d6167aaa81f5, type: 2}
+    claveObjetoRequerido: 
+  dialogoPorDefecto: {fileID: 0}
 --- !u!61 &715950040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4994,6 +5002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
+  clavePlayerPrefObjeto: Tiene la carta
   datosDelObjeto: {fileID: 11400000, guid: bdb8fe90f2cbd354b9bf63df7180ecf5, type: 2}
   itemEnInventario: {fileID: 100788570}
   suspectData: {fileID: 0}
@@ -8223,6 +8232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 11400000, guid: af16761cf90de974d977a0ad6712ac55, type: 2}
   itemEnInventario: {fileID: 244767856}
   suspectData: {fileID: 0}
@@ -8938,6 +8948,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1783695457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783695459}
+  - component: {fileID: 1783695458}
+  m_Layer: 0
+  m_Name: Reset Memoria
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1783695458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783695457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c1c8625dd455a4b80d2b0a9a245a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetPlayerPrefs
+--- !u!4 &1783695459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783695457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.19235, y: -4.66428, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1854973190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9244,6 +9298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 11400000, guid: fbe4239f57395e049a6a1acb5f3cede0, type: 2}
   itemEnInventario: {fileID: 141902582}
   suspectData: {fileID: 0}
@@ -10923,3 +10978,4 @@ SceneRoots:
   - {fileID: 573837002}
   - {fileID: 1854973190}
   - {fileID: 955595799}
+  - {fileID: 1783695459}

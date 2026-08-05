@@ -12,6 +12,10 @@ public class ObjetoInteractuable : MonoBehaviour
     [Header("Configuración del Objeto")]
     [SerializeField] private TipoInteraccion tipoDeObjeto;
 
+    [Header("Persistencia (PlayerPrefs)")]
+    [Tooltip("Clave única para guardar si el jugador tiene este objeto (ej: TieneLampara, TieneCarta)")]
+    [SerializeField] private string clavePlayerPrefObjeto;
+
     [Header("Ficha de Datos (ScriptableObject)")]
     [SerializeField] private PistasScriptable datosDelObjeto;
 
@@ -36,15 +40,22 @@ public class ObjetoInteractuable : MonoBehaviour
         if (panelAbierto && Keyboard.current.xKey.wasPressedThisFrame)
         {
             CerrarPanelActual();
-            return; 
+            return;
         }
 
         if (!mouseEncima) return;
 
-        
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             Debug.Log("Mouse sobre el objeto.");
+
+            if (!string.IsNullOrEmpty(clavePlayerPrefObjeto))
+            {
+                PlayerPrefs.SetInt(clavePlayerPrefObjeto, 1);
+                PlayerPrefs.Save();
+                Debug.Log("Guardado en PlayerPrefs: " + clavePlayerPrefObjeto + " = 1");
+            }
+
             switch (tipoDeObjeto)
             {
                 case TipoInteraccion.DesbloquearPista:
@@ -82,7 +93,6 @@ public class ObjetoInteractuable : MonoBehaviour
 
                     if (inspectionManager != null && suspectData != null)
                     {
-
                         inspectionManager.SetSuspect(suspectData);
 
                         if (inspectionPanel != null)
