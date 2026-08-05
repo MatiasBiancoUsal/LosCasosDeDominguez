@@ -4128,6 +4128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 11400000, guid: 88f0d3dd35ff1464c96794110c9ff434, type: 2}
   itemEnInventario: {fileID: 746849300}
   suspectData: {fileID: 0}
@@ -7327,7 +7328,7 @@ GameObject:
   - component: {fileID: 1872683716}
   - component: {fileID: 1872683715}
   m_Layer: 6
-  m_Name: Elena Objeto Interactivo
+  m_Name: Elisa Objeto Interactivo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7378,6 +7379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 1
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 0}
   itemEnInventario: {fileID: 0}
   suspectData: {fileID: 11400000, guid: 9d808e84a4bd6604cbd2e995e340bd06, type: 2}
@@ -7396,7 +7398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  conversacion: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
+  dialogosPosibles:
+  - clavePlayerPref: Inicio
+    dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
+    claveObjetoRequerido: 
+  dialogoPorDefecto: {fileID: 0}
 --- !u!61 &1872683718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9306,6 +9312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
+  clavePlayerPrefObjeto: 
   datosDelObjeto: {fileID: 11400000, guid: b63ec6c119940624f822643e0e9d44e9, type: 2}
   itemEnInventario: {fileID: 91254655}
   suspectData: {fileID: 0}
