@@ -2970,6 +2970,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7284367010087836932, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8687505193055644439, guid: d1fd7e55d3d176a408b25e236115aa92, type: 3}
     - target: {fileID: 8211322952652983150, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 97
@@ -13675,11 +13679,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961786894}
   m_CullTransparentMesh: 1
---- !u!1 &1966745370 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6845151028438458653, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
-  m_PrefabInstance: {fileID: 482045328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1980245891
 GameObject:
   m_ObjectHideFlags: 0
@@ -14882,7 +14881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73be058b9e7f41f408c2c040886d4883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspeccionPistas
-  panelPistas: {fileID: 1966745370}
+  panelPistas: {fileID: 0}
   _alTermianInspeccion:
     m_PersistentCalls:
       m_Calls: []
