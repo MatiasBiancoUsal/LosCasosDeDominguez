@@ -4190,7 +4190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles: []
+  dialogosPosibles:
+  - clavePlayerPref: 
+    dialogo: {fileID: 11400000, guid: 7e29a27b900b6af4b98139aaf54a34bb, type: 2}
+    claveObjetoRequerido: 
   dialogoPorDefecto: {fileID: 0}
 --- !u!61 &684821945
 BoxCollider2D:
@@ -6333,7 +6336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   tipoDeObjeto: 0
-  clavePlayerPrefObjeto: 
+  clavePlayerPrefObjeto: Tiene la lampara
   datosDelObjeto: {fileID: 0}
   itemEnInventario: {fileID: 0}
   suspectData: {fileID: 0}
@@ -7164,7 +7167,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7188,14 +7191,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192714373}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.20601486, w: 0.9785489}
-  m_LocalPosition: {x: -9.331999, y: -2.1289709, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.331999, y: -2.56, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1736936926}
   m_Father: {fileID: 1959869485}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1192714377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7444,7 +7447,7 @@ MonoBehaviour:
   m_EventMask:
     serializedVersion: 2
     m_Bits: 64
-  m_MaxRayIntersections: 0
+  m_MaxRayIntersections: 4
 --- !u!114 &1221233439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8143,11 +8146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4219848913972181310, guid: b38a7d36079e1e845b2fd6f9e6223282, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 388
       objectReference: {fileID: 0}
     - target: {fileID: 4219848913972181310, guid: b38a7d36079e1e845b2fd6f9e6223282, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 4219848913972181310, guid: b38a7d36079e1e845b2fd6f9e6223282, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8950,6 +8953,7 @@ GameObject:
   - component: {fileID: 1451916905}
   - component: {fileID: 1451916906}
   - component: {fileID: 1451916907}
+  - component: {fileID: 1451916908}
   m_Layer: 6
   m_Name: Puerta_Oficina_0
   m_TagString: Untagged
@@ -8966,7 +8970,7 @@ Transform:
   m_GameObject: {fileID: 1451916902}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 4.771, z: 0}
+  m_LocalPosition: {x: 0, y: 4.771, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9108,6 +9112,33 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!50 &1451916908
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451916902}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1456820915
 GameObject:
   m_ObjectHideFlags: 0
@@ -14326,7 +14357,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1000
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2764379361408237364, guid: 808be5be21c75834eadb657313e12d21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

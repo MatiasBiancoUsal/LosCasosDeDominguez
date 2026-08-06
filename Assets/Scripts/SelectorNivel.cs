@@ -14,6 +14,7 @@ public class SelectorNivel : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(nombreDeLaEscena))
         {
+            Debug.Log("Pasa de Nievel");
             SceneManager.LoadScene(nombreDeLaEscena);
         }
     }
