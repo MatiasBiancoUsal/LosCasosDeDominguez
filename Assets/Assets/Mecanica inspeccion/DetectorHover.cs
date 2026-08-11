@@ -2,17 +2,33 @@ using UnityEngine;
 
 public class DetectorHover : MonoBehaviour
 {
+    [Header("Indicador visual")]
+    [SerializeField] private GameObject detectorHover;
+    [SerializeField] private GameObject botonInspeccion;
+    [SerializeField] private GameObject botonInterrogatorio;
+
     [Header("Configuración")]
-    public GameObject botonFlotante;
-    public LayerMask interactableLayer;
+    [SerializeField] private LayerMask interactableLayer;
 
-    private bool mouseEstaEncima = false;
+    private bool mouseEstaEncima;
 
-    // Permite que otros scripts sepan si el mouse está sobre este objeto
     public bool MouseEstaEncima => mouseEstaEncima;
+
+    private void Start()
+    {
+        OcultarIndicadores();
+    }
 
     private void Update()
     {
+        DetectarHover();
+    }
+
+    private void DetectarHover()
+    {
+        if (Camera.main == null)
+            return;
+
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Collider2D[] hits = Physics2D.OverlapPointAll(mousePos);
@@ -21,10 +37,14 @@ public class DetectorHover : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            // Ignora todo lo que no sea Interactable
+            if (hit == null)
+                continue;
+
+            // Comprobar que pertenece a la layer Interactable
             if (((1 << hit.gameObject.layer) & interactableLayer) == 0)
                 continue;
 
+            // Comprobar que el collider pertenece a este objeto
             if (hit.gameObject == gameObject)
             {
                 sobreMi = true;
@@ -32,33 +52,47 @@ public class DetectorHover : MonoBehaviour
             }
         }
 
-        // Entró al hover
         if (sobreMi && !mouseEstaEncima)
         {
-            mouseEstaEncima = true;
-
-            if (botonFlotante != null)
-                botonFlotante.SetActive(true);
+            EntrarHover();
         }
-
-        // Salió del hover
-        if (!sobreMi && mouseEstaEncima)
+        else if (!sobreMi && mouseEstaEncima)
         {
-            mouseEstaEncima = false;
-
-            if (botonFlotante != null)
-                botonFlotante.SetActive(false);
-        }
-
-        // Si el mouse está encima y apretás Q
-        if (mouseEstaEncima && Input.GetKeyDown(KeyCode.Q))
-        {
-            EjecutarInspeccion();
+            SalirHover();
         }
     }
 
-    private void EjecutarInspeccion()
+    private void EntrarHover()
     {
-        Debug.Log("Abriendo inspección de objetos...");
+        mouseEstaEncima = true;
+
+        Debug.Log("HOVER EN: " + gameObject.name);
+
+        MostrarIndicadores();
+    }
+
+    private void SalirHover()
+    {
+        mouseEstaEncima = false;
+
+        OcultarIndicadores();
+    }
+
+    private void MostrarIndicadores()
+    {
+        if (detectorHover != null)
+            detectorHover.SetActive(true);
+
+        if (botonInspeccion != null)
+            botonInspeccion.SetActive(true);
+
+        if (botonInterrogatorio != null)
+            botonInterrogatorio.SetActive(true);
+    }
+
+    private void OcultarIndicadores()
+    {
+        if (detectorHover != null)
+            detectorHover.SetActive(false);
     }
 }
