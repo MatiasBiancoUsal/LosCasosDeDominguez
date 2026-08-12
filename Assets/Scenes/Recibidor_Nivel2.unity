@@ -544,6 +544,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115235143}
   m_CullTransparentMesh: 1
+--- !u!1 &119473658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2109885151249521938, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+  m_PrefabInstance: {fileID: 2109982370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &132285860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,8 +2883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  detectorHover: {fileID: 0}
-  botonInspeccion: {fileID: 0}
+  detectorHover: {fileID: 1280883034}
+  botonInspeccion: {fileID: 1280883034}
   botonInterrogatorio: {fileID: 0}
   interactableLayer:
     serializedVersion: 2
@@ -5299,6 +5304,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277440016}
   m_CullTransparentMesh: 1
+--- !u!1 &1280883034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4309490571052859013, guid: ca29e17b7326d7c4e8f64df7f439b1c5, type: 3}
+  m_PrefabInstance: {fileID: 1672172990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1284896304 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5201820704434926543, guid: b38a7d36079e1e845b2fd6f9e6223282, type: 3}
@@ -8809,12 +8819,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6237109732644765542, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: detectorHover
       value: 
-      objectReference: {fileID: 1118520368}
+      objectReference: {fileID: 119473658}
+    - target: {fileID: 6237109732644765542, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      propertyPath: botonInspeccion
+      value: 
+      objectReference: {fileID: 119473658}
     - target: {fileID: 6237109732644765542, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       propertyPath: interactableLayer.m_Bits
       value: 64
@@ -8878,6 +8892,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2109982375}
+    - targetCorrespondingSourceObject: {fileID: 4782961240878163989, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109982376}
   m_SourcePrefab: {fileID: 100100000, guid: 3c2ce3562a807f94d83f099c07e94548, type: 3}
 --- !u!4 &2109982371 stripped
 Transform:
@@ -8897,6 +8914,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   banderaAOtorgar: {fileID: 0}
+--- !u!114 &2109982376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118520368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
+  datosDelObjeto: {fileID: 11400000, guid: b63ec6c119940624f822643e0e9d44e9, type: 2}
 --- !u!224 &118164426700129237
 RectTransform:
   m_ObjectHideFlags: 0
