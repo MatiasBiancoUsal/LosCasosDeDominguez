@@ -2831,7 +2831,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  botonFlotante: {fileID: 1474106063}
+  detectorHover: {fileID: 0}
+  botonInspeccion: {fileID: 0}
+  botonInterrogatorio: {fileID: 0}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3249,7 +3251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9999695
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4857096908272981442, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_SortingOrder
@@ -3865,7 +3867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  botonFlotante: {fileID: 508803317}
+  detectorHover: {fileID: 0}
+  botonInspeccion: {fileID: 0}
+  botonInterrogatorio: {fileID: 0}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5744,11 +5748,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 967930778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1474106063 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4309490571052859013, guid: ca29e17b7326d7c4e8f64df7f439b1c5, type: 3}
-  m_PrefabInstance: {fileID: 1672172990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1529006954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,7 +6985,7 @@ GameObject:
   - component: {fileID: 1872683716}
   - component: {fileID: 1872683715}
   m_Layer: 6
-  m_Name: Elisa Objeto Interactivo
+  m_Name: Elisa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7020,7 +7019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  botonFlotante: {fileID: 1529006954}
+  detectorHover: {fileID: 1529006954}
+  botonInspeccion: {fileID: 303960485}
+  botonInterrogatorio: {fileID: 148383137}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -7060,7 +7061,7 @@ MonoBehaviour:
   - clavePlayerPref: Inicio
     dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
     claveObjetoRequerido: 
-  dialogoPorDefecto: {fileID: 0}
+  dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
 --- !u!61 &1872683718
 BoxCollider2D:
   m_ObjectHideFlags: 0

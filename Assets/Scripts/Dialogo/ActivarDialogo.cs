@@ -27,8 +27,11 @@ public class ActivarDialogo : MonoBehaviour
 
     private void Update()
     {
+
         if (hover != null && hover.MouseEstaEncima && Keyboard.current.iKey.wasPressedThisFrame)
         {
+            Debug.Log("I DETECTADA EN ACTIVAR DIALOGO: " + gameObject.name);
+
             EvaluarYIniciarDialogo();
         }
     }
@@ -66,6 +69,9 @@ public class ActivarDialogo : MonoBehaviour
         {
             dialogoAProcesar = dialogoPorDefecto;
         }
+
+        Debug.Log("DIALOGO SELECCIONADO: " +
+        (dialogoAProcesar != null ? dialogoAProcesar.name : "NULL"));
 
         if (dialogoAProcesar != null)
         {
