@@ -43,7 +43,7 @@ public class GameStateManager : MonoBehaviour
     /// <summary>
     /// Método de utilidad para borrar la partida desde botones de UI o pruebas.
     /// </summary>
-    public void BorrarTodoElProgreso()
+    public void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
