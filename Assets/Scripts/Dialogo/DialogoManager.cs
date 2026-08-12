@@ -1,114 +1,111 @@
+using System; // OBLIGATORIO: Necesario para los eventos C# (Action)
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using System.Collections;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
-
-public class DialogoManager : MonoBehaviour 
+public class DialogoManager : MonoBehaviour
 {
-   
-    public static DialogoManager Instance;
+    public static DialogoManager Instance { get; private set; }
 
     [Header("Componentes Visuales del Canvas")]
-    public GameObject panelDialogo; 
-    public TextMeshProUGUI textoNombre;
-    public TextMeshProUGUI cajaTexto;
-    public Image imgPersonaje;
+    [SerializeField] private GameObject panelDialogo;
+    [SerializeField] private TextMeshProUGUI textoNombre;
+    [SerializeField] private TextMeshProUGUI cajaTexto;
+    [SerializeField] private Image imgPersonaje;
 
+    [Header("Efecto Maquina")]
+    [SerializeField] private float velocidadTexto = 0.05f;
 
-    [Header("EfectoMaquina")]
+    // Evento C# al que se suscribirá ActivarDialogo para guardar la bandera
+    public event Action OnDialogoFinalizado;
 
-    public float velocidadTexto = 0.05f;
     private bool escribiendo = false;
     private Coroutine efectoMaquinaCoroutine;
-
-
     private DialogoSistema conversacionActual;
     private int lineaActual = 0;
     private bool ignorarInputEsteFrame = false;
 
-    /// <summary>
-    /// ----------- NO AFECTA
-    /// </summary>
-    [Header("Cuando termina acá llamamos a más cosas")]
-    public UnityEvent _alTerminarDialogo;
-    /// <summary>
-    /// -----------
-    /// </summary>
-
-    // Interno, maneja el estado
-    bool terminoDialogo;
-
-    // sea puede leer externo en otras scripts para saber si el dialogo ya termino
-    public bool TerminoDialogo { get { return terminoDialogo; } }
-
     private void Awake()
     {
-        Instance = this; 
-        panelDialogo.SetActive(false); 
-    }
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
 
+        if (panelDialogo != null)
+        {
+            panelDialogo.SetActive(false);
+        }
+    }
 
     public void Update()
     {
-        if (panelDialogo.activeSelf)
+        if (panelDialogo == null || !panelDialogo.activeSelf)
+            return;
+
+        if (ignorarInputEsteFrame)
         {
-            if (ignorarInputEsteFrame)
+            ignorarInputEsteFrame = false;
+            return;
+        }
+
+        // Avanzar o completar texto con la tecla F
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            if (escribiendo)
             {
-                ignorarInputEsteFrame = false;      
-                return;
-
-            }
-
-
-            if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
-            {
-               
-                if (escribiendo)
-                {
+                if (efectoMaquinaCoroutine != null)
                     StopCoroutine(efectoMaquinaCoroutine);
-                    cajaTexto.text = conversacionActual.dialogos[lineaActual].dialogo;
-                    escribiendo = false;
-                }
-                else
-                {
-                    SiguienteLinea();
-                }
 
+                if (cajaTexto != null && conversacionActual != null)
+                    cajaTexto.text = conversacionActual.dialogos[lineaActual].dialogo;
+
+                escribiendo = false;
+            }
+            else
+            {
+                SiguienteLinea();
             }
         }
     }
 
-    // funcion de arranque
     public void IniciarDialogo(DialogoSistema nuevoDialogo)
     {
+        if (nuevoDialogo == null || nuevoDialogo.dialogos == null || nuevoDialogo.dialogos.Length == 0)
+        {
+            Debug.LogWarning("[DialogoManager] Intentando iniciar un diálogo nulo o sin líneas.");
+            return;
+        }
+
         conversacionActual = nuevoDialogo;
-        lineaActual = 0; 
-        panelDialogo.SetActive(true); 
+        lineaActual = 0;
+
+        if (panelDialogo != null)
+            panelDialogo.SetActive(true);
+
         ignorarInputEsteFrame = true;
         MostrarLinea();
     }
 
-    
-    public void MostrarLinea() //q vaya mostrando los dialogos, y cuando no haya mas, que lo cierre 
+    public void MostrarLinea()
     {
-      
+        if (conversacionActual == null) return;
+
         if (lineaActual < conversacionActual.dialogos.Length)
         {
-           
             Dialog fila = conversacionActual.dialogos[lineaActual];
 
-            
-            textoNombre.text = fila.nombre;
-            cajaTexto.text = fila.dialogo;
+            if (textoNombre != null)
+                textoNombre.text = fila.nombre;
 
-            if (fila.personaje != null)
+            if (imgPersonaje != null && fila.personaje != null)
             {
                 imgPersonaje.sprite = fila.personaje;
             }
-
 
             if (efectoMaquinaCoroutine != null)
             {
@@ -116,41 +113,41 @@ public class DialogoManager : MonoBehaviour
             }
 
             efectoMaquinaCoroutine = StartCoroutine(EscribirTexto(fila.dialogo));
-
         }
         else
         {
-            
             CerrarDialogo();
         }
     }
 
-   
-    private IEnumerator EscribirTexto (string textoCompleto)
+    private IEnumerator EscribirTexto(string textoCompleto)
     {
         escribiendo = true;
-        cajaTexto.text = "";
+        if (cajaTexto != null) cajaTexto.text = "";
 
         foreach (char letra in textoCompleto)
         {
-            cajaTexto.text += letra;
+            if (cajaTexto != null) cajaTexto.text += letra;
             yield return new WaitForSeconds(velocidadTexto);
         }
+
         escribiendo = false;
     }
 
     public void SiguienteLinea()
     {
-        lineaActual++; 
-        MostrarLinea(); 
+        lineaActual++;
+        MostrarLinea();
     }
 
     public void CerrarDialogo()
     {
-        panelDialogo.SetActive(false);
-        terminoDialogo = false;
+        if (panelDialogo != null)
+        {
+            panelDialogo.SetActive(false);
+        }
 
-        /// NO AFECTA SI NO HAY NADA
-        _alTerminarDialogo.Invoke();
+        // Emite la señal C# indicando que el diálogo se cerró
+        OnDialogoFinalizado?.Invoke();
     }
 }

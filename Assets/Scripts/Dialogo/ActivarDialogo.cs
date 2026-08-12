@@ -1,24 +1,30 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ActivarDialogo : MonoBehaviour
 {
-    [System.Serializable]
+    [Serializable]
     public struct CondicionDialogo
     {
-        public string clavePlayerPref;
-        public DialogoSistema dialogo; 
-        public string claveObjetoRequerido; 
+        [Tooltip("Bandera que se guardará en el GameStateManager cuando este diálogo termine.")]
+        public GameFlag banderaACompletar;
+
+        [Tooltip("ScriptableObject con el contenido del diálogo.")]
+        public DialogoSistema dialogo;
+
+        [Tooltip("Opcional: Bandera necesaria para habilitar este diálogo (ej: tener la lámpara).")]
+        public GameFlag banderaRequerida;
     }
 
-    [Header("Lista de diálogos priorizados (de arriba a abajo)")]
+    [Header("Lista de diálogos priorizados (evaluados de arriba a abajo)")]
     [SerializeField] private CondicionDialogo[] dialogosPosibles;
 
-    [Header("Diálogo por defecto (cuando se agotaron los demás)")]
+    [Header("Diálogo por defecto (se repite cuando se agotaron los anteriores)")]
     [SerializeField] private DialogoSistema dialogoPorDefecto;
 
     private DetectorHover hover;
-    private CondicionDialogo? dialogoActual;
+    private CondicionDialogo? dialogoSeleccionadoActual;
 
     private void Awake()
     {
@@ -27,57 +33,55 @@ public class ActivarDialogo : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current == null) return;
 
         if (hover != null && hover.MouseEstaEncima && Keyboard.current.iKey.wasPressedThisFrame)
         {
-            Debug.Log("I DETECTADA EN ACTIVAR DIALOGO: " + gameObject.name);
-
             EvaluarYIniciarDialogo();
         }
     }
 
     private void EvaluarYIniciarDialogo()
     {
+        if (DialogoManager.Instance == null || GameStateManager.Instance == null)
+        {
+            Debug.LogError("[ActivarDialogo] Faltan los Managers (DialogoManager o GameStateManager) en la escena.");
+            return;
+        }
+
         DialogoSistema dialogoAProcesar = null;
-        dialogoActual = null;
+        dialogoSeleccionadoActual = null;
 
         foreach (var cond in dialogosPosibles)
         {
-            // 1. Si ya se guardó en PlayerPrefs que este diálogo ocurrió (valor 1), se salta al siguiente
-            if (PlayerPrefs.GetInt(cond.clavePlayerPref, 0) == 1)
+            // 1. Si la bandera que este diálogo otorgaría YA fue completada, pasamos al siguiente
+            if (cond.banderaACompletar != null && GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
             {
                 continue;
             }
 
-            // 2. Si requiere un objeto, verifica si esa clave existe en PlayerPrefs con valor 1
-            if (!string.IsNullOrEmpty(cond.claveObjetoRequerido))
+            // 2. Si este diálogo requiere una bandera previa que el jugador AÚN NO TIENE, pasamos al siguiente
+            if (cond.banderaRequerida != null && !GameStateManager.Instance.TieneBandera(cond.banderaRequerida))
             {
-                if (PlayerPrefs.GetInt(cond.claveObjetoRequerido, 0) == 0)
-                {
-                    continue; // No tiene el objeto necesario aún
-                }
+                continue;
             }
 
-            // Si pasa las condiciones, seleccionamos este diálogo
+            // Si supera ambas pruebas, este es el diálogo correspondiente
             dialogoAProcesar = cond.dialogo;
-            dialogoActual = cond;
+            dialogoSeleccionadoActual = cond;
             break;
         }
 
-        // Si ya vio todos los diálogos o no cumple las condiciones, usa el diálogo por defecto
+        // Si no cumple ninguna condición o la lista se agotó, usa el por defecto
         if (dialogoAProcesar == null)
         {
             dialogoAProcesar = dialogoPorDefecto;
         }
 
-        Debug.Log("DIALOGO SELECCIONADO: " +
-        (dialogoAProcesar != null ? dialogoAProcesar.name : "NULL"));
-
         if (dialogoAProcesar != null)
         {
-            // Escuchar el evento de cuando termina el diálogo
-            DialogoManager.Instance._alTerminarDialogo.RemoveListener(OnDialogoFinalizado);
-            DialogoManager.Instance._alTerminarDialogo.AddListener(OnDialogoFinalizado);
+            DialogoManager.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
+            DialogoManager.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
 
             DialogoManager.Instance.IniciarDialogo(dialogoAProcesar);
         }
@@ -85,13 +89,15 @@ public class ActivarDialogo : MonoBehaviour
 
     private void OnDialogoFinalizado()
     {
-        // Al terminar, si provenía de la lista, lo guardamos en PlayerPrefs como completado (1)
-        if (dialogoActual.HasValue)
+        if (DialogoManager.Instance != null)
         {
-            PlayerPrefs.SetInt(dialogoActual.Value.clavePlayerPref, 1);
-            PlayerPrefs.Save();
+            DialogoManager.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
         }
 
-        DialogoManager.Instance._alTerminarDialogo.RemoveListener(OnDialogoFinalizado);
+        // Al terminar, si el diálogo asignaba una bandera, se registra en el GameStateManager
+        if (dialogoSeleccionadoActual.HasValue && dialogoSeleccionadoActual.Value.banderaACompletar != null)
+        {
+            GameStateManager.Instance.GuardarBandera(dialogoSeleccionadoActual.Value.banderaACompletar);
+        }
     }
 }

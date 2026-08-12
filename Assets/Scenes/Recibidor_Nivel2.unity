@@ -1074,17 +1074,6 @@ PrefabInstance:
       addedObject: {fileID: 728805538}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5560603f0865db40a8761503f366f56, type: 3}
---- !u!114 &153384572 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2326148700609676158, guid: e5560603f0865db40a8761503f366f56, type: 3}
-  m_PrefabInstance: {fileID: 153384571}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d07a2a1ba9203a4aada48ecac568e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PanelMisiones
 --- !u!224 &161446986 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1641000672628118571, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
@@ -1345,6 +1334,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &219752593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219752595}
+  - component: {fileID: 219752594}
+  - component: {fileID: 219752596}
+  m_Layer: 0
+  m_Name: _MANAGERS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &219752594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219752593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07aa81fbfd3d6f34f8cd689e3880926a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
+--- !u!4 &219752595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219752593}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.604, y: -1.00599, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219752596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219752593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c1c8625dd455a4b80d2b0a9a245a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetPlayerPrefs
 --- !u!1 &255357083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,7 +3293,7 @@ PrefabInstance:
       objectReference: {fileID: -6671079865629270754, guid: 780c64e66c7c04c418cd4bac81c7af1e, type: 3}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.9005127
+      value: 0.9003906
       objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3267,7 +3313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8500460368020354742, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 33.559998
+      value: 33.56006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3801,9 +3847,6 @@ MonoBehaviour:
   cajaTexto: {fileID: 4564325433827126495}
   imgPersonaje: {fileID: 1726903606327580494}
   velocidadTexto: 0.05
-  _alTerminarDialogo:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1040967903
 Transform:
   m_ObjectHideFlags: 0
@@ -7058,9 +7101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - clavePlayerPref: Inicio
+  - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
     dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
-    claveObjetoRequerido: 
+    banderaRequerida: {fileID: 0}
   dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
 --- !u!61 &1872683718
 BoxCollider2D:
@@ -8588,33 +8631,6 @@ MonoBehaviour:
   cajaTexto: {fileID: 534995437}
   imgPersonaje: {fileID: 1870700282}
   velocidadTexto: 0.05
-  _alTerminarDialogo:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 462682654}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 153384572}
-        m_TargetAssemblyTypeName: PanelMisiones, Assembly-CSharp
-        m_MethodName: DesbloquearMision
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!4 &2104683293
 Transform:
   m_ObjectHideFlags: 0
@@ -10248,6 +10264,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1981916843}
   - {fileID: 187907356}
+  - {fileID: 219752595}
   - {fileID: 6160398}
   - {fileID: 967930778}
   - {fileID: 1040967903}
