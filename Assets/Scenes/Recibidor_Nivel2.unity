@@ -1391,6 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c1c8625dd455a4b80d2b0a9a245a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResetPlayerPrefs
+  borrarAlIniciar: 1
 --- !u!1 &255357083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3891,6 +3892,7 @@ GameObject:
   - component: {fileID: 1122407916}
   - component: {fileID: 1122407912}
   - component: {fileID: 1122407915}
+  - component: {fileID: 1122407917}
   m_Layer: 6
   m_Name: Libreta_0
   m_TagString: Untagged
@@ -3910,8 +3912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  detectorHover: {fileID: 0}
-  botonInspeccion: {fileID: 0}
+  detectorHover: {fileID: 1122407910}
+  botonInspeccion: {fileID: 508803317}
   botonInterrogatorio: {fileID: 0}
   interactableLayer:
     serializedVersion: 2
@@ -4003,14 +4005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
-  tipoDeObjeto: 0
-  clavePlayerPrefObjeto: 
-  datosDelObjeto: {fileID: 11400000, guid: 88f0d3dd35ff1464c96794110c9ff434, type: 2}
-  itemEnInventario: {fileID: 746849300}
-  suspectData: {fileID: 0}
-  inspectionManager: {fileID: 0}
-  inspectionPanel: {fileID: 0}
-  esLampara: 0
+  banderaAOtorgar: {fileID: 11400000, guid: 6c428b96f36495a4e8d66526601fa4e1, type: 2}
 --- !u!60 &1122407916
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4073,6 +4068,19 @@ PolygonCollider2D:
       - {x: 0.48499998, y: -0.105}
       - {x: 0.48499998, y: 0.024999999}
   m_UseDelaunayMesh: 1
+--- !u!114 &1122407917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122407910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
+  datosDelObjeto: {fileID: 11400000, guid: 88f0d3dd35ff1464c96794110c9ff434, type: 2}
 --- !u!1 &1128244811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7027,6 +7035,7 @@ GameObject:
   - component: {fileID: 1872683717}
   - component: {fileID: 1872683716}
   - component: {fileID: 1872683715}
+  - component: {fileID: 1872683720}
   m_Layer: 6
   m_Name: Elisa
   m_TagString: Untagged
@@ -7080,14 +7089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
-  tipoDeObjeto: 1
-  clavePlayerPrefObjeto: 
-  datosDelObjeto: {fileID: 0}
-  itemEnInventario: {fileID: 0}
-  suspectData: {fileID: 11400000, guid: 9d808e84a4bd6604cbd2e995e340bd06, type: 2}
-  inspectionManager: {fileID: 1988225663}
-  inspectionPanel: {fileID: 854520361}
-  esLampara: 0
+  banderaAOtorgar: {fileID: 0}
 --- !u!114 &1872683717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7104,6 +7106,9 @@ MonoBehaviour:
   - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
     dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
     banderaRequerida: {fileID: 0}
+  - banderaACompletar: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 9f844257c2c91f24b9b26691c9e37f44, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: 6c428b96f36495a4e8d66526601fa4e1, type: 2}
   dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
 --- !u!61 &1872683718
 BoxCollider2D:
@@ -7210,6 +7215,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1872683720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872683713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2428d550da0a16408d216a7994a650e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionSospechoso
+  suspectData: {fileID: 11400000, guid: 9d808e84a4bd6604cbd2e995e340bd06, type: 2}
+  inspectionManager: {fileID: 1988225663}
+  inspectionPanel: {fileID: 854520361}
 --- !u!1 &1929985216
 GameObject:
   m_ObjectHideFlags: 0
@@ -8872,14 +8892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
-  tipoDeObjeto: 0
-  clavePlayerPrefObjeto: 
-  datosDelObjeto: {fileID: 11400000, guid: b63ec6c119940624f822643e0e9d44e9, type: 2}
-  itemEnInventario: {fileID: 91254655}
-  suspectData: {fileID: 0}
-  inspectionManager: {fileID: 0}
-  inspectionPanel: {fileID: 0}
-  esLampara: 0
+  banderaAOtorgar: {fileID: 0}
 --- !u!224 &118164426700129237
 RectTransform:
   m_ObjectHideFlags: 0
