@@ -7,6 +7,8 @@ public class GameStateManager : MonoBehaviour
 
     public static GameStateManager Instance { get; private set; }
 
+    public System.Action<GameFlag> OnBanderaObtenida;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,6 +40,8 @@ public class GameStateManager : MonoBehaviour
         PlayerPrefs.SetInt(flag.Id, 1);
         PlayerPrefs.Save();
         Debug.Log($"[GameStateManager] Bandera guardada con éxito: {flag.name}");
+
+        OnBanderaObtenida?.Invoke(flag);
     }
 
     /// <summary>
@@ -49,4 +53,6 @@ public class GameStateManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("[GameStateManager] Progreso reiniciado completamente.");
     }
+
+   
 }
