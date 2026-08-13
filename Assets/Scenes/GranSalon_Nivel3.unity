@@ -1205,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelDIalogo
       objectReference: {fileID: 0}
+    - target: {fileID: 6343524429980549311, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1306,7 +1310,6 @@ GameObject:
   - component: {fileID: 400894856}
   - component: {fileID: 400894860}
   - component: {fileID: 400894859}
-  - component: {fileID: 400894857}
   m_Layer: 5
   m_Name: Lavadero
   m_TagString: Untagged
@@ -1333,20 +1336,6 @@ RectTransform:
   m_AnchoredPosition: {x: 14, y: -4}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &400894857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400894855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &400894859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,7 +1385,6 @@ GameObject:
   - component: {fileID: 424908575}
   - component: {fileID: 424908579}
   - component: {fileID: 424908578}
-  - component: {fileID: 424908576}
   m_Layer: 5
   m_Name: Dormitorio
   m_TagString: Untagged
@@ -1423,20 +1411,6 @@ RectTransform:
   m_AnchoredPosition: {x: -121.8, y: 102.9}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &424908576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424908574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &424908578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2439,7 +2413,6 @@ GameObject:
   - component: {fileID: 607954212}
   - component: {fileID: 607954216}
   - component: {fileID: 607954215}
-  - component: {fileID: 607954213}
   m_Layer: 5
   m_Name: Recibidor
   m_TagString: Untagged
@@ -2466,20 +2439,6 @@ RectTransform:
   m_AnchoredPosition: {x: -111.6, y: -127.6}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &607954213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607954211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: Recibidor_Nivel2
-  desbloqueado: 0
 --- !u!114 &607954215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4500,7 +4459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
-  desbloqueado: 1
+  banderaRequerida: {fileID: 0}
+  mensajePuertaCerrada: {fileID: 0}
+  tiempoMensaje: 3
 --- !u!114 &1192714378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6268,7 +6229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: OficinaHipolito_Nivel4
-  desbloqueado: 1
+  banderaRequerida: {fileID: 0}
+  mensajePuertaCerrada: {fileID: 0}
+  tiempoMensaje: 3
 --- !u!114 &1451916907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6690,7 +6653,6 @@ GameObject:
   - component: {fileID: 1508967538}
   - component: {fileID: 1508967542}
   - component: {fileID: 1508967541}
-  - component: {fileID: 1508967539}
   m_Layer: 5
   m_Name: Biblioteca
   m_TagString: Untagged
@@ -6717,20 +6679,6 @@ RectTransform:
   m_AnchoredPosition: {x: -227, y: -76}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1508967539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508967537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1508967541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6802,7 +6750,6 @@ GameObject:
   - component: {fileID: 1553961783}
   - component: {fileID: 1553961787}
   - component: {fileID: 1553961786}
-  - component: {fileID: 1553961784}
   m_Layer: 5
   m_Name: Oficina
   m_TagString: Untagged
@@ -6829,20 +6776,6 @@ RectTransform:
   m_AnchoredPosition: {x: -231.6, y: 15}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1553961784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553961782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1553961786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,7 +7645,6 @@ GameObject:
   - component: {fileID: 1744216604}
   - component: {fileID: 1744216608}
   - component: {fileID: 1744216607}
-  - component: {fileID: 1744216605}
   m_Layer: 5
   m_Name: Cocina
   m_TagString: Untagged
@@ -7739,20 +7671,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.3, y: -94.973}
   m_SizeDelta: {x: 169.2909, y: 45.8545}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1744216605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744216603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1744216607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8542,7 +8460,6 @@ GameObject:
   - component: {fileID: 1864934053}
   - component: {fileID: 1864934057}
   - component: {fileID: 1864934056}
-  - component: {fileID: 1864934054}
   m_Layer: 5
   m_Name: Patio
   m_TagString: Untagged
@@ -8569,20 +8486,6 @@ RectTransform:
   m_AnchoredPosition: {x: 115.5, y: -56.8}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1864934054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864934052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1864934056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9864,7 +9767,6 @@ GameObject:
   - component: {fileID: 1980245892}
   - component: {fileID: 1980245896}
   - component: {fileID: 1980245895}
-  - component: {fileID: 1980245893}
   m_Layer: 5
   m_Name: "Gran Sal\xF3n"
   m_TagString: Untagged
@@ -9891,20 +9793,6 @@ RectTransform:
   m_AnchoredPosition: {x: -116.9, y: 0}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1980245893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980245891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1980245895
 MonoBehaviour:
   m_ObjectHideFlags: 0
