@@ -62,7 +62,7 @@ public class ActivarDialogo : MonoBehaviour
 
         foreach (var cond in dialogosPosibles)
         {
-            // Si el GameStateManager existe, evaluamos banderas. Si no existe, ignoramos las banderas para evitar bloqueos.
+            
             if (GameStateManager.Instance != null)
             {
                 if (cond.banderaACompletar != null && GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
