@@ -35,17 +35,25 @@ public class ActivarDialogo : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        if (hover != null && hover.MouseEstaEncima && Keyboard.current.iKey.wasPressedThisFrame)
+        if (Keyboard.current.iKey.wasPressedThisFrame)
         {
-            EvaluarYIniciarDialogo();
+
+            if (hover != null && hover.MouseEstaEncima)
+            {
+                EvaluarYIniciarDialogo();
+            }
+            else
+            {
+                Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el ratón NO está sobre el personaje (Hover es false).");
+            }
         }
     }
 
     private void EvaluarYIniciarDialogo()
     {
-        if (DialogoManager.Instance == null || GameStateManager.Instance == null)
+        if (DialogoManager.Instance == null)
         {
-            Debug.LogError("[ActivarDialogo] Faltan los Managers (DialogoManager o GameStateManager) en la escena.");
+            Debug.LogError("[ActivarDialogo] Falta DialogoManager.Instance en la escena.");
             return;
         }
 
@@ -54,25 +62,25 @@ public class ActivarDialogo : MonoBehaviour
 
         foreach (var cond in dialogosPosibles)
         {
-            // 1. Si la bandera que este diálogo otorgaría YA fue completada, pasamos al siguiente
-            if (cond.banderaACompletar != null && GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
+            // Si el GameStateManager existe, evaluamos banderas. Si no existe, ignoramos las banderas para evitar bloqueos.
+            if (GameStateManager.Instance != null)
             {
-                continue;
+                if (cond.banderaACompletar != null && GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
+                {
+                    continue;
+                }
+
+                if (cond.banderaRequerida != null && !GameStateManager.Instance.TieneBandera(cond.banderaRequerida))
+                {
+                    continue;
+                }
             }
 
-            // 2. Si este diálogo requiere una bandera previa que el jugador AÚN NO TIENE, pasamos al siguiente
-            if (cond.banderaRequerida != null && !GameStateManager.Instance.TieneBandera(cond.banderaRequerida))
-            {
-                continue;
-            }
-
-            // Si supera ambas pruebas, este es el diálogo correspondiente
             dialogoAProcesar = cond.dialogo;
             dialogoSeleccionadoActual = cond;
             break;
         }
 
-        // Si no cumple ninguna condición o la lista se agotó, usa el por defecto
         if (dialogoAProcesar == null)
         {
             dialogoAProcesar = dialogoPorDefecto;
@@ -85,6 +93,10 @@ public class ActivarDialogo : MonoBehaviour
 
             DialogoManager.Instance.IniciarDialogo(dialogoAProcesar);
         }
+        else
+        {
+            Debug.LogWarning("[ActivarDialogo] No hay ningún diálogo asignado ni por defecto para mostrar.");
+        }
     }
 
     private void OnDialogoFinalizado()
@@ -94,8 +106,7 @@ public class ActivarDialogo : MonoBehaviour
             DialogoManager.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
         }
 
-        // Al terminar, si el diálogo asignaba una bandera, se registra en el GameStateManager
-        if (dialogoSeleccionadoActual.HasValue && dialogoSeleccionadoActual.Value.banderaACompletar != null)
+        if (GameStateManager.Instance != null && dialogoSeleccionadoActual.HasValue && dialogoSeleccionadoActual.Value.banderaACompletar != null)
         {
             GameStateManager.Instance.GuardarBandera(dialogoSeleccionadoActual.Value.banderaACompletar);
         }
