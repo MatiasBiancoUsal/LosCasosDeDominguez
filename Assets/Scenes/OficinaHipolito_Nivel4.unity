@@ -1487,7 +1487,6 @@ GameObject:
   - component: {fileID: 233689639}
   - component: {fileID: 233689643}
   - component: {fileID: 233689642}
-  - component: {fileID: 233689640}
   m_Layer: 5
   m_Name: "Gran Sal\xF3n"
   m_TagString: Untagged
@@ -1514,20 +1513,6 @@ RectTransform:
   m_AnchoredPosition: {x: -116.9, y: 0}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &233689640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233689638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: GranSalon_Nivel3
-  desbloqueado: 0
 --- !u!114 &233689642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2314,7 +2299,6 @@ GameObject:
   - component: {fileID: 558216700}
   - component: {fileID: 558216704}
   - component: {fileID: 558216703}
-  - component: {fileID: 558216701}
   m_Layer: 5
   m_Name: Lavadero
   m_TagString: Untagged
@@ -2341,20 +2325,6 @@ RectTransform:
   m_AnchoredPosition: {x: 14, y: -4}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &558216701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558216699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &558216703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,7 +2750,6 @@ GameObject:
   - component: {fileID: 692310553}
   - component: {fileID: 692310557}
   - component: {fileID: 692310556}
-  - component: {fileID: 692310554}
   m_Layer: 5
   m_Name: Oficina
   m_TagString: Untagged
@@ -2807,20 +2776,6 @@ RectTransform:
   m_AnchoredPosition: {x: -231.6, y: 15}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &692310554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692310552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: OficinaHipolito_Nivel4
-  desbloqueado: 0
 --- !u!114 &692310556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3078,14 +3033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 56e4462ab2d9897439df295f080091aa, type: 2}
-    dialogo: {fileID: 11400000, guid: 87dbed08de52d2045b72d6167aaa81f5, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 92fa306bcfd825042a7376fae648e2aa, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: 56e4462ab2d9897439df295f080091aa, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: 92fa306bcfd825042a7376fae648e2aa, type: 2}
 --- !u!61 &715950040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3295,7 +3242,6 @@ GameObject:
   - component: {fileID: 735272646}
   - component: {fileID: 735272650}
   - component: {fileID: 735272649}
-  - component: {fileID: 735272647}
   m_Layer: 5
   m_Name: Recibidor
   m_TagString: Untagged
@@ -3322,20 +3268,6 @@ RectTransform:
   m_AnchoredPosition: {x: -111.6, y: -127.6}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &735272647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735272645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: Recibidor_Nivel2
-  desbloqueado: 0
 --- !u!114 &735272649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4153,7 +4085,6 @@ GameObject:
   - component: {fileID: 888294732}
   - component: {fileID: 888294736}
   - component: {fileID: 888294735}
-  - component: {fileID: 888294733}
   m_Layer: 5
   m_Name: Cocina
   m_TagString: Untagged
@@ -4180,20 +4111,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.3, y: -94.973}
   m_SizeDelta: {x: 169.2909, y: 45.8545}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &888294733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888294731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &888294735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4358,7 +4275,6 @@ GameObject:
   - component: {fileID: 917657354}
   - component: {fileID: 917657358}
   - component: {fileID: 917657357}
-  - component: {fileID: 917657355}
   m_Layer: 5
   m_Name: Patio
   m_TagString: Untagged
@@ -4385,20 +4301,6 @@ RectTransform:
   m_AnchoredPosition: {x: 115.5, y: -56.8}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &917657355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917657353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &917657357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4540,7 +4442,6 @@ GameObject:
   - component: {fileID: 949275716}
   - component: {fileID: 949275720}
   - component: {fileID: 949275719}
-  - component: {fileID: 949275717}
   m_Layer: 5
   m_Name: Biblioteca
   m_TagString: Untagged
@@ -4567,20 +4468,6 @@ RectTransform:
   m_AnchoredPosition: {x: -227, y: -76}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &949275717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949275715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &949275719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4669,7 +4556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: GranSalon_Nivel3
-  desbloqueado: 1
+  banderaRequerida: {fileID: 0}
+  mensajePuertaCerrada: {fileID: 0}
+  tiempoMensaje: 3
 --- !u!61 &955595798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4914,6 +4803,10 @@ PrefabInstance:
     - target: {fileID: 6343524429980549311, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
       propertyPath: m_Name
       value: PanelDIalogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343524429980549311, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5581,7 +5474,6 @@ GameObject:
   - component: {fileID: 1178271623}
   - component: {fileID: 1178271627}
   - component: {fileID: 1178271626}
-  - component: {fileID: 1178271624}
   m_Layer: 5
   m_Name: Dormitorio
   m_TagString: Untagged
@@ -5608,20 +5500,6 @@ RectTransform:
   m_AnchoredPosition: {x: -121.8, y: 102.9}
   m_SizeDelta: {x: 110.7574, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1178271624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1178271622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570e532e5c793447b616efba73f3b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
-  nombreDeLaEscena: 
-  desbloqueado: 0
 --- !u!114 &1178271626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6529,6 +6407,7 @@ GameObject:
   - component: {fileID: 1521681045}
   - component: {fileID: 1521681044}
   - component: {fileID: 1521681046}
+  - component: {fileID: 1521681047}
   m_Layer: 0
   m_Name: PasoAGranSalon
   m_TagString: Untagged
@@ -6610,7 +6489,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: GranSalon_Nivel3
-  desbloqueado: 1
+  banderaRequerida: {fileID: 0}
+  mensajePuertaCerrada: {fileID: 0}
+  tiempoMensaje: 3
+--- !u!114 &1521681047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521681043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
+  detectorHover: {fileID: 0}
+  botonInspeccion: {fileID: 0}
+  botonInterrogatorio: {fileID: 0}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1586324873
 GameObject:
   m_ObjectHideFlags: 0
