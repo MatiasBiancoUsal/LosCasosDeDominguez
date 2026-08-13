@@ -11,11 +11,11 @@ public class DesactivadorPorTiempo : MonoBehaviour
     private void OnEnable()
     {
         // Desbloquea la puerta cuando se activa este objeto
-        if (puertaADesbloquear != null)
-        {
-            puertaADesbloquear.desbloqueado = true;
-            Debug.Log("Puerta desbloqueada.");
-        }
+        //if (puertaADesbloquear != null)
+        //{
+        //    puertaADesbloquear.desbloqueado = true;
+        //    Debug.Log("Puerta desbloqueada.");
+        //}
 
         Invoke(nameof(Desactivar), _tiempo);
     }
