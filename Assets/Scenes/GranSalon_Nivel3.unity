@@ -2709,6 +2709,7 @@ GameObject:
   - component: {fileID: 684821944}
   - component: {fileID: 684821942}
   - component: {fileID: 684821943}
+  - component: {fileID: 684821947}
   m_Layer: 6
   m_Name: Domingo Objeto Interactivo
   m_TagString: Untagged
@@ -2888,6 +2889,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &684821947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684821940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2428d550da0a16408d216a7994a650e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionSospechoso
+  suspectData: {fileID: 11400000, guid: a7e620e79e693b549a3e9d596d08129c, type: 2}
+  inspectionManager: {fileID: 1925750908}
+  inspectionPanel: {fileID: 1875786788}
 --- !u!1 &728740854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,6 +3222,7 @@ GameObject:
   - component: {fileID: 739372389}
   - component: {fileID: 739372387}
   - component: {fileID: 739372388}
+  - component: {fileID: 739372390}
   m_Layer: 6
   m_Name: Elena Objeto Interactivo
   m_TagString: Untagged
@@ -3385,6 +3402,21 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &739372390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739372378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2428d550da0a16408d216a7994a650e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionSospechoso
+  suspectData: {fileID: 11400000, guid: a7b367b833ab7124fbe8d6997004e35e, type: 2}
+  inspectionManager: {fileID: 1925750908}
+  inspectionPanel: {fileID: 1875786788}
 --- !u!1 &750817883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,6 +3529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765533691}
   - component: {fileID: 765533693}
+  - component: {fileID: 765533694}
   - component: {fileID: 765533692}
   m_Layer: 0
   m_Name: __MANAGERS
@@ -3550,6 +3583,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07aa81fbfd3d6f34f8cd689e3880926a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
+--- !u!114 &765533694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765533690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c1c8625dd455a4b80d2b0a9a245a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetPlayerPrefs
+  borrarAlIniciar: 1
 --- !u!1 &804994084
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,6 +6895,7 @@ GameObject:
   - component: {fileID: 1573518379}
   - component: {fileID: 1573518381}
   - component: {fileID: 1573518380}
+  - component: {fileID: 1573518384}
   m_Layer: 6
   m_Name: Consuelo Objeto Interactivo
   m_TagString: Untagged
@@ -6922,7 +6969,7 @@ MonoBehaviour:
   - banderaACompletar: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
     banderaRequerida: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
-  dialogoPorDefecto: {fileID: 0}
+  dialogoPorDefecto: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
 --- !u!61 &1573518382
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7028,6 +7075,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1573518384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573518377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2428d550da0a16408d216a7994a650e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionSospechoso
+  suspectData: {fileID: 11400000, guid: c24b9862cb738f34ca275173b7da186d, type: 2}
+  inspectionManager: {fileID: 1925750908}
+  inspectionPanel: {fileID: 1875786788}
 --- !u!1 &1588630443
 GameObject:
   m_ObjectHideFlags: 0
