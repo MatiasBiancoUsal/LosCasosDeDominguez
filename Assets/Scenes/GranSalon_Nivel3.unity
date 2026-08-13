@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &11068860
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1924,7 +1924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &516163910
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2725,7 +2725,7 @@ Transform:
   m_GameObject: {fileID: 684821940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.57, y: 8.23, z: -0.1}
+  m_LocalPosition: {x: -16.31, y: 7.48, z: -0.1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6420,7 +6420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1493611036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6846,9 +6846,9 @@ GameObject:
   - component: {fileID: 1573518378}
   - component: {fileID: 1573518383}
   - component: {fileID: 1573518382}
+  - component: {fileID: 1573518379}
   - component: {fileID: 1573518381}
   - component: {fileID: 1573518380}
-  - component: {fileID: 1573518379}
   m_Layer: 6
   m_Name: Consuelo Objeto Interactivo
   m_TagString: Untagged
@@ -6884,9 +6884,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
-  detectorHover: {fileID: 0}
-  botonInspeccion: {fileID: 0}
-  botonInterrogatorio: {fileID: 0}
+  detectorHover: {fileID: 1493611035}
+  botonInspeccion: {fileID: 516163909}
+  botonInterrogatorio: {fileID: 11068859}
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -6915,7 +6915,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles: []
+  dialogosPosibles:
+  - banderaACompletar: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
+    dialogo: {fileID: 11400000, guid: 9f844257c2c91f24b9b26691c9e37f44, type: 2}
+    banderaRequerida: {fileID: 0}
+  - banderaACompletar: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
   dialogoPorDefecto: {fileID: 0}
 --- !u!61 &1573518382
 BoxCollider2D:
