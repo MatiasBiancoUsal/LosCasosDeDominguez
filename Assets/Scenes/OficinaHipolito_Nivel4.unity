@@ -1550,6 +1550,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 468360287}
     m_Modifications:
+    - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: datosDelObjeto
+      value: 
+      objectReference: {fileID: 11400000, guid: fbe4239f57395e049a6a1acb5f3cede0, type: 2}
     - target: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_Name
       value: LibroDeCarpinchos
@@ -1636,6 +1640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 468360287}
     m_Modifications:
+    - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: datosDelObjeto
+      value: 
+      objectReference: {fileID: 11400000, guid: bdb8fe90f2cbd354b9bf63df7180ecf5, type: 2}
     - target: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_Name
       value: "CartasDeHip\xF3lito"
@@ -1740,6 +1748,17 @@ Transform:
   - {fileID: 425264750}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469384107 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+  m_PrefabInstance: {fileID: 433537409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
 --- !u!1 &548510021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,9 +5616,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ObjetoInteractuable, Assembly-CSharp
-        m_MethodName: ForzarCierreDesdeUI
+      - m_Target: {fileID: 469384107}
+        m_TargetAssemblyTypeName: AccionPista, Assembly-CSharp
+        m_MethodName: CerrarPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5655,6 +5674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 468360287}
     m_Modifications:
+    - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: datosDelObjeto
+      value: 
+      objectReference: {fileID: 11400000, guid: af16761cf90de974d977a0ad6712ac55, type: 2}
     - target: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_Name
       value: TachoDeBasura

@@ -4395,9 +4395,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ObjetoInteractuable, Assembly-CSharp
-        m_MethodName: ForzarCierreDesdeUI
+      - m_Target: {fileID: 2048219778}
+        m_TargetAssemblyTypeName: AccionPista, Assembly-CSharp
+        m_MethodName: CerrarPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6882,8 +6882,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7290862215616319462, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2048219778}
   m_SourcePrefab: {fileID: 100100000, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+--- !u!1 &2048219777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7290862215616319462, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+  m_PrefabInstance: {fileID: 2048219776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048219778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048219777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
+  datosDelObjeto: {fileID: 11400000, guid: 711d03a7d3b974b4097d108253202d6a, type: 2}
 --- !u!1001 &2083881895
 PrefabInstance:
   m_ObjectHideFlags: 0

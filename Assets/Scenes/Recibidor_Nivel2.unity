@@ -3114,17 +3114,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
   m_PrefabInstance: {fileID: 2017075616323887956}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1122407915 stripped
+--- !u!114 &1122407916 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
   m_PrefabInstance: {fileID: 2017075616323887956}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
 --- !u!1 &1128244811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,9 +5220,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1122407915}
-        m_TargetAssemblyTypeName: ObjetoInteractuable, Assembly-CSharp
-        m_MethodName: ForzarCierreDesdeUI
+      - m_Target: {fileID: 1122407916}
+        m_TargetAssemblyTypeName: AccionPista, Assembly-CSharp
+        m_MethodName: CerrarPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6274,7 +6274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ab9e4d40a836147a99ed6722537116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamaraSeguimiento
-  objetivo: {fileID: 0}
+  objetivo: {fileID: 1328103641}
   suavizado: 5
   desfase: {x: 0, y: 0, z: -10}
 --- !u!1 &1988225659
