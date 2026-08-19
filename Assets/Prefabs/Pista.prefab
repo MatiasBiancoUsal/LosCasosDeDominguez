@@ -112,10 +112,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3939274840037971162}
   - component: {fileID: 8725359165876604270}
-  - component: {fileID: 6768770960894861360}
   - component: {fileID: 6799160411283628934}
   - component: {fileID: 8949009122784572532}
   - component: {fileID: 1896550131827216148}
+  - component: {fileID: 4021515995913145498}
   m_Layer: 6
   m_Name: Pista
   m_TagString: Untagged
@@ -198,68 +198,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!60 &6768770960894861360
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2556479570396242697}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.97, y: 0.75}
-    newSize: {x: 0.97, y: 0.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.445, y: 0.125}
-      - {x: 0.355, y: 0.16499999}
-      - {x: -0.085, y: 0.36499998}
-      - {x: -0.145, y: 0.36499998}
-      - {x: -0.305, y: 0.265}
-      - {x: -0.465, y: 0.114999995}
-      - {x: -0.48499998, y: 0.085}
-      - {x: -0.48499998, y: -0.095}
-      - {x: -0.465, y: -0.155}
-      - {x: -0.16499999, y: -0.295}
-      - {x: 0.015, y: -0.375}
-      - {x: 0.175, y: -0.375}
-      - {x: 0.42499998, y: -0.205}
-      - {x: 0.48499998, y: -0.105}
-      - {x: 0.48499998, y: 0.024999999}
-  m_UseDelaunayMesh: 1
 --- !u!114 &6799160411283628934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +242,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AccionPista
   datosDelObjeto: {fileID: 11400000, guid: 88f0d3dd35ff1464c96794110c9ff434, type: 2}
+--- !u!61 &4021515995913145498
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2556479570396242697}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.97, y: 0.75}
+    newSize: {x: 0.97, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.97, y: 0.75}
+  m_EdgeRadius: 0
 --- !u!1 &3396046713801726014
 GameObject:
   m_ObjectHideFlags: 0
