@@ -8094,7 +8094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1617549584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9740,6 +9740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Misiones (Con Contenido)
       objectReference: {fileID: 0}
+    - target: {fileID: 6033182934733256156, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6728741289906548145, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10071,8 +10075,8 @@ Transform:
   m_GameObject: {fileID: 1956049671}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.37, y: -12.18, z: -0.1}
-  m_LocalScale: {x: 0.40000004, y: 0.44784003, z: 0.40000004}
+  m_LocalPosition: {x: -4.73, y: -11.74, z: -0.1}
+  m_LocalScale: {x: 0.47492003, y: 0.53172046, z: 0.47492003}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2050258885}
@@ -11692,13 +11696,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 816771151}
     m_Modifications:
+    - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6844322135326454316, guid: 8e3adca317ff54e43bdd6fa52d9d0f49, type: 3}
+    - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.582048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.582048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.582048
+      objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.21
+      value: 24.59
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.96
+      value: -2.17
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11768,6 +11792,14 @@ PrefabInstance:
       propertyPath: dialogosPosibles.Array.data[0].banderaACompletar
       value: 
       objectReference: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
+    - target: {fileID: 8640362425346548306, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640362425346548306, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 9.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
