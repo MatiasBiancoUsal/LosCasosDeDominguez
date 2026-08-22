@@ -1208,6 +1208,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 40002875}
+  - {fileID: 790835171}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &219752596
@@ -2427,13 +2428,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790835170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.66941, y: -1.65, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06541002, y: -0.64400995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 765349510}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 219752595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &797087801 stripped
 MonoBehaviour:
@@ -7448,6 +7449,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogoPorDefecto
+      value: 
+      objectReference: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogosPosibles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogosPosibles.Array.data[0].dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogosPosibles.Array.data[1].dialogo
+      value: 
+      objectReference: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogosPosibles.Array.data[0].banderaACompletar
+      value: 
+      objectReference: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
+    - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: dialogosPosibles.Array.data[1].banderaACompletar
+      value: 
+      objectReference: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7902,4 +7927,3 @@ SceneRoots:
   - {fileID: 1250526147}
   - {fileID: 462682659}
   - {fileID: 877092837}
-  - {fileID: 790835171}
