@@ -51,7 +51,7 @@ public class ActivarDialogo : MonoBehaviour
 
     private void EvaluarYIniciarDialogo()
     {
-        if (DialogoManager.Instance == null)
+        if (DialogoManager_Definitivo.Instance == null)
         {
             Debug.LogError("[ActivarDialogo] Falta DialogoManager.Instance en la escena.");
             return;
@@ -88,10 +88,10 @@ public class ActivarDialogo : MonoBehaviour
 
         if (dialogoAProcesar != null)
         {
-            DialogoManager.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
-            DialogoManager.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
+            DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
+            DialogoManager_Definitivo.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
 
-            DialogoManager.Instance.IniciarDialogo(dialogoAProcesar);
+            DialogoManager_Definitivo.Instance.IniciarDialogo(dialogoAProcesar);
         }
         else
         {
@@ -101,9 +101,9 @@ public class ActivarDialogo : MonoBehaviour
 
     private void OnDialogoFinalizado()
     {
-        if (DialogoManager.Instance != null)
+        if (DialogoManager_Definitivo.Instance != null)
         {
-            DialogoManager.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
+            DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
         }
 
         if (GameStateManager.Instance != null && dialogoSeleccionadoActual.HasValue && dialogoSeleccionadoActual.Value.banderaACompletar != null)

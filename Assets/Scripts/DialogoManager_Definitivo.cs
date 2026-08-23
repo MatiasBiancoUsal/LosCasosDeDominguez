@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class DialogoManager : MonoBehaviour
+public class DialogoManager_Definitivo : MonoBehaviour
 {
-    public static DialogoManager Instance { get; private set; }
+    public static DialogoManager_Definitivo Instance { get; private set; }
 
     [Header("Componentes Visuales del Canvas")]
     [SerializeField] private GameObject panelDialogo;
