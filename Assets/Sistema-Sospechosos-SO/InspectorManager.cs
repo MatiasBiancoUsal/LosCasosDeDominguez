@@ -87,6 +87,19 @@ public class InspectionManager : MonoBehaviour
 
         discoveredClues.Add(clue);
 
+        // Guardar la bandera de la pista
+        if (clue.flagDesbloqueo != null)
+        {
+            if (GameStateManager.Instance != null)
+            {
+                GameStateManager.Instance.GuardarBandera(clue.flagDesbloqueo);
+            }
+            else
+            {
+                Debug.LogError("[InspectionManager] No existe GameStateManager.");
+            }
+        }
+
         AddClueToUI(clue);
 
         Debug.Log("Pista encontrada: " + clue.clueName);
