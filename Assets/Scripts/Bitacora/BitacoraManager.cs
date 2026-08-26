@@ -1,19 +1,18 @@
-using System.Text;
-using TMPro;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class BitacoraManager : MonoBehaviour
 {
     public static BitacoraManager Instance { get; private set; }
 
-    [Header("Panel de ficha")]
-    [SerializeField] private GameObject panelFicha;
+    [Header("Ficha del personaje")]
+    [SerializeField] private Image retrato;
+    [SerializeField] private TMP_Text nombre;
+    [SerializeField] private TMP_Text informacion;
 
-    [Header("Información del personaje")]
-    [SerializeField] private TMP_Text nombreText;
-    [SerializeField] private Image retratoImage;
-    [SerializeField] private TMP_Text informacionText;
+    [Header("Panel")]
+    [SerializeField] private GameObject panelFicha;
 
     private void Awake()
     {
@@ -24,88 +23,52 @@ public class BitacoraManager : MonoBehaviour
         }
 
         Instance = this;
-
-        panelFicha = gameObject;
-
-        panelFicha.SetActive(false);
     }
 
     public void AbrirFicha(SuspectData suspect)
     {
         if (suspect == null)
         {
-            Debug.LogWarning("[BitacoraManager] Se intentó abrir una ficha vacía.");
+            Debug.LogWarning("[BitacoraManager] El sospechoso es nulo.");
             return;
         }
 
+        Debug.Log("Mostrando ficha de: " + suspect.suspectName);
+
         // Nombre
-        if (nombreText != null)
+        if (nombre != null)
         {
-            nombreText.text = suspect.suspectName;
+            nombre.text = suspect.suspectName;
         }
 
         // Retrato
-        if (retratoImage != null)
+        if (retrato != null)
         {
-            retratoImage.sprite = suspect.portrait;
+            retrato.sprite = suspect.portrait;
         }
 
         // Información
-        ConstruirInformacion(suspect);
-
-        // Abrir panel
-        if (panelFicha != null)
+        if (informacion != null)
         {
-            panelFicha.SetActive(true);
-        }
+            informacion.text = "";
 
-        Debug.Log("[BitacoraManager] Ficha abierta: " + suspect.suspectName);
-    }
-
-    private void ConstruirInformacion(SuspectData suspect)
-    {
-        if (informacionText == null)
-            return;
-
-        StringBuilder textoFinal = new StringBuilder();
-
-        if (suspect.notebookEntries == null)
-        {
-            informacionText.text = "";
-            return;
-        }
-
-        foreach (NotebookEntry entrada in suspect.notebookEntries)
-        {
-            if (entrada == null)
-                continue;
-
-            if (entrada.flag == null)
-                continue;
-
-            if (GameStateManager.Instance != null &&
-                GameStateManager.Instance.TieneBandera(entrada.flag))
+            foreach (NotebookEntry entry in suspect.notebookEntries)
             {
-                if (!string.IsNullOrWhiteSpace(entrada.texto))
-                {
-                    if (textoFinal.Length > 0)
-                    {
-                        textoFinal.Append("\n\n");
-                    }
+                if (entry.flag == null)
+                    continue;
 
-                    textoFinal.Append(entrada.texto);
+                if (GameStateManager.Instance != null &&
+                    GameStateManager.Instance.TieneBandera(entry.flag))
+                {
+                    informacion.text += "• " + entry.texto + "\n\n";
                 }
             }
         }
 
-        informacionText.text = textoFinal.ToString();
-    }
-
-    public void CerrarFicha()
-    {
+        // Abrir ficha
         if (panelFicha != null)
         {
-            panelFicha.SetActive(false);
+            panelFicha.SetActive(true);
         }
     }
 }
