@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour
 
     /// <summary>
     /// Consulta si una bandera ya fue registrada como cumplida (1).
-    /// Si la bandera enviada es null, asume que no requiere condición y retorna true.
+    /// Si la bandera enviada es null, asume que no requiere condiciï¿½n y retorna true.
     /// </summary>
     public bool TieneBandera(GameFlag flag)
     {
@@ -39,13 +39,13 @@ public class GameStateManager : MonoBehaviour
 
         PlayerPrefs.SetInt(flag.Id, 1);
         PlayerPrefs.Save();
-        Debug.Log($"[GameStateManager] Bandera guardada con éxito: {flag.name}");
+        Debug.Log($"[GameStateManager] Bandera guardada con ï¿½xito: {flag.name}");
 
         OnBanderaObtenida?.Invoke(flag);
     }
 
     /// <summary>
-    /// Método de utilidad para borrar la partida desde botones de UI o pruebas.
+    /// Mï¿½todo de utilidad para borrar la partida desde botones de UI o pruebas.
     /// </summary>
     public void ResetPlayerPrefs()
     {
