@@ -7,20 +7,23 @@ public class ActivarDialogo : MonoBehaviour
     [Serializable]
     public struct CondicionDialogo
     {
-        [Tooltip("Bandera que se guardar· en el GameStateManager cuando este di·logo termine.")]
+        [Tooltip("Bandera que se guardar√° en el GameStateManager cuando este di√°logo termine.")]
         public GameFlag banderaACompletar;
 
-        [Tooltip("ScriptableObject con el contenido del di·logo.")]
+        [Tooltip("Segunda bandera opcional que tambi√©n se guardar√° cuando este di√°logo termine.")]
+        public GameFlag banderaExtra;
+
+        [Tooltip("ScriptableObject con el contenido del di√°logo.")]
         public DialogoSistema dialogo;
 
-        [Tooltip("Opcional: Bandera necesaria para habilitar este di·logo (ej: tener la l·mpara).")]
+        [Tooltip("Opcional: Bandera necesaria para habilitar este di√°logo (ej: tener la l√°mpara).")]
         public GameFlag banderaRequerida;
     }
 
-    [Header("Lista de di·logos priorizados (evaluados de arriba a abajo)")]
+    [Header("Lista de di√°logos priorizados (evaluados de arriba a abajo)")]
     [SerializeField] private CondicionDialogo[] dialogosPosibles;
 
-    [Header("Di·logo por defecto (se repite cuando se agotaron los anteriores)")]
+    [Header("Di√°logo por defecto (se repite cuando se agotaron los anteriores)")]
     [SerializeField] private DialogoSistema dialogoPorDefecto;
 
     private DetectorHover hover;
@@ -37,14 +40,13 @@ public class ActivarDialogo : MonoBehaviour
 
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
-
             if (hover != null && hover.MouseEstaEncima)
             {
                 EvaluarYIniciarDialogo();
             }
             else
             {
-                Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el ratÛn NO est· sobre el personaje (Hover es false).");
+                Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el rat√≥n NO est√° sobre el personaje (Hover es false).");
             }
         }
     }
@@ -62,15 +64,16 @@ public class ActivarDialogo : MonoBehaviour
 
         foreach (var cond in dialogosPosibles)
         {
-            
             if (GameStateManager.Instance != null)
             {
-                if (cond.banderaACompletar != null && GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
+                if (cond.banderaACompletar != null &&
+                    GameStateManager.Instance.TieneBandera(cond.banderaACompletar))
                 {
                     continue;
                 }
 
-                if (cond.banderaRequerida != null && !GameStateManager.Instance.TieneBandera(cond.banderaRequerida))
+                if (cond.banderaRequerida != null &&
+                    !GameStateManager.Instance.TieneBandera(cond.banderaRequerida))
                 {
                     continue;
                 }
@@ -95,7 +98,7 @@ public class ActivarDialogo : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[ActivarDialogo] No hay ning˙n di·logo asignado ni por defecto para mostrar.");
+            Debug.LogWarning("[ActivarDialogo] No hay ning√∫n di√°logo asignado ni por defecto para mostrar.");
         }
     }
 
@@ -106,9 +109,21 @@ public class ActivarDialogo : MonoBehaviour
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
         }
 
-        if (GameStateManager.Instance != null && dialogoSeleccionadoActual.HasValue && dialogoSeleccionadoActual.Value.banderaACompletar != null)
+        if (GameStateManager.Instance != null && dialogoSeleccionadoActual.HasValue)
         {
-            GameStateManager.Instance.GuardarBandera(dialogoSeleccionadoActual.Value.banderaACompletar);
+            CondicionDialogo dialogo = dialogoSeleccionadoActual.Value;
+
+            // Primera bandera
+            if (dialogo.banderaACompletar != null)
+            {
+                GameStateManager.Instance.GuardarBandera(dialogo.banderaACompletar);
+            }
+
+            // Segunda bandera opcional
+            if (dialogo.banderaExtra != null)
+            {
+                GameStateManager.Instance.GuardarBandera(dialogo.banderaExtra);
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ public class ObjetoInfoManager : MonoBehaviour
     [Header("Componentes de la UI")]
     public GameObject panelInfo;
     public TextMeshProUGUI textoNombre;
+    public TextMeshProUGUI textoDescripcion;
     public Image imgObjeto;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class ObjetoInfoManager : MonoBehaviour
         }
 
         textoNombre.text = data.nombreObjeto;
+        textoDescripcion.text = data.descripcionObjeto;
         imgObjeto.sprite = data.imagenObjeto;
 
         panelInfo.SetActive(true);
