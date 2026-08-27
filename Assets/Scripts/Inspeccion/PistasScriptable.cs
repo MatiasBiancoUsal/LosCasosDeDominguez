@@ -5,5 +5,5 @@ public class PistasScriptable : ScriptableObject
 {
     public string nombreObjeto;
     public Sprite imagenObjeto;
-    public string descripcionObjeto;
+    [TextArea(3, 20)] public string descripcionObjeto;
 }

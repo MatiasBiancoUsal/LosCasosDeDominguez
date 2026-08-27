@@ -1,9 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ControladorTutorial : MonoBehaviour
 {
+    public enum MostrarTuotial { no, [InspectorName("Sí")]si }
+    public MostrarTuotial usarTutorial;
+
     [Header("Panel del tutorial")]
     public GameObject panelTutorial;
     public GameObject SegundoTutorial;
@@ -12,7 +13,10 @@ public class ControladorTutorial : MonoBehaviour
 
     private void Start()
     {
-        panelTutorial.SetActive(true);
+        if (usarTutorial == MostrarTuotial.si)
+        {
+            panelTutorial.SetActive(true);
+        }
 
         tutorialActivo = true;
 
