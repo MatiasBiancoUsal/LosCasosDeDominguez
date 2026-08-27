@@ -2577,96 +2577,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
   m_PrefabInstance: {fileID: 424298855}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &426101917
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 426101918}
-  - component: {fileID: 426101921}
-  - component: {fileID: 426101920}
-  - component: {fileID: 426101919}
-  m_Layer: 5
-  m_Name: zona-ojeras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &426101918
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426101917}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 983754756}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1764, y: 9.53}
-  m_SizeDelta: {x: 3.3667, y: 1.1482}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &426101919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426101917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb24678b06adf4448b75701d17003a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InspectionArea
-  zone: 1
-  inspectionManager: {fileID: 1821545821}
---- !u!114 &426101920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426101917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &426101921
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426101917}
-  m_CullTransparentMesh: 1
 --- !u!1 &495501026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,7 +4832,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1122155895}
-  - {fileID: 426101918}
   - {fileID: 276073932}
   - {fileID: 1323716507}
   m_Father: {fileID: 244068426}
@@ -6209,7 +6118,7 @@ GameObject:
   - component: {fileID: 1122155897}
   - component: {fileID: 1122155896}
   m_Layer: 5
-  m_Name: zona-bolsillo
+  m_Name: zona-cabeza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6231,8 +6140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.25, y: 4.6}
-  m_SizeDelta: {x: 1.7045, y: 1.7437}
+  m_AnchoredPosition: {x: -0.30726, y: 7.4334}
+  m_SizeDelta: {x: 2.56361, y: 2.46692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122155896
 MonoBehaviour:
@@ -6246,7 +6155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb24678b06adf4448b75701d17003a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectionArea
-  zone: 5
+  zone: 0
   inspectionManager: {fileID: 1821545821}
 --- !u!114 &1122155897
 MonoBehaviour:
@@ -7828,7 +7737,7 @@ GameObject:
   - component: {fileID: 1323716509}
   - component: {fileID: 1323716508}
   m_Layer: 5
-  m_Name: zona-boca
+  m_Name: zona-manoDer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7850,8 +7759,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.29, y: 8.31}
-  m_SizeDelta: {x: 1.3691, y: 0.7138}
+  m_AnchoredPosition: {x: 3.53, y: -2.73}
+  m_SizeDelta: {x: 2.48626, y: 2.04715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323716508
 MonoBehaviour:
@@ -7865,7 +7774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb24678b06adf4448b75701d17003a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectionArea
-  zone: 2
+  zone: 7
   inspectionManager: {fileID: 1821545821}
 --- !u!114 &1323716509
 MonoBehaviour:
