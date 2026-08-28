@@ -28,6 +28,7 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseWorldPos = Cam.ScreenToWorldPoint(Input.mousePosition);
@@ -54,6 +55,7 @@ public class movimiento : MonoBehaviour
         {
             animator.SetBool("estaCaminando", true);
         }
+
         else
         {
             animator.SetBool("estaCaminando", false);
@@ -62,6 +64,7 @@ public class movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         float distancia = Vector2.Distance(rb.position, target);
 
         if (distancia > 0.15f)
@@ -79,6 +82,7 @@ public class movimiento : MonoBehaviour
                 {
                     transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
+
                 else
                 {
                     transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

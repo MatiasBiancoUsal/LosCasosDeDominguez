@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -31,7 +31,7 @@ public class MenuPausa : MonoBehaviour
     private void Update()
     {
         //Debug.Log("juegoPausado = " + juegoPausado);
-        // La P solo abre el men� de pausa
+        // La P solo abre el menú de pausa
         if (Input.GetKeyDown(KeyCode.P) && !juegoPausado) 
         { 
             PausarJuego(); 
