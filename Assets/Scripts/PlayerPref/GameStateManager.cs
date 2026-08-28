@@ -11,12 +11,20 @@ public class GameStateManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("🔵 GameStateManager Awake: " + gameObject.name +
+                  " | Instance actual: " + (Instance != null ? Instance.gameObject.name : "NULL"));
+
         if (Instance != null && Instance != this)
         {
+            Debug.LogWarning("🔴 GameStateManager DUPLICADO. Destruyendo: " + gameObject.name);
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
+
+        Debug.Log("🟢 GameStateManager PRINCIPAL: " + gameObject.name);
+
         DontDestroyOnLoad(gameObject);
     }
 
