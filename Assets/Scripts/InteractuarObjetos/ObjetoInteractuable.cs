@@ -1,20 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro; 
 
 [RequireComponent(typeof(DetectorHover))]
 public class ObjetoInteractuable : MonoBehaviour
 {
     [Header("Persistencia")]
-    [Tooltip("Bandera que se otorga al interactuar con este objeto.")]
     [SerializeField] private GameFlag banderaAOtorgar;
 
     [Header("Comportamiento Recolectable")]
-    [Tooltip("Si está marcado, el objeto desaparecerá al interactuar y no reaparecerá si la bandera ya fue guardada.")]
     [SerializeField] private bool destruirAlInteractuar = false;
 
-    [Header("Configuración de Notificación (Opcional)")]
-    [Tooltip("Panel UI que se mostrará. Si se deja vacío, el objeto simplemente desaparecerá.")]
+    [Header("Habitación")]
+    [SerializeField] private string nombreHabitacionDesbloqueada;
+
+    [Header("Referencias UI (Canvas)")]
     [SerializeField] private GameObject panelNotificacion;
+    [Tooltip("El componente Text Mesh Pro donde se mostrará el mensaje.")]
+    [SerializeField] private TMP_Text textoNotificacionUI;
 
     private DetectorHover detectorHover;
     private IAccionInteractuable accionEspecifica;
@@ -35,13 +38,9 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            if (GameStateManager.Instance.TieneBandera(banderaAOtorgar))
+            if (GameStateManager.Instance.TieneBandera(banderaAOtorgar) && destruirAlInteractuar)
             {
-                // Si la bandera ya fue obtenida y el objeto es destructible, se destruye al cargar la escena
-                if (destruirAlInteractuar)
-                {
-                    Destroy(gameObject);
-                }
+                Destroy(gameObject);
             }
         }
     }
@@ -50,7 +49,7 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         if (estaNotificando)
         {
-            if (Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame)
+            if (Keyboard.current != null && (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
             {
                 CerrarNotificacionYDestruir();
             }
@@ -68,31 +67,23 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void EjecutarInteraccion()
     {
-        // 1. Guardar la Bandera en el GameStateManager
-        if (banderaAOtorgar != null)
+        if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            if (GameStateManager.Instance != null)
-            {
-                GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
-            }
-            else
-            {
-                Debug.LogError("[ObjetoInteractuable] No existe GameStateManager en la escena.");
-            }
+            GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+            GameStateManager.Instance.RegistrarHabitacionDesbloqueada(banderaAOtorgar, nombreHabitacionDesbloqueada);
         }
 
-        // 2. Ejecutar acción específica si la tiene
-        if (accionEspecifica != null)
-        {
-            accionEspecifica.EjecutarAccion();
-        }
+        accionEspecifica?.EjecutarAccion();
 
-        // 3. Manejar desaparición / notificación
         if (destruirAlInteractuar)
         {
             if (panelNotificacion != null)
             {
-                // Si tiene panel asignado (como la Llave), lo muestra y espera segundo toque de Q
+                if (textoNotificacionUI != null)
+                {
+                    textoNotificacionUI.text = $"¡Desbloqueaste: {nombreHabitacionDesbloqueada}!";
+                }
+
                 panelNotificacion.SetActive(true);
                 estaNotificando = true;
 
@@ -101,7 +92,6 @@ public class ObjetoInteractuable : MonoBehaviour
             }
             else
             {
-                // Si NO tiene panel (como la Lámpara), desaparece inmediatamente
                 Destroy(gameObject);
             }
         }

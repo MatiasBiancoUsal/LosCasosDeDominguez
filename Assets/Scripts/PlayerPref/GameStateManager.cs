@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-
-    //LECTOR DE PLAYERPREFS PARA BANDERAS DE JUEGO 
+    // LECTOR DE PLAYERPREFS PARA BANDERAS DE JUEGO 
 
     public static GameStateManager Instance { get; private set; }
 
@@ -21,10 +20,9 @@ public class GameStateManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
     /// <summary>
     /// Consulta si una bandera ya fue registrada como cumplida (1).
-    /// Si la bandera enviada es null, asume que no requiere condici�n y retorna true.
+    /// Si la bandera enviada es null, asume que no requiere condición y retorna true.
     /// </summary>
     public bool TieneBandera(GameFlag flag)
     {
@@ -41,13 +39,39 @@ public class GameStateManager : MonoBehaviour
 
         PlayerPrefs.SetInt(flag.Id, 1);
         PlayerPrefs.Save();
-        Debug.Log($"[GameStateManager] Bandera guardada con �xito: {flag.name}");
+        Debug.Log($"[GameStateManager] Bandera guardada con éxito: {flag.name}");
 
         OnBanderaObtenida?.Invoke(flag);
     }
 
     /// <summary>
-    /// M�todo de utilidad para borrar la partida desde botones de UI o pruebas.
+    /// Guarda el nombre personalizado de la habitación asociado a la bandera en PlayerPrefs.
+    /// </summary>
+    public void RegistrarHabitacionDesbloqueada(GameFlag flag, string nombreHabitacion)
+    {
+        if (flag == null || string.IsNullOrEmpty(nombreHabitacion)) return;
+
+        // Guarda en PlayerPrefs usando una clave única ("NombreHabitacion_IDDeLaBandera")
+        string claveGuardado = "NombreHabitacion_" + flag.Id;
+        PlayerPrefs.SetString(claveGuardado, nombreHabitacion);
+        PlayerPrefs.Save();
+
+        Debug.Log($"[GameStateManager] Habitación '{nombreHabitacion}' registrada para la bandera: {flag.name}");
+    }
+
+    /// <summary>
+    /// Devuelve el nombre que le asignó el jugador a la habitación de esa bandera.
+    /// </summary>
+    public string ObtenerNombreHabitacion(GameFlag flag)
+    {
+        if (flag == null) return string.Empty;
+
+        string claveGuardado = "NombreHabitacion_" + flag.Id;
+        return PlayerPrefs.GetString(claveGuardado, "Sin nombre");
+    }
+
+    /// <summary>
+    /// Método de utilidad para borrar la partida desde botones de UI o pruebas.
     /// </summary>
     public void ResetPlayerPrefs()
     {
@@ -55,6 +79,4 @@ public class GameStateManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("[GameStateManager] Progreso reiniciado completamente.");
     }
-
-   
 }
