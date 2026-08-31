@@ -10,6 +10,9 @@ public class ActivarDialogo : MonoBehaviour
         [Tooltip("Bandera que se guardará en el GameStateManager cuando este diálogo termine.")]
         public GameFlag banderaACompletar;
 
+        [Tooltip("Nombre de la habitación a desbloquear si esta bandera otorga un acceso (ej: Cocina).")]
+        public string nombreHabitacionADesbloquear;
+
         [Tooltip("Segunda bandera opcional que también se guardará cuando este diálogo termine.")]
         public GameFlag banderaExtra;
 
@@ -113,13 +116,22 @@ public class ActivarDialogo : MonoBehaviour
         {
             CondicionDialogo dialogo = dialogoSeleccionadoActual.Value;
 
-            // Primera bandera
             if (dialogo.banderaACompletar != null)
             {
+                if (!string.IsNullOrEmpty(dialogo.nombreHabitacionADesbloquear))
+                {
+                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(dialogo.banderaACompletar, dialogo.nombreHabitacionADesbloquear);
+
+                    // Muestra el cartel directamente si hay una habitación asignada
+                    if (NotificacionLlaveUI.Instance != null)
+                    {
+                        NotificacionLlaveUI.Instance.MostrarNotificacion(dialogo.nombreHabitacionADesbloquear);
+                    }
+                }
+
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaACompletar);
             }
 
-            // Segunda bandera opcional
             if (dialogo.banderaExtra != null)
             {
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaExtra);

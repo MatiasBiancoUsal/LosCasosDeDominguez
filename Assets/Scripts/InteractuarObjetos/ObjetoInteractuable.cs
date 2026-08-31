@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro; 
 
 [RequireComponent(typeof(DetectorHover))]
 public class ObjetoInteractuable : MonoBehaviour
@@ -14,14 +13,10 @@ public class ObjetoInteractuable : MonoBehaviour
     [Header("Habitación")]
     [SerializeField] private string nombreHabitacionDesbloqueada;
 
-    [Header("Referencias UI (Canvas)")]
-    [SerializeField] private GameObject panelNotificacion;
-    [Tooltip("El componente Text Mesh Pro donde se mostrará el mensaje.")]
-    [SerializeField] private TMP_Text textoNotificacionUI;
-
     private DetectorHover detectorHover;
     private IAccionInteractuable accionEspecifica;
-    private bool estaNotificando = false;
+    private bool esperandoCierrePanelInfo = false;
+    private bool esPrimeraInteraccion = false;
 
     private void Awake()
     {
@@ -47,63 +42,78 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void Update()
     {
-        if (estaNotificando)
+        if (esperandoCierrePanelInfo)
         {
-            if (Keyboard.current != null && (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
+            if (Keyboard.current != null && (Keyboard.current.xKey.wasPressedThisFrame || Keyboard.current.qKey.wasPressedThisFrame))
             {
-                CerrarNotificacionYDestruir();
+                Debug.Log("[Paso 3] Se presionó la tecla para cerrar la info y mostrar la notificación.");
+                MostrarNotificacionFinal();
             }
             return;
         }
 
-        if (Keyboard.current == null || detectorHover == null || !detectorHover.MouseEstaEncima)
-            return;
+        if (Keyboard.current == null) return;
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            EjecutarInteraccion();
+            if (detectorHover != null && detectorHover.MouseEstaEncima)
+            {
+                Debug.Log("[Paso 1] Presionaste la Q y el ratón está encima del objeto.");
+                EjecutarInteraccion();
+            }
+            else
+            {
+                Debug.LogWarning("[Check] Presionaste la Q, pero 'MouseEstaEncima' es FALSE (el detector Hover no reconoce el ratón).");
+            }
         }
     }
 
     private void EjecutarInteraccion()
     {
+        Debug.Log("[Paso 2] Ejecutando interacción...");
+
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
-            GameStateManager.Instance.RegistrarHabitacionDesbloqueada(banderaAOtorgar, nombreHabitacionDesbloqueada);
+            if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
+            {
+                esPrimeraInteraccion = true;
+                GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+
+                if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+                {
+                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(banderaAOtorgar, nombreHabitacionDesbloqueada);
+                }
+            }
         }
 
-        accionEspecifica?.EjecutarAccion();
-
-        if (destruirAlInteractuar)
+        if (accionEspecifica != null)
         {
-            if (panelNotificacion != null)
-            {
-                if (textoNotificacionUI != null)
-                {
-                    textoNotificacionUI.text = $"¡Desbloqueaste: {nombreHabitacionDesbloqueada}!";
-                }
-
-                panelNotificacion.SetActive(true);
-                estaNotificando = true;
-
-                if (TryGetComponent<Collider2D>(out var col)) col.enabled = false;
-                if (TryGetComponent<SpriteRenderer>(out var rend)) rend.enabled = false;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Debug.Log("[Paso 2.1] Objeto con 'IAccionInteractuable' (AccionPista) detectado.");
+            accionEspecifica.EjecutarAccion();
+            esperandoCierrePanelInfo = true;
+        }
+        else
+        {
+            Debug.Log("[Paso 2.2] Objeto sin panel previo. Mostrando notificación directa.");
+            MostrarNotificacionFinal();
         }
     }
 
-    private void CerrarNotificacionYDestruir()
+    private void MostrarNotificacionFinal()
     {
-        if (panelNotificacion != null)
+        esperandoCierrePanelInfo = false;
+
+        // Dispara la notificación solo la primera vez si se le asignó una habitación
+        if (esPrimeraInteraccion && NotificacionLlaveUI.Instance != null && !string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
         {
-            panelNotificacion.SetActive(false);
+            NotificacionLlaveUI.Instance.MostrarNotificacion(nombreHabitacionDesbloqueada);
+            esPrimeraInteraccion = false;
         }
 
-        Destroy(gameObject);
+        // Si la casilla está marcada, se destruye el objeto
+        if (destruirAlInteractuar)
+        {
+            Destroy(gameObject);
+        }
     }
 }

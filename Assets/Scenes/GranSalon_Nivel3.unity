@@ -1475,13 +1475,14 @@ GameObject:
   - component: {fileID: 367129772}
   - component: {fileID: 367129771}
   - component: {fileID: 367129770}
+  - component: {fileID: 367129773}
   m_Layer: 5
   m_Name: NotificacionLlave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &367129770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,7 +1533,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1801719985}
   - {fileID: 1646756717}
   m_Father: {fileID: 1498855015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1541,6 +1541,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &367129773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367129769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea08d26bd3322f34285d3bdd53db54d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NotificacionLlaveUI
+  panelNotificacion: {fileID: 1646756716}
+  textoNotificacionUI: {fileID: 1801719986}
 --- !u!1 &398962842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,10 +2618,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
   - banderaACompletar: {fileID: 11400000, guid: a42a2004e78f3b44b8d018c58d842b00, type: 2}
+    nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 7e29a27b900b6af4b98139aaf54a34bb, type: 2}
     banderaRequerida: {fileID: 0}
   - banderaACompletar: {fileID: 11400000, guid: a42a2004e78f3b44b8d018c58d842b00, type: 2}
+    nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: d836c3844bc8c0e47bc4fbc5cf2a88f1, type: 2}
     banderaRequerida: {fileID: 0}
@@ -4645,6 +4661,14 @@ PrefabInstance:
       propertyPath: panelNotificacion
       value: 
       objectReference: {fileID: 367129769}
+    - target: {fileID: 5261411994503440632, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: textoNotificacionUI
+      value: 
+      objectReference: {fileID: 1801719986}
+    - target: {fileID: 5261411994503440632, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: nombreHabitacionDesbloqueada
+      value: a la Cocina
+      objectReference: {fileID: 0}
     - target: {fileID: 6428911163074325911, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: suspectData
       value: 
@@ -4726,10 +4750,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
   - banderaACompletar: {fileID: 11400000, guid: aaef34f9af39a5d4d8108f9012f7b1f4, type: 2}
+    nombreHabitacionADesbloquear: a la Cocina
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 9f844257c2c91f24b9b26691c9e37f44, type: 2}
     banderaRequerida: {fileID: 0}
   - banderaACompletar: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
+    nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
     banderaRequerida: {fileID: 0}
@@ -7737,7 +7763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1646756717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7749,7 +7775,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1801719985}
   m_Father: {fileID: 367129772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8636,12 +8663,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 367129772}
+  m_Father: {fileID: 1646756717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2678, y: -56.3}
-  m_SizeDelta: {x: 228.1356, y: 50}
+  m_AnchoredPosition: {x: 0.0000095367, y: -57.8}
+  m_SizeDelta: {x: 276.2548, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801719986
 MonoBehaviour:
@@ -10613,10 +10640,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
   - banderaACompletar: {fileID: 11400000, guid: d68ef03601bd5df4fa5fc756654a4993, type: 2}
+    nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 58dddc6e558a61f499de5c7ce0aa8f34, type: 2}
     banderaRequerida: {fileID: 0}
   - banderaACompletar: {fileID: 11400000, guid: d68ef03601bd5df4fa5fc756654a4993, type: 2}
+    nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 3b870b74258035d45ab64d91a68d17fd, type: 2}
     banderaRequerida: {fileID: 0}
@@ -11501,7 +11530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: nombreHabitacionDesbloqueada
-      value: "Ya pod\xE9s enrar a la Biblioteca"
+      value: a la Biblioteca
       objectReference: {fileID: 0}
     - target: {fileID: 7663601874279807007, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_Sprite
