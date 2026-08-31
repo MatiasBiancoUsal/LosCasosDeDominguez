@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,10 +14,15 @@ public class ObjetoInteractuable : MonoBehaviour
     [Header("Habitación")]
     [SerializeField] private string nombreHabitacionDesbloqueada;
 
+    [Header("Secuencia Opcional (Resumen)")]
+    [Tooltip("Si se asigna, este panel de resumen se mostrará al finalizar la interacción.")]
+    [SerializeField] private NotificacionResumen notificacionResumen;
+
     private DetectorHover detectorHover;
     private IAccionInteractuable accionEspecifica;
     private bool esperandoCierrePanelInfo = false;
     private bool esPrimeraInteraccion = false;
+    private bool yaFueCompletado = false; // Bloquea re-interacciones no deseadas
 
     private void Awake()
     {
@@ -33,21 +39,31 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            if (GameStateManager.Instance.TieneBandera(banderaAOtorgar) && destruirAlInteractuar)
+            if (GameStateManager.Instance.TieneBandera(banderaAOtorgar))
             {
-                Destroy(gameObject);
+                if (destruirAlInteractuar)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    // Si ya tenía la bandera de antes, marcamos como completado para evitar reactivaciones
+                    yaFueCompletado = true;
+                }
             }
         }
     }
 
     private void Update()
     {
+        // Si el objeto ya completó su interacción (ej. Ramona), ignora cualquier otro Q o Hover
+        if (yaFueCompletado) return;
+
         if (esperandoCierrePanelInfo)
         {
             if (Keyboard.current != null && (Keyboard.current.xKey.wasPressedThisFrame || Keyboard.current.qKey.wasPressedThisFrame))
             {
-                Debug.Log("[Paso 3] Se presionó la tecla para cerrar la info y mostrar la notificación.");
-                MostrarNotificacionFinal();
+                StartCoroutine(SecuenciaNotificacionFinal());
             }
             return;
         }
@@ -58,20 +74,13 @@ public class ObjetoInteractuable : MonoBehaviour
         {
             if (detectorHover != null && detectorHover.MouseEstaEncima)
             {
-                Debug.Log("[Paso 1] Presionaste la Q y el ratón está encima del objeto.");
                 EjecutarInteraccion();
-            }
-            else
-            {
-                Debug.LogWarning("[Check] Presionaste la Q, pero 'MouseEstaEncima' es FALSE (el detector Hover no reconoce el ratón).");
             }
         }
     }
 
     private void EjecutarInteraccion()
     {
-        Debug.Log("[Paso 2] Ejecutando interacción...");
-
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
             if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
@@ -88,29 +97,32 @@ public class ObjetoInteractuable : MonoBehaviour
 
         if (accionEspecifica != null)
         {
-            Debug.Log("[Paso 2.1] Objeto con 'IAccionInteractuable' (AccionPista) detectado.");
             accionEspecifica.EjecutarAccion();
             esperandoCierrePanelInfo = true;
         }
         else
         {
-            Debug.Log("[Paso 2.2] Objeto sin panel previo. Mostrando notificación directa.");
-            MostrarNotificacionFinal();
+            StartCoroutine(SecuenciaNotificacionFinal());
         }
     }
 
-    private void MostrarNotificacionFinal()
+    private IEnumerator SecuenciaNotificacionFinal()
     {
         esperandoCierrePanelInfo = false;
+        yaFueCompletado = true; // Sella el objeto para que no vuelva a responder a la Q con el Mouse encima
 
-        // Dispara la notificación solo la primera vez si se le asignó una habitación
+        yield return null; // Espera un frame para evitar que la tecla Q de cierre active otra cosa
+
         if (esPrimeraInteraccion && NotificacionLlaveUI.Instance != null && !string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
         {
-            NotificacionLlaveUI.Instance.MostrarNotificacion(nombreHabitacionDesbloqueada);
+            NotificacionLlaveUI.Instance.MostrarNotificacion(nombreHabitacionDesbloqueada, notificacionResumen);
             esPrimeraInteraccion = false;
         }
+        else if (notificacionResumen != null)
+        {
+            notificacionResumen.MostrarNotificacion();
+        }
 
-        // Si la casilla está marcada, se destruye el objeto
         if (destruirAlInteractuar)
         {
             Destroy(gameObject);

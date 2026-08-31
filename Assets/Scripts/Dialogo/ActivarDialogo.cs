@@ -29,6 +29,10 @@ public class ActivarDialogo : MonoBehaviour
     [Header("Diálogo por defecto (se repite cuando se agotaron los anteriores)")]
     [SerializeField] private DialogoSistema dialogoPorDefecto;
 
+    [Header("Secuencia Opcional (Resumen)")]
+    [Tooltip("Si se asigna, al terminar este diálogo y cerrar las fotos se abrirá el panel de resumen.")]
+    [SerializeField] private NotificacionResumen notificacionResumen;
+
     private DetectorHover hover;
     private CondicionDialogo? dialogoSeleccionadoActual;
 
@@ -122,10 +126,10 @@ public class ActivarDialogo : MonoBehaviour
                 {
                     GameStateManager.Instance.RegistrarHabitacionDesbloqueada(dialogo.banderaACompletar, dialogo.nombreHabitacionADesbloquear);
 
-                    // Muestra el cartel directamente si hay una habitación asignada
+                    // Muestra el cartel pasando también la referencia de la NotificacionResumen
                     if (NotificacionLlaveUI.Instance != null)
                     {
-                        NotificacionLlaveUI.Instance.MostrarNotificacion(dialogo.nombreHabitacionADesbloquear);
+                        NotificacionLlaveUI.Instance.MostrarNotificacion(dialogo.nombreHabitacionADesbloquear, notificacionResumen);
                     }
                 }
 

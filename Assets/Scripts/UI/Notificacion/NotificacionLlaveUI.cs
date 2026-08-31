@@ -10,6 +10,7 @@ public class NotificacionLlaveUI : MonoBehaviour
     [SerializeField] private GameObject panelNotificacion;
     [SerializeField] private TMP_Text textoNotificacionUI;
 
+    private NotificacionResumen resumenPendiente = null;
     private bool estaNotificando = false;
 
     private void Awake()
@@ -24,17 +25,18 @@ public class NotificacionLlaveUI : MonoBehaviour
 
     private void Update()
     {
-        if (estaNotificando && Keyboard.current != null)
+        if (!estaNotificando) return;
+
+        if (Keyboard.current != null && (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
         {
-            if (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
-            {
-                CerrarNotificacion();
-            }
+            CerrarNotificacion();
         }
     }
 
-    public void MostrarNotificacion(string nombreHabitacion)
+    public void MostrarNotificacion(string nombreHabitacion, NotificacionResumen resumenOpcional = null)
     {
+        resumenPendiente = resumenOpcional;
+
         if (textoNotificacionUI != null)
         {
             textoNotificacionUI.text = $"¡Ya podés entrar {nombreHabitacion}!";
@@ -50,10 +52,17 @@ public class NotificacionLlaveUI : MonoBehaviour
 
     public void CerrarNotificacion()
     {
+        estaNotificando = false;
+
         if (panelNotificacion != null)
         {
             panelNotificacion.SetActive(false);
         }
-        estaNotificando = false;
+
+        if (resumenPendiente != null)
+        {
+            resumenPendiente.MostrarNotificacion();
+            resumenPendiente = null;
+        }
     }
 }
