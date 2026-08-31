@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class movimiento : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 4f;
 
     [Header("Efecto de Clic")]
     [SerializeField] private GameObject efectoClicPrefab;
@@ -28,10 +28,11 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouseWorldPos = Cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Mathf.Abs(Cam.transform.position.z);
+            Vector3 mouseWorldPos = Cam.ScreenToWorldPoint(mousePos);
             Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0f, capaSuelo);
@@ -55,7 +56,6 @@ public class movimiento : MonoBehaviour
         {
             animator.SetBool("estaCaminando", true);
         }
-
         else
         {
             animator.SetBool("estaCaminando", false);
@@ -64,7 +64,6 @@ public class movimiento : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         float distancia = Vector2.Distance(rb.position, target);
 
         if (distancia > 0.15f)
@@ -82,7 +81,6 @@ public class movimiento : MonoBehaviour
                 {
                     transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
-
                 else
                 {
                     transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);

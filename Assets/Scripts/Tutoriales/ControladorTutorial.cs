@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ControladorTutorial : MonoBehaviour
 {
-    public enum MostrarTuotial { no, [InspectorName("Sí")]si }
+    public enum MostrarTuotial { no, [InspectorName("Sí")] si }
     public MostrarTuotial usarTutorial;
 
     [Header("Panel del tutorial")]
@@ -16,17 +16,20 @@ public class ControladorTutorial : MonoBehaviour
         if (usarTutorial == MostrarTuotial.si)
         {
             panelTutorial.SetActive(true);
+            tutorialActivo = true;
+            Time.timeScale = 0f; 
         }
-
-        tutorialActivo = true;
-
-        Time.timeScale = 0f;
+        else
+        {
+            tutorialActivo = false;
+            Time.timeScale = 1f; 
+        }
     }
 
     public void PasarASegundoTutorial()
     {
         panelTutorial.SetActive(false);
-        SegundoTutorial.SetActive(true);
+        if (SegundoTutorial != null) SegundoTutorial.SetActive(true);
 
         Time.timeScale = 1f;
     }
@@ -34,10 +37,10 @@ public class ControladorTutorial : MonoBehaviour
     public void CerrarTutorial()
     {
         panelTutorial.SetActive(false);
-        SegundoTutorial.SetActive(false);
+        if (SegundoTutorial != null) SegundoTutorial.SetActive(false);
 
         tutorialActivo = false;
 
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; 
     }
 }
