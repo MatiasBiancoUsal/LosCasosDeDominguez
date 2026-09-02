@@ -70,10 +70,8 @@ public class InspectionManager : MonoBehaviour
         {
             Debug.LogWarning("No hay sospechoso asignado.");
             return;
-
-            Debug.Log("[INSPECCION] Llegó a InspectionManager: " + zone);
-
         }
+        Debug.Log("[INSPECCION] Llegó a InspectionManager: " + zone);
 
         ClueData clue = currentSuspect.GetClueByZone(zone);
 

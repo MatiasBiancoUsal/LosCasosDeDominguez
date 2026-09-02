@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -138,13 +137,13 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         esperandoCierrePanelInfo = false;
 
-        // Solo bloquear definitivamente si está configurado para hacerlo.
+        // Espera al siguiente frame para no procesar la tecla 'Q' de inmediato
+        yield return null;
+
         if (bloquearSiYaTieneBandera)
         {
             yaFueCompletado = true;
         }
-
-        yield return null;
 
         if (esPrimeraInteraccion &&
             NotificacionLlaveUI.Instance != null &&
@@ -162,10 +161,11 @@ public class ObjetoInteractuable : MonoBehaviour
             notificacionResumen.MostrarNotificacion();
         }
 
+        // SI DESTRUYES EL GAMEOBJECT, hazlo en el frame siguiente 
+        // para asegurar que NotificacionLlaveUI procesó la llamada correctamente.
         if (destruirAlInteractuar)
         {
             Destroy(gameObject);
         }
     }
 }
-
