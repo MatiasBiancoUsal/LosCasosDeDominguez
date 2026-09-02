@@ -23,7 +23,7 @@ public class InspectionManager : MonoBehaviour
     private Dictionary<SuspectData, HashSet<ClueData>> suspectDiscoveries =
         new Dictionary<SuspectData, HashSet<ClueData>>();
 
-    // Evita que la misma Q que abre el panel lo cierre instantáneamente
+    // Evita que la misma Q que abre el panel lo cierre instantï¿½neamente
     private bool ignoreNextQ = false;
 
     private void Start()
@@ -60,7 +60,7 @@ public class InspectionManager : MonoBehaviour
         {
             inspectionPanel.SetActive(false);
 
-            Debug.Log("Panel de inspección cerrado.");
+            Debug.Log("Panel de inspecciï¿½n cerrado.");
         }
     }
 
@@ -70,13 +70,16 @@ public class InspectionManager : MonoBehaviour
         {
             Debug.LogWarning("No hay sospechoso asignado.");
             return;
+
+            Debug.Log("[INSPECCION] LlegÃ³ a InspectionManager: " + zone);
+
         }
 
         ClueData clue = currentSuspect.GetClueByZone(zone);
 
         if (clue == null)
         {
-            Debug.Log("No se encontró ninguna pista.");
+            Debug.Log("No se encontrï¿½ ninguna pista.");
             return;
         }
 
@@ -111,7 +114,7 @@ public class InspectionManager : MonoBehaviour
             return;
 
         cluesText.text +=
-            "• " + clue.clueName + "\n" +
+            "ï¿½ " + clue.clueName + "\n" +
             clue.description + "\n\n";
     }
 
@@ -132,7 +135,7 @@ public class InspectionManager : MonoBehaviour
     {
         if (suspect == null)
         {
-            Debug.LogWarning("SetSuspect recibió un sospechoso nulo.");
+            Debug.LogWarning("SetSuspect recibiï¿½ un sospechoso nulo.");
             return;
         }
 
@@ -177,7 +180,7 @@ public class InspectionManager : MonoBehaviour
             inspectionPanel.SetActive(true);
         }
 
-        // Ignorar la misma Q que abrió el panel
+        // Ignorar la misma Q que abriï¿½ el panel
         ignoreNextQ = true;
 
         Debug.Log("Inspeccionando a: " + suspect.suspectName);

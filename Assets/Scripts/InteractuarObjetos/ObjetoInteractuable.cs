@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,9 @@ public class ObjetoInteractuable : MonoBehaviour
 {
     [Header("Persistencia")]
     [SerializeField] private GameFlag banderaAOtorgar;
+
+    [Tooltip("Si está activado, el objeto dejará de responder cuando la bandera ya haya sido obtenida.")]
+    [SerializeField] private bool bloquearSiYaTieneBandera = true;
 
     [Header("Comportamiento Recolectable")]
     [SerializeField] private bool destruirAlInteractuar = false;
@@ -22,7 +26,7 @@ public class ObjetoInteractuable : MonoBehaviour
     private IAccionInteractuable accionEspecifica;
     private bool esperandoCierrePanelInfo = false;
     private bool esPrimeraInteraccion = false;
-    private bool yaFueCompletado = false; // Bloquea re-interacciones no deseadas
+    private bool yaFueCompletado = false;
 
     private void Awake()
     {
@@ -37,38 +41,48 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void ComprobarSiYaFueRecogido()
     {
-        if (banderaAOtorgar != null && GameStateManager.Instance != null)
+        if (banderaAOtorgar == null || GameStateManager.Instance == null)
+            return;
+
+        if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
+            return;
+
+        // Si el objeto es recolectable y se debe destruir al conseguir la flag,
+        // desaparece al cargar la escena.
+        if (destruirAlInteractuar)
         {
-            if (GameStateManager.Instance.TieneBandera(banderaAOtorgar))
-            {
-                if (destruirAlInteractuar)
-                {
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    // Si ya tenía la bandera de antes, marcamos como completado para evitar reactivaciones
-                    yaFueCompletado = true;
-                }
-            }
+            Destroy(gameObject);
+            return;
+        }
+
+        // Solo bloqueamos la interacción si así lo indicamos desde el Inspector.
+        if (bloquearSiYaTieneBandera)
+        {
+            yaFueCompletado = true;
         }
     }
 
     private void Update()
     {
-        // Si el objeto ya completó su interacción (ej. Ramona), ignora cualquier otro Q o Hover
-        if (yaFueCompletado) return;
+        // Si ya completó su interacción y está configurado para bloquearse,
+        // no responde nuevamente.
+        if (yaFueCompletado)
+            return;
 
         if (esperandoCierrePanelInfo)
         {
-            if (Keyboard.current != null && (Keyboard.current.xKey.wasPressedThisFrame || Keyboard.current.qKey.wasPressedThisFrame))
+            if (Keyboard.current != null &&
+                (Keyboard.current.xKey.wasPressedThisFrame ||
+                 Keyboard.current.qKey.wasPressedThisFrame))
             {
                 StartCoroutine(SecuenciaNotificacionFinal());
             }
+
             return;
         }
 
-        if (Keyboard.current == null) return;
+        if (Keyboard.current == null)
+            return;
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
@@ -80,42 +94,67 @@ public class ObjetoInteractuable : MonoBehaviour
     }
 
     private void EjecutarInteraccion()
+{
+    if (banderaAOtorgar != null && GameStateManager.Instance != null)
     {
-        if (banderaAOtorgar != null && GameStateManager.Instance != null)
+        // Solo otorgar la bandera si todavía no la tiene.
+        if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
         {
-            if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
-            {
-                esPrimeraInteraccion = true;
-                GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+            esPrimeraInteraccion = true;
 
-                if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
-                {
-                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(banderaAOtorgar, nombreHabitacionDesbloqueada);
-                }
+            GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+
+            if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+            {
+                GameStateManager.Instance.RegistrarHabitacionDesbloqueada(
+                    banderaAOtorgar,
+                    nombreHabitacionDesbloqueada
+                );
             }
         }
+    }
 
-        if (accionEspecifica != null)
+    if (accionEspecifica != null)
+    {
+        accionEspecifica.EjecutarAccion();
+
+        // Los sospechosos manejan su propio cierre del panel.
+        if (accionEspecifica is AccionSospechoso)
         {
-            accionEspecifica.EjecutarAccion();
-            esperandoCierrePanelInfo = true;
+            esperandoCierrePanelInfo = false;
         }
         else
         {
-            StartCoroutine(SecuenciaNotificacionFinal());
+            esperandoCierrePanelInfo = true;
         }
     }
+    else
+    {
+        StartCoroutine(SecuenciaNotificacionFinal());
+    }
+}
 
     private IEnumerator SecuenciaNotificacionFinal()
     {
         esperandoCierrePanelInfo = false;
-        yaFueCompletado = true; // Sella el objeto para que no vuelva a responder a la Q con el Mouse encima
 
-        yield return null; // Espera un frame para evitar que la tecla Q de cierre active otra cosa
-
-        if (esPrimeraInteraccion && NotificacionLlaveUI.Instance != null && !string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+        // Solo bloquear definitivamente si está configurado para hacerlo.
+        if (bloquearSiYaTieneBandera)
         {
-            NotificacionLlaveUI.Instance.MostrarNotificacion(nombreHabitacionDesbloqueada, notificacionResumen);
+            yaFueCompletado = true;
+        }
+
+        yield return null;
+
+        if (esPrimeraInteraccion &&
+            NotificacionLlaveUI.Instance != null &&
+            !string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+        {
+            NotificacionLlaveUI.Instance.MostrarNotificacion(
+                nombreHabitacionDesbloqueada,
+                notificacionResumen
+            );
+
             esPrimeraInteraccion = false;
         }
         else if (notificacionResumen != null)
@@ -129,3 +168,4 @@ public class ObjetoInteractuable : MonoBehaviour
         }
     }
 }
+
