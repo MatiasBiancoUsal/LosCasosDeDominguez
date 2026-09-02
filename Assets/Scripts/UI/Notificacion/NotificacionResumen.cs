@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,10 @@ public class NotificacionResumen : MonoBehaviour
 
     [Header("Navegación")]
     [SerializeField] private string nombreEscenaResumen = "EscenaResumen";
+
+    [Header("Requisitos de Banderas / Pistas")]
+    [Tooltip("Lista de banderas requeridas. Si no se especifican, se mostrará siempre.")]
+    [SerializeField] private List<GameFlag> banderasRequeridas = new List<GameFlag>();
 
     private bool estaActiva = false;
 
@@ -38,8 +43,38 @@ public class NotificacionResumen : MonoBehaviour
         }
     }
 
+    // Evalúa si el jugador posee todas las flags configuradas
+    private bool TieneTodasLasBanderas()
+    {
+        // Si no se asigna ninguna bandera en el inspector, se muestra sin restricciones
+        if (banderasRequeridas == null || banderasRequeridas.Count == 0) return true;
+
+        if (GameStateManager.Instance == null)
+        {
+            Debug.LogError("[NotificacionResumen] No se encontró el GameStateManager en escena.");
+            return false;
+        }
+
+        foreach (GameFlag flag in banderasRequeridas)
+        {
+            if (flag != null && !GameStateManager.Instance.TieneBandera(flag))
+            {
+                return false; // Falta al menos una de las banderas requeridas
+            }
+        }
+
+        return true;
+    }
+
     public void MostrarNotificacion()
     {
+        // Si no cumple las banderas, no hace nada y el panel se queda apagado
+        if (!TieneTodasLasBanderas())
+        {
+            Debug.Log("[NotificacionResumen] Aún no se cumplen las banderas necesarias para activar el resumen.");
+            return;
+        }
+
         if (panelNotificacion != null)
         {
             panelNotificacion.SetActive(true);
@@ -53,10 +88,6 @@ public class NotificacionResumen : MonoBehaviour
         if (!string.IsNullOrEmpty(nombreEscenaResumen))
         {
             SceneManager.LoadScene(nombreEscenaResumen);
-        }
-        else
-        {
-            Debug.LogError("[NotificacionResumen] No asignaste el nombre de la escena de resumen.");
         }
     }
 }
