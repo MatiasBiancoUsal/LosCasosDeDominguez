@@ -24,7 +24,7 @@ public class NotificacionResumen : MonoBehaviour
     {
         if (panelNotificacion != null)
         {
-            panelNotificacion.SetActive(false); // Se mantiene oculto al inicio
+            panelNotificacion.SetActive(false); 
         }
 
         if (botonIrAResumen != null)
@@ -43,10 +43,8 @@ public class NotificacionResumen : MonoBehaviour
         }
     }
 
-    // Evalúa si el jugador posee todas las flags configuradas
     private bool TieneTodasLasBanderas()
     {
-        // Si no se asigna ninguna bandera en el inspector, se muestra sin restricciones
         if (banderasRequeridas == null || banderasRequeridas.Count == 0) return true;
 
         if (GameStateManager.Instance == null)
@@ -59,7 +57,7 @@ public class NotificacionResumen : MonoBehaviour
         {
             if (flag != null && !GameStateManager.Instance.TieneBandera(flag))
             {
-                return false; // Falta al menos una de las banderas requeridas
+                return false; 
             }
         }
 
@@ -68,7 +66,6 @@ public class NotificacionResumen : MonoBehaviour
 
     public void MostrarNotificacion()
     {
-        // Si no cumple las banderas, no hace nada y el panel se queda apagado
         if (!TieneTodasLasBanderas())
         {
             Debug.Log("[NotificacionResumen] Aún no se cumplen las banderas necesarias para activar el resumen.");
