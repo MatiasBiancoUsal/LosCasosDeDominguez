@@ -6,7 +6,10 @@ public class InteraccionTelefono : MonoBehaviour
     [Header("Configuración de UI y Animación")]
     [SerializeField] private GameObject panelParaAbrir;
     [SerializeField] private Animator animatorDelObjeto;
-    [SerializeField] private string nombreAnimacion = "telefono_espera"; 
+    [SerializeField] private string nombreAnimacion = "telefono_espera";
+
+    [Header("Flag")]
+    [SerializeField] private GameFlag flagAlInteractuar;
 
     [Header("Tiempos de Espera Automático")]
     [SerializeField] private float segundosParaArrancarAnimacion = 5f;
@@ -38,6 +41,7 @@ public class InteraccionTelefono : MonoBehaviour
         {
             animatorDelObjeto.Play(nombreAnimacion, 0, 0f);
             laAnimacionYaEmpezo = true;
+
             Debug.Log("El teléfono empezó a sonar/moverse. ¡Ya puedes presionar A!");
         }
     }
@@ -49,6 +53,13 @@ public class InteraccionTelefono : MonoBehaviour
         if (panelParaAbrir != null)
         {
             panelParaAbrir.SetActive(true);
+        }
+
+        // Dar la flag al interactuar con el teléfono
+        if (flagAlInteractuar != null && GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.GuardarBandera(flagAlInteractuar);
+            Debug.Log("Flag obtenida mediante el teléfono: " + flagAlInteractuar.name);
         }
     }
 }

@@ -6,7 +6,7 @@ public class PanelMisiones : MonoBehaviour
     UI_Input_Base uiib;
 
 
-    public GameObject lineaNuevaMision;
+    
 
     private void Awake()
     {
@@ -36,12 +36,5 @@ public class PanelMisiones : MonoBehaviour
         set { _panel.SetActive(value); }
     }
 
-    public void DesbloquearMision()
-    {
-        if (lineaNuevaMision != null)
-        {
-            lineaNuevaMision.SetActive(true);
-            Debug.Log("Nueva línea de misión activada en la libreta.");
-        }
-    }
+    
 }

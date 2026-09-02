@@ -1,67 +1,72 @@
-using System.Collections;
 using UnityEngine;
-using TMPro; // Usar si tenés TextMeshPro, si usás Text común usá UnityEngine.UI
+using System.Collections;
 
-public class PanelNotificacionUI : MonoBehaviour
+public class MostrarPanelConFlag : MonoBehaviour
 {
-    [Header("Configuración del Panel")]
-    [SerializeField] private GameObject contenedorPanel;
-    [SerializeField] private float tiempoVisible = 5f;
+    [Header("Flag que activa el cartel")]
+    public GameFlag flagNecesaria;
 
-    [Header("Filtro de Bandera (Opcional)")]
-    [Tooltip("Si asignás una bandera, solo se mostrará cuando se obtenga ESTA bandera en particular.")]
-    [SerializeField] private GameFlag banderaAAtender;
+    [Header("Panel a mostrar")]
+    public GameObject panel;
 
-    private Coroutine rutinaOcultar;
+    [Header("Tiempo que permanece visible")]
+    public float duracion = 3f;
 
-    private void OnEnable()
+    private Coroutine rutinaPanel;
+
+    private void Start()
     {
-        // Nos suscribimos al evento del GameStateManager cuando se activa el objeto
+        // Por si la flag ya había sido obtenida anteriormente
+        // antes de cargar esta escena.
+        if (GameStateManager.Instance != null &&
+            GameStateManager.Instance.TieneBandera(flagNecesaria))
+        {
+            MostrarCartel();
+        }
+
+        // Escuchamos cuando se obtiene una nueva bandera.
         if (GameStateManager.Instance != null)
         {
-            GameStateManager.Instance.OnBanderaObtenida += MostrarNotificacion;
+            GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        // Nos desuscribimos para evitar fugas de memoria
         if (GameStateManager.Instance != null)
         {
-            GameStateManager.Instance.OnBanderaObtenida -= MostrarNotificacion;
+            GameStateManager.Instance.OnBanderaObtenida -= AlObtenerBandera;
         }
     }
 
-    private void MostrarNotificacion(GameFlag banderaConseguida)
+    private void AlObtenerBandera(GameFlag bandera)
     {
-        // Si especificamos una bandera en particular y no es la que llegó, la ignoramos
-        if (banderaAAtender != null && banderaConseguida != banderaAAtender)
-            return;
-
-        // Encendemos el panel
-        contenedorPanel.SetActive(true);
-
-        // Si ya había una cuenta regresiva corriendo, la reiniciamos
-        if (rutinaOcultar != null)
-            StopCoroutine(rutinaOcultar);
-
-        rutinaOcultar = StartCoroutine(RutinaOcultarPorTiempo());
+        if (bandera == flagNecesaria)
+        {
+            MostrarCartel();
+        }
     }
 
-    private IEnumerator RutinaOcultarPorTiempo()
+    private void MostrarCartel()
     {
-        yield return new WaitForSeconds(tiempoVisible);
-        CerrarNotificacion();
+        if (panel == null) return;
+
+        if (rutinaPanel != null)
+        {
+            StopCoroutine(rutinaPanel);
+        }
+
+        rutinaPanel = StartCoroutine(MostrarPanel());
     }
 
-    /// <summary>
-    /// Asignar esta función al evento OnClick() del botón "X" de la UI
-    /// </summary>
-    public void CerrarNotificacion()
+    private IEnumerator MostrarPanel()
     {
-        if (rutinaOcultar != null)
-            StopCoroutine(rutinaOcultar);
+        panel.SetActive(true);
 
-        contenedorPanel.SetActive(false);
+        yield return new WaitForSeconds(duracion);
+
+        panel.SetActive(false);
+
+        rutinaPanel = null;
     }
 }
