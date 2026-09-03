@@ -1,121 +1,57 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ArmarioMinigame : MonoBehaviour
 {
-    [Header("Referencias de UI")]
-    [SerializeField] private GameObject canvasArmarioUI;
+    [Header("Configuración")]
+    [SerializeField] private float tiempoLimite = 15f;
+    [SerializeField] private int totalPistasRequeridas = 3;
+
+    [Header("Referencias UI Escena Minijuego")]
     [SerializeField] private TextMeshProUGUI textoTiempo;
-    [SerializeField] private GameObject botonAbrirArmario; // El indicador visual que dice "Presiona Q"
+    [SerializeField] private GameObject panelNotificacionFinal;
+    [SerializeField] private TextMeshProUGUI textoNotificacion;
 
-    [Header("Configuración de Tiempos")]
-    [SerializeField] private float tiempoLimite = 12f;
-    [SerializeField] private float tiempoCooldown = 30f;
-
-    private int pistasEncontradas = 0;
     private float tiempoRestante;
-    private bool juegoActivo = false;
-    private bool enCooldown = false;
-    private bool mouseEncima = false;
+    private bool juegoActivo = true;
+    private List<string> pistasEncontradas = new List<string>();
 
-    private Collider2D miCollider;
-    private Coroutine corrutinaTiempo;
-
-    private void Awake()
+    private void Start()
     {
-        // Obtenemos el Collider 2D del armario automáticamente
-        miCollider = GetComponent<Collider2D>();
+        tiempoRestante = tiempoLimite;
+        if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(false);
     }
 
     private void Update()
     {
-        // Si la cámara no existe o la UI principal está activa, evitamos el cálculo
-        if (Camera.main == null) return;
+        if (!juegoActivo) return;
 
-        // Convertimos la posición del ratón en la pantalla a coordenadas del mundo 2D
-        Vector2 posicionRaton = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        // Detectar si el ratón está exactamente sobre el BoxCollider2D del armario
-        if (miCollider != null && miCollider.OverlapPoint(posicionRaton))
+        tiempoRestante -= Time.deltaTime;
+        if (textoTiempo != null)
         {
-            // Evento: El cursor ENTRÓ al área del armario
-            if (!mouseEncima)
-            {
-                mouseEncima = true;
-                if (botonAbrirArmario != null && !enCooldown && !juegoActivo)
-                {
-                    botonAbrirArmario.SetActive(true);
-                }
-            }
-
-            // Evento: Presiona la tecla Q para iniciar el minijuego
-            if (Input.GetKeyDown(KeyCode.Q) && !juegoActivo && !enCooldown)
-            {
-                AbrirMinijuegoArmario();
-            }
-        }
-        else
-        {
-            // Evento: El cursor SALIÓ del área del armario
-            if (mouseEncima)
-            {
-                mouseEncima = false;
-                if (botonAbrirArmario != null)
-                {
-                    botonAbrirArmario.SetActive(false);
-                }
-            }
-        }
-    }
-
-    public void AbrirMinijuegoArmario()
-    {
-        if (enCooldown)
-        {
-            Debug.Log("El detective dice: 'Recién revisé ahí, necesito un momento'.");
-            return;
+            textoTiempo.text = Mathf.CeilToInt(tiempoRestante).ToString() + "s";
         }
 
-        // Reiniciar variables del juego
-        pistasEncontradas = 0;
-        tiempoRestante = tiempoLimite;
-        juegoActivo = true;
-
-        // Activar el Canvas del minijuego y ocultar el botón indicador de la Q
-        if (canvasArmarioUI != null) canvasArmarioUI.SetActive(true);
-        if (botonAbrirArmario != null) botonAbrirArmario.SetActive(false);
-
-        corrutinaTiempo = StartCoroutine(Contrarreloj());
-    }
-
-    private IEnumerator Contrarreloj()
-    {
-        while (tiempoRestante > 0 && juegoActivo)
-        {
-            tiempoRestante -= Time.deltaTime;
-            if (textoTiempo != null)
-            {
-                textoTiempo.text = Mathf.CeilToInt(tiempoRestante).ToString() + "s";
-            }
-            yield return null;
-        }
-
-        if (juegoActivo && pistasEncontradas < 3)
+        if (tiempoRestante <= 0)
         {
             TiempoAgotado();
         }
     }
 
-    // Llama a esta función desde el evento OnClick() de cada objeto/pista dentro del minijuego
-    public void PistaEncontrada(GameObject objetoPista)
+    public void PistaRecolectada(string nombrePista, GameObject objetoPista)
     {
         if (!juegoActivo) return;
 
         objetoPista.SetActive(false);
-        pistasEncontradas++;
+        if (!pistasEncontradas.Contains(nombrePista))
+        {
+            pistasEncontradas.Add(nombrePista);
+        }
 
-        if (pistasEncontradas >= 3)
+        if (pistasEncontradas.Count >= totalPistasRequeridas)
         {
             GanarMinijuego();
         }
@@ -124,27 +60,35 @@ public class ArmarioMinigame : MonoBehaviour
     private void GanarMinijuego()
     {
         juegoActivo = false;
-        if (corrutinaTiempo != null) StopCoroutine(corrutinaTiempo);
 
-        if (canvasArmarioUI != null) canvasArmarioUI.SetActive(false);
-        Debug.Log("¡Pistas encontradas con éxito!");
+        // Guardar flags de forma global
+        ArmarioInteractuable.minijuegoCompletado = true;
+        ArmarioInteractuable.pistasObtenidas = pistasEncontradas.ToArray();
+
+        // Mostrar panel con el resumen
+        if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(true);
+
+        if (textoNotificacion != null)
+        {
+            string mensaje = "¡Conseguiste todas las pistas!\n\nEncontraste:\n";
+            foreach (string pista in pistasEncontradas)
+            {
+                mensaje += "- " + pista + "\n";
+            }
+            textoNotificacion.text = mensaje;
+        }
     }
 
     private void TiempoAgotado()
     {
         juegoActivo = false;
-        if (canvasArmarioUI != null) canvasArmarioUI.SetActive(false);
-
-        StartCoroutine(IniciarCooldown());
+        // Cerrar escena directamente si pierde por tiempo
+        CerrarEscenaMinijuego();
     }
 
-    private IEnumerator IniciarCooldown()
+    // Conecta esta función al botón "Aceptar / Continuar" del Panel de Notificación
+    public void CerrarEscenaMinijuego()
     {
-        enCooldown = true;
-        if (botonAbrirArmario != null) botonAbrirArmario.SetActive(false);
-
-        yield return new WaitForSeconds(tiempoCooldown);
-
-        enCooldown = false;
+        SceneManager.UnloadSceneAsync(gameObject.scene.name);
     }
 }
