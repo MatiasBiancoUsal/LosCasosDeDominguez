@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,22 +6,27 @@ using TMPro;
 public class ArmarioMinigame : MonoBehaviour
 {
     [Header("Configuración")]
-    [SerializeField] private float tiempoLimite = 15f;
+    [SerializeField] private float tiempoLimite = 25f;
     [SerializeField] private int totalPistasRequeridas = 3;
+
+    [Header("Banderas de Pistas en este Minijuego")]
+    [SerializeField] private List<GameFlag> banderasRequeridas;
 
     [Header("Referencias UI Escena Minijuego")]
     [SerializeField] private TextMeshProUGUI textoTiempo;
+    [SerializeField] private TextMeshProUGUI textoContadorPistas;
     [SerializeField] private GameObject panelNotificacionFinal;
-    [SerializeField] private TextMeshProUGUI textoNotificacion;
 
     private float tiempoRestante;
     private bool juegoActivo = true;
-    private List<string> pistasEncontradas = new List<string>();
+    private int pistasConseguidasCount = 0;
 
     private void Start()
     {
         tiempoRestante = tiempoLimite;
         if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(false);
+
+        VerificarProgreso();
     }
 
     private void Update()
@@ -31,64 +35,60 @@ public class ArmarioMinigame : MonoBehaviour
 
         tiempoRestante -= Time.deltaTime;
         if (textoTiempo != null)
-        {
             textoTiempo.text = Mathf.CeilToInt(tiempoRestante).ToString() + "s";
-        }
 
         if (tiempoRestante <= 0)
-        {
             TiempoAgotado();
-        }
     }
 
-    public void PistaRecolectada(string nombrePista, GameObject objetoPista)
+    private void VerificarProgreso()
+    {
+        pistasConseguidasCount = 0;
+
+        if (GameStateManager.Instance != null && banderasRequeridas != null)
+        {
+            foreach (GameFlag flag in banderasRequeridas)
+            {
+                if (GameStateManager.Instance.TieneBandera(flag))
+                {
+                    pistasConseguidasCount++;
+                }
+            }
+        }
+
+        ActualizarTextoContador();
+
+        if (pistasConseguidasCount >= totalPistasRequeridas)
+            GanarMinijuego();
+    }
+
+    public void PistaRecolectada(GameObject objetoPista)
     {
         if (!juegoActivo) return;
 
         objetoPista.SetActive(false);
-        if (!pistasEncontradas.Contains(nombrePista))
-        {
-            pistasEncontradas.Add(nombrePista);
-        }
 
-        if (pistasEncontradas.Count >= totalPistasRequeridas)
-        {
-            GanarMinijuego();
-        }
+        // Volvemos a contar desde GameStateManager para asegurar sincronización real
+        VerificarProgreso();
+    }
+
+    private void ActualizarTextoContador()
+    {
+        if (textoContadorPistas != null)
+            textoContadorPistas.text = pistasConseguidasCount + " / " + totalPistasRequeridas;
     }
 
     private void GanarMinijuego()
     {
         juegoActivo = false;
-
-        // Guardar flags de forma global
-        ArmarioInteractuable.minijuegoCompletado = true;
-        ArmarioInteractuable.pistasObtenidas = pistasEncontradas.ToArray();
-
-        // Mostrar panel con el resumen
         if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(true);
-
-        if (textoNotificacion != null)
-        {
-            string mensaje = "¡Conseguiste todas las pistas!\n\nEncontraste:\n";
-            foreach (string pista in pistasEncontradas)
-            {
-                mensaje += "- " + pista + "\n";
-            }
-            textoNotificacion.text = mensaje;
-        }
     }
 
-    private void TiempoAgotado()
-    {
-        juegoActivo = false;
-        // Cerrar escena directamente si pierde por tiempo
-        CerrarEscenaMinijuego();
-    }
+    private void TiempoAgotado() => CerrarEscenaMinijuego();
 
-    // Conecta esta función al botón "Aceptar / Continuar" del Panel de Notificación
     public void CerrarEscenaMinijuego()
     {
-        SceneManager.UnloadSceneAsync(gameObject.scene.name);
+        ArmarioInteractuable.ActivarCooldown(10f);
+        SceneManager.LoadScene("HabitaciónPrincipal_Nivel9");
     }
 }
