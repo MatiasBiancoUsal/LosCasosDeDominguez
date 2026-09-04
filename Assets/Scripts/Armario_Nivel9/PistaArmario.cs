@@ -15,10 +15,10 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private ArmarioMinigame managerMinijuego;
 
     [Header("UI Costado Pantalla (Objeto Recolectado)")]
-    [SerializeField] private GameObject panelObjetoCostado;    // El contenedor de la foto del costado
-    [SerializeField] private Image imagenFotoCostado;         // La foto (fondo blanco)
-    [SerializeField] private GameObject cartelNombreGris;     // El recuadro gris superior
-    [SerializeField] private TextMeshProUGUI textoNombreGris; // El texto con el nombre
+    [SerializeField] private GameObject panelObjetoCostado;   
+    [SerializeField] private Image imagenFotoCostado;         
+    [SerializeField] private GameObject cartelNombreGris;    
+    [SerializeField] private TextMeshProUGUI textoNombreGris; 
 
     private float tiempoPresionado = 0f;
     private bool mouseSobrePista = false;
@@ -28,10 +28,8 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (managerMinijuego == null)
             managerMinijuego = FindFirstObjectByType<ArmarioMinigame>();
 
-        // Aseguramos que el cartel gris nazca apagado
         OcultarCartelGris();
 
-        // Si la bandera ya fue obtenida antes en el guardado
         if (GameStateManager.Instance != null && banderaObjeto != null)
         {
             if (GameStateManager.Instance.TieneBandera(banderaObjeto))
@@ -47,7 +45,6 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Update()
     {
-        // 1. Carga con Q sobre el objeto del armario
         if (mouseSobrePista && Input.GetKey(KeyCode.Q))
         {
             if (sliderCargaQ != null) sliderCargaQ.gameObject.SetActive(true);
@@ -96,11 +93,9 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 textoNombreGris.text = datosDelObjeto.nombreObjeto;
         }
 
-        // Importante: al aparecer la foto, el cartel gris permanece oculto
         OcultarCartelGris();
     }
 
-    // --- HOVER DE LA PISTA ---
     public void OnPointerEnter(PointerEventData eventData) => mouseSobrePista = true;
 
     public void OnPointerExit(PointerEventData eventData)
@@ -109,7 +104,6 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         ResetearCarga();
     }
 
-    // --- FUNCIONES PÚBLICAS PARA EL HOVER DE LA FOTO EN EL COSTADO ---
     public void MostrarCartelGris()
     {
         if (cartelNombreGris != null)

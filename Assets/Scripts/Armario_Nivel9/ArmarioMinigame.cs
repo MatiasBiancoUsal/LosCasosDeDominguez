@@ -8,25 +8,60 @@ public class ArmarioMinigame : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private float tiempoLimite = 25f;
     [SerializeField] private int totalPistasRequeridas = 3;
+    [SerializeField] private string nombreEscenaHabitacion = "HabitaciónPrincipal_Nivel9";
 
-    [Header("Banderas de Pistas en este Minijuego")]
+    [Header("Banderas de Pistas")]
     [SerializeField] private List<GameFlag> banderasRequeridas;
 
     [Header("Referencias UI Escena Minijuego")]
     [SerializeField] private TextMeshProUGUI textoTiempo;
     [SerializeField] private TextMeshProUGUI textoContadorPistas;
-    [SerializeField] private GameObject panelNotificacionFinal;
+
+    [Header("Referencia al Controlador de Revisión")]
+    [SerializeField] private ControladorRevisionFinal controladorRevision;
 
     private float tiempoRestante;
     private bool juegoActivo = true;
-    private int pistasConseguidasCount = 0;
 
     private void Start()
     {
         tiempoRestante = tiempoLimite;
-        if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(false);
 
-        VerificarProgreso();
+        // Si ya juntó las 3 banderas anteriormente
+        if (TodasLasPistasObtenidas())
+        {
+            DesactivarModoJuego();
+
+            if (controladorRevision != null)
+            {
+                controladorRevision.IniciarRevision();
+            }
+        }
+    }
+
+    private bool TodasLasPistasObtenidas()
+    {
+        if (GameStateManager.Instance == null || banderasRequeridas == null || banderasRequeridas.Count == 0)
+            return false;
+
+        foreach (GameFlag flag in banderasRequeridas)
+        {
+            if (!GameStateManager.Instance.TieneBandera(flag))
+                return false;
+        }
+
+        return true;
+    }
+
+    private void DesactivarModoJuego()
+    {
+        juegoActivo = false;
+
+        if (textoTiempo != null)
+            textoTiempo.gameObject.SetActive(false);
+
+        if (textoContadorPistas != null)
+            textoContadorPistas.text = $"{totalPistasRequeridas} / {totalPistasRequeridas}";
     }
 
     private void Update()
@@ -41,54 +76,46 @@ public class ArmarioMinigame : MonoBehaviour
             TiempoAgotado();
     }
 
+    public void PistaRecolectada(GameObject objetoPista)
+    {
+        if (!juegoActivo) return;
+
+        objetoPista.SetActive(false);
+        VerificarProgreso();
+    }
+
     private void VerificarProgreso()
     {
-        pistasConseguidasCount = 0;
+        int encontradas = 0;
 
         if (GameStateManager.Instance != null && banderasRequeridas != null)
         {
             foreach (GameFlag flag in banderasRequeridas)
             {
                 if (GameStateManager.Instance.TieneBandera(flag))
-                {
-                    pistasConseguidasCount++;
-                }
+                    encontradas++;
             }
         }
 
-        ActualizarTextoContador();
-
-        if (pistasConseguidasCount >= totalPistasRequeridas)
-            GanarMinijuego();
-    }
-
-    public void PistaRecolectada(GameObject objetoPista)
-    {
-        if (!juegoActivo) return;
-
-        objetoPista.SetActive(false);
-
-        // Volvemos a contar desde GameStateManager para asegurar sincronización real
-        VerificarProgreso();
-    }
-
-    private void ActualizarTextoContador()
-    {
         if (textoContadorPistas != null)
-            textoContadorPistas.text = pistasConseguidasCount + " / " + totalPistasRequeridas;
+            textoContadorPistas.text = encontradas + " / " + totalPistasRequeridas;
+
+        if (encontradas >= totalPistasRequeridas)
+        {
+            DesactivarModoJuego();
+
+            if (controladorRevision != null)
+            {
+                controladorRevision.IniciarRevision();
+            }
+        }
     }
 
-    private void GanarMinijuego()
-    {
-        juegoActivo = false;
-        if (panelNotificacionFinal != null) panelNotificacionFinal.SetActive(true);
-    }
+    private void TiempoAgotado() => VolverAHabitacion();
 
-    private void TiempoAgotado() => CerrarEscenaMinijuego();
-
-    public void CerrarEscenaMinijuego()
+    public void VolverAHabitacion()
     {
         ArmarioInteractuable.ActivarCooldown(10f);
-        SceneManager.LoadScene("HabitaciónPrincipal_Nivel9");
+        SceneManager.LoadScene(nombreEscenaHabitacion);
     }
 }

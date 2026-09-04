@@ -19,6 +19,9 @@ public class ArmarioInteractuable : MonoBehaviour
     private Collider2D miCollider;
     private bool mouseEncima = false;
 
+    [SerializeField] private ControladorRevisionFinal controladorRevision;
+    private int pistasRecolectadasCount = 0;
+
     private void Awake()
     {
         miCollider = GetComponent<Collider2D>();
@@ -87,5 +90,19 @@ public class ArmarioInteractuable : MonoBehaviour
     private void CargarEscenaMinijuego()
     {
         SceneManager.LoadScene("Armario");
+    }
+
+    public void PistaRecolectada(GameObject pista)
+    {
+        pistasRecolectadasCount++;
+        pista.SetActive(false);
+
+        if (pistasRecolectadasCount >= 3)
+        {
+            if (controladorRevision != null)
+            {
+                controladorRevision.IniciarRevision();
+            }
+        }
     }
 }
