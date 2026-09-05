@@ -14,21 +14,33 @@ public class MostrarPanelConFlag : MonoBehaviour
 
     private Coroutine rutinaPanel;
 
+    // Clave que usamos para recordar que este cartel ya apareció
+    private string ClaveNotificacion
+    {
+        get
+        {
+            if (flagNecesaria == null)
+                return "";
+
+            return "NotificacionMostrada_" + flagNecesaria.Id;
+        }
+    }
+
     private void Start()
     {
+        if (GameStateManager.Instance == null)
+            return;
+
         // Por si la flag ya había sido obtenida anteriormente
         // antes de cargar esta escena.
-        if (GameStateManager.Instance != null &&
-            GameStateManager.Instance.TieneBandera(flagNecesaria))
+        if (GameStateManager.Instance.TieneBandera(flagNecesaria) &&
+            !NotificacionYaMostrada())
         {
             MostrarCartel();
         }
 
         // Escuchamos cuando se obtiene una nueva bandera.
-        if (GameStateManager.Instance != null)
-        {
-            GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
-        }
+        GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
     }
 
     private void OnDestroy()
@@ -41,15 +53,29 @@ public class MostrarPanelConFlag : MonoBehaviour
 
     private void AlObtenerBandera(GameFlag bandera)
     {
-        if (bandera == flagNecesaria)
+        if (bandera == flagNecesaria &&
+            !NotificacionYaMostrada())
         {
             MostrarCartel();
         }
     }
 
+    private bool NotificacionYaMostrada()
+    {
+        if (string.IsNullOrEmpty(ClaveNotificacion))
+            return false;
+
+        return PlayerPrefs.GetInt(ClaveNotificacion, 0) == 1;
+    }
+
     private void MostrarCartel()
     {
-        if (panel == null) return;
+        if (panel == null)
+            return;
+
+        // Guardamos que esta notificación ya apareció.
+        PlayerPrefs.SetInt(ClaveNotificacion, 1);
+        PlayerPrefs.Save();
 
         if (rutinaPanel != null)
         {
