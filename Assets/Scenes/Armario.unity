@@ -1497,8 +1497,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0025024, y: 0.0099945}
-  m_SizeDelta: {x: 885.99, y: 498.27}
+  m_AnchoredPosition: {x: 0, y: 5.2523}
+  m_SizeDelta: {x: 1163.7959, y: 654.5046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723716978
 MonoBehaviour:
@@ -2277,6 +2277,7 @@ RectTransform:
   m_Children:
   - {fileID: 1200317782}
   - {fileID: 872792002}
+  - {fileID: 1893382213}
   - {fileID: 1347847569}
   - {fileID: 1157785556}
   m_Father: {fileID: 0}
@@ -3190,17 +3191,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArmarioMinigame
   tiempoLimite: 12
   totalPistasRequeridas: 3
+  nombreEscenaHabitacion: "Habitaci\xF3nPrincipal_Nivel9"
   banderasRequeridas:
   - {fileID: 11400000, guid: bbbc705215924bb4c9fdfcddcb3885e8, type: 2}
   - {fileID: 11400000, guid: d3a77b1c3b72a974d94d4ddf9bb6c3b0, type: 2}
   - {fileID: 11400000, guid: e2fd5ec7839f2f946803e9c8bab46d94, type: 2}
   textoTiempo: {fileID: 842784751}
   textoContadorPistas: {fileID: 1997290325}
-  panelNotificacionFinal: {fileID: 1347847568}
-  banderasPistas:
-  - {fileID: 11400000, guid: bbbc705215924bb4c9fdfcddcb3885e8, type: 2}
-  - {fileID: 11400000, guid: e2fd5ec7839f2f946803e9c8bab46d94, type: 2}
-  - {fileID: 11400000, guid: d3a77b1c3b72a974d94d4ddf9bb6c3b0, type: 2}
   controladorRevision: {fileID: 1750299611}
 --- !u!4 &1332418767
 Transform:
@@ -3251,7 +3248,6 @@ Transform:
   - {fileID: 166168891}
   - {fileID: 2002697875}
   - {fileID: 322813167}
-  - {fileID: 1893382213}
   m_Father: {fileID: 885199446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372790872
@@ -3965,7 +3961,7 @@ MonoBehaviour:
   imagenFoto: {fileID: 322813168}
   textoNombre: {fileID: 166168892}
   textoInfo: {fileID: 2002697876}
-  botonSiguiente: {fileID: 1893382214}
+  botonSiguiente: {fileID: 0}
   botonVolverHabitacion: {fileID: 1157785555}
 --- !u!4 &1750299612
 Transform:
@@ -4161,15 +4157,15 @@ RectTransform:
   m_GameObject: {fileID: 1893382212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9992, y: 1.9992, z: 1.9992}
+  m_LocalScale: {x: 2.1828065, y: 2.1828065, z: 2.1828065}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1347847569}
+  m_Father: {fileID: 885199446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 99, y: -173.5}
-  m_SizeDelta: {x: 14.5483, y: 12.7061}
+  m_AnchoredPosition: {x: -481.4, y: -223.5}
+  m_SizeDelta: {x: 35.2242, y: 30.7639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893382214
 MonoBehaviour:
@@ -4215,9 +4211,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AccionPista, Assembly-CSharp
-        m_MethodName: CerrarPanel
+      - m_Target: {fileID: 1750299611}
+        m_TargetAssemblyTypeName: ControladorRevisionFinal, Assembly-CSharp
+        m_MethodName: VolverAHabitacion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
