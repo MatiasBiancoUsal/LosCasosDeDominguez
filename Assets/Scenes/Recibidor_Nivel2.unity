@@ -2612,9 +2612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f68c6805914ae49b8aa3efb147030d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MPanelNotificacionUI3
-  pista1: {fileID: 11400000, guid: b63ec6c119940624f822643e0e9d44e9, type: 2}
-  pista2: {fileID: 11400000, guid: ec50e9aa147728d46a6cbc3cf037680b, type: 2}
-  pista3: {fileID: 11400000, guid: e18aa8b99687dd74eaa0c1a450eb769e, type: 2}
+  flag1: {fileID: 0}
+  flag2: {fileID: 0}
+  flag3: {fileID: 0}
   panel: {fileID: 490355479}
   duracion: 3
 --- !u!114 &490355481
@@ -10288,7 +10288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
-  banderaAOtorgar: {fileID: 0}
+  banderaAOtorgar: {fileID: 11400000, guid: 6d778304173f9824d8ab04038bcfce8f, type: 2}
   bloquearSiYaTieneBandera: 1
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 

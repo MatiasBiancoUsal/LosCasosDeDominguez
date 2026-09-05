@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class PanelNotificacionUI3 : MonoBehaviour
+public class MPanelNotificacionUI3 : MonoBehaviour
 {
-    [Header("Pistas necesarias para activar el cartel")]
-    public PistasScriptable pista1;
-    public PistasScriptable pista2;
-    public PistasScriptable pista3;
+    [Header("Flags necesarias para activar el cartel")]
+    public GameFlag flag1;
+    public GameFlag flag2;
+    public GameFlag flag3;
 
     [Header("Panel a mostrar")]
     public GameObject panel;
@@ -16,85 +16,72 @@ public class PanelNotificacionUI3 : MonoBehaviour
 
     private Coroutine rutinaPanel;
 
+    // Clave para recordar que este cartel ya fue mostrado
     private string ClaveNotificacion
     {
         get
         {
-            if (pista1 == null || pista2 == null || pista3 == null)
+            if (flag1 == null || flag2 == null || flag3 == null)
                 return "";
 
-            return "NotificacionMostrada_3Pistas_" +
-                   pista1.name + "_" +
-                   pista2.name + "_" +
-                   pista3.name;
+            return "NotificacionMostrada_3Flags_" +
+                   flag1.Id + "_" +
+                   flag2.Id + "_" +
+                   flag3.Id;
         }
     }
 
     private void Start()
     {
-        if (panel != null)
-            panel.SetActive(false);
+        if (GameStateManager.Instance == null)
+            return;
 
-        // Comprobamos por si las 3 pistas
-        // ya habían sido obtenidas antes de cargar esta escena.
-        ComprobarPistas();
+        // Por si las 3 flags ya habían sido obtenidas
+        // antes de cargar esta escena.
+        ComprobarFlags();
+
+        // Escuchamos cuando se obtiene una nueva bandera.
+        GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
     }
 
-    private void ComprobarPistas()
+    private void OnDestroy()
     {
-        if (pista1 == null || pista2 == null || pista3 == null)
+        if (GameStateManager.Instance != null)
         {
-            Debug.LogWarning("PanelNotificacionUI3: Faltan asignar una o más pistas.");
-            return;
+            GameStateManager.Instance.OnBanderaObtenida -= AlObtenerBandera;
         }
+    }
 
-        // Si el cartel ya apareció anteriormente, no hacemos nada.
+    private void AlObtenerBandera(GameFlag bandera)
+    {
+        // Cada vez que se obtiene una flag,
+        // comprobamos si ahora ya están las 3.
+        ComprobarFlags();
+    }
+
+    private void ComprobarFlags()
+    {
+        if (GameStateManager.Instance == null)
+            return;
+
+        // Si el cartel ya fue mostrado, no hacemos nada.
         if (NotificacionYaMostrada())
             return;
 
-        bool tienePista1 = TienePista(pista1);
-        bool tienePista2 = TienePista(pista2);
-        bool tienePista3 = TienePista(pista3);
+        bool tieneFlag1 = flag1 != null &&
+                          GameStateManager.Instance.TieneBandera(flag1);
 
-        Debug.Log(
-            "Pistas: " +
-            tienePista1 + " / " +
-            tienePista2 + " / " +
-            tienePista3
-        );
+        bool tieneFlag2 = flag2 != null &&
+                          GameStateManager.Instance.TieneBandera(flag2);
 
-        // Las 3 tienen que estar obtenidas.
-        if (tienePista1 && tienePista2 && tienePista3)
+        bool tieneFlag3 = flag3 != null &&
+                          GameStateManager.Instance.TieneBandera(flag3);
+
+        // Solo muestra el panel cuando están las 3.
+        if (tieneFlag1 && tieneFlag2 && tieneFlag3)
         {
             MostrarCartel();
         }
-    }
-
-    private bool TienePista(PistasScriptable pista)
-    {
-        if (pista == null)
-            return false;
-
-        string clave = "PistaObtenida_" + pista.name;
-
-        return PlayerPrefs.GetInt(clave, 0) == 1;
-    }
-
-    public void RegistrarPistaObtenida(PistasScriptable pista)
-    {
-        if (pista == null)
-            return;
-
-        string clave = "PistaObtenida_" + pista.name;
-
-        PlayerPrefs.SetInt(clave, 1);
-        PlayerPrefs.Save();
-
-        Debug.Log("Pista registrada como obtenida: " + pista.name);
-
-        // Después de registrar la pista,
-        // comprobamos si ahora están las 3.
-        ComprobarPistas();
     }
 
     private bool NotificacionYaMostrada()
@@ -110,8 +97,7 @@ public class PanelNotificacionUI3 : MonoBehaviour
         if (panel == null)
             return;
 
-        // Guardamos que esta combinación de 3 pistas
-        // ya activó el cartel.
+        // Guardamos que esta notificación ya apareció.
         PlayerPrefs.SetInt(ClaveNotificacion, 1);
         PlayerPrefs.Save();
 
