@@ -3850,8 +3850,8 @@ MonoBehaviour:
     nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
     dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
-    banderaRequerida: {fileID: 0}
-  dialogoPorDefecto: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: 356e246a3a3394245a0b06a00d483d91, type: 2}
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &852912212 stripped
 MonoBehaviour:
@@ -6490,6 +6490,7 @@ GameObject:
   - component: {fileID: 1328103642}
   - component: {fileID: 1328103649}
   - component: {fileID: 1328103648}
+  - component: {fileID: 1328103650}
   m_Layer: 6
   m_Name: Horacio
   m_TagString: Player
@@ -6715,7 +6716,7 @@ MonoBehaviour:
   - banderaACompletar: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
     nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 75ac4e67df9c88742be6017291f90e72, type: 2}
+    dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
     banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
@@ -6735,6 +6736,24 @@ MonoBehaviour:
   banderaCompletadaDetective: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
   iconoResaltado: {fileID: 2008001209}
   botonConversarUI: {fileID: 2084675454}
+--- !u!114 &1328103650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328103640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a496c654e9f47a43adaebe24a9e8b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectorHover
+  detectorHover: {fileID: 643678959}
+  botonInspeccion: {fileID: 0}
+  botonInterrogatorio: {fileID: 2084675454}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1342257664
 GameObject:
   m_ObjectHideFlags: 0
