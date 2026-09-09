@@ -94,6 +94,7 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void EjecutarInteraccion()
 {
+
     if (banderaAOtorgar != null && GameStateManager.Instance != null)
     {
         // Solo otorgar la bandera si todavía no la tiene.

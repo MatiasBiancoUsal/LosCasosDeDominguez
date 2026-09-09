@@ -62,6 +62,11 @@ public class LogicaMenu : MonoBehaviour
         }
     }
 
+    public void Sonar(AudioClip clip)
+    {
+        SonidosDeUI.instance.Play(clip);
+    }
+
     // Update is called once per frame
     void Update()
     {

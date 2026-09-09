@@ -26,6 +26,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
     private DialogoSistema conversacionActual;
     private int lineaActual = 0;
     private bool ignorarInputEsteFrame = false;
+    public AudioClip sonido;
 
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
         {
             if (escribiendo)
             {
+
                 if (efectoMaquinaCoroutine != null)
                     StopCoroutine(efectoMaquinaCoroutine);
 
@@ -65,6 +67,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
                     cajaTexto.text = conversacionActual.dialogos[lineaActual].dialogo;
 
                 escribiendo = false;
+                SonidosDeUI.instance.Source.Stop();
             }
             else
             {
@@ -123,6 +126,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
     private IEnumerator EscribirTexto(string textoCompleto)
     {
         escribiendo = true;
+        SonidosDeUI.instance.Play(sonido);
         if (cajaTexto != null) cajaTexto.text = "";
 
         foreach (char letra in textoCompleto)
@@ -145,6 +149,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
         if (panelDialogo != null)
         {
             panelDialogo.SetActive(false);
+            SonidosDeUI.instance.Source.Stop();
         }
 
         // Emite la señal C# indicando que el diálogo se cerró

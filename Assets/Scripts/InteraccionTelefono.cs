@@ -13,6 +13,7 @@ public class InteraccionTelefono : MonoBehaviour
 
     [Header("Tiempos de Espera Automático")]
     [SerializeField] private float segundosParaArrancarAnimacion = 5f;
+    public AudioClip clip;
 
     private bool laAnimacionYaEmpezo = false;
     private bool yaSeInteractuo = false;
@@ -61,5 +62,7 @@ public class InteraccionTelefono : MonoBehaviour
             GameStateManager.Instance.GuardarBandera(flagAlInteractuar);
             Debug.Log("Flag obtenida mediante el teléfono: " + flagAlInteractuar.name);
         }
+
+        SonidosDeUI.instance.Play(clip);
     }
 }
