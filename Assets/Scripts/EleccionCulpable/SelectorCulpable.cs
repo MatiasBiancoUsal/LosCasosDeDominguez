@@ -3,15 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class SelectorCulpable : MonoBehaviour
 {
-    [Header("Condiciones de Activación")]
-    [Tooltip("Las 3 banderas de los personajes con los que hay que hablar antes de activar este panel")]
-    [SerializeField] private GameFlag[] banderasRequeridas;
+    [Header("Condición de Apertura")]
+    [Tooltip("Asigná aquí la bandera que otorga el Detective al terminar su diálogo final (ej: HabloConDetectiveFinal).")]
+    [SerializeField] private GameFlag banderaDetectiveFinal;
 
-    [Tooltip("Bandera opcional por si el caso ya fue resuelto previamente y no debe volver a mostrarse")]
+    [Tooltip("Opcional: Bandera para que el panel no vuelva a salir si el caso ya se resolvió.")]
     [SerializeField] private GameFlag banderaCasoResuelto;
 
     [Header("Referencias UI")]
-    [Tooltip("El GameObject del panel contenedor. Si este script está adjunto al mismo Panel, podés dejarlo nulo o asignarlo.")]
     [SerializeField] private GameObject panelContenedor;
 
     private void OnEnable()
@@ -40,19 +39,19 @@ public class SelectorCulpable : MonoBehaviour
         ComprobarYMostrarPanel();
     }
 
-    private void ComprobarYMostrarPanel()
+    public void ComprobarYMostrarPanel()
     {
         if (GameStateManager.Instance == null) return;
 
+        // Si ya se resolvió el caso, se oculta
         if (banderaCasoResuelto != null && GameStateManager.Instance.TieneBandera(banderaCasoResuelto))
         {
             OcultarPanel();
             return;
         }
 
-        bool tieneTodasLasBanderas = CumpleTodasLasBanderas();
-
-        if (tieneTodasLasBanderas)
+        // Se abre SOLO si ya se obtuvo la bandera del Detective
+        if (banderaDetectiveFinal != null && GameStateManager.Instance.TieneBandera(banderaDetectiveFinal))
         {
             MostrarPanel();
         }
@@ -60,21 +59,6 @@ public class SelectorCulpable : MonoBehaviour
         {
             OcultarPanel();
         }
-    }
-
-    private bool CumpleTodasLasBanderas()
-    {
-        if (banderasRequeridas == null || banderasRequeridas.Length == 0) return false;
-
-        foreach (GameFlag flag in banderasRequeridas)
-        {
-            if (flag == null || !GameStateManager.Instance.TieneBandera(flag))
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private void MostrarPanel()
@@ -95,6 +79,9 @@ public class SelectorCulpable : MonoBehaviour
 
     public void CargarEscenaFinal(string nombreEscenaFinal)
     {
-        SceneManager.LoadScene(nombreEscenaFinal);
+        if (!string.IsNullOrEmpty(nombreEscenaFinal))
+        {
+            SceneManager.LoadScene(nombreEscenaFinal);
+        }
     }
 }

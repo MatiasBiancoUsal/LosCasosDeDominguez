@@ -536,8 +536,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1752, y: -1734}
-  m_SizeDelta: {x: 274.3007, y: 477.6044}
+  m_AnchoredPosition: {x: -1717.7427, y: -1733.2871}
+  m_SizeDelta: {x: 240.983, y: 419.5927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488156570
 MonoBehaviour:
@@ -769,8 +769,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1457, y: -1734}
-  m_SizeDelta: {x: 274.3007, y: 477.6044}
+  m_AnchoredPosition: {x: -1458.5745, y: -1733.2871}
+  m_SizeDelta: {x: 240.983, y: 419.5927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792503299
 MonoBehaviour:
@@ -896,6 +896,8 @@ GameObject:
   - component: {fileID: 890615439}
   - component: {fileID: 890615438}
   - component: {fileID: 890615437}
+  - component: {fileID: 890615446}
+  - component: {fileID: 890615445}
   m_Layer: 6
   m_Name: Horacio
   m_TagString: Player
@@ -1124,6 +1126,45 @@ Transform:
   - {fileID: 1336865442}
   m_Father: {fileID: 393502964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &890615445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890615436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
+  dialogosPosibles:
+  - banderaACompletar: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 2b2dfccff156d984dbcc973622c1c292, type: 2}
+    banderaRequerida: {fileID: 0}
+  dialogoPorDefecto: {fileID: 0}
+  notificacionResumen: {fileID: 0}
+--- !u!114 &890615446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890615436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c417329fcafdf4b4a8bd9157d3440573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectiveResaltadoUI
+  banderasRequeridas:
+  - {fileID: 11400000, guid: 1626c531b505c2d48b784ae3a56e3786, type: 2}
+  - {fileID: 11400000, guid: 8d416ddf483b3d34f93fc38a8bdf662d, type: 2}
+  - {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}
+  banderaCompletadaDetective: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
+  iconoResaltado: {fileID: 1336865441}
+  botonConversarUI: {fileID: 1959286680}
 --- !u!1 &898457134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,8 +1380,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1455.9424, y: -1736.058}
-  m_SizeDelta: {x: 954.0676, y: 539.4036}
+  m_AnchoredPosition: {x: -1457.6453, y: -1735.0952}
+  m_SizeDelta: {x: 838.1829, y: 473.8856}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119616061
 MonoBehaviour:
@@ -2211,10 +2252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8706628ed08bb94780d70709b95e0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectorCulpable
-  banderasRequeridas:
-  - {fileID: 11400000, guid: 8d416ddf483b3d34f93fc38a8bdf662d, type: 2}
-  - {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}
-  - {fileID: 11400000, guid: 1626c531b505c2d48b784ae3a56e3786, type: 2}
+  banderaDetectiveFinal: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
   banderaCasoResuelto: {fileID: 11400000, guid: 15073f2b4c3a9304d9cd86205518f46b, type: 2}
   panelContenedor: {fileID: 149771457}
 --- !u!4 &1342978664
@@ -2824,8 +2862,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1159, y: -1734}
-  m_SizeDelta: {x: 274.3007, y: 477.6044}
+  m_AnchoredPosition: {x: -1196.7708, y: -1733.2871}
+  m_SizeDelta: {x: 240.983, y: 419.5927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807316964
 MonoBehaviour:
