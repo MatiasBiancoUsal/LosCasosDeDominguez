@@ -8361,16 +8361,38 @@ PrefabInstance:
       propertyPath: banderaAOtorgar
       value: 
       objectReference: {fileID: 11400000, guid: 9b800993321ccad44b0b3b7c2eb02644, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1404529880}
   m_SourcePrefab: {fileID: 100100000, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
 --- !u!4 &1404529878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
   m_PrefabInstance: {fileID: 1404529877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1404529879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+  m_PrefabInstance: {fileID: 1404529877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404529880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404529879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f8534793fc87e4992c91507a18b4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CambiarEscena
+  nombreEscenaDestino: RevelarFoto
 --- !u!1 &1552184835
 GameObject:
   m_ObjectHideFlags: 0

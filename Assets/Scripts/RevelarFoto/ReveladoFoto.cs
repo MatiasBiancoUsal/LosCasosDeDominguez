@@ -2,17 +2,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement; 
 
 public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Referencias UI")]
     public RectTransform zonaAgua;
-    public Image imagenFoto; // La imagen de la foto
-    public GameObject botonVerFoto; // El botón para inspeccionar la foto revelada
-    public GameObject popUpVistaDetallada; // La pantalla completa con la foto
+    public Image imagenFoto;
+    public GameObject botonVerFoto;
+    public GameObject popUpVistaDetallada;
+    public GameObject botonSalir; 
+
+    [Header("Configuración de Salida")]
+    [Tooltip("Nombre de la escena a la que te llevará el botón de salir.")]
+    public string nombreEscenaSalida;
 
     [Header("Ajustes de Revelado")]
-    public float duracionAnimacion = 2.0f; // Segundos que tarda en revelar
+    public float duracionAnimacion = 2.0f;
     private bool yaEstaRevelada = false;
     private bool estaEnAgua = false;
 
@@ -26,18 +32,14 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-        // La foto arranca totalmente en negro/oscura
         if (imagenFoto != null)
         {
             imagenFoto.color = Color.black;
         }
 
-        // Nos aseguramos de que el botón y el pop-up empiecen ocultos
         if (botonVerFoto != null) botonVerFoto.SetActive(false);
         if (popUpVistaDetallada != null) popUpVistaDetallada.SetActive(false);
     }
-
-    // --- LÓGICA DE ARRASTRE ---
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -54,7 +56,6 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         canvasGroup.blocksRaycasts = true;
 
-        // Verifica si se soltó sobre la cubeta de agua
         if (RectTransformUtility.RectangleContainsScreenPoint(zonaAgua, Input.mousePosition))
         {
             if (!yaEstaRevelada)
@@ -65,7 +66,6 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         else
         {
-            // Si no está en el agua y no se reveló, vuelve a su lugar original
             if (!yaEstaRevelada)
             {
                 rectTransform.anchoredPosition = posicionInicial;
@@ -73,13 +73,11 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    // --- ANIMACIÓN DE REVELADO ---
-
     private IEnumerator AnimacionRevelado()
     {
         float tiempo = 0f;
         Color colorInicial = Color.black;
-        Color colorFinal = Color.white; // Color original/normal de la imagen
+        Color colorFinal = Color.white;
 
         while (tiempo < duracionAnimacion)
         {
@@ -91,16 +89,17 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         imagenFoto.color = colorFinal;
         yaEstaRevelada = true;
 
-        // Activa el botón para ver la foto en pantalla grande
         if (botonVerFoto != null)
         {
             botonVerFoto.SetActive(true);
         }
+
+        if (botonSalir != null)
+        {
+            botonSalir.SetActive(true); 
+        }
     }
 
-    // --- MÉTODOS PARA LOS BOTONES (VER / CERRAR) ---
-
-    // Asignar al OnClick del "BotonVerFoto"
     public void AbrirFotoDetallada()
     {
         if (popUpVistaDetallada != null)
@@ -109,12 +108,18 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
     }
 
-    // Asignar al OnClick del botón "Cerrar" dentro del PopUp
     public void CerrarFotoDetallada()
     {
         if (popUpVistaDetallada != null)
         {
             popUpVistaDetallada.SetActive(false);
+        }
+    }
+    public void SalirAEscena()
+    {
+        if (!string.IsNullOrEmpty(nombreEscenaSalida))
+        {
+            SceneManager.LoadScene(nombreEscenaSalida);
         }
     }
 }
