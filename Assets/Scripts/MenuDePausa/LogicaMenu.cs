@@ -39,7 +39,10 @@ public class LogicaMenu : MonoBehaviour
         Debug.Log("Saliendo...");
         Application.Quit();
     }
-
+    public void VerCreditos()
+    {
+        SceneManager.LoadScene("Creditoscinematica");
+    }
     public void VovlerAlMenu()
     {
         panelOpciones.SetActive(false);
