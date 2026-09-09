@@ -15,10 +15,10 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private ArmarioMinigame managerMinijuego;
 
     [Header("UI Costado Pantalla (Objeto Recolectado)")]
-    [SerializeField] private GameObject panelObjetoCostado;   
-    [SerializeField] private Image imagenFotoCostado;         
-    [SerializeField] private GameObject cartelNombreGris;    
-    [SerializeField] private TextMeshProUGUI textoNombreGris; 
+    [SerializeField] private GameObject panelObjetoCostado;
+    [SerializeField] private Image imagenFotoCostado;
+    [SerializeField] private GameObject cartelNombreGris;
+    [SerializeField] private TextMeshProUGUI textoNombreGris;
 
     private float tiempoPresionado = 0f;
     private bool mouseSobrePista = false;
@@ -36,7 +36,6 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 ActivarFotoCostado();
                 gameObject.SetActive(false);
-                return;
             }
         }
 
@@ -47,7 +46,8 @@ public class PistaArmario : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (mouseSobrePista && Input.GetKey(KeyCode.Q))
         {
-            if (sliderCargaQ != null) sliderCargaQ.gameObject.SetActive(true);
+            if (sliderCargaQ != null && !sliderCargaQ.gameObject.activeSelf)
+                sliderCargaQ.gameObject.SetActive(true);
 
             tiempoPresionado += Time.deltaTime;
 

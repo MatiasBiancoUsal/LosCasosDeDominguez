@@ -17,18 +17,94 @@ public class ArmarioMinigame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textoTiempo;
     [SerializeField] private TextMeshProUGUI textoContadorPistas;
 
-    [Header("Referencia al Controlador de Revisión")]
+    [Header("Referencia al Panel de Revisión Final")]
     [SerializeField] private ControladorRevisionFinal controladorRevision;
 
     private float tiempoRestante;
-    private bool juegoActivo = true;
+    private bool juegoActivo = false;
+    private int pistasEncontradasActuales = 0;
 
     private void Start()
     {
         tiempoRestante = tiempoLimite;
 
-        // Si ya juntó las 3 banderas anteriormente
+        // Muestra el tiempo inicial en el texto (ej: "25s")
+        ActualizarTextoTiempo();
+
+        // Muestra el contador inicial de pistas (ej: "0 / 3")
+        ActualizarTextoContador();
+
+        // Si ya tenía las 3 pistas recolectadas previamente
         if (TodasLasPistasObtenidas())
+        {
+            DesactivarModoJuego();
+            if (controladorRevision != null)
+                controladorRevision.IniciarRevision();
+        }
+    }
+
+    /// <summary>
+    /// Se ejecuta al cerrar el panel de explicación inicial.
+    /// </summary>
+    public void IniciarMinijuego()
+    {
+        if (!TodasLasPistasObtenidas())
+        {
+            juegoActivo = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (!juegoActivo) return;
+
+        // Descuenta el tiempo segundo a segundo
+        tiempoRestante -= Time.deltaTime;
+        ActualizarTextoTiempo();
+
+        // Si el tiempo se agota, regresa a la habitación
+        if (tiempoRestante <= 0)
+        {
+            TiempoAgotado();
+        }
+    }
+
+    /// <summary>
+    /// Formatea y actualiza el texto del reloj en la UI.
+    /// </summary>
+    private void ActualizarTextoTiempo()
+    {
+        if (textoTiempo != null)
+        {
+            int segundos = Mathf.Max(0, Mathf.CeilToInt(tiempoRestante));
+            textoTiempo.text = segundos.ToString() + "s";
+        }
+    }
+
+    /// <summary>
+    /// Actualiza el texto del contador de pistas (ej: "1 / 3").
+    /// </summary>
+    public void ActualizarTextoContador()
+    {
+        if (textoContadorPistas != null)
+        {
+            textoContadorPistas.text = $"{pistasEncontradasActuales} / {totalPistasRequeridas}";
+        }
+    }
+
+    /// <summary>
+    /// Llamado desde cada PistaArmario cuando se llena la barra con la tecla Q.
+    /// </summary>
+    public void PistaRecolectada(GameObject objetoPista)
+    {
+        objetoPista.SetActive(false);
+
+        // Suma a la UI de pistas
+        pistasEncontradasActuales++;
+        ActualizarTextoContador();
+
+        // Si completó las 3, frena el reloj y abre el panel de revisión con flechas
+        if (pistasEncontradasActuales >= totalPistasRequeridas)
         {
             DesactivarModoJuego();
 
@@ -46,7 +122,7 @@ public class ArmarioMinigame : MonoBehaviour
 
         foreach (GameFlag flag in banderasRequeridas)
         {
-            if (!GameStateManager.Instance.TieneBandera(flag))
+            if (flag != null && !GameStateManager.Instance.TieneBandera(flag))
                 return false;
         }
 
@@ -62,53 +138,6 @@ public class ArmarioMinigame : MonoBehaviour
 
         if (textoContadorPistas != null)
             textoContadorPistas.text = $"{totalPistasRequeridas} / {totalPistasRequeridas}";
-    }
-
-    private void Update()
-    {
-        if (!juegoActivo) return;
-
-        tiempoRestante -= Time.deltaTime;
-        if (textoTiempo != null)
-            textoTiempo.text = Mathf.CeilToInt(tiempoRestante).ToString() + "s";
-
-        if (tiempoRestante <= 0)
-            TiempoAgotado();
-    }
-
-    public void PistaRecolectada(GameObject objetoPista)
-    {
-        if (!juegoActivo) return;
-
-        objetoPista.SetActive(false);
-        VerificarProgreso();
-    }
-
-    private void VerificarProgreso()
-    {
-        int encontradas = 0;
-
-        if (GameStateManager.Instance != null && banderasRequeridas != null)
-        {
-            foreach (GameFlag flag in banderasRequeridas)
-            {
-                if (GameStateManager.Instance.TieneBandera(flag))
-                    encontradas++;
-            }
-        }
-
-        if (textoContadorPistas != null)
-            textoContadorPistas.text = encontradas + " / " + totalPistasRequeridas;
-
-        if (encontradas >= totalPistasRequeridas)
-        {
-            DesactivarModoJuego();
-
-            if (controladorRevision != null)
-            {
-                controladorRevision.IniciarRevision();
-            }
-        }
     }
 
     private void TiempoAgotado() => VolverAHabitacion();
