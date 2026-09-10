@@ -11,10 +11,23 @@ public class CambiarEscena : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+        // Solo permite usar Q si el mouse está sobre este objeto
+        if (Keyboard.current.qKey.wasPressedThisFrame && estaSobreElObjeto)
         {
             CargarEscena();
         }
+    }
+
+    private bool estaSobreElObjeto = false;
+
+    private void OnMouseEnter()
+    {
+        estaSobreElObjeto = true;
+    }
+
+    private void OnMouseExit()
+    {
+        estaSobreElObjeto = false;
     }
 
     private void CargarEscena()

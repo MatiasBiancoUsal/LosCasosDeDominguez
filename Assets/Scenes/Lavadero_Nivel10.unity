@@ -955,6 +955,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1160017399}
     m_Modifications:
+    - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: datosDelObjeto
+      value: 
+      objectReference: {fileID: 11400000, guid: c0d05e83e09c85241a3287a96df00f16, type: 2}
     - target: {fileID: 2066119149409725918, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1016,6 +1020,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4021515995913145498, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_Size.x
+      value: 4.2172728
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021515995913145498, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_Size.y
+      value: 2.896502
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021515995913145498, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.038527012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021515995913145498, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00550586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021515995913145498, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 4.27
       objectReference: {fileID: 0}
@@ -1042,7 +1062,7 @@ PrefabInstance:
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: banderaAOtorgar
       value: 
-      objectReference: {fileID: 11400000, guid: 9b800993321ccad44b0b3b7c2eb02644, type: 2}
+      objectReference: {fileID: 11400000, guid: 0b3b977d84680fc4686961d900023328, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6559,7 +6579,7 @@ PrefabInstance:
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: banderaAOtorgar
       value: 
-      objectReference: {fileID: 11400000, guid: a5e1b7aab2450ad4ca839da3d58d1050, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f52eed79c5411549b40194520ef31a3, type: 2}
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: panelNotificacion
       value: 
@@ -6570,11 +6590,11 @@ PrefabInstance:
       objectReference: {fileID: 498101091}
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: destruirAlInteractuar
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: nombreHabitacionDesbloqueada
-      value: "al Gran Sal\xF3n"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7663601874279807007, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_Sprite
@@ -6586,11 +6606,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329337280400788397, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_Size.x
-      value: 1.02
+      value: 6.95
       objectReference: {fileID: 0}
     - target: {fileID: 8329337280400788397, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 4.34
       objectReference: {fileID: 0}
     - target: {fileID: 8329337280400788397, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_Offset.x
@@ -6607,13 +6627,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7290862215616319462, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1185901886}
   m_SourcePrefab: {fileID: 100100000, guid: fc9ea291814263942abdf09035a580b0, type: 3}
 --- !u!4 &1185901884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2326522905189898335, guid: fc9ea291814263942abdf09035a580b0, type: 3}
   m_PrefabInstance: {fileID: 1185901883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1185901885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7290862215616319462, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+  m_PrefabInstance: {fileID: 1185901883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1185901886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185901885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AccionPista
+  datosDelObjeto: {fileID: 11400000, guid: 908180b621a801646848098611144679, type: 2}
 --- !u!1 &1211960407
 GameObject:
   m_ObjectHideFlags: 0
@@ -8390,6 +8431,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1160017399}
     m_Modifications:
+    - target: {fileID: 2066119149409725918, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2556479570396242697, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_Name
       value: Batea
@@ -8477,6 +8522,18 @@ PrefabInstance:
     - target: {fileID: 8725359165876604270, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738176993798827326, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738176993798827326, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8738176993798827326, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: clip
@@ -12637,7 +12694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f1638354e33362408f63fa594c32c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
-  banderaAOtorgar: {fileID: 11400000, guid: 36038f80aa91e7c43a46696ae62dde20, type: 2}
+  banderaAOtorgar: {fileID: 11400000, guid: 4b36c1868efe74b4bb7ec5e1d812be4b, type: 2}
   bloquearSiYaTieneBandera: 1
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 
@@ -12654,7 +12711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebe26e8f47201b488fc5a0bb0d7ac80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AccionPista
-  datosDelObjeto: {fileID: 11400000, guid: b63ec6c119940624f822643e0e9d44e9, type: 2}
+  datosDelObjeto: {fileID: 11400000, guid: 123a55856110fd7428a6773a51b8e448, type: 2}
 --- !u!1001 &500327572275016662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12804,6 +12861,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1160017399}
     m_Modifications:
+    - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: datosDelObjeto
+      value: 
+      objectReference: {fileID: 11400000, guid: 1084071f5ff58684c97910c66df0c79f, type: 2}
     - target: {fileID: 2066119149409725918, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -12919,7 +12980,7 @@ PrefabInstance:
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: banderaAOtorgar
       value: 
-      objectReference: {fileID: 11400000, guid: b61a30531adb6504cac31009d3959c31, type: 2}
+      objectReference: {fileID: 11400000, guid: a5c4ae53b5bd79849b190c4cface0030, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
