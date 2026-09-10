@@ -355,7 +355,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.402672, y: 13.69}
+    oldSize: {x: 20.402672, y: 14.589999}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -381,6 +381,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  hover: {fileID: 0}
 --- !u!114 &7401161958050931342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   banderaAOtorgar: {fileID: 11400000, guid: af7706e508e0f8e4b92c20068d42f667, type: 2}
+  bloquearSiYaTieneBandera: 1
+  destruirAlInteractuar: 0
+  nombreHabitacionDesbloqueada: 
+  notificacionResumen: {fileID: 0}
