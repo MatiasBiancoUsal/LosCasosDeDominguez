@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SfxManager : MonoBehaviour
 {
     public static SfxManager Instance;

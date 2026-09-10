@@ -774,6 +774,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &17280542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +791,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &17280543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +889,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &53695886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,6 +906,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &53695887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,6 +1308,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &127722775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,6 +1325,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &127722776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,6 +1935,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &246693456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,6 +1952,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &246693457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2804,6 +2820,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &397585984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,6 +2837,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &397585985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,6 +4011,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &729397826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4007,6 +4028,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &729397827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7625,7 +7649,7 @@ MonoBehaviour:
   cajaTexto: {fileID: 1084414524}
   imgPersonaje: {fileID: 1094172344}
   velocidadTexto: 0.05
-  sonido: {fileID: 8300000, guid: 8f477c48be449c248a7bc665a0e20c42, type: 3}
+  sonido: {fileID: 8300000, guid: 7a8b8671af711a246b67b30929945178, type: 3}
 --- !u!1 &1325922671
 GameObject:
   m_ObjectHideFlags: 0
@@ -7741,6 +7765,7 @@ Transform:
   m_Children:
   - {fileID: 643678960}
   - {fileID: 2008001210}
+  - {fileID: 5675611642741968199}
   m_Father: {fileID: 967930778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1328103642
@@ -7796,7 +7821,8 @@ MonoBehaviour:
   capaSuelo:
     serializedVersion: 2
     m_Bits: 128
-  clip: {fileID: 8300000, guid: 07583eccfd335b9428db28a757056b1e, type: 3}
+  caminataSonido: {fileID: 8023644784603121147}
+  caminando: 0
 --- !u!50 &1328103645
 Rigidbody2D:
   serializedVersion: 5
@@ -7989,6 +8015,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  hover: {fileID: 8300000, guid: 6e0823fa623e8254d94f972bd643387a, type: 3}
 --- !u!1 &1342257664
 GameObject:
   m_ObjectHideFlags: 0
@@ -8219,6 +8246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NotificacionLlaveUI
   panelNotificacion: {fileID: 2052440221}
   textoNotificacionUI: {fileID: 498101091}
+  clip: {fileID: 8300000, guid: 5cdb17f8311089d449f989b26ce60a01, type: 3}
 --- !u!114 &1383511508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8822,6 +8850,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &1601882983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8838,6 +8867,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &1601882984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8933,6 +8965,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
+  hover: {fileID: 0}
 --- !u!114 &1632771997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8949,6 +8982,9 @@ MonoBehaviour:
   banderaRequerida: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
+  puertaSonidos:
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+  - {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
 --- !u!114 &1632771998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9442,7 +9478,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0fcc05cd054281a4d812f6b4ee0d40bb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9683,6 +9719,18 @@ PrefabInstance:
       propertyPath: nombreDeLaEscena
       value: Cocina_Nivel6
       objectReference: {fileID: 0}
+    - target: {fileID: 1036499925698940939, guid: 20615c62a5cd30847a142db2695314bf, type: 3}
+      propertyPath: puertaSonidos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036499925698940939, guid: 20615c62a5cd30847a142db2695314bf, type: 3}
+      propertyPath: 'puertaSonidos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
+    - target: {fileID: 1036499925698940939, guid: 20615c62a5cd30847a142db2695314bf, type: 3}
+      propertyPath: 'puertaSonidos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ff2ae6fee7622a4f9d03d965a6cb3d1, type: 3}
     - target: {fileID: 2880796331099804665, guid: 20615c62a5cd30847a142db2695314bf, type: 3}
       propertyPath: m_SizeDelta.x
       value: 752
@@ -13006,6 +13054,118 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1944432587}
   m_SourcePrefab: {fileID: 100100000, guid: 83dc4348d8e3ef54da986526ddb225b4, type: 3}
+--- !u!82 &5316764748845821984
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023644784603121147}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: ba2836d09b6b1654badad25b20263dba, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &5675611642741968199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023644784603121147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.5438595, y: -2.81816, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1328103641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &6071975213386888023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13034,6 +13194,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3830465472880942544}
   m_CullTransparentMesh: 1
+--- !u!1 &8023644784603121147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5675611642741968199}
+  - component: {fileID: 5316764748845821984}
+  m_Layer: 6
+  m_Name: caminata
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

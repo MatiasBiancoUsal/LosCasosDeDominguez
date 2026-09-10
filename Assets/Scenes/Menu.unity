@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 262904758}
   - component: {fileID: 262904757}
   - component: {fileID: 262904756}
+  - component: {fileID: 262904759}
   m_Layer: 5
   m_Name: BotonJugar
   m_TagString: Untagged
@@ -263,6 +264,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262904754}
   m_CullTransparentMesh: 1
+--- !u!114 &262904759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262904754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &264952412
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,6 +5145,7 @@ GameObject:
   - component: {fileID: 442183373}
   - component: {fileID: 442183372}
   - component: {fileID: 442183371}
+  - component: {fileID: 442183374}
   m_Layer: 5
   m_Name: BotonOpciones
   m_TagString: Untagged
@@ -5247,6 +5278,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442183369}
   m_CullTransparentMesh: 1
+--- !u!114 &442183374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442183369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &455197100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,6 +5535,7 @@ GameObject:
   - component: {fileID: 565093017}
   - component: {fileID: 565093016}
   - component: {fileID: 565093015}
+  - component: {fileID: 565093018}
   m_Layer: 5
   m_Name: BotonVolver
   m_TagString: Untagged
@@ -5562,7 +5623,7 @@ MonoBehaviour:
         m_MethodName: Sonar
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 7fed943ae1e467a4da517f937b3ebfd6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5607,6 +5668,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565093013}
   m_CullTransparentMesh: 1
+--- !u!114 &565093018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565093013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &585623792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,6 +5709,7 @@ GameObject:
   - component: {fileID: 585623796}
   - component: {fileID: 585623795}
   - component: {fileID: 585623794}
+  - component: {fileID: 585623797}
   m_Layer: 5
   m_Name: BotonSalir
   m_TagString: Untagged
@@ -5751,6 +5842,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585623792}
   m_CullTransparentMesh: 1
+--- !u!114 &585623797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585623792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &961115560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,6 +6735,7 @@ GameObject:
   - component: {fileID: 1708966729}
   - component: {fileID: 1708966728}
   - component: {fileID: 1708966727}
+  - component: {fileID: 1708966730}
   m_Layer: 5
   m_Name: BotonSonido
   m_TagString: Untagged
@@ -6703,7 +6824,7 @@ MonoBehaviour:
         m_MethodName: Sonar
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 7fed943ae1e467a4da517f937b3ebfd6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -6748,6 +6869,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708966725}
   m_CullTransparentMesh: 1
+--- !u!114 &1708966730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708966725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1810773102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6832,6 +6982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1820317325}
+  - component: {fileID: 1820317326}
   m_Layer: 0
   m_Name: Sonido  ------------------------------------
   m_TagString: Untagged
@@ -6854,6 +7005,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820317326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820317324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3690bd1437c18d4188b483cfebedcd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SonidoRemoto
+  modo: 0
+  evento:
+    m_PersistentCalls:
+      m_Calls: []
+  evento2:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2078323016
 GameObject:
   m_ObjectHideFlags: 0
@@ -6866,6 +7036,7 @@ GameObject:
   - component: {fileID: 2078323020}
   - component: {fileID: 2078323019}
   - component: {fileID: 2078323018}
+  - component: {fileID: 2078323021}
   m_Layer: 5
   m_Name: BotonContinuar
   m_TagString: Untagged
@@ -6998,6 +7169,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078323016}
   m_CullTransparentMesh: 1
+--- !u!114 &2078323021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078323016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1820317326}
+          m_TargetAssemblyTypeName: SonidoRemoto, Assembly-CSharp
+          m_MethodName: SonidoUIPlay
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: 9b49788ce71abc94496fa921617d0273, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!82 &333869438321359458
 AudioSource:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class Puertas : MonoBehaviour
 
     [Tooltip("Tiempo en segundos que permanecerá visible el mensaje de puerta cerrada.")]
     [SerializeField] private float tiempoMensaje = 3f;
+    public AudioClip[] puertaSonidos;
 
     private DetectorHover detectorHover;
     private bool cargandoEscena = false;
@@ -48,12 +49,14 @@ public class Puertas : MonoBehaviour
         if (!desbloqueado && GameStateManager.Instance != null)
         {
             desbloqueado = GameStateManager.Instance.TieneBandera(banderaRequerida);
+            //SfxManager.Instance.PlaySfx(puertaSonidos[0]);
         }
 
         // 2. Si está desbloqueada, pasamos INMEDIATAMENTE
         if (desbloqueado)
         {
             cargandoEscena = true;
+            SfxManager.Instance.PlaySfx(puertaSonidos[1]);
             Debug.Log($"[Puertas] Transición inmediata hacia: {nombreDeLaEscena}");
 
             // Carga asíncrona: No congela la pantalla y responde al instante

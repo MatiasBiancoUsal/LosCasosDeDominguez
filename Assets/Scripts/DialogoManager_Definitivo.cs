@@ -136,6 +136,7 @@ public class DialogoManager_Definitivo : MonoBehaviour
         }
 
         escribiendo = false;
+        SonidosDeUI.instance.Source.Stop();
     }
 
     public void SiguienteLinea()

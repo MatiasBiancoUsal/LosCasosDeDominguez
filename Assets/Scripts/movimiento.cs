@@ -17,7 +17,8 @@ public class movimiento : MonoBehaviour
     private Camera Cam;
     private Animator animator;
     private Rigidbody2D rb;
-    public AudioClip clip;
+    public GameObject caminataSonido;
+    public bool caminando;
 
     void Start()
     {
@@ -61,6 +62,17 @@ public class movimiento : MonoBehaviour
         {
             animator.SetBool("estaCaminando", false);
         }
+
+        caminando = animator.GetBool("estaCaminando");
+
+        if (caminando)
+        {
+            caminataSonido.SetActive(true);
+        }
+        else
+        {
+            caminataSonido.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -94,10 +106,5 @@ public class movimiento : MonoBehaviour
         {
             rb.position = target;
         }
-    }
-
-    public void SonidoPasos()
-    {
-        SfxManager.Instance.PlaySfx(clip);
     }
 }

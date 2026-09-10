@@ -9,6 +9,7 @@ public class NotificacionLlaveUI : MonoBehaviour
     [Header("Referencias UI")]
     [SerializeField] private GameObject panelNotificacion;
     [SerializeField] private TMP_Text textoNotificacionUI;
+    public AudioClip clip;
 
     private NotificacionResumen resumenPendiente = null;
     private bool estaNotificando = false;
@@ -36,6 +37,8 @@ public class NotificacionLlaveUI : MonoBehaviour
     public void MostrarNotificacion(string nombreHabitacion, NotificacionResumen resumenOpcional = null)
     {
         resumenPendiente = resumenOpcional;
+
+        SonidosDeUI.instance.Play(clip);
 
         if (textoNotificacionUI != null)
         {

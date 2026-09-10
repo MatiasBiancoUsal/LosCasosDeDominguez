@@ -30,6 +30,7 @@ public class InteraccionTelefono : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 InteractuarConTelefono();
+                SonidosDeUI.instance.Source.Stop();
             }
         }
     }
@@ -64,5 +65,13 @@ public class InteraccionTelefono : MonoBehaviour
         }
 
         SonidosDeUI.instance.Play(clip);
+    }
+
+    public void Sonar()
+    {
+        if (!yaSeInteractuo)
+        {
+            SonidosDeUI.instance.Play(clip);
+        }
     }
 }

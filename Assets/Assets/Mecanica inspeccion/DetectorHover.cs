@@ -9,6 +9,7 @@ public class DetectorHover : MonoBehaviour
 
     [Header("Configuración")]
     [SerializeField] private LayerMask interactableLayer;
+    public AudioClip hover;
 
     private bool mouseEstaEncima;
 
@@ -65,7 +66,7 @@ public class DetectorHover : MonoBehaviour
     private void EntrarHover()
     {
         mouseEstaEncima = true;
-
+        SonidosDeUI.instance.Play(hover);
         Debug.Log("HOVER EN: " + gameObject.name);
 
         MostrarIndicadores();
