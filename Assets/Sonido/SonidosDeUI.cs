@@ -14,20 +14,26 @@ public class SonidosDeUI : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            source = GetComponent<AudioSource>();
         }
-        else
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
     }
 
-    private void Start()
-    {
-        source = GetComponent<AudioSource>();
-    }
-
     public void Play(AudioClip clip)
     {
-        source.PlayOneShot(clip);
+        if (clip == null) return;
+
+        if (source != null)
+        {
+            source.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning("El AudioSource en SonidosDeUI no est disponible");
+        }
     }
+    
 }
