@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -1275,6 +1276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: Recibidor_Nivel2
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -1390,6 +1392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: OficinaHipolito_Nivel4
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -2674,6 +2677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: GranSalon_Nivel3
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -3489,6 +3493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -3623,6 +3628,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740616773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2838828057082323454, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &740616774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7739205121401178328, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
 --- !u!1 &822305727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,6 +3660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 822305730}
   - component: {fileID: 822305728}
+  - component: {fileID: 822305731}
   m_Layer: 0
   m_Name: _MANAGERS_1
   m_TagString: Untagged
@@ -3654,12 +3682,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MisionManager
   misiones:
   - {fileID: 1542066273}
+  - {fileID: 740616774}
   - {fileID: 1542066272}
+  - {fileID: 740616773}
   - {fileID: 1542066271}
   - {fileID: 1542066270}
   - {fileID: 1542066269}
   - {fileID: 1542066268}
   - {fileID: 1542066267}
+  - {fileID: 1251205356}
+  - {fileID: 1251205355}
+  - {fileID: 1251205354}
+  - {fileID: 1251205353}
+  - {fileID: 1251205352}
+  - {fileID: 1251205351}
+  - {fileID: 1251205350}
+  - {fileID: 1251205349}
+  - {fileID: 1251205348}
+  - {fileID: 1251205347}
+  - {fileID: 1251205346}
+  - {fileID: 1251205345}
+  - {fileID: 1251205344}
+  - {fileID: 1251205343}
 --- !u!4 &822305730
 Transform:
   m_ObjectHideFlags: 0
@@ -3675,6 +3719,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &822305731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822305727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f9cfea436a7c14c9ad4b0480287b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlagInicial
+  flag: {fileID: 11400000, guid: 5ae859ea15120ea4391bfde77771f607, type: 2}
 --- !u!1 &893031486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,6 +4155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -4454,6 +4512,160 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &1251205343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3773610328011041571, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205344 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4437044983875205647, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8425528678118839790, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4403721349575698019, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4533399791743035181, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4118988270340855635, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205349 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3664639796492907532, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4091529318047621818, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4955908451097621311, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3459022497115528577, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3564754861841481024, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2267289114895046231, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3330488278752993488, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!114 &1251205356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5399347327343164987, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 1542066266}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
 --- !u!1 &1254613567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,7 +5685,7 @@ PrefabInstance:
     - target: {fileID: 1637116104560508606, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: flagActivacion
       value: 
-      objectReference: {fileID: 11400000, guid: 265d940a0bbcd6e4abb383564ecdb699, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ae859ea15120ea4391bfde77771f607, type: 2}
     - target: {fileID: 1726337040296989021, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7708,6 +7920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
@@ -7823,6 +8036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorNivel
   nombreDeLaEscena: 
   banderaRequerida: {fileID: 0}
+  banderaAlInteractuar: {fileID: 0}
   mensajePuertaCerrada: {fileID: 0}
   tiempoMensaje: 3
   puertaSonidos:
