@@ -4237,20 +4237,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 830508816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
+  m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  - banderaACompletar: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
     nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
     banderaRequerida: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
-  - banderaACompletar: {fileID: 0}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: e1faf31b22d993e4083f2e440f04d9f3, type: 2}
-    banderaRequerida: {fileID: 0}
   dialogoPorDefecto: {fileID: 11400000, guid: e1faf31b22d993e4083f2e440f04d9f3, type: 2}
   notificacionResumen: {fileID: 0}
 --- !u!114 &852912212 stripped
@@ -7811,16 +7806,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1328103640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
+  m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 4d4626a6c15eb5c4a8b9e94778521d6c, type: 2}
+  - banderaACompletar: {fileID: 0}
     nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
+    banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
     banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &1328103649
 MonoBehaviour:
@@ -7836,7 +7831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DetectiveResaltadoUI
   banderasRequeridas:
   - {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  banderaCompletadaDetective: {fileID: 0}
+  banderaCompletadaDetective: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
   iconoResaltado: {fileID: 2008001209}
   botonConversarUI: {fileID: 2084675454}
 --- !u!114 &1328103650
@@ -10516,7 +10511,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744593024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faa2f74e54f015543a872a0bf7f77124, type: 3}
+  m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
@@ -10527,11 +10522,6 @@ MonoBehaviour:
     banderaRequerida: {fileID: 0}
   - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
     nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 11400000, guid: a37a6010877bf4b4faf89dbb788c1d6f, type: 2}
-    nombreHabitacionADesbloquear: Al Jardin
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 8cf92120e3736e2479939016a0a2e841, type: 2}
     banderaRequerida: {fileID: 11400000, guid: 4d4626a6c15eb5c4a8b9e94778521d6c, type: 2}
