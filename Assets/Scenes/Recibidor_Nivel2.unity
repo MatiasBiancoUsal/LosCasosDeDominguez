@@ -1369,7 +1369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &191536723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1939,7 +1939,7 @@ GameObject:
   - component: {fileID: 330579104}
   - component: {fileID: 330579103}
   m_Layer: 5
-  m_Name: q
+  m_Name: x
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4359327472603921858, guid: 522a5592166862c4cb65b5f1965ee7b9, type: 3}
+  m_Sprite: {fileID: -4760874868791809993, guid: 721416f1a813d2d46bb542bd926219ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3187,14 +3187,14 @@ RectTransform:
   m_GameObject: {fileID: 498414260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 191536723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141.5, y: -70.9}
+  m_AnchoredPosition: {x: -141.62, y: -70.43}
   m_SizeDelta: {x: 1.6972, y: 1.4369}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498414262
@@ -12424,7 +12424,11 @@ PrefabInstance:
     - target: {fileID: 5261411994503440632, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: banderaAOtorgar
       value: 
-      objectReference: {fileID: 11400000, guid: a37a6010877bf4b4faf89dbb788c1d6f, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261411994503440632, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: nombreHabitacionDesbloqueada
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6428911163074325911, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: inspectionPanel
       value: 

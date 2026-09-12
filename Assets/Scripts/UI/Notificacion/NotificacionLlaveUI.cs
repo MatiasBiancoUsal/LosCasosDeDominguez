@@ -28,7 +28,7 @@ public class NotificacionLlaveUI : MonoBehaviour
     {
         if (!estaNotificando) return;
 
-        if (Keyboard.current != null && (Keyboard.current.qKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
+        if (Keyboard.current != null && (Keyboard.current.xKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
         {
             CerrarNotificacion();
         }
