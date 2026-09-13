@@ -9,7 +9,7 @@ public class MenuPausa : MonoBehaviour
     public GameObject panelInstrucciones;
     public GameObject panelSonidos;
 
-    private bool juegoPausado = false;
+    public bool juegoPausado = false;
     public GameObject objetoSonidoActivo;
     public GameObject objetoSonidoDesactivado;
 
@@ -44,6 +44,8 @@ public class MenuPausa : MonoBehaviour
         panelPausaPrincipal.SetActive(true);
         Time.timeScale = 0f;
         juegoPausado = true;
+
+        AudioListener.pause = true;
     }
 
     public void ContinuarJuego()
@@ -57,6 +59,8 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 1f;
         juegoPausado = false;
+
+        AudioListener.pause = false;
     }
 
     public void VolverAlMenuPausaPrincipal()
@@ -78,6 +82,8 @@ public class MenuPausa : MonoBehaviour
     {
         panelPausaPrincipal.SetActive(false);
         if (panelInstrucciones != null) panelInstrucciones.SetActive(true);
+        AudioListener.pause = false;
+        juegoPausado = false;
     }
 
     public void AbrirSonidos()

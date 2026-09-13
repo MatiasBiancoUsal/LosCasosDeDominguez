@@ -26,6 +26,15 @@ public class ControladorTutorial : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Time.timeScale = 1f;
+            panelTutorial.SetActive(false);
+        }
+    }
+
     public void PasarASegundoTutorial()
     {
         panelTutorial.SetActive(false);

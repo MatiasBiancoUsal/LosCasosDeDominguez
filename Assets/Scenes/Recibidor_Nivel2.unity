@@ -4240,13 +4240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: a324d2a917e7f024c965273b72fc5ef3, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: e1faf31b22d993e4083f2e440f04d9f3, type: 2}
+  dialogosPosibles: []
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &852912212 stripped
 MonoBehaviour:
@@ -5745,6 +5740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1129634229}
+  - component: {fileID: 1129634230}
   m_Layer: 5
   m_Name: Tutorial Nro2
   m_TagString: Untagged
@@ -5774,6 +5770,19 @@ RectTransform:
   m_AnchoredPosition: {x: -11.200002, y: -5.220006}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1129634230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129634228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c35423cfac2b6d489d8326a1830eda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CerrarX
+  panelRoot: {fileID: 1129634228}
 --- !u!1 &1132997120
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,12 +7818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 0}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  dialogosPosibles: []
   dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &1328103649
@@ -10514,18 +10518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 8cf92120e3736e2479939016a0a2e841, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: 4d4626a6c15eb5c4a8b9e94778521d6c, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
+  dialogosPosibles: []
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!1 &1929985216
 GameObject:
@@ -11238,7 +11232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CamaraSeguimiento
   objetivo: {fileID: 1328103641}
   suavizado: 5
-  desfase: {x: 0, y: 0, z: -10}
+  desfase: {x: 0, y: 2, z: -10}
 --- !u!1 &1988225659
 GameObject:
   m_ObjectHideFlags: 0
