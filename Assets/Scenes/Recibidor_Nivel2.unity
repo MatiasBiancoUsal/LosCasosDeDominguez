@@ -12203,7 +12203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   banderaAOtorgar: {fileID: 11400000, guid: 6d778304173f9824d8ab04038bcfce8f, type: 2}
-  bloquearSiYaTieneBandera: 1
+  bloquearSiYaTieneBandera: 0
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 
   notificacionResumen: {fileID: 0}
@@ -12582,6 +12582,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
+    - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: bloquearSiYaTieneBandera
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
