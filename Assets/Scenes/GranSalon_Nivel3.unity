@@ -3053,11 +3053,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 0}
+  - banderaACompletar: {fileID: 11400000, guid: a42a2004e78f3b44b8d018c58d842b00, type: 2}
     nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 7e29a27b900b6af4b98139aaf54a34bb, type: 2}
     banderaRequerida: {fileID: 0}
+  - banderaACompletar: {fileID: 0}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: cb767bd56cc5dd64a818898de5336c75, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: 41f96e113aec45346a0e7cee7da8d681, type: 2}
   dialogoPorDefecto: {fileID: 11400000, guid: d836c3844bc8c0e47bc4fbc5cf2a88f1, type: 2}
   notificacionResumen: {fileID: 0}
 --- !u!1 &478700800
@@ -6503,7 +6508,7 @@ MonoBehaviour:
     banderaRequerida: {fileID: 0}
   - banderaACompletar: {fileID: 11400000, guid: aaef34f9af39a5d4d8108f9012f7b1f4, type: 2}
     nombreHabitacionADesbloquear: a la cocina
-    banderaExtra: {fileID: 0}
+    banderaExtra: {fileID: 11400000, guid: df7143b31d9c4d34bb61ed42b4911cd1, type: 2}
     dialogo: {fileID: 11400000, guid: 59879f08c608b2044975add890272ef3, type: 2}
     banderaRequerida: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
   dialogoPorDefecto: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
@@ -7283,6 +7288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1926798203}
     m_Modifications:
+    - target: {fileID: 149622821850055376, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2326522905189898335, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.11845
@@ -7341,7 +7350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913558502283865149, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9827,9 +9836,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: df7143b31d9c4d34bb61ed42b4911cd1, type: 2}
   panel: {fileID: 928972598}
-  duracion: 3
+  duracion: 6
 --- !u!114 &1586907170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14224,7 +14233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 0}
+  - banderaACompletar: {fileID: 11400000, guid: d68ef03601bd5df4fa5fc756654a4993, type: 2}
     nombreHabitacionADesbloquear: 
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 58dddc6e558a61f499de5c7ce0aa8f34, type: 2}
