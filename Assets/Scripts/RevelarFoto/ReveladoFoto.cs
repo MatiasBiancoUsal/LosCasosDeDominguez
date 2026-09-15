@@ -1,8 +1,9 @@
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -11,16 +12,22 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public Image imagenFoto;
     public GameObject botonVerFoto;
     public GameObject popUpVistaDetallada;
-    public GameObject botonSalir; 
+    public GameObject botonSalir;
 
     [Header("Configuración de Salida")]
     [Tooltip("Nombre de la escena a la que te llevará el botón de salir.")]
     public string nombreEscenaSalida;
 
+    [Header("Flag al terminar")]
+    [Tooltip("Flag que se otorgará al salir de esta escena.")]
+    [SerializeField] private GameFlag flagAlSalir;
+
     [Header("Ajustes de Revelado")]
     public float duracionAnimacion = 2.0f;
+
     private bool yaEstaRevelada = false;
     private bool estaEnAgua = false;
+    private bool flagYaOtorgada = false;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -29,16 +36,22 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+
         canvasGroup = GetComponent<CanvasGroup>();
-        if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
         if (imagenFoto != null)
         {
             imagenFoto.color = Color.black;
         }
 
-        if (botonVerFoto != null) botonVerFoto.SetActive(false);
-        if (popUpVistaDetallada != null) popUpVistaDetallada.SetActive(false);
+        if (botonVerFoto != null)
+            botonVerFoto.SetActive(false);
+
+        if (popUpVistaDetallada != null)
+            popUpVistaDetallada.SetActive(false);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -56,7 +69,9 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         canvasGroup.blocksRaycasts = true;
 
-        if (RectTransformUtility.RectangleContainsScreenPoint(zonaAgua, Input.mousePosition))
+        if (RectTransformUtility.RectangleContainsScreenPoint(
+            zonaAgua,
+            Input.mousePosition))
         {
             if (!yaEstaRevelada)
             {
@@ -76,17 +91,25 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private IEnumerator AnimacionRevelado()
     {
         float tiempo = 0f;
+
         Color colorInicial = Color.black;
         Color colorFinal = Color.white;
 
         while (tiempo < duracionAnimacion)
         {
             tiempo += Time.deltaTime;
-            imagenFoto.color = Color.Lerp(colorInicial, colorFinal, tiempo / duracionAnimacion);
+
+            imagenFoto.color = Color.Lerp(
+                colorInicial,
+                colorFinal,
+                tiempo / duracionAnimacion
+            );
+
             yield return null;
         }
 
         imagenFoto.color = colorFinal;
+
         yaEstaRevelada = true;
 
         if (botonVerFoto != null)
@@ -96,7 +119,7 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         if (botonSalir != null)
         {
-            botonSalir.SetActive(true); 
+            botonSalir.SetActive(true);
         }
     }
 
@@ -115,8 +138,25 @@ public class ReveladoFoto : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             popUpVistaDetallada.SetActive(false);
         }
     }
+
     public void SalirAEscena()
     {
+        // Otorgar la flag antes de cambiar de escena
+        if (!flagYaOtorgada &&
+            flagAlSalir != null &&
+            GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.GuardarBandera(flagAlSalir);
+
+            flagYaOtorgada = true;
+
+            Debug.Log(
+                "Flag obtenida al completar el revelado: "
+                + flagAlSalir.name
+            );
+        }
+
+        // Volver a la escena indicada
         if (!string.IsNullOrEmpty(nombreEscenaSalida))
         {
             SceneManager.LoadScene(nombreEscenaSalida);
