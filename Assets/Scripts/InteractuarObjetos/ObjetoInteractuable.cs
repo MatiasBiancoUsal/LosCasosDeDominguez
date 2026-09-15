@@ -5,10 +5,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(DetectorHover))]
 public class ObjetoInteractuable : MonoBehaviour
 {
+    [Header("Requisitos para Interactuar")]
+    [Tooltip("Si se asigna, el jugador debe tener esta bandera para poder interactuar con el objeto.")]
+    [SerializeField] private GameFlag banderaRequerida;
+
     [Header("Persistencia")]
     [SerializeField] private GameFlag banderaAOtorgar;
 
-    [Tooltip("Si está activado, el objeto dejará de responder cuando la bandera ya haya sido obtenida.")]
+    [Tooltip("Si está activado, el objeto dejará de responder cuando la bandera a otorgar ya haya sido obtenida.")]
     [SerializeField] private bool bloquearSiYaTieneBandera = true;
 
     [Header("Comportamiento Recolectable")]
@@ -87,52 +91,62 @@ public class ObjetoInteractuable : MonoBehaviour
         {
             if (detectorHover != null && detectorHover.MouseEstaEncima)
             {
+                // VERIFICACIÓN DE BANDERA REQUERIDA
+                if (banderaRequerida != null && GameStateManager.Instance != null)
+                {
+                    if (!GameStateManager.Instance.TieneBandera(banderaRequerida))
+                    {
+                        // Opcional: Aquí puedes poner un sonido de "bloqueado" o un mensaje UI
+                        Debug.Log($"No se puede interactuar. Falta la bandera: {banderaRequerida.name}");
+                        return; // Cortamos la ejecución, no se interactúa
+                    }
+                }
+
                 EjecutarInteraccion();
             }
         }
     }
 
     private void EjecutarInteraccion()
-{
-
-    if (banderaAOtorgar != null && GameStateManager.Instance != null)
     {
-        // Solo otorgar la bandera si todavía no la tiene.
-        if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
+        if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            esPrimeraInteraccion = true;
-
-            GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
-
-            if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+            // Solo otorgar la bandera si todavía no la tiene.
+            if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
             {
-                GameStateManager.Instance.RegistrarHabitacionDesbloqueada(
-                    banderaAOtorgar,
-                    nombreHabitacionDesbloqueada
-                );
+                esPrimeraInteraccion = true;
+
+                GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+
+                if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
+                {
+                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(
+                        banderaAOtorgar,
+                        nombreHabitacionDesbloqueada
+                    );
+                }
             }
         }
-    }
 
-    if (accionEspecifica != null)
-    {
-        accionEspecifica.EjecutarAccion();
-
-        // Los sospechosos manejan su propio cierre del panel.
-        if (accionEspecifica is AccionSospechoso)
+        if (accionEspecifica != null)
         {
-            esperandoCierrePanelInfo = false;
+            accionEspecifica.EjecutarAccion();
+
+            // Los sospechosos manejan su propio cierre del panel.
+            if (accionEspecifica is AccionSospechoso)
+            {
+                esperandoCierrePanelInfo = false;
+            }
+            else
+            {
+                esperandoCierrePanelInfo = true;
+            }
         }
         else
         {
-            esperandoCierrePanelInfo = true;
+            StartCoroutine(SecuenciaNotificacionFinal());
         }
     }
-    else
-    {
-        StartCoroutine(SecuenciaNotificacionFinal());
-    }
-}
 
     private IEnumerator SecuenciaNotificacionFinal()
     {
