@@ -79,12 +79,12 @@ public class MisionManager : MonoBehaviour
 
             bool debeEstarActiva = activada && !completada;
 
-            Debug.Log(
-                "Misión: " + mision.gameObject.name +
-                " | Activada: " + activada +
-                " | Completada: " + completada +
-                " | Mostrar: " + debeEstarActiva
-            );
+            //Debug.Log(
+            //    "Misión: " + mision.gameObject.name +
+            //    " | Activada: " + activada +
+            //    " | Completada: " + completada +
+            //    " | Mostrar: " + debeEstarActiva
+            //);
 
             mision.gameObject.SetActive(debeEstarActiva);
         }

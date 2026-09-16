@@ -53,7 +53,7 @@ public class ActivarDialogo : MonoBehaviour
             }
             else
             {
-                Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el ratón NO está sobre el personaje (Hover es false).");
+                //Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el ratón NO está sobre el personaje (Hover es false).");
             }
         }
     }
@@ -62,7 +62,7 @@ public class ActivarDialogo : MonoBehaviour
     {
         if (DialogoManager_Definitivo.Instance == null)
         {
-            Debug.LogError("[ActivarDialogo] Falta DialogoManager.Instance en la escena.");
+           // Debug.LogError("[ActivarDialogo] Falta DialogoManager.Instance en la escena.");
             return;
         }
 
@@ -142,4 +142,4 @@ public class ActivarDialogo : MonoBehaviour
             }
         }
     }
-}
+} //cambio para probar

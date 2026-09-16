@@ -18,10 +18,10 @@ public class ResetPlayerPrefs : MonoBehaviour
     private void Update()
     {
         // Borrar presionando la tecla R en cualquier momento durante la partida
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
-        {
-            BorrarTodo();
-        }
+        //if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        //{
+        //    BorrarTodo();
+        //}
     }
 
     // Esta etiqueta permite que aparezca la opción con Clic Derecho en el Inspector

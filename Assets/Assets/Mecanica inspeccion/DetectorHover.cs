@@ -67,7 +67,7 @@ public class DetectorHover : MonoBehaviour
     {
         mouseEstaEncima = true;
         SonidosDeUI.instance.Play(hover);
-        Debug.Log("HOVER EN: " + gameObject.name);
+        //Debug.Log("HOVER EN: " + gameObject.name);
 
         MostrarIndicadores();
     }
