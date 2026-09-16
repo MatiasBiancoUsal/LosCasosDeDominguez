@@ -37,8 +37,10 @@ public class ObjetoInteractuable : MonoBehaviour
         accionEspecifica = GetComponent<IAccionInteractuable>();
     }
 
-    private void Start()
+    // Cambiado a IEnumerator para esperar 1 frame tras la carga de escena
+    private IEnumerator Start()
     {
+        yield return null; // Da tiempo al GameStateManager para inicializarse
         ComprobarSiYaFueRecogido();
     }
 
@@ -50,15 +52,12 @@ public class ObjetoInteractuable : MonoBehaviour
         if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
             return;
 
-        // Si el objeto es recolectable y se debe destruir al conseguir la flag,
-        // desaparece al cargar la escena.
         if (destruirAlInteractuar)
         {
             Destroy(gameObject);
             return;
         }
 
-        // Solo bloqueamos la interacción si así lo indicamos desde el Inspector.
         if (bloquearSiYaTieneBandera)
         {
             yaFueCompletado = true;
@@ -67,8 +66,6 @@ public class ObjetoInteractuable : MonoBehaviour
 
     private void Update()
     {
-        // Si ya completó su interacción y está configurado para bloquearse,
-        // no responde nuevamente.
         if (yaFueCompletado)
             return;
 
@@ -91,14 +88,12 @@ public class ObjetoInteractuable : MonoBehaviour
         {
             if (detectorHover != null && detectorHover.MouseEstaEncima)
             {
-                // VERIFICACIÓN DE BANDERA REQUERIDA
                 if (banderaRequerida != null && GameStateManager.Instance != null)
                 {
                     if (!GameStateManager.Instance.TieneBandera(banderaRequerida))
                     {
-                        // Opcional: Aquí puedes poner un sonido de "bloqueado" o un mensaje UI
                         Debug.Log($"No se puede interactuar. Falta la bandera: {banderaRequerida.name}");
-                        return; // Cortamos la ejecución, no se interactúa
+                        return;
                     }
                 }
 
@@ -111,7 +106,6 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
         {
-            // Solo otorgar la bandera si todavía no la tiene.
             if (!GameStateManager.Instance.TieneBandera(banderaAOtorgar))
             {
                 esPrimeraInteraccion = true;
@@ -132,7 +126,6 @@ public class ObjetoInteractuable : MonoBehaviour
         {
             accionEspecifica.EjecutarAccion();
 
-            // Los sospechosos manejan su propio cierre del panel.
             if (accionEspecifica is AccionSospechoso)
             {
                 esperandoCierrePanelInfo = false;
@@ -152,7 +145,6 @@ public class ObjetoInteractuable : MonoBehaviour
     {
         esperandoCierrePanelInfo = false;
 
-        // Espera al siguiente frame para no procesar la tecla 'Q' de inmediato
         yield return null;
 
         if (bloquearSiYaTieneBandera)
@@ -176,8 +168,6 @@ public class ObjetoInteractuable : MonoBehaviour
             notificacionResumen.MostrarNotificacion();
         }
 
-        // SI DESTRUYES EL GAMEOBJECT, hazlo en el frame siguiente 
-        // para asegurar que NotificacionLlaveUI procesó la llamada correctamente.
         if (destruirAlInteractuar)
         {
             Destroy(gameObject);
