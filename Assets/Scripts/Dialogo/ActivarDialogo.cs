@@ -51,20 +51,12 @@ public class ActivarDialogo : MonoBehaviour
             {
                 EvaluarYIniciarDialogo();
             }
-            else
-            {
-                //Debug.Log("[ActivarDialogo] Presionaste la 'I', pero el ratón NO está sobre el personaje (Hover es false).");
-            }
         }
     }
 
     private void EvaluarYIniciarDialogo()
     {
-        if (DialogoManager_Definitivo.Instance == null)
-        {
-           // Debug.LogError("[ActivarDialogo] Falta DialogoManager.Instance en la escena.");
-            return;
-        }
+        if (DialogoManager_Definitivo.Instance == null) return;
 
         DialogoSistema dialogoAProcesar = null;
         dialogoSeleccionadoActual = null;
@@ -120,19 +112,9 @@ public class ActivarDialogo : MonoBehaviour
         {
             CondicionDialogo dialogo = dialogoSeleccionadoActual.Value;
 
+            // 1. Guardar primero las banderas para que el sistema reconozca que ya se poseen
             if (dialogo.banderaACompletar != null)
             {
-                if (!string.IsNullOrEmpty(dialogo.nombreHabitacionADesbloquear))
-                {
-                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(dialogo.banderaACompletar, dialogo.nombreHabitacionADesbloquear);
-
-                    // Muestra el cartel pasando también la referencia de la NotificacionResumen
-                    if (NotificacionLlaveUI.Instance != null)
-                    {
-                        NotificacionLlaveUI.Instance.MostrarNotificacion(dialogo.nombreHabitacionADesbloquear, notificacionResumen);
-                    }
-                }
-
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaACompletar);
             }
 
@@ -140,6 +122,30 @@ public class ActivarDialogo : MonoBehaviour
             {
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaExtra);
             }
+
+            // 2. Gestionar las notificaciones de UI según corresponda
+            if (!string.IsNullOrEmpty(dialogo.nombreHabitacionADesbloquear))
+            {
+                if (dialogo.banderaACompletar != null)
+                {
+                    GameStateManager.Instance.RegistrarHabitacionDesbloqueada(dialogo.banderaACompletar, dialogo.nombreHabitacionADesbloquear);
+                }
+
+                if (NotificacionLlaveUI.Instance != null)
+                {
+                    NotificacionLlaveUI.Instance.MostrarNotificacion(dialogo.nombreHabitacionADesbloquear, notificacionResumen);
+                }
+            }
+            else if (notificacionResumen != null)
+            {
+                // Si no hay habitación por desbloquear, llama directamente al resumen
+                notificacionResumen.MostrarNotificacion();
+            }
+        }
+        else if (notificacionResumen != null)
+        {
+            // En caso de diálogo por defecto
+            notificacionResumen.MostrarNotificacion();
         }
     }
 } //cambio para probar

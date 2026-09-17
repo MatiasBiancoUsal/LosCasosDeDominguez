@@ -13,7 +13,7 @@ public class SonidosDeUI : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //SDontDestroyOnLoad(gameObject);
             source = GetComponent<AudioSource>();
         }
         else if (instance != this)

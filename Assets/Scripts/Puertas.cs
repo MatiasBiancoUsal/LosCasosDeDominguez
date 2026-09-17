@@ -71,7 +71,7 @@ public class Puertas : MonoBehaviour
 
             cargandoEscena = true;
 
-            SfxManager.Instance.PlaySfx(puertaSonidos[1]);
+            //SfxManager.Instance.PlaySfx(puertaSonidos[1]);
 
             Debug.Log($"[Puertas] Transición inmediata hacia: {nombreDeLaEscena}");
 

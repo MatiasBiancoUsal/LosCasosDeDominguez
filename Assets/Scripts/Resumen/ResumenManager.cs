@@ -79,6 +79,21 @@ public class ResumenManager : MonoBehaviour
 
         sospechosoActualUI = UIReferencia;
 
+        bool esFinalista = sospechoso.suspectName == "SO-HIPOLITO" ||
+                       sospechoso.suspectName == "SO-ELISA" ||
+                       sospechoso.suspectName == "SO-ISABEL" ||
+                       sospechoso.suspectName == "SO-DOMINGO";
+
+        if (botonEliminarSospechoso != null)
+        {
+            botonEliminarSospechoso.gameObject.SetActive(!esFinalista);
+        }
+       
+        if (nombreSospechoso != null) nombreSospechoso.text = sospechoso.suspectName;
+
+
+
+
         if (nombreSospechoso != null) nombreSospechoso.text = sospechoso.suspectName;
         if (fotoSospechoso != null) fotoSospechoso.sprite = sospechoso.portrait;
 

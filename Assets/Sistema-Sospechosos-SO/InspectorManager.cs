@@ -181,11 +181,11 @@ public class InspectionManager : MonoBehaviour
         // Ignorar la misma Q que abri� el panel
         ignoreNextQ = true;
 
-        Debug.Log("Inspeccionando a: " + suspect.suspectName);
+        //Debug.Log("Inspeccionando a: " + suspect.suspectName);
     }
 
     private void OnDisable()
     {
-        Debug.Log("InspectionManager desactivado.");
+        //Debug.Log("InspectionManager desactivado.");
     }
 }

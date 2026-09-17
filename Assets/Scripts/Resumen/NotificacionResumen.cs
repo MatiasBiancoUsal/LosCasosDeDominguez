@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class NotificacionResumen : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class NotificacionResumen : MonoBehaviour
     {
         if (panelNotificacion != null)
         {
-            panelNotificacion.SetActive(false); 
+            panelNotificacion.SetActive(false);
         }
 
         if (botonIrAResumen != null)
@@ -45,19 +44,29 @@ public class NotificacionResumen : MonoBehaviour
 
     private bool TieneTodasLasBanderas()
     {
-        if (banderasRequeridas == null || banderasRequeridas.Count == 0) return true;
+        if (banderasRequeridas == null || banderasRequeridas.Count == 0)
+        {
+            Debug.Log("[NotificacionResumen] La lista 'banderasRequeridas' está vacía. Se omiten comprobaciones.");
+            return true;
+        }
 
         if (GameStateManager.Instance == null)
         {
-            Debug.LogError("[NotificacionResumen] No se encontró el GameStateManager en escena.");
+            Debug.LogError("[NotificacionResumen] CRÍTICO: No existe GameStateManager.Instance en la escena.");
             return false;
         }
 
         foreach (GameFlag flag in banderasRequeridas)
         {
-            if (flag != null && !GameStateManager.Instance.TieneBandera(flag))
+            if (flag != null)
             {
-                return false; 
+                bool tieneEstaFlag = GameStateManager.Instance.TieneBandera(flag);
+                Debug.Log($"[NotificacionResumen] Evaluando flag '{flag.Id}' -> Resultado: {(tieneEstaFlag ? "POSEE LA FLAG" : "NO LA POSEE")}");
+
+                if (!tieneEstaFlag)
+                {
+                    return false;
+                }
             }
         }
 
@@ -66,15 +75,26 @@ public class NotificacionResumen : MonoBehaviour
 
     public void MostrarNotificacion()
     {
+        // LOG 1: Confirma que la llamada al método llega hasta este script
+        Debug.Log("<color=yellow>[NotificacionResumen] Método MostrarNotificacion() EJECUTADO.</color>");
+
         if (!TieneTodasLasBanderas())
         {
-            Debug.Log("[NotificacionResumen] Aún no se cumplen las banderas necesarias para activar el resumen.");
+            // LOG 2: Falla la validación de banderas
+            Debug.LogWarning("[NotificacionResumen] CANCELADO: Faltan banderas requeridas por cumplir.");
             return;
         }
 
         if (panelNotificacion != null)
         {
+            // LOG 3: Confirmación de activación
+            Debug.Log($"<color=green>[NotificacionResumen] ¡ÉXITO! Intentando activar GameObject: {panelNotificacion.name}</color>");
             panelNotificacion.SetActive(true);
+        }
+        else
+        {
+            // LOG 4: Variable de la UI no asignada en el Inspector
+            Debug.LogError("[NotificacionResumen] ERROR: La variable 'panelNotificacion' está NULL en el Inspector.");
         }
 
         estaActiva = true;
