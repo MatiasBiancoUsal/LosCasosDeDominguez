@@ -3,9 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class SelectorCulpable : MonoBehaviour
 {
-    [Header("Condición de Apertura")]
-    [Tooltip("Asigná aquí la bandera que otorga el Detective al terminar su diálogo final (ej: HabloConDetectiveFinal).")]
-    [SerializeField] private GameFlag banderaDetectiveFinal;
+    [Header("Condiciones de Apertura")]
+    [Tooltip("Primera bandera requerida para abrir el panel.")]
+    [SerializeField] private GameFlag banderaRequisito1;
+
+    [Tooltip("Segunda bandera requerida para abrir el panel.")]
+    [SerializeField] private GameFlag banderaRequisito2;
+
+    [Tooltip("Tercera bandera requerida para abrir el panel.")]
+    [SerializeField] private GameFlag banderaRequisito3;
 
     [Tooltip("Opcional: Bandera para que el panel no vuelva a salir si el caso ya se resolvió.")]
     [SerializeField] private GameFlag banderaCasoResuelto;
@@ -50,8 +56,8 @@ public class SelectorCulpable : MonoBehaviour
             return;
         }
 
-        // Se abre SOLO si ya se obtuvo la bandera del Detective
-        if (banderaDetectiveFinal != null && GameStateManager.Instance.TieneBandera(banderaDetectiveFinal))
+        // Se abre SOLO si se han obtenido las 3 banderas
+        if (TieneTodasLasBanderas())
         {
             MostrarPanel();
         }
@@ -59,6 +65,16 @@ public class SelectorCulpable : MonoBehaviour
         {
             OcultarPanel();
         }
+    }
+
+    private bool TieneTodasLasBanderas()
+    {
+        // Comprueba que las 3 estén asignadas en el Inspector y obtenidas en la partida
+        bool cumple1 = banderaRequisito1 != null && GameStateManager.Instance.TieneBandera(banderaRequisito1);
+        bool cumple2 = banderaRequisito2 != null && GameStateManager.Instance.TieneBandera(banderaRequisito2);
+        bool cumple3 = banderaRequisito3 != null && GameStateManager.Instance.TieneBandera(banderaRequisito3);
+
+        return cumple1 && cumple2 && cumple3;
     }
 
     private void MostrarPanel()
