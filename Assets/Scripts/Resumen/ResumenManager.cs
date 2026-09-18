@@ -15,12 +15,20 @@ public class ResumenManager : MonoBehaviour
     [SerializeField] private Image fotoSospechoso;
     [SerializeField] private TMP_Text nombreSospechoso;
     [SerializeField] private TMP_Text textoConclusiones;
+
+    [Space(5)]
     [SerializeField] private Button botonEliminarSospechoso;
+    [SerializeField] private TMP_Text textoBotonEliminar;
+
     [SerializeField] private Button botonVolverAGaleria;
 
     [Header("Control de Sospechosos")]
     [Tooltip("Lista de todos los botones de sospechosos en la galería.")]
     [SerializeField] private List<ResumenSospechosoUI> listaSospechososUI = new List<ResumenSospechosoUI>();
+
+    [Header("Sospechosos Protegidos / Finalistas")]
+    [Tooltip("Arrastra aquí los assets (SuspectData) de los 4 sospechosos que NO se pueden eliminar.")]
+    [SerializeField] private List<SuspectData> sospechososFinalistas = new List<SuspectData>();
 
     [Header("Botón para Avanzar (Quedan 4)")]
     [Tooltip("Botón flotante en la galería que se activa cuando quedan 4 sospechosos o menos.")]
@@ -31,6 +39,7 @@ public class ResumenManager : MonoBehaviour
     [SerializeField] private GameObject panelAvisoCuatroSospechosos;
 
     private ResumenSospechosoUI sospechosoActualUI;
+    private bool esSospechosoFinalista = false;
 
     private void Awake()
     {
@@ -42,7 +51,7 @@ public class ResumenManager : MonoBehaviour
         Instance = this;
 
         if (botonEliminarSospechoso != null)
-            botonEliminarSospechoso.onClick.AddListener(EliminarSospechosoActual);
+            botonEliminarSospechoso.onClick.AddListener(ProcesarAccionSospechoso);
 
         if (botonVolverAGaleria != null)
             botonVolverAGaleria.onClick.AddListener(MostrarGaleria);
@@ -50,7 +59,7 @@ public class ResumenManager : MonoBehaviour
         if (botonConfirmarCuatro != null)
         {
             botonConfirmarCuatro.onClick.AddListener(MostrarCartelAviso);
-            botonConfirmarCuatro.gameObject.SetActive(false); 
+            botonConfirmarCuatro.gameObject.SetActive(false);
         }
 
         if (panelAvisoCuatroSospechosos != null)
@@ -69,7 +78,6 @@ public class ResumenManager : MonoBehaviour
         if (panelAvisoCuatroSospechosos != null) panelAvisoCuatroSospechosos.SetActive(false);
 
         sospechosoActualUI = null;
-
         VerificarSospechososRestantes();
     }
 
@@ -79,20 +87,14 @@ public class ResumenManager : MonoBehaviour
 
         sospechosoActualUI = UIReferencia;
 
-        bool esFinalista = sospechoso.suspectName == "SO-HIPOLITO" ||
-                       sospechoso.suspectName == "SO-ELISA" ||
-                       sospechoso.suspectName == "SO-ISABEL" ||
-                       sospechoso.suspectName == "SO-DOMINGO";
+        // Comprobamos directamente si el asset que abrimos está contenido en la lista de finalistas
+        esSospechosoFinalista = sospechososFinalistas.Contains(sospechoso);
 
-        if (botonEliminarSospechoso != null)
+        // Cambiamos el texto del botón según la lista
+        if (textoBotonEliminar != null)
         {
-            botonEliminarSospechoso.gameObject.SetActive(!esFinalista);
+            textoBotonEliminar.text = esSospechosoFinalista ? "Seguir Investigando" : "Eliminar Sospechoso";
         }
-       
-        if (nombreSospechoso != null) nombreSospechoso.text = sospechoso.suspectName;
-
-
-
 
         if (nombreSospechoso != null) nombreSospechoso.text = sospechoso.suspectName;
         if (fotoSospechoso != null) fotoSospechoso.sprite = sospechoso.portrait;
@@ -116,9 +118,10 @@ public class ResumenManager : MonoBehaviour
         if (panelConclusiones != null) panelConclusiones.SetActive(true);
     }
 
-    public void EliminarSospechosoActual()
+    public void ProcesarAccionSospechoso()
     {
-        if (sospechosoActualUI != null)
+        // Solo descartamos (pintamos en gris) si NO es finalista
+        if (!esSospechosoFinalista && sospechosoActualUI != null)
         {
             sospechosoActualUI.Descartar();
         }

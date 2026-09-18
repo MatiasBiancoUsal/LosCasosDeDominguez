@@ -10,12 +10,16 @@ public class DetectiveResaltadoUI : MonoBehaviour
     [SerializeField] private GameObject iconoResaltado;
     [SerializeField] private GameObject botonConversarUI;
 
+    [Header("Componentes de Interacción")]
+    [SerializeField] private Collider2D miCollider; // Drag & Drop del BoxCollider2D en el Inspector
+
     private DetectorHover hover;
     private bool debeEstarActivo;
 
     private void Awake()
     {
         hover = GetComponent<DetectorHover>();
+        if (miCollider == null) miCollider = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
@@ -73,6 +77,7 @@ public class DetectiveResaltadoUI : MonoBehaviour
 
         Debug.Log($"[DetectiveResaltadoUI] Evaluando {gameObject.name} -> CumpleRequeridas: {condicionRequeridaCumplida} | YaHablo: {yaHabloConDetective} | ResultadoActivo: {debeEstarActivo}");
 
+        // Control visual
         if (iconoResaltado != null)
         {
             iconoResaltado.SetActive(debeEstarActivo);
@@ -81,6 +86,10 @@ public class DetectiveResaltadoUI : MonoBehaviour
         {
             Debug.LogError($"[DetectiveResaltadoUI] ¡Falta asignar 'iconoResaltado' en {gameObject.name}!");
         }
+
+        // BLOQUEO DE INTERACCIÓN: Si no debe estar activo, desactivamos collider y detector hover
+        if (miCollider != null) miCollider.enabled = debeEstarActivo;
+        if (hover != null) hover.enabled = debeEstarActivo;
     }
 
     private bool CumpleTodasLasBanderas()
