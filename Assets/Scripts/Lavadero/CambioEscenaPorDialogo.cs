@@ -14,6 +14,11 @@ public class CambioEscenaPorDialogo : MonoBehaviour
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.OnBanderaObtenida += VerificarCambioDeEscena;
+            Debug.Log($"[CambioEscena] Suscrito con éxito al evento en {gameObject.name}");
+        }
+        else
+        {
+            Debug.LogError($"[CambioEscena] GameStateManager.Instance es NULL en {gameObject.name}");
         }
     }
 
@@ -27,9 +32,11 @@ public class CambioEscenaPorDialogo : MonoBehaviour
 
     private void VerificarCambioDeEscena(GameFlag banderaRecienObtenida)
     {
-        // Si la bandera que se acaba de obtener es la que marca el fin del diálogo del detective
+        Debug.Log($"[CambioEscena] Bandera recibida: {banderaRecienObtenida?.name} | Buscada: {banderaFinalDialogo?.name}");
+
         if (banderaFinalDialogo != null && banderaRecienObtenida == banderaFinalDialogo)
         {
+            Debug.Log($"[CambioEscena] ¡Coincidencia! Cargando escena: {nombreEscenaDestino}");
             CargarEscena();
         }
     }
@@ -42,7 +49,7 @@ public class CambioEscenaPorDialogo : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"[CambioEscenaPorDialogo] No asignaste la escena de destino en {gameObject.name}");
+            Debug.LogError($"[CambioEscena] Falta definir 'nombreEscenaDestino' en {gameObject.name}");
         }
     }
 }
