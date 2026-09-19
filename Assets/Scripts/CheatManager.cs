@@ -6,7 +6,7 @@ public class CheatManager : MonoBehaviour
     public static CheatManager Instance { get; private set; }
 
     [Header("Atajos de Teclado")]
-    //[SerializeField] private KeyCode teclaOtorgarBanderas = KeyCode.F1;
+    [SerializeField] private KeyCode teclaOtorgarBanderas = KeyCode.F1;
     [SerializeField] private KeyCode teclaSaltarEscena = KeyCode.F2;
 
     [Header("Configuración de Cheats")]
@@ -32,10 +32,10 @@ public class CheatManager : MonoBehaviour
     private void Update()
     {
         // Truco 1: Desbloquear todas las banderas requeridas
-       // if (Input.GetKeyDown(teclaOtorgarBanderas))
-       // {
-         //   CompletarTodasLasBanderas();
-        //}
+       if (Input.GetKeyDown(teclaOtorgarBanderas))
+        {
+              CompletarTodasLasBanderas();
+        }
 
         // Truco 2: Cargar la escena final o siguiente directamente
         if (Input.GetKeyDown(teclaSaltarEscena))
