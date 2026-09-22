@@ -9,7 +9,7 @@ public class ControlCreditos : MonoBehaviour
     public float duracionFade = 1.5f;
 
     [Header("Escenas")]
-    public string nombreEscenaMenu = "MenuPrincipal";
+    public string nombreEscenaMenu = "Menu";
 
     public void MostrarBotonesFinales()
     {
