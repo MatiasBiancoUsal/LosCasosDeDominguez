@@ -291,7 +291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141.51, y: -69.73}
+  m_AnchoredPosition: {x: -141.51, y: -70.1}
   m_SizeDelta: {x: 3.2984, y: 2.7924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30351262
@@ -2138,7 +2138,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -141.5, y: -70.9}
-  m_SizeDelta: {x: 1.6972, y: 1.4369}
+  m_SizeDelta: {x: 1.0244, y: 0.8673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398962844
 MonoBehaviour:
@@ -3168,19 +3168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: a42a2004e78f3b44b8d018c58d842b00, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 7e29a27b900b6af4b98139aaf54a34bb, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 0}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: cb767bd56cc5dd64a818898de5336c75, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: 41f96e113aec45346a0e7cee7da8d681, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: d836c3844bc8c0e47bc4fbc5cf2a88f1, type: 2}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &478700800
 GameObject:
   m_ObjectHideFlags: 0
@@ -6528,6 +6515,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1282467214}
     m_Modifications:
+    - target: {fileID: 688577203016703555, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 960426004551192313, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 114.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 95.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -150.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.48
+      objectReference: {fileID: 0}
     - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -6546,11 +6557,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.89800644
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.09366274
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6599,6 +6610,22 @@ PrefabInstance:
     - target: {fileID: 5261411994503440632, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: nombreHabitacionDesbloqueada
       value: a la Cocina
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 112.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 94.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00000095367
       objectReference: {fileID: 0}
     - target: {fileID: 6428911163074325911, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: suspectData
@@ -6687,19 +6714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 9f844257c2c91f24b9b26691c9e37f44, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 11400000, guid: aaef34f9af39a5d4d8108f9012f7b1f4, type: 2}
-    nombreHabitacionADesbloquear: a la cocina
-    banderaExtra: {fileID: 11400000, guid: df7143b31d9c4d34bb61ed42b4911cd1, type: 2}
-    dialogo: {fileID: 11400000, guid: 59879f08c608b2044975add890272ef3, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &1003618615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7261,7 +7275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -141.55, y: -70.96}
-  m_SizeDelta: {x: 1.1276, y: 0.9546}
+  m_SizeDelta: {x: 1.0244, y: 0.8673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103677136
 MonoBehaviour:
@@ -7598,6 +7612,26 @@ PrefabInstance:
     - target: {fileID: 8329337280400788397, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 10.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 7.3699985
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.975008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0000038146973
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8451,7 +8485,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -141.45, y: -71.31}
-  m_SizeDelta: {x: 1.1276, y: 0.9546}
+  m_SizeDelta: {x: 1.0244, y: 0.8873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271534634
 MonoBehaviour:
@@ -11059,7 +11093,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -141.72, y: -71.141136}
-  m_SizeDelta: {x: 1.1276, y: 0.9546}
+  m_SizeDelta: {x: 1.0244, y: 0.8673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697970932
 MonoBehaviour:
@@ -12669,7 +12703,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5594461692305582155, guid: fb260b848428c744e9bbaf54601aa3f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13500,11 +13534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 2.6383
+      value: 6.627
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.9561
+      value: 8.364
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_LocalScale.x
@@ -13520,11 +13554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.15
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.58
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4593528890907327899, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -13576,19 +13610,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 3.198
+      value: 8.551
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 2.348
+      value: 6.278
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.0000010729
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13875,6 +13909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
+    - target: {fileID: 8427157742619801234, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: dialogoPorDefecto
       value: 
@@ -13941,14 +13979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: d68ef03601bd5df4fa5fc756654a4993, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 58dddc6e558a61f499de5c7ce0aa8f34, type: 2}
-    banderaRequerida: {fileID: 0}
-  dialogoPorDefecto: {fileID: 11400000, guid: 3b870b74258035d45ab64d91a68d17fd, type: 2}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &2101209946
 GameObject:
   m_ObjectHideFlags: 0
@@ -14858,6 +14888,10 @@ PrefabInstance:
     - target: {fileID: 8329337280400788397, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 8.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653178607409244713, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
