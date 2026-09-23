@@ -1383,8 +1383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141.5, y: -70.9}
-  m_SizeDelta: {x: 1.6972, y: 1.4369}
+  m_AnchoredPosition: {x: -141.56, y: -70.57}
+  m_SizeDelta: {x: 1.0244, y: 0.8673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &316951317
 MonoBehaviour:
@@ -1642,6 +1642,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 468360287}
     m_Modifications:
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.186
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.22945
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.08645
+      objectReference: {fileID: 0}
     - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: datosDelObjeto
       value: 
@@ -1793,8 +1809,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 468360287}
     m_Modifications:
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3.573
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.08
+      value: -0.00000023842
       objectReference: {fileID: 0}
     - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: datosDelObjeto
@@ -7053,7 +7081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1561240241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10153,14 +10181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 56e4462ab2d9897439df295f080091aa, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 87dbed08de52d2045b72d6167aaa81f5, type: 2}
-    banderaRequerida: {fileID: 0}
-  dialogoPorDefecto: {fileID: 11400000, guid: 92fa306bcfd825042a7376fae648e2aa, type: 2}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &164142401833889019
 GameObject:
   m_ObjectHideFlags: 0
