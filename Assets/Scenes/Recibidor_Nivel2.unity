@@ -4396,8 +4396,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - {banderaACompletar: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: 5e408cb867f58b844958bbb5c9472433, type: 2}, banderaRequerida: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}}
-  - {banderaACompletar: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}, dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}, banderaRequerida: {fileID: 11400000, guid: b08a3b011fc7d4544825916e74caa7e4, type: 2}}
+  - banderaACompletar: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 5e408cb867f58b844958bbb5c9472433, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
+  - banderaACompletar: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}
+    dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: b08a3b011fc7d4544825916e74caa7e4, type: 2}
   dialogoPorDefecto: {fileID: 11400000, guid: e1faf31b22d993e4083f2e440f04d9f3, type: 2}
   notificacionResumen: {fileID: 0}
 --- !u!114 &852912212 stripped
@@ -5273,8 +5281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 28.76, y: 22.92}
+  m_AnchoredPosition: {x: 0.9, y: -0}
+  m_SizeDelta: {x: 31.55, y: 25.153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038714702
 MonoBehaviour:
@@ -7697,7 +7705,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - {banderaACompletar: {fileID: 11400000, guid: dbee63c2b2db5c247ad3500edbe55cbd, type: 2}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}, banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}}
+  - banderaACompletar: {fileID: 11400000, guid: dbee63c2b2db5c247ad3500edbe55cbd, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 90204767}
 --- !u!114 &1328103649
@@ -8409,19 +8421,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 37.34
+      value: 34.9
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 27.41
+      value: 25.62
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000022888
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8393318848714708191, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.155
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10183,8 +10195,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - {banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}, banderaRequerida: {fileID: 0}}
-  - {banderaACompletar: {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 11400000, guid: a37a6010877bf4b4faf89dbb788c1d6f, type: 2}, dialogo: {fileID: 11400000, guid: 8cf92120e3736e2479939016a0a2e841, type: 2}, banderaRequerida: {fileID: 11400000, guid: 54b2d01503726d14f9966cf96d475957, type: 2}}
+  - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 0}
+    dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
+    banderaRequerida: {fileID: 0}
+  - banderaACompletar: {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}
+    nombreHabitacionADesbloquear: 
+    banderaExtra: {fileID: 11400000, guid: a37a6010877bf4b4faf89dbb788c1d6f, type: 2}
+    dialogo: {fileID: 11400000, guid: 8cf92120e3736e2479939016a0a2e841, type: 2}
+    banderaRequerida: {fileID: 11400000, guid: 54b2d01503726d14f9966cf96d475957, type: 2}
   dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
   notificacionResumen: {fileID: 0}
 --- !u!1 &1929985216
@@ -12172,22 +12192,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 967930778}
     m_Modifications:
-    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -98
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964960889586514999, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -12248,22 +12252,6 @@ PrefabInstance:
       propertyPath: nombreHabitacionDesbloqueada
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.0000095367
-      objectReference: {fileID: 0}
-    - target: {fileID: 5632067434102647503, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.755
-      objectReference: {fileID: 0}
     - target: {fileID: 6428911163074325911, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: inspectionPanel
       value: 
@@ -12304,10 +12292,6 @@ PrefabInstance:
       propertyPath: hover
       value: 
       objectReference: {fileID: 8300000, guid: 6e0823fa623e8254d94f972bd643387a, type: 3}
-    - target: {fileID: 8983304472933015575, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8584816927442100806, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
     m_RemovedGameObjects: []
@@ -12327,19 +12311,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.7545
+      value: 0.7509
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.7368
+      value: 0.7333
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00000011921
+      value: 0.000000047963
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000000089407
+      value: -0.047
       objectReference: {fileID: 0}
     - target: {fileID: 2066119149409725918, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_IsActive
