@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 259536656}
   - component: {fileID: 259536655}
   - component: {fileID: 259536654}
+  - component: {fileID: 259536658}
   m_Layer: 5
   m_Name: Canva
   m_TagString: Untagged
@@ -702,6 +703,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &259536658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259536653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b112638c3511e184e8c64d879b5941d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSaver
+  _tkey: TutorialCompleted1
+  _controlTutorial: {fileID: 1681527795}
 --- !u!1 &313843452
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,11 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 0}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}
-    banderaRequerida: {fileID: 0}
+  - {banderaACompletar: {fileID: 0}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}, banderaRequerida: {fileID: 0}}
   dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!1 &325071714
@@ -5203,8 +5214,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.000061
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4857096908272981442, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace
@@ -5523,11 +5538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
   dialogosPosibles:
-  - banderaACompletar: {fileID: 0}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}
-    banderaRequerida: {fileID: 0}
+  - {banderaACompletar: {fileID: 0}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}, banderaRequerida: {fileID: 0}}
   dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!1 &1573820411

@@ -96,10 +96,10 @@ public class Puertas : MonoBehaviour
             StopCoroutine(rutinaOcultarMensaje);
         }
 
-        rutinaOcultarMensaje = StartCoroutine(RutinaOcultarMensaje());
+        //rutinaOcultarMensaje = StartCoroutine(RutinaOcultarMensaje());
     }
 
-    private IEnumerator RutinaOcultarMensaje()
+    /*private IEnumerator RutinaOcultarMensaje()
     {
         yield return new WaitForSeconds(tiempoMensaje);
 
@@ -107,5 +107,5 @@ public class Puertas : MonoBehaviour
         {
             mensajePuertaCerrada.SetActive(false);
         }
-    }
+    }*/
 }

@@ -3663,9 +3663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles: []
-  dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &478700800
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,7 +4334,6 @@ GameObject:
   - component: {fileID: 628669915}
   - component: {fileID: 628669914}
   - component: {fileID: 628669913}
-  - component: {fileID: 628669916}
   m_Layer: 5
   m_Name: CartelCerrado_2
   m_TagString: Untagged
@@ -4429,20 +4425,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &628669916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628669911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c35423cfac2b6d489d8326a1830eda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CerrarX
-  panelRoot: {fileID: 0}
-  selfClose: 1
 --- !u!1 &637760224
 GameObject:
   m_ObjectHideFlags: 0
@@ -5491,7 +5473,6 @@ GameObject:
   - component: {fileID: 755065553}
   - component: {fileID: 755065552}
   - component: {fileID: 755065551}
-  - component: {fileID: 755065554}
   m_Layer: 5
   m_Name: CartelCerrado_2
   m_TagString: Untagged
@@ -5584,20 +5565,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &755065554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755065549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c35423cfac2b6d489d8326a1830eda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CerrarX
-  panelRoot: {fileID: 755065549}
-  selfClose: 0
 --- !u!1 &786415842
 GameObject:
   m_ObjectHideFlags: 0
@@ -7345,7 +7312,6 @@ GameObject:
   - component: {fileID: 997944536}
   - component: {fileID: 997944535}
   - component: {fileID: 997944534}
-  - component: {fileID: 997944537}
   m_Layer: 5
   m_Name: CartelCerrado_2
   m_TagString: Untagged
@@ -7437,20 +7403,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &997944537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997944532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c35423cfac2b6d489d8326a1830eda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CerrarX
-  panelRoot: {fileID: 0}
-  selfClose: 1
 --- !u!1001 &1000985085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7489,15 +7441,15 @@ PrefabInstance:
       objectReference: {fileID: 5971949328936754043, guid: a2f92ca3c388845488c9fa9bb7559912, type: 3}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.29043958
+      value: 0.25706807
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.28247902
+      value: 0.25002217
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.31957203
+      value: 0.28285322
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7658,9 +7610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles: []
-  dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &1003618615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14994,7 +14943,6 @@ GameObject:
   - component: {fileID: 1974578944}
   - component: {fileID: 1974578943}
   - component: {fileID: 1974578942}
-  - component: {fileID: 1974578945}
   m_Layer: 5
   m_Name: CartelCerrado_2
   m_TagString: Untagged
@@ -15086,20 +15034,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1974578945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974578940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c35423cfac2b6d489d8326a1830eda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CerrarX
-  panelRoot: {fileID: 0}
-  selfClose: 1
 --- !u!1 &1996523159
 GameObject:
   m_ObjectHideFlags: 0
@@ -16117,9 +16051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles: []
-  dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &2101209946
 GameObject:
   m_ObjectHideFlags: 0
