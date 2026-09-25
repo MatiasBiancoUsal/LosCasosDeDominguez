@@ -9,6 +9,9 @@ public class ObjetoInteractuable : MonoBehaviour
     [Tooltip("Si se asigna, el jugador debe tener esta bandera para poder interactuar con el objeto.")]
     [SerializeField] private GameFlag banderaRequerida;
 
+    [Tooltip("Objeto o texto de advertencia que se muestra si el jugador NO tiene la bandera requerida.")]
+    [SerializeField] private GameObject panelTextoBloqueado;
+
     [Header("Persistencia")]
     [SerializeField] private GameFlag banderaAOtorgar;
 
@@ -30,6 +33,7 @@ public class ObjetoInteractuable : MonoBehaviour
     private bool esperandoCierrePanelInfo = false;
     private bool esPrimeraInteraccion = false;
     private bool yaFueCompletado = false;
+    private bool mensajeBloqueoMostrado = false;
 
     private void Awake()
     {
@@ -75,6 +79,10 @@ public class ObjetoInteractuable : MonoBehaviour
                 (Keyboard.current.xKey.wasPressedThisFrame ||
                  Keyboard.current.qKey.wasPressedThisFrame))
             {
+
+                if (panelTextoBloqueado != null)
+                    panelTextoBloqueado.SetActive(false);
+
                 StartCoroutine(SecuenciaNotificacionFinal());
             }
 
@@ -93,6 +101,13 @@ public class ObjetoInteractuable : MonoBehaviour
                     if (!GameStateManager.Instance.TieneBandera(banderaRequerida))
                     {
                         Debug.Log($"No se puede interactuar. Falta la bandera: {banderaRequerida.name}");
+
+                        if (panelTextoBloqueado != null)
+                        {
+                            panelTextoBloqueado.SetActive(true);
+                            mensajeBloqueoMostrado = true;
+                        }
+
                         return;
                     }
                 }

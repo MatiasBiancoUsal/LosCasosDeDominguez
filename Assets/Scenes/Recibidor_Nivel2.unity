@@ -3708,6 +3708,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 875281766481129070, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
+      propertyPath: fondoNegro
+      value: 
+      objectReference: {fileID: 1697100162}
     - target: {fileID: 1285969817296605879, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3803,6 +3807,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8634244992097236583, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1697100163}
     - targetCorrespondingSourceObject: {fileID: 7882907406372023311, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1632771995}
@@ -3885,6 +3892,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!224 &725866995 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8634244992097236583, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
+  m_PrefabInstance: {fileID: 651842985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &726404396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4410,18 +4422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: e1faf31b22d993e4083f2e440f04d9f3, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 11400000, guid: 10f128c70ee161a4f8747c53ae103463, type: 2}
-    dialogo: {fileID: 11400000, guid: 2b2448a4c22fe8c4c8870340ae3f5f86, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: b08a3b011fc7d4544825916e74caa7e4, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: 5e408cb867f58b844958bbb5c9472433, type: 2}
+  dialogosPosibles: []
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &852912212 stripped
 MonoBehaviour:
@@ -4653,7 +4655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1
+      value: -1.000061
       objectReference: {fileID: 0}
     - target: {fileID: 4857096908272981442, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_SortingOrder
@@ -6091,8 +6093,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ControladorTutorial
   usarTutorial: 1
-  panelTutorial: {fileID: 1129634228}
-  SegundoTutorial: {fileID: 1129634228}
+  panelTutorial1: {fileID: 0}
+  panelTutorial2: {fileID: 0}
+  panelTutorial3: {fileID: 0}
 --- !u!4 &1157322007
 Transform:
   m_ObjectHideFlags: 0
@@ -7194,6 +7197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287195525}
+  - component: {fileID: 1287195526}
   m_Layer: 5
   m_Name: Interfaz
   m_TagString: Untagged
@@ -7213,8 +7217,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 215026428}
   - {fileID: 206359613}
+  - {fileID: 215026428}
   - {fileID: 760442634}
   - {fileID: 917426398}
   m_Father: {fileID: 6160398}
@@ -7224,6 +7228,29 @@ RectTransform:
   m_AnchoredPosition: {x: 362.1001, y: 109.79999}
   m_SizeDelta: {x: 50, y: 209.70007}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &1287195526
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287195524}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 150
+  m_TargetDisplay: 0
 --- !u!1 &1312799710
 GameObject:
   m_ObjectHideFlags: 0
@@ -7724,14 +7751,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: dbee63c2b2db5c247ad3500edbe55cbd, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  dialogosPosibles: []
   dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 90204767}
+  notificacionResumen: {fileID: 0}
 --- !u!114 &1328103649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9154,6 +9176,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.000013054}
   m_SizeDelta: {x: 745.4442, y: 484.98}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1697100162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697100163}
+  - component: {fileID: 1697100165}
+  - component: {fileID: 1697100164}
+  m_Layer: 5
+  m_Name: Fondo negro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1697100163
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697100162}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 725866995}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.3107, y: 1.6553}
+  m_SizeDelta: {x: 805.1724, y: 450.9309}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1697100164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -493447048987829266, guid: eb4e0fae4446d8a479b1df943b772fcc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1697100165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697100162}
+  m_CullTransparentMesh: 1
 --- !u!1 &1699684284
 GameObject:
   m_ObjectHideFlags: 0
@@ -10236,18 +10333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - banderaACompletar: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 0}
-    dialogo: {fileID: 11400000, guid: 436055dac1dfe1b4d8ce05fcdb2d7762, type: 2}
-    banderaRequerida: {fileID: 0}
-  - banderaACompletar: {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}
-    nombreHabitacionADesbloquear: 
-    banderaExtra: {fileID: 11400000, guid: a37a6010877bf4b4faf89dbb788c1d6f, type: 2}
-    dialogo: {fileID: 11400000, guid: 8cf92120e3736e2479939016a0a2e841, type: 2}
-    banderaRequerida: {fileID: 11400000, guid: 54b2d01503726d14f9966cf96d475957, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
+  dialogosPosibles: []
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!1 &1929985216
 GameObject:

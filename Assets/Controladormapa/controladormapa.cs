@@ -7,8 +7,9 @@ public class ControladorMapa : MonoBehaviour
     public AudioSource reproductorSonido;
     public AudioClip sonidoAbrir;
     public AudioClip sonidoCerrar;
+    public GameObject fondoNegro;
 
-    
+
     public bool mapaAbierto;
 
     void Start()
@@ -16,6 +17,11 @@ public class ControladorMapa : MonoBehaviour
       
         mapaAbierto = false;
         panelMapa.SetActive(false);
+
+        if (fondoNegro != null)
+        {
+            fondoNegro.SetActive(false);
+        }
     }
 
     void Update()
@@ -28,6 +34,10 @@ public class ControladorMapa : MonoBehaviour
                 
                 mapaAbierto = true;
                 panelMapa.SetActive(true);
+
+                if (fondoNegro != null)
+                    fondoNegro.SetActive(true);
+
                 reproductorSonido.PlayOneShot(sonidoAbrir);
             }
             else
@@ -35,6 +45,10 @@ public class ControladorMapa : MonoBehaviour
                
                 mapaAbierto = false;
                 panelMapa.SetActive(false);
+
+                if (fondoNegro != null)
+                    fondoNegro.SetActive(false);
+
                 reproductorSonido.PlayOneShot(sonidoCerrar);
             }
         }
