@@ -5,51 +5,67 @@ public class ControladorTutorial : MonoBehaviour
     public enum MostrarTuotial { no, [InspectorName("Sí")] si }
     public MostrarTuotial usarTutorial;
 
-    [Header("Panel del tutorial")]
-    public GameObject panelTutorial;
-    public GameObject SegundoTutorial;
+    [Header("Paneles del Tutorial")]
+    public GameObject panelTutorial1;
+    public GameObject panelTutorial2;
+    public GameObject panelTutorial3;
 
     public static bool tutorialActivo;
 
     private void Start()
     {
+        // Si el TutorialSaver decidió que SÍ se muestra, abrimos el panel 1
         if (usarTutorial == MostrarTuotial.si)
         {
-            panelTutorial.SetActive(true);
-            tutorialActivo = true;
-            Time.timeScale = 0f; 
+            AbrirTutorial();
         }
         else
         {
-            tutorialActivo = false;
-            Time.timeScale = 1f; 
+            OcultarTodosLosPaneles();
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        // Si el tutorial está visible y presionan 'X', se cierra completo
+        if (tutorialActivo && Input.GetKeyDown(KeyCode.X))
         {
-            Time.timeScale = 1f;
-            panelTutorial.SetActive(false);
+            CerrarTutorial();
         }
     }
 
-    public void PasarASegundoTutorial()
+    // Método para abrir el tutorial (sirve también para el botón "Instrucciones" del Menú de Pausa)
+    public void AbrirTutorial()
     {
-        panelTutorial.SetActive(false);
-        if (SegundoTutorial != null) SegundoTutorial.SetActive(true);
-
-        Time.timeScale = 1f;
+        MostrarPanel(1);
+        tutorialActivo = true;
+        Time.timeScale = 0f; // Pausa el juego
     }
+
+    // Maneja la visibilidad de las 3 páginas
+    public void MostrarPanel(int numeroPanel)
+    {
+        if (panelTutorial1 != null) panelTutorial1.SetActive(numeroPanel == 1);
+        if (panelTutorial2 != null) panelTutorial2.SetActive(numeroPanel == 2);
+        if (panelTutorial3 != null) panelTutorial3.SetActive(numeroPanel == 3);
+    }
+
+    // Funciones para conectar directamente en las flechas de los botones
+    public void IrAPanel1() => MostrarPanel(1);
+    public void IrAPanel2() => MostrarPanel(2);
+    public void IrAPanel3() => MostrarPanel(3);
 
     public void CerrarTutorial()
     {
-        panelTutorial.SetActive(false);
-        if (SegundoTutorial != null) SegundoTutorial.SetActive(false);
-
+        OcultarTodosLosPaneles();
         tutorialActivo = false;
+        Time.timeScale = 1f; // Reanuda el juego
+    }
 
-        Time.timeScale = 1f; 
+    private void OcultarTodosLosPaneles()
+    {
+        if (panelTutorial1 != null) panelTutorial1.SetActive(false);
+        if (panelTutorial2 != null) panelTutorial2.SetActive(false);
+        if (panelTutorial3 != null) panelTutorial3.SetActive(false);
     }
 }
