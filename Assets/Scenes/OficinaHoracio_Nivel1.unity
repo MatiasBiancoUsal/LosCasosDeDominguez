@@ -964,10 +964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - {banderaACompletar: {fileID: 0}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}, banderaRequerida: {fileID: 0}}
-  dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &325071714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,6 +3190,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mision
+--- !u!1 &873161567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873161568}
+  - component: {fileID: 873161570}
+  - component: {fileID: 873161569}
+  m_Layer: 5
+  m_Name: MISIONES
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &873161568
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873161567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5000032, y: 0.5000032, z: 0.5000032}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1254613568}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000030517578, y: 31.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &873161569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873161567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -2585346738423049806, guid: 008c229124ecc7e4a8d70b49a67a8e67, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &873161570
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873161567}
+  m_CullTransparentMesh: 1
 --- !u!1 &893031486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4020,6 +4091,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1984685760}
+  - {fileID: 873161568}
   m_Father: {fileID: 259536657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5537,10 +5609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
-  dialogosPosibles:
-  - {banderaACompletar: {fileID: 0}, nombreHabitacionADesbloquear: , banderaExtra: {fileID: 0}, dialogo: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}, banderaRequerida: {fileID: 0}}
-  dialogoPorDefecto: {fileID: 0}
-  notificacionResumen: {fileID: 0}
 --- !u!1 &1573820411
 GameObject:
   m_ObjectHideFlags: 0
