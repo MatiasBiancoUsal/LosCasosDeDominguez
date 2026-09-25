@@ -4558,6 +4558,10 @@ PrefabInstance:
       propertyPath: banderaRequerida
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: bloquearSiYaTieneBandera
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17279,6 +17283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755057254c1a5744b8eaa82c9191f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivarDialogo
+  dialogosPosibles: []
+  dialogoPorDefecto: {fileID: 0}
+  notificacionResumen: {fileID: 0}
 --- !u!1 &2140884364
 GameObject:
   m_ObjectHideFlags: 0
@@ -17415,6 +17422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
   banderaRequerida: {fileID: 0}
+  panelTextoBloqueado: {fileID: 0}
   banderaAOtorgar: {fileID: 11400000, guid: 2b6996644c347274eaf7e78f86a9f429, type: 2}
   bloquearSiYaTieneBandera: 1
   destruirAlInteractuar: 0
