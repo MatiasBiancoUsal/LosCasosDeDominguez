@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; 
+using TMPro;
 
 public class BitacoraUI : MonoBehaviour
 {
@@ -20,9 +20,16 @@ public class BitacoraUI : MonoBehaviour
 
     private void Update()
     {
+        // Abrir / Cerrar con W
         if (Input.GetKeyDown(KeyCode.W))
         {
             ToggleBitacora();
+        }
+
+        // Manejo de retroceso / cierre con X
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ManejarTeclaX();
         }
     }
 
@@ -40,8 +47,26 @@ public class BitacoraUI : MonoBehaviour
         }
     }
 
+    public void ManejarTeclaX()
+    {
+        // Si la bitácora ni siquiera está abierta, no hace nada
+        if (!estaAbierta) return;
+
+        // Caso 1: Estamos viendo la ficha de un personaje -> Volver a la galería
+        if (panelFichaPersonaje.activeSelf)
+        {
+            MostrarGaleria();
+        }
+        // Caso 2: Estamos en la galería -> Cerrar la bitácora y volver al juego
+        else if (panelPersonajes.activeSelf)
+        {
+            CerrarBitacora();
+        }
+    }
+
     public void MostrarGaleria()
     {
+        estaAbierta = true;
         panelPersonajes.SetActive(true);
         panelFichaPersonaje.SetActive(false);
     }
@@ -74,7 +99,7 @@ public class BitacoraUI : MonoBehaviour
 
     private void CargarInformacion(SuspectData sospechoso)
     {
-        textoInformacion.text = ""; 
+        textoInformacion.text = "";
 
         if (sospechoso.notebookEntries == null || sospechoso.notebookEntries.Count == 0)
         {

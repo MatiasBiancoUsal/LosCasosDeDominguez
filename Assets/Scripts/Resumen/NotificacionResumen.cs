@@ -2,13 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class NotificacionResumen : MonoBehaviour
 {
     [Header("UI del Panel")]
     [SerializeField] private GameObject panelNotificacion;
-    [SerializeField] private Button botonIrAResumen;
 
     [Header("Navegación")]
     [SerializeField] private string nombreEscenaResumen = "EscenaResumen";
@@ -25,18 +23,14 @@ public class NotificacionResumen : MonoBehaviour
         {
             panelNotificacion.SetActive(false);
         }
-
-        if (botonIrAResumen != null)
-        {
-            botonIrAResumen.onClick.AddListener(IrAEscenaResumen);
-        }
     }
 
     private void Update()
     {
         if (!estaActiva) return;
 
-        if (Keyboard.current != null && (Keyboard.current.enterKey.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame))
+        // Se verifica si se presiona la tecla X cuando la notificación está activa
+        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
         {
             IrAEscenaResumen();
         }
