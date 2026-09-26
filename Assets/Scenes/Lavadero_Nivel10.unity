@@ -847,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &30861839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3997,6 +3997,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498414260}
   m_CullTransparentMesh: 1
+--- !u!1 &502931142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502931144}
+  - component: {fileID: 502931143}
+  m_Layer: 0
+  m_Name: ManagerCambioDeEscena
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &502931143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502931142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc69dcee2ed176f4483773d006da191b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CambioEscenaPorDialogo
+  nombreEscenaDestino: Final
+  banderaFinalDialogo: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
+--- !u!4 &502931144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502931142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3761, y: -0.36101, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &559052663
 GameObject:
   m_ObjectHideFlags: 0
@@ -14012,7 +14058,6 @@ GameObject:
   - component: {fileID: 2091017220}
   - component: {fileID: 2091017219}
   - component: {fileID: 2091017218}
-  - component: {fileID: 2091017227}
   m_Layer: 6
   m_Name: Horacio
   m_TagString: Player
@@ -14075,7 +14120,7 @@ MonoBehaviour:
     banderaExtra: {fileID: 0}
     dialogo: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
     banderaRequerida: {fileID: 11400000, guid: 9723f3fd8de1b9d448a63c635b1aec74, type: 2}
-  dialogoPorDefecto: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
+  dialogoPorDefecto: {fileID: 0}
   notificacionResumen: {fileID: 0}
 --- !u!114 &2091017220
 MonoBehaviour:
@@ -14286,20 +14331,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2091017227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091017216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc69dcee2ed176f4483773d006da191b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CambioEscenaPorDialogo
-  nombreEscenaDestino: Final
-  banderaFinalDialogo: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
 --- !u!1 &2097582003
 GameObject:
   m_ObjectHideFlags: 0
@@ -15464,3 +15495,4 @@ SceneRoots:
   - {fileID: 884920208}
   - {fileID: 373651661}
   - {fileID: 1275803427}
+  - {fileID: 502931144}
