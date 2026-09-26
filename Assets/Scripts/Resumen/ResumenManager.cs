@@ -27,16 +27,16 @@ public class ResumenManager : MonoBehaviour
     [SerializeField] private List<ResumenSospechosoUI> listaSospechososUI = new List<ResumenSospechosoUI>();
 
     [Header("Sospechosos Protegidos / Finalistas")]
-    [Tooltip("Arrastra aquí los assets (SuspectData) de los 4 sospechosos que NO se pueden eliminar.")]
+    [Tooltip("Arrastra aquí los assets (SuspectData) de los 5 sospechosos que NO se pueden eliminar.")]
     [SerializeField] private List<SuspectData> sospechososFinalistas = new List<SuspectData>();
 
-    [Header("Botón para Avanzar (Quedan 4)")]
-    [Tooltip("Botón flotante en la galería que se activa cuando quedan 4 sospechosos o menos.")]
-    [SerializeField] private Button botonConfirmarCuatro;
+    [Header("Botón para Avanzar (Quedan 5)")]
+    [Tooltip("Botón flotante en la galería que se activa cuando quedan 5 sospechosos o menos.")]
+    [SerializeField] private Button botonConfirmar;
 
     [Header("Panel Aviso Final")]
     [Tooltip("El panel con el script EfectoTipeoUI.")]
-    [SerializeField] private GameObject panelAvisoCuatroSospechosos;
+    [SerializeField] private GameObject panelAvisoCincoSospechosos;
 
     private ResumenSospechosoUI sospechosoActualUI;
     private bool esSospechosoFinalista = false;
@@ -56,14 +56,14 @@ public class ResumenManager : MonoBehaviour
         if (botonVolverAGaleria != null)
             botonVolverAGaleria.onClick.AddListener(MostrarGaleria);
 
-        if (botonConfirmarCuatro != null)
+        if (botonConfirmar != null)
         {
-            botonConfirmarCuatro.onClick.AddListener(MostrarCartelAviso);
-            botonConfirmarCuatro.gameObject.SetActive(false);
+            botonConfirmar.onClick.AddListener(MostrarCartelAviso);
+            botonConfirmar.gameObject.SetActive(false);
         }
 
-        if (panelAvisoCuatroSospechosos != null)
-            panelAvisoCuatroSospechosos.SetActive(false);
+        if (panelAvisoCincoSospechosos != null)
+            panelAvisoCincoSospechosos.SetActive(false);
     }
 
     private void Start()
@@ -75,7 +75,7 @@ public class ResumenManager : MonoBehaviour
     {
         if (panelGaleria != null) panelGaleria.SetActive(true);
         if (panelConclusiones != null) panelConclusiones.SetActive(false);
-        if (panelAvisoCuatroSospechosos != null) panelAvisoCuatroSospechosos.SetActive(false);
+        if (panelAvisoCincoSospechosos != null) panelAvisoCincoSospechosos.SetActive(false);
 
         sospechosoActualUI = null;
         VerificarSospechososRestantes();
@@ -141,17 +141,17 @@ public class ResumenManager : MonoBehaviour
             }
         }
 
-        if (botonConfirmarCuatro != null)
+        if (botonConfirmar != null)
         {
-            botonConfirmarCuatro.gameObject.SetActive(activos <= 4);
+            botonConfirmar.gameObject.SetActive(activos <= 5);
         }
     }
 
     public void MostrarCartelAviso()
     {
-        if (panelAvisoCuatroSospechosos != null)
+        if (panelAvisoCincoSospechosos != null)
         {
-            panelAvisoCuatroSospechosos.SetActive(true);
+            panelAvisoCincoSospechosos.SetActive(true);
         }
     }
 }
