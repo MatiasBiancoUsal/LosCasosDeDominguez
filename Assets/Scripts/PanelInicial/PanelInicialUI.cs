@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PanelInicialUI : MonoBehaviour
 {
@@ -12,6 +13,18 @@ public class PanelInicialUI : MonoBehaviour
             panelInicial.SetActive(true);
         }
     }
+
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            if (panelInicial != null && panelInicial.activeSelf)
+            {
+                CerrarPanel();
+            }
+        }
+    }
+
     public void CerrarPanel()
     {
         if (panelInicial != null)

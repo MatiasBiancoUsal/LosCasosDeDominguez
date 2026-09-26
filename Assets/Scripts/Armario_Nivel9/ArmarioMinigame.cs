@@ -27,14 +27,12 @@ public class ArmarioMinigame : MonoBehaviour
     private void Start()
     {
         tiempoRestante = tiempoLimite;
+        CargarPistasPrevias();
 
-        // Muestra el tiempo inicial en el texto (ej: "25s")
         ActualizarTextoTiempo();
 
-        // Muestra el contador inicial de pistas (ej: "0 / 3")
         ActualizarTextoContador();
 
-        // Si ya tenía las 3 pistas recolectadas previamente
         if (TodasLasPistasObtenidas())
         {
             DesactivarModoJuego();
@@ -43,9 +41,22 @@ public class ArmarioMinigame : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Se ejecuta al cerrar el panel de explicación inicial.
-    /// </summary>
+    private void CargarPistasPrevias()
+    {
+        pistasEncontradasActuales = 0;
+
+        if (GameStateManager.Instance != null && banderasRequeridas != null)
+        {
+            foreach (GameFlag flag in banderasRequeridas)
+            {
+                if (flag != null && GameStateManager.Instance.TieneBandera(flag))
+                {
+                    pistasEncontradasActuales++;
+                }
+            }
+        }
+    }
+
     public void IniciarMinijuego()
     {
         if (!TodasLasPistasObtenidas())
@@ -58,20 +69,15 @@ public class ArmarioMinigame : MonoBehaviour
     {
         if (!juegoActivo) return;
 
-        // Descuenta el tiempo segundo a segundo
         tiempoRestante -= Time.deltaTime;
         ActualizarTextoTiempo();
 
-        // Si el tiempo se agota, regresa a la habitación
         if (tiempoRestante <= 0)
         {
             TiempoAgotado();
         }
     }
 
-    /// <summary>
-    /// Formatea y actualiza el texto del reloj en la UI.
-    /// </summary>
     private void ActualizarTextoTiempo()
     {
         if (textoTiempo != null)
@@ -81,9 +87,6 @@ public class ArmarioMinigame : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Actualiza el texto del contador de pistas (ej: "1 / 3").
-    /// </summary>
     public void ActualizarTextoContador()
     {
         if (textoContadorPistas != null)
@@ -92,18 +95,13 @@ public class ArmarioMinigame : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Llamado desde cada PistaArmario cuando se llena la barra con la tecla Q.
-    /// </summary>
     public void PistaRecolectada(GameObject objetoPista)
     {
         objetoPista.SetActive(false);
 
-        // Suma a la UI de pistas
         pistasEncontradasActuales++;
         ActualizarTextoContador();
 
-        // Si completó las 3, frena el reloj y abre el panel de revisión con flechas
         if (pistasEncontradasActuales >= totalPistasRequeridas)
         {
             DesactivarModoJuego();
@@ -117,16 +115,7 @@ public class ArmarioMinigame : MonoBehaviour
 
     private bool TodasLasPistasObtenidas()
     {
-        if (GameStateManager.Instance == null || banderasRequeridas == null || banderasRequeridas.Count == 0)
-            return false;
-
-        foreach (GameFlag flag in banderasRequeridas)
-        {
-            if (flag != null && !GameStateManager.Instance.TieneBandera(flag))
-                return false;
-        }
-
-        return true;
+        return pistasEncontradasActuales >= totalPistasRequeridas;
     }
 
     private void DesactivarModoJuego()
