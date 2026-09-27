@@ -1,6 +1,6 @@
+
 using UnityEngine;
 using TMPro;
-using System.Collections;
 
 public class MostrarPanelConTresFlags : MonoBehaviour
 {
@@ -14,11 +14,6 @@ public class MostrarPanelConTresFlags : MonoBehaviour
 
     [Header("Contador")]
     public TMP_Text contadorTexto;
-
-    [Header("Tiempo que permanece visible")]
-    public float duracion = 3f;
-
-    private Coroutine rutinaPanel;
 
     private void Start()
     {
@@ -37,6 +32,17 @@ public class MostrarPanelConTresFlags : MonoBehaviour
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.OnBanderaObtenida -= AlObtenerBandera;
+        }
+    }
+
+    private void Update()
+    {
+        // Si el panel está activo y se presiona X, lo cerramos
+        if (panel != null &&
+            panel.activeSelf &&
+            Input.GetKeyDown(KeyCode.X))
+        {
+            panel.SetActive(false);
         }
     }
 
@@ -105,22 +111,6 @@ public class MostrarPanelConTresFlags : MonoBehaviour
         if (panel == null)
             return;
 
-        if (rutinaPanel != null)
-        {
-            StopCoroutine(rutinaPanel);
-        }
-
-        rutinaPanel = StartCoroutine(MostrarPanel());
-    }
-
-    private IEnumerator MostrarPanel()
-    {
         panel.SetActive(true);
-
-        yield return new WaitForSeconds(duracion);
-
-        panel.SetActive(false);
-
-        rutinaPanel = null;
     }
 }

@@ -1,5 +1,5 @@
+
 using UnityEngine;
-using System.Collections;
 
 public class MPanelNotificacionUI3 : MonoBehaviour
 {
@@ -10,11 +10,6 @@ public class MPanelNotificacionUI3 : MonoBehaviour
 
     [Header("Panel a mostrar")]
     public GameObject panel;
-
-    [Header("Tiempo que permanece visible")]
-    public float duracion = 3f;
-
-    private Coroutine rutinaPanel;
 
     // Clave para recordar que este cartel ya fue mostrado
     private string ClaveNotificacion
@@ -49,6 +44,17 @@ public class MPanelNotificacionUI3 : MonoBehaviour
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.OnBanderaObtenida -= AlObtenerBandera;
+        }
+    }
+
+    private void Update()
+    {
+        // Si el panel está activo y se presiona X, lo cerramos.
+        if (panel != null &&
+            panel.activeSelf &&
+            Input.GetKeyDown(KeyCode.X))
+        {
+            panel.SetActive(false);
         }
     }
 
@@ -101,22 +107,8 @@ public class MPanelNotificacionUI3 : MonoBehaviour
         PlayerPrefs.SetInt(ClaveNotificacion, 1);
         PlayerPrefs.Save();
 
-        if (rutinaPanel != null)
-        {
-            StopCoroutine(rutinaPanel);
-        }
-
-        rutinaPanel = StartCoroutine(MostrarPanel());
-    }
-
-    private IEnumerator MostrarPanel()
-    {
+        // Mostramos el panel y queda abierto hasta presionar X.
         panel.SetActive(true);
-
-        yield return new WaitForSeconds(duracion);
-
-        panel.SetActive(false);
-
-        rutinaPanel = null;
     }
 }
+

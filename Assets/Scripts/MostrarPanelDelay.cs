@@ -1,15 +1,21 @@
 
 using UnityEngine;
 
-public class MostrarPanelConFlag : MonoBehaviour
+public class MostrarPanelDelay : MonoBehaviour
 {
-    [Header("Flag que activa el cartel")]
+    [Header("Flag que activa el panel")]
     public GameFlag flagNecesaria;
 
     [Header("Panel a mostrar")]
     public GameObject panel;
 
-    // Clave que usamos para recordar que este cartel ya apareció
+    [Header("Panel que debe cerrarse primero")]
+    public GameObject panelAnterior;
+
+    private bool esperandoPanel = false;
+    private bool panelMostrado = false;
+
+    // Clave para recordar que este cartel ya apareció
     private string ClaveNotificacion
     {
         get
@@ -17,7 +23,7 @@ public class MostrarPanelConFlag : MonoBehaviour
             if (flagNecesaria == null)
                 return "";
 
-            return "NotificacionMostrada_" + flagNecesaria.Id;
+            return "MostrarPanelDelay_" + flagNecesaria.Id;
         }
     }
 
@@ -26,15 +32,15 @@ public class MostrarPanelConFlag : MonoBehaviour
         if (GameStateManager.Instance == null)
             return;
 
-        // Por si la flag ya había sido obtenida anteriormente
-        // antes de cargar esta escena.
+        // Si la flag ya fue obtenida anteriormente,
+        // solo mostramos el panel si nunca fue mostrado antes.
         if (GameStateManager.Instance.TieneBandera(flagNecesaria) &&
-            !NotificacionYaMostrada())
+            !PanelYaMostrado())
         {
-            MostrarCartel();
+            esperandoPanel = true;
         }
 
-        // Escuchamos cuando se obtiene una nueva bandera.
+        // Escuchamos cuando se obtiene una nueva flag
         GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
     }
 
@@ -48,25 +54,36 @@ public class MostrarPanelConFlag : MonoBehaviour
 
     private void Update()
     {
-        // Si el panel está activo y se presiona X, lo cerramos
-        if (panel != null &&
+        // Esperamos a que se cierre el panel anterior
+        if (esperandoPanel && !panelMostrado)
+        {
+            if (panelAnterior == null || !panelAnterior.activeSelf)
+            {
+                MostrarPanel();
+            }
+        }
+
+        // Cerrar este panel con X
+        if (panelMostrado &&
+            panel != null &&
             panel.activeSelf &&
             Input.GetKeyDown(KeyCode.X))
         {
             panel.SetActive(false);
+            panelMostrado = false;
         }
     }
 
     private void AlObtenerBandera(GameFlag bandera)
     {
         if (bandera == flagNecesaria &&
-            !NotificacionYaMostrada())
+            !PanelYaMostrado())
         {
-            MostrarCartel();
+            esperandoPanel = true;
         }
     }
 
-    private bool NotificacionYaMostrada()
+    private bool PanelYaMostrado()
     {
         if (string.IsNullOrEmpty(ClaveNotificacion))
             return false;
@@ -74,18 +91,19 @@ public class MostrarPanelConFlag : MonoBehaviour
         return PlayerPrefs.GetInt(ClaveNotificacion, 0) == 1;
     }
 
-    private void MostrarCartel()
+    private void MostrarPanel()
     {
         if (panel == null)
             return;
 
-        // Guardamos que esta notificación ya apareció.
+        // Guardamos que este panel ya apareció
         PlayerPrefs.SetInt(ClaveNotificacion, 1);
         PlayerPrefs.Save();
 
-        // Mostramos el panel y lo dejamos abierto
-        // hasta que el jugador presione X.
         panel.SetActive(true);
+
+        esperandoPanel = false;
+        panelMostrado = true;
     }
 }
 
