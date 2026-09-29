@@ -93,6 +93,7 @@ public class ActivarDialogo : MonoBehaviour
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
 
+
             DialogoManager_Definitivo.Instance.IniciarDialogo(dialogoAProcesar);
         }
         else
