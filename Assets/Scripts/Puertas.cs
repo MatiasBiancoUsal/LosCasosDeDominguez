@@ -51,7 +51,14 @@ public class Puertas : MonoBehaviour
 
     private void IntentarEntrar()
     {
-        // 1. Chequeamos bandera requerida
+        // 0. Otorgar SIEMPRE la bandera al interactuar (incluso si la puerta está cerrada)
+        if (banderaAlInteractuar != null && GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.GuardarBandera(banderaAlInteractuar);
+            Debug.Log($"[Puertas] Intento registrado. Bandera guardada: {banderaAlInteractuar.name}");
+        }
+
+        // 1. Chequeamos bandera requerida (llave)
         bool desbloqueado = (banderaRequerida == null);
 
         if (!desbloqueado && GameStateManager.Instance != null)
@@ -59,23 +66,11 @@ public class Puertas : MonoBehaviour
             desbloqueado = GameStateManager.Instance.TieneBandera(banderaRequerida);
         }
 
-        // 2. Si está desbloqueada, pasamos INMEDIATAMENTE
+        // 2. Si está desbloqueada, pasamos a la siguiente escena
         if (desbloqueado)
         {
-            // Otorgar bandera opcional al interactuar con la puerta
-            if (banderaAlInteractuar != null && GameStateManager.Instance != null)
-            {
-                GameStateManager.Instance.GuardarBandera(banderaAlInteractuar);
-                Debug.Log($"[Puertas] Bandera otorgada: {banderaAlInteractuar.name}");
-            }
-
             cargandoEscena = true;
-
-            //SfxManager.Instance.PlaySfx(puertaSonidos[1]);
-
-            Debug.Log($"[Puertas] Transición inmediata hacia: {nombreDeLaEscena}");
-
-            // Carga asíncrona
+            Debug.Log($"[Puertas] Transición hacia: {nombreDeLaEscena}");
             SceneManager.LoadSceneAsync(nombreDeLaEscena);
         }
         else
