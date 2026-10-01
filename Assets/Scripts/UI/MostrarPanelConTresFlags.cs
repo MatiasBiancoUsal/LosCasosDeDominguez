@@ -9,6 +9,9 @@ public class MostrarPanelConTresFlags : MonoBehaviour
     public GameFlag flag2;
     public GameFlag flag3;
 
+    [Header("Flag Desbloqueada al Completar los 3")]
+    public GameFlag banderaDiccionarioDesbloqueado;
+
     [Header("Panel de notificación")]
     public GameObject panel;
 
@@ -66,8 +69,7 @@ public class MostrarPanelConTresFlags : MonoBehaviour
 
     private void AlObtenerBandera(GameFlag bandera)
     {
-        // Si la bandera obtenida NO es una de nuestras 3,
-        // ignoramos el evento.
+        // Si la bandera obtenida NO es una de nuestras 3, ignoramos el evento.
         if (!EsUnaDeLasTres(bandera))
             return;
 
@@ -116,20 +118,17 @@ public class MostrarPanelConTresFlags : MonoBehaviour
     {
         int cantidad = 0;
 
-        if (flag1 != null &&
-            GameStateManager.Instance.TieneBandera(flag1))
+        if (flag1 != null && GameStateManager.Instance.TieneBandera(flag1))
         {
             cantidad++;
         }
 
-        if (flag2 != null &&
-            GameStateManager.Instance.TieneBandera(flag2))
+        if (flag2 != null && GameStateManager.Instance.TieneBandera(flag2))
         {
             cantidad++;
         }
 
-        if (flag3 != null &&
-            GameStateManager.Instance.TieneBandera(flag3))
+        if (flag3 != null && GameStateManager.Instance.TieneBandera(flag3))
         {
             cantidad++;
         }
@@ -139,12 +138,22 @@ public class MostrarPanelConTresFlags : MonoBehaviour
 
     private void ActualizarContador()
     {
-        if (contadorTexto == null)
-            return;
-
         int cantidad = ContarFlagsObtenidas();
 
-        contadorTexto.text = cantidad + "/3";
+        if (contadorTexto != null)
+        {
+            contadorTexto.text = cantidad + "/3";
+        }
+
+        // Si ya juntó los 3 papeles, otorgamos la bandera del diccionario automáticamente
+        if (cantidad >= 3 && banderaDiccionarioDesbloqueado != null)
+        {
+            if (!GameStateManager.Instance.TieneBandera(banderaDiccionarioDesbloqueado))
+            {
+                GameStateManager.Instance.GuardarBandera(banderaDiccionarioDesbloqueado);
+                Debug.Log("[MostrarPanelConTresFlags] ¡3/3 juntados! Bandera del Diccionario otorgada.");
+            }
+        }
     }
 
     private void MostrarCartel()
