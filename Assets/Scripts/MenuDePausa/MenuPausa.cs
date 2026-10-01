@@ -80,10 +80,26 @@ public class MenuPausa : MonoBehaviour
 
     public void AbrirInstrucciones()
     {
-        panelPausaPrincipal.SetActive(false);
-        if (panelInstrucciones != null) panelInstrucciones.SetActive(true);
+        // Apagamos el menú principal de pausa
+        if (panelPausaPrincipal != null)
+            panelPausaPrincipal.SetActive(false);
+
+        // Encendemos el Manager Tutorial (el objeto padre)
+        if (panelInstrucciones != null)
+        {
+            panelInstrucciones.SetActive(true);
+
+            // Buscamos el script en el objeto encendido (o sus hijos) y abrimos el tutorial
+            ControladorTutorial controlador = panelInstrucciones.GetComponentInChildren<ControladorTutorial>();
+            if (controlador != null)
+            {
+                controlador.AbrirTutorial();
+            }
+        }
+
         AudioListener.pause = false;
-        juegoPausado = false;
+        juegoPausado = true; // Seguimos en estado de pausa
+        Time.timeScale = 0f;
     }
 
     public void AbrirSonidos()

@@ -14,7 +14,7 @@ public class ControladorTutorial : MonoBehaviour
 
     private void Start()
     {
-        // Si el TutorialSaver decidió que SÍ se muestra, abrimos el panel 1
+        // Solo se abre solo al iniciar la escena si 'usarTutorial' está marcado como 'si'
         if (usarTutorial == MostrarTuotial.si)
         {
             AbrirTutorial();
@@ -27,19 +27,20 @@ public class ControladorTutorial : MonoBehaviour
 
     private void Update()
     {
-        // Si el tutorial está visible y presionan 'X', se cierra completo
+        // Si el tutorial está visible y presionan 'X', se cierra
         if (tutorialActivo && Input.GetKeyDown(KeyCode.X))
         {
             CerrarTutorial();
         }
     }
 
-    // Método para abrir el tutorial (sirve también para el botón "Instrucciones" del Menú de Pausa)
+    // Método para abrir el tutorial (llamado al inicio o desde el Menú de Pausa)
     public void AbrirTutorial()
     {
+        gameObject.SetActive(true);
         MostrarPanel(1);
         tutorialActivo = true;
-        Time.timeScale = 0f; // Pausa el juego
+        Time.timeScale = 0f; // Mantiene el juego pausado
     }
 
     // Maneja la visibilidad de las 3 páginas
@@ -50,7 +51,7 @@ public class ControladorTutorial : MonoBehaviour
         if (panelTutorial3 != null) panelTutorial3.SetActive(numeroPanel == 3);
     }
 
-    // Funciones para conectar directamente en las flechas de los botones
+    // Funciones para conectar directamente en las flechas de los botones (On Click)
     public void IrAPanel1() => MostrarPanel(1);
     public void IrAPanel2() => MostrarPanel(2);
     public void IrAPanel3() => MostrarPanel(3);
@@ -59,7 +60,21 @@ public class ControladorTutorial : MonoBehaviour
     {
         OcultarTodosLosPaneles();
         tutorialActivo = false;
-        Time.timeScale = 1f; // Reanuda el juego
+
+        // Verificamos si estamos dentro del Menú de Pausa
+        MenuPausa menuPausa = FindFirstObjectByType<MenuPausa>();
+        if (menuPausa != null && menuPausa.juegoPausado)
+        {
+            // Volvemos al menú principal de pausa en vez de despausar el juego completo
+            menuPausa.VolverAlMenuPausaPrincipal();
+        }
+        else
+        {
+            // Si era el tutorial inicial del nivel, reanudamos el juego
+            Time.timeScale = 1f;
+        }
+
+        gameObject.SetActive(false);
     }
 
     private void OcultarTodosLosPaneles()
