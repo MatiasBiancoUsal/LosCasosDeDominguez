@@ -4947,6 +4947,7 @@ Transform:
   - {fileID: 1080648162}
   - {fileID: 1769745874}
   - {fileID: 462682659}
+  - {fileID: 1057091803}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1010878661 stripped
@@ -5487,6 +5488,8 @@ MonoBehaviour:
   flag2: {fileID: 11400000, guid: 2b6996644c347274eaf7e78f86a9f429, type: 2}
   flag3: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
   panel: {fileID: 1683422546}
+  panelAnterior: {fileID: 1944432585}
+  delayDespuesDeCerrar: 0.2
   contadorTexto: {fileID: 979371447}
 --- !u!114 &1057091800
 MonoBehaviour:
@@ -5564,7 +5567,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1683422547}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 997679797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5764,6 +5767,7 @@ MonoBehaviour:
   flagNecesaria: {fileID: 11400000, guid: 265d940a0bbcd6e4abb383564ecdb699, type: 2}
   panel: {fileID: 123042512}
   panelAnterior: {fileID: 1645272758}
+  delayDespuesDeCerrar: 0.2
 --- !u!114 &1084414524 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4564325435030203627, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
@@ -13386,7 +13390,6 @@ SceneRoots:
   - {fileID: 1160017399}
   - {fileID: 1342257665}
   - {fileID: 1250526147}
-  - {fileID: 1057091803}
   - {fileID: 726404399}
   - {fileID: 1317674462}
   - {fileID: 1593255403}

@@ -1,6 +1,6 @@
-
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class MostrarPanelConTresFlags : MonoBehaviour
 {
@@ -12,8 +12,17 @@ public class MostrarPanelConTresFlags : MonoBehaviour
     [Header("Panel de notificación")]
     public GameObject panel;
 
+    [Header("Panel que debe cerrarse primero")]
+    public GameObject panelAnterior;
+
+    [Header("Delay después de cerrar el panel anterior")]
+    [SerializeField] private float delayDespuesDeCerrar = 0.2f;
+
     [Header("Contador")]
     public TMP_Text contadorTexto;
+
+    private bool esperandoPanel = false;
+    private bool esperandoDelay = false;
 
     private void Start()
     {
@@ -37,6 +46,15 @@ public class MostrarPanelConTresFlags : MonoBehaviour
 
     private void Update()
     {
+        // Esperamos a que se cierre el panel anterior
+        if (esperandoPanel && !esperandoDelay)
+        {
+            if (panelAnterior == null || !panelAnterior.activeSelf)
+            {
+                StartCoroutine(MostrarConDelay());
+            }
+        }
+
         // Si el panel está activo y se presiona X, lo cerramos
         if (panel != null &&
             panel.activeSelf &&
@@ -56,9 +74,32 @@ public class MostrarPanelConTresFlags : MonoBehaviour
         // Actualizamos el contador
         ActualizarContador();
 
-        // Mostramos la notificación SIEMPRE que agarre
-        // una de estas tres flags.
+        // Esperamos a que se cierre el panel anterior
+        esperandoPanel = true;
+    }
+
+    private IEnumerator MostrarConDelay()
+    {
+        esperandoDelay = true;
+
+        Debug.Log("[MostrarPanelConTresFlags] Panel anterior cerrado. Esperando "
+                  + delayDespuesDeCerrar + " segundos...");
+
+        yield return new WaitForSeconds(delayDespuesDeCerrar);
+
+        // Volvemos a comprobar por seguridad
+        if (panelAnterior != null && panelAnterior.activeSelf)
+        {
+            Debug.Log("[MostrarPanelConTresFlags] El panel anterior volvió a abrirse. Cancelando.");
+
+            esperandoDelay = false;
+            yield break;
+        }
+
         MostrarCartel();
+
+        esperandoPanel = false;
+        esperandoDelay = false;
     }
 
     private bool EsUnaDeLasTres(GameFlag bandera)
@@ -112,5 +153,7 @@ public class MostrarPanelConTresFlags : MonoBehaviour
             return;
 
         panel.SetActive(true);
+
+        Debug.Log("[MostrarPanelConTresFlags] Nuevo panel mostrado.");
     }
 }

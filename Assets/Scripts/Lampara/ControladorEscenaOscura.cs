@@ -12,7 +12,6 @@ public class ControladorEscenaOscura : MonoBehaviour
 
     [Header("Configuración de Retorno")]
     [SerializeField] private bool regresoAutomatico = true;
-    [SerializeField] private float tiempoParaVolver = 3.0f;
     [SerializeField] private string escenaAnterior = "GranSalon_Nivel3";
 
     private bool faltaLampara = false;
@@ -25,19 +24,21 @@ public class ControladorEscenaOscura : MonoBehaviour
 
     private IEnumerator VerificarConRetraso()
     {
-        yield return null; // Espera un frame frame de renderizado
+        yield return null;
 
         ComprobarEstadoEscena();
     }
 
     private void Update()
     {
-        if (faltaLampara && !regresoAutomatico)
+        // Si falta la lámpara y el cartel está activo,
+        // X vuelve a la escena anterior.
+        if (faltaLampara &&
+            cartelSinLampara != null &&
+            cartelSinLampara.activeSelf &&
+            Input.GetKeyDown(KeyCode.X))
         {
-            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Return))
-            {
-                VolverAEscenaAnterior();
-            }
+            CerrarCartel();
         }
     }
 
@@ -45,18 +46,26 @@ public class ControladorEscenaOscura : MonoBehaviour
     {
         if (GameStateManager.Instance == null)
         {
-            Debug.LogError("[ControladorEscenaOscura] No se encontró el GameStateManager en la escena.");
+            Debug.LogError(
+                "[ControladorEscenaOscura] No se encontró el GameStateManager en la escena."
+            );
             return;
         }
 
         if (banderaLampara == null)
         {
-            Debug.LogError("[ControladorEscenaOscura] Falta asignar el asset 'Lampara' en el Inspector.");
+            Debug.LogError(
+                "[ControladorEscenaOscura] Falta asignar el asset 'Lampara' en el Inspector."
+            );
             return;
         }
 
-        bool tieneLampara = GameStateManager.Instance.TieneBandera(banderaLampara);
-        Debug.Log($"[ControladorEscenaOscura] ¿Tiene la lámpara?: {tieneLampara}");
+        bool tieneLampara =
+            GameStateManager.Instance.TieneBandera(banderaLampara);
+
+        Debug.Log(
+            $"[ControladorEscenaOscura] ¿Tiene la lámpara?: {tieneLampara}"
+        );
 
         if (!tieneLampara)
         {
@@ -65,16 +74,16 @@ public class ControladorEscenaOscura : MonoBehaviour
             if (cartelSinLampara != null)
             {
                 cartelSinLampara.SetActive(true);
-                Debug.Log("[ControladorEscenaOscura] ¡Cartel Activado!");
-            }
 
-            if (regresoAutomatico)
-            {
-                Invoke(nameof(VolverAEscenaAnterior), tiempoParaVolver);
+                Debug.Log(
+                    "[ControladorEscenaOscura] ¡Cartel Activado!"
+                );
             }
         }
         else
         {
+            faltaLampara = false;
+
             if (cartelSinLampara != null)
             {
                 cartelSinLampara.SetActive(false);
@@ -82,8 +91,39 @@ public class ControladorEscenaOscura : MonoBehaviour
         }
     }
 
+    // Se puede llamar también desde un Button si querés
+    public void CerrarCartel()
+    {
+        Debug.Log(
+            "[ControladorEscenaOscura] X presionada. Volviendo a: "
+            + escenaAnterior
+        );
+
+        if (regresoAutomatico)
+        {
+            VolverAEscenaAnterior();
+        }
+        else
+        {
+            if (cartelSinLampara != null)
+            {
+                cartelSinLampara.SetActive(false);
+            }
+
+            faltaLampara = false;
+        }
+    }
+
     public void VolverAEscenaAnterior()
     {
+        if (string.IsNullOrEmpty(escenaAnterior))
+        {
+            Debug.LogError(
+                "[ControladorEscenaOscura] No hay escena anterior asignada."
+            );
+            return;
+        }
+
         SceneManager.LoadScene(escenaAnterior);
     }
 }

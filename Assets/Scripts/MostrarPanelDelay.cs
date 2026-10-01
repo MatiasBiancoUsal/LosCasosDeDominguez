@@ -1,5 +1,5 @@
-
 using UnityEngine;
+using System.Collections;
 
 public class MostrarPanelDelay : MonoBehaviour
 {
@@ -12,8 +12,12 @@ public class MostrarPanelDelay : MonoBehaviour
     [Header("Panel que debe cerrarse primero")]
     public GameObject panelAnterior;
 
+    [Header("Delay después de cerrar el panel anterior")]
+    [SerializeField] private float delayDespuesDeCerrar = 0.5f;
+
     private bool esperandoPanel = false;
     private bool panelMostrado = false;
+    private bool esperandoDelay = false;
 
     // Clave para recordar que este cartel ya apareció
     private string ClaveNotificacion
@@ -55,11 +59,11 @@ public class MostrarPanelDelay : MonoBehaviour
     private void Update()
     {
         // Esperamos a que se cierre el panel anterior
-        if (esperandoPanel && !panelMostrado)
+        if (esperandoPanel && !panelMostrado && !esperandoDelay)
         {
             if (panelAnterior == null || !panelAnterior.activeSelf)
             {
-                MostrarPanel();
+                StartCoroutine(MostrarConDelay());
             }
         }
 
@@ -72,6 +76,29 @@ public class MostrarPanelDelay : MonoBehaviour
             panel.SetActive(false);
             panelMostrado = false;
         }
+    }
+
+    private IEnumerator MostrarConDelay()
+    {
+        esperandoDelay = true;
+
+        Debug.Log("[MostrarPanelDelay] Panel anterior cerrado. Esperando " +
+                  delayDespuesDeCerrar + " segundos...");
+
+        yield return new WaitForSeconds(delayDespuesDeCerrar);
+
+        // Volvemos a comprobar por seguridad que el panel anterior
+        // siga cerrado después del delay.
+        if (panelAnterior != null && panelAnterior.activeSelf)
+        {
+            Debug.Log("[MostrarPanelDelay] El panel anterior volvió a abrirse. Cancelando.");
+            esperandoDelay = false;
+            yield break;
+        }
+
+        MostrarPanel();
+
+        esperandoDelay = false;
     }
 
     private void AlObtenerBandera(GameFlag bandera)
@@ -96,7 +123,7 @@ public class MostrarPanelDelay : MonoBehaviour
         if (panel == null)
             return;
 
-        // Guardamos que este panel ya apareció
+        // Guardamos que este cartel ya apareció
         PlayerPrefs.SetInt(ClaveNotificacion, 1);
         PlayerPrefs.Save();
 
@@ -104,6 +131,7 @@ public class MostrarPanelDelay : MonoBehaviour
 
         esperandoPanel = false;
         panelMostrado = true;
+
+        Debug.Log("[MostrarPanelDelay] Nuevo panel mostrado.");
     }
 }
-
