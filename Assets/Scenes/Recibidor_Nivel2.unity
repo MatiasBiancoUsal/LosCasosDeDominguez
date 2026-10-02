@@ -420,7 +420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2821596c52e9c1c41a6000237b4a5817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay2
-  flagNecesaria: {fileID: 11400000, guid: 3aa9040815f84584490526ba09a12e6a, type: 2}
+  papel1: {fileID: 11400000, guid: 6d778304173f9824d8ab04038bcfce8f, type: 2}
+  papel2: {fileID: 11400000, guid: 2b6996644c347274eaf7e78f86a9f429, type: 2}
+  papel3: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
   panel: {fileID: 1065742219}
   panelAnterior1: {fileID: 1944432585}
   panelAnterior2: {fileID: 1683422546}
@@ -3408,7 +3410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &526212151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3768,7 +3770,6 @@ GameObject:
   m_Component:
   - component: {fileID: 726404399}
   - component: {fileID: 726404397}
-  - component: {fileID: 726404400}
   - component: {fileID: 726404401}
   m_Layer: 0
   m_Name: _MANAGERS_2
@@ -3841,18 +3842,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &726404400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726404396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07aa81fbfd3d6f34f8cd689e3880926a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
 --- !u!114 &726404401
 MonoBehaviour:
   m_ObjectHideFlags: 0

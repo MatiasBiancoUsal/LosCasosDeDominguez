@@ -9,10 +9,10 @@ public class MostrarPanelConTresFlags : MonoBehaviour
     public GameFlag flag2;
     public GameFlag flag3;
 
-    [Header("Panel de notificación")]
+    [Header("Panel de notificación (Panel 2 - Contador)")]
     public GameObject panel;
 
-    [Header("Panel que debe cerrarse primero")]
+    [Header("Panel que debe cerrarse primero (Inspección)")]
     public GameObject panelAnterior;
 
     [Header("Delay después de cerrar el panel anterior")]
@@ -29,10 +29,8 @@ public class MostrarPanelConTresFlags : MonoBehaviour
         if (GameStateManager.Instance == null)
             return;
 
-        // Actualiza el contador apenas empieza la escena
         ActualizarContador();
 
-        // Escuchamos cada vez que se obtiene una flag
         GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
     }
 
@@ -46,7 +44,7 @@ public class MostrarPanelConTresFlags : MonoBehaviour
 
     private void Update()
     {
-        // Esperamos a que se cierre el panel anterior
+        // Esperamos a que se cierre el panel de inspección anterior
         if (esperandoPanel && !esperandoDelay)
         {
             if (panelAnterior == null || !panelAnterior.activeSelf)
@@ -55,105 +53,74 @@ public class MostrarPanelConTresFlags : MonoBehaviour
             }
         }
 
-        // Si el panel está activo y se presiona X, lo cerramos
+        // Si el cartel del contador está activo y se presiona X, se cierra
         if (panel != null &&
             panel.activeSelf &&
             Input.GetKeyDown(KeyCode.X))
         {
             panel.SetActive(false);
+            esperandoPanel = false;
         }
     }
 
     private void AlObtenerBandera(GameFlag bandera)
     {
-        // Si la bandera obtenida NO es una de nuestras 3,
-        // ignoramos el evento.
         if (!EsUnaDeLasTres(bandera))
             return;
 
-        // Actualizamos el contador
         ActualizarContador();
 
-        // Esperamos a que se cierre el panel anterior
-        esperandoPanel = true;
+        // Solo activamos la espera para mostrar el cartel si el panel no está ya activo
+        if (panel != null && !panel.activeSelf)
+        {
+            esperandoPanel = true;
+        }
     }
 
     private IEnumerator MostrarConDelay()
     {
         esperandoDelay = true;
 
-        Debug.Log("[MostrarPanelConTresFlags] Panel anterior cerrado. Esperando "
-                  + delayDespuesDeCerrar + " segundos...");
-
         yield return new WaitForSeconds(delayDespuesDeCerrar);
 
-        // Volvemos a comprobar por seguridad
         if (panelAnterior != null && panelAnterior.activeSelf)
         {
-            Debug.Log("[MostrarPanelConTresFlags] El panel anterior volvió a abrirse. Cancelando.");
-
             esperandoDelay = false;
             yield break;
         }
 
         MostrarCartel();
 
-        esperandoPanel = false;
         esperandoDelay = false;
     }
 
     private bool EsUnaDeLasTres(GameFlag bandera)
     {
-        if (bandera == null)
-            return false;
-
-        return bandera == flag1 ||
-               bandera == flag2 ||
-               bandera == flag3;
+        if (bandera == null) return false;
+        return bandera == flag1 || bandera == flag2 || bandera == flag3;
     }
 
     private int ContarFlagsObtenidas()
     {
         int cantidad = 0;
-
-        if (flag1 != null &&
-            GameStateManager.Instance.TieneBandera(flag1))
-        {
-            cantidad++;
-        }
-
-        if (flag2 != null &&
-            GameStateManager.Instance.TieneBandera(flag2))
-        {
-            cantidad++;
-        }
-
-        if (flag3 != null &&
-            GameStateManager.Instance.TieneBandera(flag3))
-        {
-            cantidad++;
-        }
-
+        if (flag1 != null && GameStateManager.Instance.TieneBandera(flag1)) cantidad++;
+        if (flag2 != null && GameStateManager.Instance.TieneBandera(flag2)) cantidad++;
+        if (flag3 != null && GameStateManager.Instance.TieneBandera(flag3)) cantidad++;
         return cantidad;
     }
 
     private void ActualizarContador()
     {
-        if (contadorTexto == null)
-            return;
-
+        if (contadorTexto == null) return;
         int cantidad = ContarFlagsObtenidas();
-
         contadorTexto.text = cantidad + "/3";
     }
 
     private void MostrarCartel()
     {
-        if (panel == null)
-            return;
-
+        if (panel == null) return;
         panel.SetActive(true);
-
-        Debug.Log("[MostrarPanelConTresFlags] Nuevo panel mostrado.");
+        esperandoPanel = false;
+        Debug.Log("[MostrarPanelConTresFlags] Contador mostrado: " + ContarFlagsObtenidas() + "/3");
     }
 }
