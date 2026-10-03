@@ -1,14 +1,20 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; 
 using TMPro;
 
 public class ArmarioMinigame : MonoBehaviour
 {
-    [Header("Configuración")]
+    [Header("Configuración del Minijuego")]
     [SerializeField] private float tiempoLimite = 25f;
     [SerializeField] private int totalPistasRequeridas = 3;
     [SerializeField] private string nombreEscenaHabitacion = "HabitaciónPrincipal_Nivel9";
+
+    [Header("Panel de Instrucciones")]
+    [Tooltip("El panel de UI de instrucciones que se cerrará al presionar 'X'.")]
+    [SerializeField] private GameObject panelInstrucciones;
 
     [Header("Banderas de Pistas")]
     [SerializeField] private List<GameFlag> banderasRequeridas;
@@ -30,14 +36,66 @@ public class ArmarioMinigame : MonoBehaviour
         CargarPistasPrevias();
 
         ActualizarTextoTiempo();
-
         ActualizarTextoContador();
 
         if (TodasLasPistasObtenidas())
         {
+            if (panelInstrucciones != null) panelInstrucciones.SetActive(false);
             DesactivarModoJuego();
             if (controladorRevision != null)
                 controladorRevision.IniciarRevision();
+        }
+    }
+
+    private void Update()
+    {
+        if (!juegoActivo && !TodasLasPistasObtenidas())
+        {
+            bool presionoX = false;
+
+            if (Keyboard.current != null && Keyboard.current.xKey.wasPressedThisFrame)
+            {
+                presionoX = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.X))
+            {
+                presionoX = true;
+            }
+
+            if (presionoX)
+            {
+                CerrarInstruccionesYEmpezar();
+            }
+
+            return; 
+        }
+
+        if (!juegoActivo) return;
+
+        tiempoRestante -= Time.deltaTime;
+        ActualizarTextoTiempo();
+
+        if (tiempoRestante <= 0)
+        {
+            TiempoAgotado();
+        }
+    }
+
+    public void CerrarInstruccionesYEmpezar()
+    {
+        if (panelInstrucciones != null)
+        {
+            panelInstrucciones.SetActive(false);
+        }
+
+        IniciarMinijuego();
+    }
+
+    public void IniciarMinijuego()
+    {
+        if (!TodasLasPistasObtenidas())
+        {
+            juegoActivo = true;
         }
     }
 
@@ -54,27 +112,6 @@ public class ArmarioMinigame : MonoBehaviour
                     pistasEncontradasActuales++;
                 }
             }
-        }
-    }
-
-    public void IniciarMinijuego()
-    {
-        if (!TodasLasPistasObtenidas())
-        {
-            juegoActivo = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (!juegoActivo) return;
-
-        tiempoRestante -= Time.deltaTime;
-        ActualizarTextoTiempo();
-
-        if (tiempoRestante <= 0)
-        {
-            TiempoAgotado();
         }
     }
 
