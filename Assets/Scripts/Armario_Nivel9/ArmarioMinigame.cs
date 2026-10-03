@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem; 
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class ArmarioMinigame : MonoBehaviour
@@ -11,6 +11,10 @@ public class ArmarioMinigame : MonoBehaviour
     [SerializeField] private float tiempoLimite = 25f;
     [SerializeField] private int totalPistasRequeridas = 3;
     [SerializeField] private string nombreEscenaHabitacion = "HabitaciónPrincipal_Nivel9";
+
+    [Header("Recompensa por Completar")]
+    [Tooltip("Flag que se le entregará al jugador al juntar todas las pistas del armario.")]
+    [SerializeField] private GameFlag flagMinijuegoArmarioCompletado;
 
     [Header("Panel de Instrucciones")]
     [Tooltip("El panel de UI de instrucciones que se cerrará al presionar 'X'.")]
@@ -41,6 +45,7 @@ public class ArmarioMinigame : MonoBehaviour
         if (TodasLasPistasObtenidas())
         {
             if (panelInstrucciones != null) panelInstrucciones.SetActive(false);
+            OtorgarFlagCompletado();
             DesactivarModoJuego();
             if (controladorRevision != null)
                 controladorRevision.IniciarRevision();
@@ -67,7 +72,7 @@ public class ArmarioMinigame : MonoBehaviour
                 CerrarInstruccionesYEmpezar();
             }
 
-            return; 
+            return;
         }
 
         if (!juegoActivo) return;
@@ -141,12 +146,21 @@ public class ArmarioMinigame : MonoBehaviour
 
         if (pistasEncontradasActuales >= totalPistasRequeridas)
         {
+            OtorgarFlagCompletado();
             DesactivarModoJuego();
 
             if (controladorRevision != null)
             {
                 controladorRevision.IniciarRevision();
             }
+        }
+    }
+
+    private void OtorgarFlagCompletado()
+    {
+        if (flagMinijuegoArmarioCompletado != null && GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.GuardarBandera(flagMinijuegoArmarioCompletado);
         }
     }
 

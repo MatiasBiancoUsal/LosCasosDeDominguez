@@ -16,6 +16,10 @@ public class ResumenManager : MonoBehaviour
     [SerializeField] private TMP_Text nombreSospechoso;
     [SerializeField] private TMP_Text textoConclusiones;
 
+    [Header("Textos por Defecto")]
+    [TextArea(2, 4)]
+    [SerializeField] private string textoSinInformacion = "Todavía no tengo información sobre este sospechoso, debo investigarlo.";
+
     [Space(5)]
     [SerializeField] private Button botonEliminarSospechoso;
     [SerializeField] private TMP_Text textoBotonEliminar;
@@ -87,10 +91,8 @@ public class ResumenManager : MonoBehaviour
 
         sospechosoActualUI = UIReferencia;
 
-        // Comprobamos directamente si el asset que abrimos está contenido en la lista de finalistas
         esSospechosoFinalista = sospechososFinalistas.Contains(sospechoso);
 
-        // Cambiamos el texto del botón según la lista
         if (textoBotonEliminar != null)
         {
             textoBotonEliminar.text = esSospechosoFinalista ? "Seguir Investigando" : "Eliminar Sospechoso";
@@ -101,16 +103,31 @@ public class ResumenManager : MonoBehaviour
 
         if (textoConclusiones != null)
         {
-            textoConclusiones.text = "";
+            string contenidoProcesado = "";
+            int entradasReveladas = 0;
+
             if (sospechoso.notebookEntries != null)
             {
                 foreach (var entry in sospechoso.notebookEntries)
                 {
-                    if (entry.flag == null || (GameStateManager.Instance != null && GameStateManager.Instance.TieneBandera(entry.flag)))
+                    bool entradaDesbloqueada = entry.flag == null ||
+                        (GameStateManager.Instance != null && GameStateManager.Instance.TieneBandera(entry.flag));
+
+                    if (entradaDesbloqueada)
                     {
-                        textoConclusiones.text += "• " + entry.texto + "\n\n";
+                        contenidoProcesado += "• " + entry.texto + "\n\n";
+                        entradasReveladas++;
                     }
                 }
+            }
+
+            if (entradasReveladas == 0)
+            {
+                textoConclusiones.text = textoSinInformacion;
+            }
+            else
+            {
+                textoConclusiones.text = contenidoProcesado;
             }
         }
 
@@ -120,7 +137,6 @@ public class ResumenManager : MonoBehaviour
 
     public void ProcesarAccionSospechoso()
     {
-        // Solo descartamos (pintamos en gris) si NO es finalista
         if (!esSospechosoFinalista && sospechosoActualUI != null)
         {
             sospechosoActualUI.Descartar();
