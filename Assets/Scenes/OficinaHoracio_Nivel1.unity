@@ -2547,6 +2547,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1117599339}
+        m_TargetAssemblyTypeName: movimiento, Assembly-CSharp
+        m_MethodName: HabilitarCamianata
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &632787673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,6 +4036,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112246846}
   m_CullTransparentMesh: 1
+--- !u!114 &1117599339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4180364417527058475, guid: c1e0e4f1e4ef11d449ea6fb583140412, type: 3}
+  m_PrefabInstance: {fileID: 2721727729766812328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff67f1bac73ce944f9f904ae20a856ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::movimiento
 --- !u!1001 &1148119238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6467,6 +6490,7 @@ MonoBehaviour:
   panelTutorial1: {fileID: 454233779}
   panelTutorial2: {fileID: 331733454}
   panelTutorial3: {fileID: 641661997}
+  _horacio: {fileID: 1117599339}
 --- !u!4 &1681527796
 Transform:
   m_ObjectHideFlags: 0
@@ -8947,6 +8971,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 07583eccfd335b9428db28a757056b1e, type: 3}
+    - target: {fileID: 4180364417527058475, guid: c1e0e4f1e4ef11d449ea6fb583140412, type: 3}
+      propertyPath: canWalk
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4180364417527058475, guid: c1e0e4f1e4ef11d449ea6fb583140412, type: 3}
       propertyPath: caminataSonido
       value: 

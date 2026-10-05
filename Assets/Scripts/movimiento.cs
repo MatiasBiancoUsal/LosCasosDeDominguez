@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class movimiento : MonoBehaviour
 {
+    [SerializeField] private bool canWalk = true;
     [SerializeField] private float speed = 4f;
 
     [Header("Efecto de Clic")]
@@ -30,7 +31,7 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canWalk)
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = Mathf.Abs(Cam.transform.position.z);
@@ -106,5 +107,10 @@ public class movimiento : MonoBehaviour
         {
             rb.position = target;
         }
+    }
+
+    public void HabilitarCamianata(bool habilitar)
+    {
+        canWalk = habilitar;
     }
 }

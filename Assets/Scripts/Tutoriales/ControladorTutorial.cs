@@ -10,6 +10,8 @@ public class ControladorTutorial : MonoBehaviour
     public GameObject panelTutorial2;
     public GameObject panelTutorial3;
 
+    public movimiento _horacio;
+
     public static bool tutorialActivo;
 
     private void Start()
@@ -31,6 +33,11 @@ public class ControladorTutorial : MonoBehaviour
         if (tutorialActivo && Input.GetKeyDown(KeyCode.X))
         {
             CerrarTutorial();
+
+            if (_horacio != null)
+            {
+                _horacio.HabilitarCamianata(true);
+            }
         }
     }
 
