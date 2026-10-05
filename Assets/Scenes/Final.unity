@@ -1363,8 +1363,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d416ddf483b3d34f93fc38a8bdf662d, type: 2}
   - {fileID: 11400000, guid: 0f0fb3cd9a0a38f4fadf38c7e617f823, type: 2}
   banderaCompletadaDetective: {fileID: 11400000, guid: 0f1afdace197eb447ac4f7f1d198cb77, type: 2}
-  iconoResaltado: {fileID: 1336865441}
-  botonConversarUI: {fileID: 1959286680}
+  iconoResaltadoCG: {fileID: 0}
+  botonConversarCG: {fileID: 0}
+  contenedorIcono: {fileID: 0}
+  luzSpotDetective: {fileID: 0}
+  intensidadNormal: 1.2
+  intensidadHover: 2.2
+  velocidadTransicionLuz: 4
+  usarTitileo: 1
+  velocidadTitileo: 2
+  variacionMinima: 0.3
+  variacionMaxima: 1.4
+  velocidadFade: 5
+  amplitudFlotacion: 0.08
+  velocidadFlotacion: 2.5
   miCollider: {fileID: 0}
 --- !u!1 &898457134
 GameObject:
@@ -1685,7 +1697,7 @@ Transform:
   m_GameObject: {fileID: 1232018812}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.76, y: -3.01, z: 0}
+  m_LocalPosition: {x: -7.57, y: -2.24, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
