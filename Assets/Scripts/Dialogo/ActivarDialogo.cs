@@ -50,6 +50,10 @@ public class ActivarDialogo : MonoBehaviour
             if (hover != null && hover.MouseEstaEncima)
             {
                 EvaluarYIniciarDialogo();
+
+              
+                //EnviarDato.Singleton.EventoDialogo(gameObject.name);
+                print($"[ActivarDialogo] Se inició el diálogo del objeto {gameObject.name}.");
             }
         }
     }
