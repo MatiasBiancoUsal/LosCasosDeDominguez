@@ -630,6 +630,7 @@ MonoBehaviour:
   panelTutorial1: {fileID: 256917532}
   panelTutorial2: {fileID: 1246295563}
   panelTutorial3: {fileID: 1628756749}
+  _horacio: {fileID: 0}
 --- !u!4 &62172240
 Transform:
   m_ObjectHideFlags: 0
@@ -1951,6 +1952,10 @@ PrefabInstance:
     - target: {fileID: 2114565771305755735, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114565771305755735, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2701529476326615728, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5477,6 +5482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67f1bac73ce944f9f904ae20a856ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movimiento
+  canWalk: 1
   speed: 4
   efectoClicPrefab: {fileID: 3165547931209837004, guid: 454ac3f743cf48445b5c1d1b63ad7e31, type: 3}
   tiempoDeVidaEfecto: 0.5

@@ -11402,6 +11402,7 @@ MonoBehaviour:
   panelTutorial1: {fileID: 1257218410}
   panelTutorial2: {fileID: 1824228442}
   panelTutorial3: {fileID: 618920251}
+  _horacio: {fileID: 0}
 --- !u!4 &1439460945
 Transform:
   m_ObjectHideFlags: 0
@@ -11712,6 +11713,7 @@ GameObject:
   - component: {fileID: 1503533618}
   - component: {fileID: 1503533619}
   - component: {fileID: 1503533620}
+  - component: {fileID: 1503533621}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -11799,6 +11801,18 @@ MonoBehaviour:
   flag2: {fileID: 11400000, guid: 2b6996644c347274eaf7e78f86a9f429, type: 2}
   flag3: {fileID: 11400000, guid: ae2fc2d7b5670b54d8ad641ca3d9b7df, type: 2}
   banderaAOtorgar: {fileID: 11400000, guid: 3aa9040815f84584490526ba09a12e6a, type: 2}
+--- !u!114 &1503533621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503533616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07aa81fbfd3d6f34f8cd689e3880926a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
 --- !u!1 &1638274876
 GameObject:
   m_ObjectHideFlags: 0
@@ -14902,6 +14916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67f1bac73ce944f9f904ae20a856ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movimiento
+  canWalk: 1
   speed: 4
   efectoClicPrefab: {fileID: 3165547931209837004, guid: 454ac3f743cf48445b5c1d1b63ad7e31, type: 3}
   tiempoDeVidaEfecto: 0.5
