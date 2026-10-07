@@ -24,17 +24,23 @@ public class MostrarPanelConFlag : MonoBehaviour
     private void Start()
     {
         if (GameStateManager.Instance == null)
+        {
+            Debug.LogWarning("[MostrarPanelConFlag] GameStateManager.Instance sigue siendo NULL en Start.");
             return;
+        }
 
-        // Por si la flag ya había sido obtenida anteriormente
-        // antes de cargar esta escena.
-        if (GameStateManager.Instance.TieneBandera(flagNecesaria) &&
-            !NotificacionYaMostrada())
+        // Log de control para ver qué lee el script apenas arranca
+        bool tiene = GameStateManager.Instance.TieneBandera(flagNecesaria);
+        bool yaMostrada = NotificacionYaMostrada();
+        Debug.Log($"[MostrarPanelConFlag] Chequeando {flagNecesaria?.name} | TieneBandera: {tiene} | YaMostrada: {yaMostrada}");
+
+        // Si la flag ya fue obtenida antes de cargar esta escena y no se mostró antes
+        if (tiene && !yaMostrada)
         {
             MostrarCartel();
         }
 
-        // Escuchamos cuando se obtiene una nueva bandera.
+        // Escuchamos cuando se obtiene una nueva bandera
         GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
     }
 
