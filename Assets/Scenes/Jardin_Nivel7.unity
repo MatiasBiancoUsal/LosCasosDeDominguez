@@ -6057,6 +6057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799918795}
   - component: {fileID: 799918796}
+  - component: {fileID: 799918797}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -6128,6 +6129,19 @@ MonoBehaviour:
   - {fileID: 31160311}
   - {fileID: 31160310}
   - {fileID: 31160309}
+--- !u!114 &799918797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799918793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f9cfea436a7c14c9ad4b0480287b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlagInicial
+  flag: {fileID: 11400000, guid: d9ec8ecaaac6e644a8af6a859d6116bc, type: 2}
 --- !u!1 &810409170
 GameObject:
   m_ObjectHideFlags: 0
@@ -12732,7 +12746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 0}
+  flagNecesaria: {fileID: 11400000, guid: 0fbc169a5f89f7147a55772ed1417a6f, type: 2}
   panel: {fileID: 1493529001}
 --- !u!114 &1910301826
 MonoBehaviour:
