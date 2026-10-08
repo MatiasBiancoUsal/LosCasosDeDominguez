@@ -1955,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2114565771305755735, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2701529476326615728, guid: 5f7ca6e55eeee9243b68160e7e9f03fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2590,6 +2590,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: banderaAOtorgar
+      value: 
+      objectReference: {fileID: 11400000, guid: dbe0fb3f016b90e4abfd1b1c64c96c4e, type: 2}
+    - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: bloquearSiYaTieneBandera
       value: 0
       objectReference: {fileID: 0}
@@ -2751,6 +2755,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
+    - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: banderaAOtorgar
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a744ed3b71a39e4e95a25193552e831, type: 2}
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: bloquearSiYaTieneBandera
       value: 0
@@ -4123,7 +4131,7 @@ GameObject:
   - component: {fileID: 783949964}
   - component: {fileID: 783949963}
   m_Layer: 5
-  m_Name: Objetivo 1
+  m_Name: Receta y milanesas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7243,7 +7251,7 @@ GameObject:
   - component: {fileID: 1281353695}
   - component: {fileID: 1281353694}
   m_Layer: 5
-  m_Name: Objetivo 1
+  m_Name: habla con nelida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7447,6 +7455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348282346}
   - component: {fileID: 1348282347}
+  - component: {fileID: 1348282348}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -7518,6 +7527,23 @@ MonoBehaviour:
   - {fileID: 351337112}
   - {fileID: 351337111}
   - {fileID: 351337110}
+--- !u!114 &1348282348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348282344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98ffb3cb7a0c514793d0fa209cbedfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RequisitosFlags
+  flagNecesaria1: {fileID: 11400000, guid: 727e569346fc47d45ab247b1e76a7ab0, type: 2}
+  flagNecesaria2: {fileID: 11400000, guid: 0a744ed3b71a39e4e95a25193552e831, type: 2}
+  flagNecesaria3: {fileID: 11400000, guid: dbe0fb3f016b90e4abfd1b1c64c96c4e, type: 2}
+  flagNecesaria4: {fileID: 0}
+  flagAotorgar: {fileID: 11400000, guid: e13b28d1f7f95bc4896656aa8434d6fa, type: 2}
 --- !u!1 &1350300682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9440,6 +9466,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -6671079865629270754, guid: 780c64e66c7c04c418cd4bac81c7af1e, type: 3}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.780518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.016235
+      objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.90063477
@@ -10295,6 +10329,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
+    - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
+      propertyPath: banderaAOtorgar
+      value: 
+      objectReference: {fileID: 11400000, guid: 727e569346fc47d45ab247b1e76a7ab0, type: 2}
     - target: {fileID: 8949009122784572532, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: bloquearSiYaTieneBandera
       value: 0
@@ -11504,7 +11542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2122339575
 RectTransform:
   m_ObjectHideFlags: 0

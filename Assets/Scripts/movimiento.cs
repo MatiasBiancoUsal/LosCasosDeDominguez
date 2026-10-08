@@ -31,6 +31,7 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
+        PosicionMouse();
         if (Input.GetMouseButtonDown(0) && canWalk)
         {
             Vector3 mousePos = Input.mousePosition;
@@ -113,4 +114,17 @@ public class movimiento : MonoBehaviour
     {
         canWalk = habilitar;
     }
+
+    public Vector2 mousePos;
+
+    //public void PosicionMouse()
+    //{
+    //    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+    //    mousePos = (Vector3)mousePos - transform.position;
+
+    //    //transform.position += (Vector3)mousePos * velocidad * Time.deltaTime;
+    //    if(Input.GetMouseButtonDown(0))
+    //    rb.velocity = mousePos * speed;
+    //}
 }

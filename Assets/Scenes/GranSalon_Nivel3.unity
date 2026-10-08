@@ -2981,7 +2981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &425767485
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5687,6 +5687,14 @@ PrefabInstance:
     - target: {fileID: 1726337040296989021, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.780518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.016235
       objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11436,7 +11444,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588630443}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -11453,7 +11461,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1588630448
 MonoBehaviour:
@@ -11476,6 +11484,7 @@ MonoBehaviour:
     m_Bits: 128
   caminataSonido: {fileID: 2191938603266862035}
   caminando: 0
+  mousePos: {x: 0, y: 0}
 --- !u!212 &1588630449
 SpriteRenderer:
   serializedVersion: 2
