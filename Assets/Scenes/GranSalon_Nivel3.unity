@@ -730,6 +730,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7530041857048204196, guid: 20615c62a5cd30847a142db2695314bf, type: 3}
   m_PrefabInstance: {fileID: 31451417}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &54844433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2699632368964044030, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 732869696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
 --- !u!1 &59843945
 GameObject:
   m_ObjectHideFlags: 0
@@ -7156,6 +7167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886880086}
   - component: {fileID: 886880087}
+  - component: {fileID: 886880088}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -7227,6 +7239,30 @@ MonoBehaviour:
   - {fileID: 761360694}
   - {fileID: 761360693}
   - {fileID: 761360692}
+  - {fileID: 54844433}
+  - {fileID: 986758395}
+--- !u!114 &886880088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886880084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4200d84a576bac34f85cbaf85219aad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RequisitosFlagsPersonajes
+  flagNecesaria1: {fileID: 11400000, guid: 54b2d01503726d14f9966cf96d475957, type: 2}
+  flagNecesaria2: {fileID: 11400000, guid: 11f94a7e41d41714e800c29b378523e4, type: 2}
+  flagNecesaria3: {fileID: 11400000, guid: a42a2004e78f3b44b8d018c58d842b00, type: 2}
+  flagNecesaria4: {fileID: 11400000, guid: d68ef03601bd5df4fa5fc756654a4993, type: 2}
+  flagNecesaria5: {fileID: 11400000, guid: 57ab29a35b207cb41a036b8b5a87340e, type: 2}
+  flagNecesaria6: {fileID: 11400000, guid: dbee63c2b2db5c247ad3500edbe55cbd, type: 2}
+  flagNecesaria7: {fileID: 11400000, guid: beeb29730cf35494c858b3f3762625a4, type: 2}
+  flagNecesaria8: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
+  flagNecesaria9: {fileID: 11400000, guid: b5e10939a4b39bd4db783a1f9eb7b675, type: 2}
+  flagAotorgar: {fileID: 11400000, guid: 3cdc587c3985753469c041fd6876c8c7, type: 2}
 --- !u!1 &928972598
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,6 +7623,17 @@ MonoBehaviour:
   imgPersonaje: {fileID: 869486942}
   velocidadTexto: 0.05
   sonido: {fileID: 8300000, guid: 7a8b8671af711a246b67b30929945178, type: 3}
+--- !u!114 &986758395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2823654542803121678, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+  m_PrefabInstance: {fileID: 732869696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecaf60ebf691e841b161e015b86c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mision
 --- !u!1 &994033305
 GameObject:
   m_ObjectHideFlags: 0
