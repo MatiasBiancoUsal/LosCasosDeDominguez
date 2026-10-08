@@ -117,8 +117,8 @@ public class movimiento : MonoBehaviour
 
     public Vector2 mousePos;
 
-    //public void PosicionMouse()
-    //{
+    public void PosicionMouse()
+    {
     //    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     //    mousePos = (Vector3)mousePos - transform.position;
@@ -126,5 +126,5 @@ public class movimiento : MonoBehaviour
     //    //transform.position += (Vector3)mousePos * velocidad * Time.deltaTime;
     //    if(Input.GetMouseButtonDown(0))
     //    rb.velocity = mousePos * speed;
-    //}
+    }
 }
