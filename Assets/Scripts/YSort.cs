@@ -14,6 +14,6 @@ public class YSort : MonoBehaviour
     void LateUpdate()
     {
         float y = transform.position.y + sortingOffset;
-        sr.sortingOrder = -(int)(y * 100);
+        sr.sortingOrder = Mathf.RoundToInt(-y * 100f);
     }
 }

@@ -14,10 +14,9 @@ public class movimiento : MonoBehaviour
     [Header("Configuracion de capas")]
     [SerializeField] private LayerMask capaSuelo;
 
-    private Vector2 target;
+    private Vector3 target;
     private Camera Cam;
     private Animator animator;
-    private Rigidbody2D rb;
     public GameObject caminataSonido;
     public bool caminando;
 
@@ -26,12 +25,11 @@ public class movimiento : MonoBehaviour
         target = transform.position;
         Cam = Camera.main;
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        PosicionMouse();
+        // 1. Detectar clic y fijar el punto objetivo (target)
         if (Input.GetMouseButtonDown(0) && canWalk)
         {
             Vector3 mousePos = Input.mousePosition;
@@ -41,90 +39,68 @@ public class movimiento : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero, 0f, capaSuelo);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.CompareTag("piso"))
             {
-                if (hit.collider.CompareTag("piso"))
-                {
-                    target = hit.point;
+                // Mantenemos la Z actual del personaje para que no cambie de plano
+                target = new Vector3(hit.point.x, hit.point.y, transform.position.z);
 
-                    if (efectoClicPrefab != null)
-                    {
-                        GameObject nuevoEfecto = Instantiate(efectoClicPrefab, new Vector3(target.x, target.y, 0f), Quaternion.identity);
-                        Destroy(nuevoEfecto, tiempoDeVidaEfecto);
-                    }
+                if (efectoClicPrefab != null)
+                {
+                    GameObject nuevoEfecto = Instantiate(efectoClicPrefab, new Vector3(target.x, target.y, 0f), Quaternion.identity);
+                    Destroy(nuevoEfecto, tiempoDeVidaEfecto);
                 }
             }
         }
 
-        if (Vector2.Distance(rb.position, target) > 0.15f)
+        // 2. Mover el personaje usando transform.position
+        float distancia = Vector3.Distance(transform.position, target);
+
+        if (distancia > 0.05f)
         {
-            animator.SetBool("estaCaminando", true);
-        }
-        else
-        {
-            animator.SetBool("estaCaminando", false);
-        }
+            // Mover progresivamente hacia la posición objetivo
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        caminando = animator.GetBool("estaCaminando");
+            // Dirección para animaciones y orientación (flip)
+            float direccionX = target.x - transform.position.x;
+            float direccionY = target.y - transform.position.y;
 
-        if (caminando)
-        {
-            caminataSonido.SetActive(true);
-        }
-        else
-        {
-            caminataSonido.SetActive(false);
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        float distancia = Vector2.Distance(rb.position, target);
-
-        if (distancia > 0.15f)
-        {
-            Vector2 nuevaPosicion = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-
-            float direccionHaciaTargetX = target.x - rb.position.x;
-            float direccionHaciaTargetY = target.y - rb.position.y;
-
-            animator.SetFloat("velocidadY", direccionHaciaTargetY);
-
-            if (Mathf.Abs(direccionHaciaTargetX) > 0.05f)
+            if (animator != null)
             {
-                if (direccionHaciaTargetX > 0)
-                {
-                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
-                else
-                {
-                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                }
+                animator.SetFloat("velocidadY", direccionY);
+                animator.SetBool("estaCaminando", true);
             }
 
-            rb.MovePosition(nuevaPosicion);
+            // Girar el sprite según la dirección
+            if (Mathf.Abs(direccionX) > 0.05f)
+            {
+                float escalaX = Mathf.Abs(transform.localScale.x);
+                transform.localScale = new Vector3(direccionX > 0 ? escalaX : -escalaX, transform.localScale.y, transform.localScale.z);
+            }
         }
         else
         {
-            rb.position = target;
+            // Asegurar posición exacta al llegar
+            transform.position = target;
+
+            if (animator != null)
+            {
+                animator.SetBool("estaCaminando", false);
+            }
+        }
+
+        // 3. Control de sonido
+        if (animator != null)
+        {
+            caminando = animator.GetBool("estaCaminando");
+            if (caminataSonido != null)
+            {
+                caminataSonido.SetActive(caminando);
+            }
         }
     }
 
     public void HabilitarCamianata(bool habilitar)
     {
         canWalk = habilitar;
-    }
-
-    public Vector2 mousePos;
-
-    public void PosicionMouse()
-    {
-    //    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-    //    mousePos = (Vector3)mousePos - transform.position;
-
-    //    //transform.position += (Vector3)mousePos * velocidad * Time.deltaTime;
-    //    if(Input.GetMouseButtonDown(0))
-    //    rb.velocity = mousePos * speed;
     }
 }
