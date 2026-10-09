@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 55044187}
   - component: {fileID: 55044186}
   - component: {fileID: 55044185}
+  - component: {fileID: 55044188}
   m_Layer: 0
   m_Name: Objetos_4
   m_TagString: Untagged
@@ -810,6 +811,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 541761650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &55044188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55044184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1001 &64584266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13084,7 +13098,6 @@ MonoBehaviour:
     m_Bits: 128
   caminataSonido: {fileID: 5463130088201507384}
   caminando: 0
-  mousePos: {x: 0, y: 0}
 --- !u!212 &1956049678
 SpriteRenderer:
   serializedVersion: 2
@@ -14849,6 +14862,7 @@ GameObject:
   - component: {fileID: 2145842717}
   - component: {fileID: 2145842716}
   - component: {fileID: 2145842715}
+  - component: {fileID: 2145842718}
   m_Layer: 0
   m_Name: Objetos_3
   m_TagString: Untagged
@@ -15414,6 +15428,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 541761650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2145842718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145842714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &5463130088201507384
 GameObject:
   m_ObjectHideFlags: 0
