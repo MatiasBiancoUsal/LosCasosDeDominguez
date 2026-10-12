@@ -923,7 +923,7 @@ Transform:
   m_GameObject: {fileID: 120722881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.57944, y: -12.116679, z: 0}
+  m_LocalPosition: {x: -7.81, y: -12.26, z: 0}
   m_LocalScale: {x: 1.6304047, y: 1.6304047, z: 1.6304047}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1825,7 +1825,6 @@ Transform:
   - {fileID: 1755956777}
   - {fileID: 1461520685}
   - {fileID: 1378716226}
-  - {fileID: 631793622}
   - {fileID: 1845124659}
   - {fileID: 156596663}
   - {fileID: 828679226}
@@ -2032,6 +2031,7 @@ GameObject:
   - component: {fileID: 329704707}
   - component: {fileID: 329704706}
   - component: {fileID: 329704708}
+  - component: {fileID: 329704709}
   m_Layer: 0
   m_Name: Sillon_0
   m_TagString: Untagged
@@ -2084,8 +2084,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1133992289
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7016659876053825242, guid: f5fb9ba37f1ffe24dbe8adee56523452, type: 3}
@@ -2107,7 +2107,7 @@ Transform:
   m_GameObject: {fileID: 329704705}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.19244, y: -9.918679, z: 0}
+  m_LocalPosition: {x: -11.52, y: -12.14, z: 0}
   m_LocalScale: {x: 1.5054244, y: 1.5054244, z: 1.5054244}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2150,7 +2150,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.7, y: 1.96}
     newSize: {x: 1.7, y: 1.96}
     adaptiveTilingThreshold: 0.5
@@ -2213,6 +2213,19 @@ PolygonCollider2D:
       - {x: 0.56, y: -0.71}
       - {x: 0.63, y: -0.57}
   m_UseDelaunayMesh: 1
+--- !u!114 &329704709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329704705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &369712665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,7 +3061,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 521171915}
+  - {fileID: 631793622}
   - {fileID: 563095655}
   - {fileID: 2256443886295117429}
   m_Father: {fileID: 0}
@@ -3305,23 +3318,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 468360287}
+    m_TransformParent: {fileID: 631793622}
     m_Modifications:
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0.9053
+      value: 0.6792
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.6645
+      value: 0.4985
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00000011921
+      value: 0.000000096858
       objectReference: {fileID: 0}
     - target: {fileID: 767431626445563700, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00000011921
+      value: -0.000000022352
       objectReference: {fileID: 0}
     - target: {fileID: 1896550131827216148, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: datosDelObjeto
@@ -3337,23 +3350,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.1909828
+      value: 0.9809863
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.1909828
+      value: 0.9809863
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.1909828
+      value: 0.9809863
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.661
+      value: 0.034588404
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.903
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3527,11 +3540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.64
+      value: 2.73
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 3939274840037971162, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4089,6 +4102,7 @@ GameObject:
   - component: {fileID: 631793622}
   - component: {fileID: 631793621}
   - component: {fileID: 631793623}
+  - component: {fileID: 631793624}
   m_Layer: 0
   m_Name: Baul_0
   m_TagString: Untagged
@@ -4141,8 +4155,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1133992289
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8561670938510318532, guid: 6c607b1004d300141b928d19f884b8e5, type: 3}
@@ -4164,11 +4178,12 @@ Transform:
   m_GameObject: {fileID: 631793620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.072441, y: -8.35868, z: 0}
+  m_LocalPosition: {x: -11.738251, y: 0.05867958, z: 0}
   m_LocalScale: {x: 2.233449, y: 2.233449, z: 2.233449}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 249141794}
+  m_Children:
+  - {fileID: 521171915}
+  m_Father: {fileID: 468360287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &631793623
 PolygonCollider2D:
@@ -4207,7 +4222,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.82, y: 1.14}
     newSize: {x: 1.82, y: 1.14}
     adaptiveTilingThreshold: 0.5
@@ -4236,6 +4251,19 @@ PolygonCollider2D:
       - {x: 0.89, y: -0.08}
       - {x: 0.90999997, y: -0.03}
   m_UseDelaunayMesh: 1
+--- !u!114 &631793624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631793620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &802089834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3396046713801726014, guid: 30a8bfd96034d5d43b30d1ba3211d8e5, type: 3}
@@ -4637,6 +4665,7 @@ GameObject:
   - component: {fileID: 835451485}
   - component: {fileID: 835451484}
   - component: {fileID: 835451483}
+  - component: {fileID: 835451486}
   m_Layer: 0
   m_Name: Libros piso__1
   m_TagString: Untagged
@@ -4681,7 +4710,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.11, y: 1.26}
     newSize: {x: 1.11, y: 1.26}
     adaptiveTilingThreshold: 0.5
@@ -4751,8 +4780,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1133992289
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 934092224071958624, guid: cb3f2d6fd84f1b0418fbab1a87f54d2c, type: 3}
@@ -4774,12 +4803,25 @@ Transform:
   m_GameObject: {fileID: 835451482}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1675596, y: -7.11868, z: 0}
+  m_LocalPosition: {x: 4.55, y: -8.56, z: 0}
   m_LocalScale: {x: 1.8717171, y: 1.8717171, z: 1.8717171}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 249141794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835451486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835451482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!1 &871772992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,6 +6069,7 @@ GameObject:
   - component: {fileID: 1019616134}
   - component: {fileID: 1019616133}
   - component: {fileID: 1019616132}
+  - component: {fileID: 1019616135}
   m_Layer: 0
   m_Name: Libros piso__0
   m_TagString: Untagged
@@ -6071,7 +6114,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.89, y: 0.89}
     newSize: {x: 0.89, y: 0.89}
     adaptiveTilingThreshold: 0.5
@@ -6142,8 +6185,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1133992289
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1853563002118821756, guid: cb3f2d6fd84f1b0418fbab1a87f54d2c, type: 3}
@@ -6165,12 +6208,25 @@ Transform:
   m_GameObject: {fileID: 1019616131}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.93244, y: -5.45868, z: 0}
+  m_LocalPosition: {x: -11.23, y: -5.96, z: 0}
   m_LocalScale: {x: 1.8104434, y: 1.8104434, z: 1.8104434}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 249141794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019616135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019616131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aef189ce7f3f89439f8ffc016547e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::YSort
+  sortingOffset: -1
 --- !u!224 &1020485315 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1726337040296989021, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
@@ -12569,7 +12625,6 @@ MonoBehaviour:
     m_Bits: 128
   caminataSonido: {fileID: 2102489657288235129}
   caminando: 0
-  mousePos: {x: 0, y: 0}
 --- !u!212 &1956049678
 SpriteRenderer:
   serializedVersion: 2
@@ -13740,7 +13795,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0.19999999}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.07, y: 3.7}
     newSize: {x: 4.07, y: 3.7}
     adaptiveTilingThreshold: 0.5
@@ -13986,7 +14041,7 @@ Transform:
   m_GameObject: {fileID: 2102510597}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.23244, y: -9.918679, z: 0}
+  m_LocalPosition: {x: -5.42, y: -12.72, z: 0}
   m_LocalScale: {x: 1.5805, y: 1.5805, z: 1.5805}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14217,7 +14272,7 @@ Transform:
   m_GameObject: {fileID: 2105165500}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.64244, y: -8.04868, z: 0}
+  m_LocalPosition: {x: -17.32, y: -7.76, z: 0}
   m_LocalScale: {x: 1.9991, y: 1.9991, z: 1.9991}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14244,8 +14299,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6844322135326454316, guid: 8e3adca317ff54e43bdd6fa52d9d0f49, type: 3}
     - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3397534721930107068, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4697895826141404211, guid: 7ac635e9cb5837c48a8225543f454b5a, type: 3}
       propertyPath: m_LocalScale.x
@@ -14583,7 +14646,7 @@ Transform:
   m_GameObject: {fileID: 6577251884821051537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.2588186, w: 0.965926}
-  m_LocalPosition: {x: 0.03, y: 1.13, z: 0}
+  m_LocalPosition: {x: -1.09, y: 1.39, z: 0}
   m_LocalScale: {x: 0.35, y: 0.34851393, z: 0.25622255}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -14861,8 +14924,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000095367, y: 0.00000095367}
-  m_SizeDelta: {x: 3.596, y: 2.64}
+  m_AnchoredPosition: {x: 0, y: -0.00000095367}
+  m_SizeDelta: {x: 2.457, y: 1.804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6577251884821051537
 GameObject:
