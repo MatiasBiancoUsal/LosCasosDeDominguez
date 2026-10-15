@@ -20,6 +20,12 @@ public class movimiento : MonoBehaviour
     public GameObject caminataSonido;
     public bool caminando;
 
+
+    [Header("Distancia")] //Solución de mati para el problema de animación
+    private Vector3 lastPosition;
+    public float distanciaDif;
+    private float dd;
+
     void Start()
     {
         target = transform.position;
@@ -29,6 +35,8 @@ public class movimiento : MonoBehaviour
 
     void Update()
     {
+
+
         // 1. Detectar clic y fijar el punto objetivo (target)
         if (Input.GetMouseButtonDown(0) && canWalk)
         {
@@ -54,6 +62,12 @@ public class movimiento : MonoBehaviour
 
         // 2. Mover el personaje usando transform.position
         float distancia = Vector3.Distance(transform.position, target);
+
+
+        dd = Vector3.Distance(transform.position, lastPosition);
+        if (Vector3.Distance(transform.position, lastPosition) > distanciaDif) target = transform.position;
+
+
 
         if (distancia > 0.05f)
         {
@@ -97,6 +111,8 @@ public class movimiento : MonoBehaviour
                 caminataSonido.SetActive(caminando);
             }
         }
+
+        lastPosition = transform.position;
     }
 
     public void HabilitarCamianata(bool habilitar)
