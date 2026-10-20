@@ -4278,8 +4278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
   flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  flagNecesaria2: {fileID: 11400000, guid: 9b800993321ccad44b0b3b7c2eb02644, type: 2}
-  flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
+  flagNecesaria2: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
+  flagAotorgar: {fileID: 11400000, guid: de12748e4bd2f3e4f86677e42aa0e5a0, type: 2}
 --- !u!114 &564546933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4292,7 +4292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   panel: {fileID: 1395648078}
 --- !u!114 &564546934
 MonoBehaviour:
@@ -4389,9 +4389,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: de12748e4bd2f3e4f86677e42aa0e5a0, type: 2}
   panel: {fileID: 1395648078}
-  panelAnterior: {fileID: 1525250467}
+  panelAnterior: {fileID: 346549926}
   delayDespuesDeCerrar: 0.5
 --- !u!1 &587208603
 GameObject:
@@ -4937,9 +4937,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
   panel: {fileID: 346549926}
-  panelAnterior: {fileID: 1395648078}
+  panelAnterior: {fileID: 288384313}
   delayDespuesDeCerrar: 0.5
 --- !u!114 &781060542
 MonoBehaviour:
@@ -4948,13 +4948,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781060539}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd682a5c2301d2b4b9b45ce102a6f3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
   flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  flagNecesaria2: {fileID: 11400000, guid: 9b800993321ccad44b0b3b7c2eb02644, type: 2}
+  flagNecesaria2: {fileID: 0}
   flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
 --- !u!114 &781060543
 MonoBehaviour:
@@ -4968,7 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   panel: {fileID: 346549926}
 --- !u!114 &781060544
 MonoBehaviour:
@@ -5944,15 +5944,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 234643271}
-  - {fileID: 564546937}
-  - {fileID: 781060540}
-  - {fileID: 1355844653}
   - {fileID: 1080648162}
   - {fileID: 1769745874}
   - {fileID: 54801670}
   - {fileID: 462682659}
   - {fileID: 1057091803}
   - {fileID: 2009920810}
+  - {fileID: 1355844653}
+  - {fileID: 781060540}
+  - {fileID: 564546937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1010878661 stripped
@@ -7862,8 +7862,8 @@ Transform:
   m_GameObject: {fileID: 1233051331}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -567.73, y: -246.83, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -567.54, y: -247.45, z: 0}
+  m_LocalScale: {x: 1.16, y: 1.16, z: 1.16}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 830508818}
@@ -9250,7 +9250,8 @@ GameObject:
   - component: {fileID: 1355844652}
   - component: {fileID: 1355844651}
   - component: {fileID: 1355844650}
-  - component: {fileID: 1355844649}
+  - component: {fileID: 1355844655}
+  - component: {fileID: 1355844654}
   m_Layer: 5
   m_Name: Mision 15
   m_TagString: Untagged
@@ -9258,20 +9259,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1355844649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355844648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  panel: {fileID: 288384313}
 --- !u!114 &1355844650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9355,6 +9342,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1355844654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355844648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
+  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  panel: {fileID: 288384313}
+  panelAnterior: {fileID: 1525250467}
+  delayDespuesDeCerrar: 0.5
+--- !u!114 &1355844655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355844648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd682a5c2301d2b4b9b45ce102a6f3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
+  flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  flagNecesaria2: {fileID: 0}
+  flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
 --- !u!1 &1364161585
 GameObject:
   m_ObjectHideFlags: 0
@@ -13272,7 +13290,7 @@ GameObject:
   - component: {fileID: 2009920814}
   - component: {fileID: 2009920813}
   - component: {fileID: 2009920812}
-  - component: {fileID: 2009920811}
+  - component: {fileID: 2009920815}
   m_Layer: 5
   m_Name: MEGAMISION
   m_TagString: Untagged
@@ -13300,22 +13318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2009920811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009920809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  panel: {fileID: 1525250467}
-  panelAnterior: {fileID: 288384313}
-  delayDespuesDeCerrar: 0.5
 --- !u!114 &2009920812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13379,6 +13381,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
+--- !u!114 &2009920815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009920809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
+  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  panel: {fileID: 1525250467}
 --- !u!1 &2016283036
 GameObject:
   m_ObjectHideFlags: 0
