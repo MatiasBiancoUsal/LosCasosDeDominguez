@@ -4255,7 +4255,6 @@ GameObject:
   - component: {fileID: 564546936}
   - component: {fileID: 564546935}
   - component: {fileID: 564546934}
-  - component: {fileID: 564546933}
   - component: {fileID: 564546932}
   - component: {fileID: 564546938}
   m_Layer: 5
@@ -4280,20 +4279,6 @@ MonoBehaviour:
   flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   flagNecesaria2: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
   flagAotorgar: {fileID: 11400000, guid: de12748e4bd2f3e4f86677e42aa0e5a0, type: 2}
---- !u!114 &564546933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564546931}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  panel: {fileID: 1395648078}
 --- !u!114 &564546934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4386,13 +4371,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 564546931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
+  m_Script: {fileID: 11500000, guid: d85d02d54942ec1499e7a84f1f1116ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
-  flagNecesaria: {fileID: 11400000, guid: de12748e4bd2f3e4f86677e42aa0e5a0, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay4
+  papel: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   panel: {fileID: 1395648078}
-  panelAnterior: {fileID: 346549926}
-  delayDespuesDeCerrar: 0.5
+  panelAnterior1: {fileID: 1525250467}
+  panelAnterior2: {fileID: 288384313}
+  panelAnterior3: {fileID: 346549926}
+  delayDespuesDeCerrar: 0.3
 --- !u!1 &587208603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,9 +4882,8 @@ GameObject:
   - component: {fileID: 781060546}
   - component: {fileID: 781060545}
   - component: {fileID: 781060544}
-  - component: {fileID: 781060543}
   - component: {fileID: 781060542}
-  - component: {fileID: 781060541}
+  - component: {fileID: 781060547}
   m_Layer: 5
   m_Name: Mision Hablar c/ sospechosos
   m_TagString: Untagged
@@ -4925,22 +4911,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &781060541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781060539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9481f516f107dc48823515dcdecdf52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay
-  flagNecesaria: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
-  panel: {fileID: 346549926}
-  panelAnterior: {fileID: 288384313}
-  delayDespuesDeCerrar: 0.5
 --- !u!114 &781060542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4956,20 +4926,6 @@ MonoBehaviour:
   flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   flagNecesaria2: {fileID: 0}
   flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
---- !u!114 &781060543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781060539}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 991f9a207d4aa99408c444ce5eb38710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DesactivadorPorTiempo
-  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  panel: {fileID: 346549926}
 --- !u!114 &781060544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5033,6 +4989,23 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
+--- !u!114 &781060547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781060539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029c80348a03cea41987b8fab9b3fad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay3
+  papel: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  panel: {fileID: 346549926}
+  panelAnterior1: {fileID: 1525250467}
+  panelAnterior2: {fileID: 288384313}
+  delayDespuesDeCerrar: 0.3
 --- !u!1 &789924105
 GameObject:
   m_ObjectHideFlags: 0
@@ -9357,7 +9330,7 @@ MonoBehaviour:
   flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   panel: {fileID: 288384313}
   panelAnterior: {fileID: 1525250467}
-  delayDespuesDeCerrar: 0.5
+  delayDespuesDeCerrar: 0.3
 --- !u!114 &1355844655
 MonoBehaviour:
   m_ObjectHideFlags: 0
