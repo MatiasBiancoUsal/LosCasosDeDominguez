@@ -104,6 +104,13 @@ public class MostrarPanelDelay3 : MonoBehaviour
             puedoCerrarConX = true;
 
             Debug.Log("[MostrarPanelDelay2] Panel abierto correctamente.");
+
+            // --- ANALYTICS ---
+            string nombreMision = papel != null ? papel.name : panel.name;
+            print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+            // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+            // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
         }
 
         procesandoApertura = false;

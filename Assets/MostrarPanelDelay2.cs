@@ -105,6 +105,13 @@ public class MostrarPanelDelay2 : MonoBehaviour
             puedoCerrarConX = true;
 
             Debug.Log("[MostrarPanelDelay2] ¡ÉXITO! Cartel 'Unir los papeles' abierto en secuencia correcta.");
+
+            // --- ANALYTICS ---
+            string nombreMision = panel != null ? panel.name : "TresPapelesUnir";
+            print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+            // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+            // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
         }
 
         procesandoApertura = false;

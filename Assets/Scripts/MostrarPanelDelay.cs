@@ -133,5 +133,12 @@ public class MostrarPanelDelay : MonoBehaviour
         panelMostrado = true;
 
         Debug.Log("[MostrarPanelDelay] Nuevo panel mostrado.");
+
+        // --- ANALYTICS ---
+        string nombreMision = flagNecesaria != null ? flagNecesaria.name : panel.name;
+        print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+        // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
     }
 }

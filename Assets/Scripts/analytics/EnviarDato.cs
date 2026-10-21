@@ -123,4 +123,38 @@ public class EnviarDato : MonoBehaviour
 
         AnalyticsService.Instance.RecordEvent(eventoMision);
     }
+
+    // 1-Lu. Activar el evento cuando aparece una mision nueva
+    public void EventoNuevaMision(string nombreMision)
+    {
+        CustomEvent eventoMision = new CustomEvent("MisionIniciada")
+        {
+            { "NombreMision", nombreMision }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoMision);
+    }
+
+    // 2-Lu. Activar el evento cuando el jugador abre el panel de misiones
+    public void EventoAbrirPanelMisiones(string nombreHabitacion)
+    {
+        CustomEvent eventoPanel = new CustomEvent("AbrirMision")
+        {
+            { "NombreHabitacion", nombreHabitacion }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoPanel);
+    }
+
+    // 1-Valen. Activar el evento cuando el jugador interactua con un objeto antes de tiempo
+    public void EventoInteraccionBloqueada(string nombreObjeto, string pistaFaltante)
+    {
+        CustomEvent eventoBloqueo = new CustomEvent("InteraccionBloqueada")
+        {
+            { "NombreObjeto", nombreObjeto },
+            { "PistaFaltante", pistaFaltante }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoBloqueo);
+    }
 }

@@ -92,6 +92,13 @@ public class MostrarPanelConFlag : MonoBehaviour
         // Mostramos el panel y lo dejamos abierto
         // hasta que el jugador presione X.
         panel.SetActive(true);
+
+        // --- ANALYTICS ---
+        string nombreMision = flagNecesaria != null ? flagNecesaria.name : panel.name;
+        print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+        // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
     }
 }
 

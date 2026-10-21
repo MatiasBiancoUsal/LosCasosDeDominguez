@@ -122,5 +122,12 @@ public class MostrarPanelConTresFlags : MonoBehaviour
         panel.SetActive(true);
         esperandoPanel = false;
         Debug.Log("[MostrarPanelConTresFlags] Contador mostrado: " + ContarFlagsObtenidas() + "/3");
+
+        // --- ANALYTICS ---
+        string nombreMision = panel != null ? panel.name : "ContadorTresFlags";
+        print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+        // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
     }
 }

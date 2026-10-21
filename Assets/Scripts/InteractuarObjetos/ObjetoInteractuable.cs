@@ -84,7 +84,6 @@ public class ObjetoInteractuable : MonoBehaviour
                 (Keyboard.current.xKey.wasPressedThisFrame ||
                  Keyboard.current.qKey.wasPressedThisFrame))
             {
-
                 if (panelTextoBloqueado != null)
                     panelTextoBloqueado.SetActive(false);
 
@@ -113,6 +112,9 @@ public class ObjetoInteractuable : MonoBehaviour
                             mensajeBloqueoMostrado = true;
                         }
 
+                        // Llamamos a nuestra función aislada de Analytics
+                        RegistrarAnalyticsBloqueo();
+
                         return;
                     }
                 }
@@ -121,6 +123,20 @@ public class ObjetoInteractuable : MonoBehaviour
             }
         }
     }
+
+    // --- FUNCIÓN SEPARADA FUERA DEL UPDATE ---
+    private void RegistrarAnalyticsBloqueo()
+    {
+        string nombreObjeto = gameObject.name;
+        string pistaFaltante = banderaRequerida != null ? banderaRequerida.name : "Desconocida";
+
+        print($"[Analytics] Interaccion Bloqueada -> NombreObjeto: {nombreObjeto}, PistaFaltante: {pistaFaltante}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+        // EnviarDato.Singleton.EventoInteraccionBloqueada(nombreObjeto, pistaFaltante);
+    }
+
+
 
     private void OnDestroy()
     {

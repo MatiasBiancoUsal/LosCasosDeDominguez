@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 12146361}
   - component: {fileID: 12146360}
   - component: {fileID: 12146362}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Lavadero_Mesa_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4323,7 +4323,6 @@ GameObject:
   - component: {fileID: 726404399}
   - component: {fileID: 726404397}
   - component: {fileID: 726404400}
-  - component: {fileID: 726404401}
   m_Layer: 0
   m_Name: _MANAGERS_2
   m_TagString: Untagged
@@ -4419,18 +4418,6 @@ MonoBehaviour:
   flagNecesaria8: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
   flagNecesaria9: {fileID: 11400000, guid: b5e10939a4b39bd4db783a1f9eb7b675, type: 2}
   flagAotorgar: {fileID: 11400000, guid: 3cdc587c3985753469c041fd6876c8c7, type: 2}
---- !u!114 &726404401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726404396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07aa81fbfd3d6f34f8cd689e3880926a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
 --- !u!1 &735876772
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,7 +10258,7 @@ GameObject:
   - component: {fileID: 1665963455}
   - component: {fileID: 1665963457}
   - component: {fileID: 1665963456}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Lavadero_Alacena_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13159,6 +13146,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: 285e9f41ac89d1d4697c50f30ec27d2f, type: 2}
   notificacionResumen: {fileID: 1075333313}
   nombreHabitacionActual: Lavadero_Nivel10
+  esInterrogatorioFinal: 0
 --- !u!114 &2091017220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13311,7 +13299,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.2037503}
+  m_Offset: {x: 0, y: 5.0645127}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -13321,7 +13309,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.98, y: 2.4075005}
+  m_Size: {x: 3.98, y: 10.129025}
   m_EdgeRadius: 0
 --- !u!212 &2091017226
 SpriteRenderer:
@@ -13946,6 +13934,8 @@ MonoBehaviour:
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 
   notificacionResumen: {fileID: 0}
+  usarAnalisis: 0
+  nomreLlave: 
 --- !u!114 &2109982376
 MonoBehaviour:
   m_ObjectHideFlags: 0
