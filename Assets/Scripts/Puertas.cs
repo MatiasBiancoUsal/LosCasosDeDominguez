@@ -88,7 +88,7 @@ public class Puertas : MonoBehaviour
             CustomEvent evento = new CustomEvent("PuertaBloqueada")
         {
         { "NombreHabitacion", habitacion },
-        { "HabitacionDestino", nombreDeLaEscena },
+        { "HabitacionDeseada", nombreDeLaEscena },
         { "PistaFaltante", pista }
         };
 

@@ -135,7 +135,7 @@ public class GameStateManager : MonoBehaviour
         CustomEvent evento = new CustomEvent("EntrarHabitacion")
         {
             { "NombreHabitacion", nombreEscena },
-            { "TiempoJuego", tiempoJuego }
+            { "TiempoDeJuego", tiempoJuego }
         };
 
         if (UnityServices.State == ServicesInitializationState.Initialized)
