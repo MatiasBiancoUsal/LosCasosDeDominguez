@@ -49,14 +49,12 @@ public class SelectorCulpable : MonoBehaviour
     {
         if (GameStateManager.Instance == null) return;
 
-        // Si ya se resolvió el caso, se oculta
         if (banderaCasoResuelto != null && GameStateManager.Instance.TieneBandera(banderaCasoResuelto))
         {
             OcultarPanel();
             return;
         }
 
-        // Se abre SOLO si se han obtenido las 3 banderas
         if (TieneTodasLasBanderas())
         {
             MostrarPanel();
@@ -69,7 +67,6 @@ public class SelectorCulpable : MonoBehaviour
 
     private bool TieneTodasLasBanderas()
     {
-        // Comprueba que las 3 estén asignadas en el Inspector y obtenidas en la partida
         bool cumple1 = banderaRequisito1 != null && GameStateManager.Instance.TieneBandera(banderaRequisito1);
         bool cumple2 = banderaRequisito2 != null && GameStateManager.Instance.TieneBandera(banderaRequisito2);
         bool cumple3 = banderaRequisito3 != null && GameStateManager.Instance.TieneBandera(banderaRequisito3);
@@ -93,8 +90,27 @@ public class SelectorCulpable : MonoBehaviour
             gameObject.SetActive(false);
     }
 
-    public void CargarEscenaFinal(string nombreEscenaFinal)
+    public void ElegirCulpable(string datoCompleto)
     {
+        if (string.IsNullOrEmpty(datoCompleto)) return;
+
+        string nombreSospechoso = datoCompleto;
+        string nombreEscenaFinal = datoCompleto;
+
+        if (datoCompleto.Contains("|"))
+        {
+            string[] partes = datoCompleto.Split('|');
+            nombreSospechoso = partes[0];
+            nombreEscenaFinal = partes[1];
+        }
+
+        print($"[Analytics] Se votó al sospechoso: {nombreSospechoso} (Cargando escena: {nombreEscenaFinal})");
+
+        //if (EnviarDato.Singleton != null)
+        //{
+        //    EnviarDato.Singleton.EventoElegirCulpable(nombreSospechoso);
+        //}
+
         if (!string.IsNullOrEmpty(nombreEscenaFinal))
         {
             SceneManager.LoadScene(nombreEscenaFinal);
