@@ -33,10 +33,13 @@ public class ActivarDialogo : MonoBehaviour
     [Tooltip("Si se asigna, al terminar este diálogo y cerrar las fotos se abrirá el panel de resumen.")]
     [SerializeField] private NotificacionResumen notificacionResumen;
 
+    [Header("Configuración Analytics")]
+    [SerializeField] public string nombreHabitacionActual;
+    [Tooltip("Marcar esta casilla SOLO en los personajes de la Escena Final.")]
+    [SerializeField] private bool esInterrogatorioFinal = false;
+
     private DetectorHover hover;
     private CondicionDialogo? dialogoSeleccionadoActual;
-
-    [SerializeField] public string nombreHabitacionActual;
 
     private void Awake()
     {
@@ -97,10 +100,22 @@ public class ActivarDialogo : MonoBehaviour
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
 
-            print($"[Analytics] Enviando Dialogo -> Personaje: {gameObject.name}, Habitación: {nombreHabitacionActual}, Diálogo: {dialogoAProcesar.name}, Repetido: {esRepetido}");
+            if (esInterrogatorioFinal)
+            {
+                // Print de prueba para el Interrogatorio Final
+                print($"[Analytics] Interrogatorio Final -> Sospechoso: {gameObject.name}, Diálogo: {dialogoAProcesar.name}");
 
-            //DESACTIVAR PARA QUE MANDE EL DATO
-            //EnviarDato.Singleton.EventoDialogo(gameObject.name, nombreHabitacionActual, dialogoAProcesar.name, esRepetido);
+                // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
+                // EnviarDato.Singleton.EventoInterrogacionFinal(gameObject.name, dialogoAProcesar.name);
+            }
+            else
+            {
+                // Print de prueba para Diálogo Normal
+                print($"[Analytics] Enviando Dialogo -> Personaje: {gameObject.name}, Habitación: {nombreHabitacionActual}, Diálogo: {dialogoAProcesar.name}, Repetido: {esRepetido}");
+
+                // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
+                // EnviarDato.Singleton.EventoDialogo(gameObject.name, nombreHabitacionActual, dialogoAProcesar.name, esRepetido);
+            }
 
             DialogoManager_Definitivo.Instance.IniciarDialogo(dialogoAProcesar);
         }
@@ -121,7 +136,6 @@ public class ActivarDialogo : MonoBehaviour
         {
             CondicionDialogo dialogo = dialogoSeleccionadoActual.Value;
 
-            // 1. Guardar primero las banderas para que el sistema reconozca que ya se poseen
             if (dialogo.banderaACompletar != null)
             {
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaACompletar);
@@ -132,7 +146,6 @@ public class ActivarDialogo : MonoBehaviour
                 GameStateManager.Instance.GuardarBandera(dialogo.banderaExtra);
             }
 
-            // 2. Gestionar las notificaciones de UI según corresponda
             if (!string.IsNullOrEmpty(dialogo.nombreHabitacionADesbloquear))
             {
                 if (dialogo.banderaACompletar != null)
@@ -147,13 +160,11 @@ public class ActivarDialogo : MonoBehaviour
             }
             else if (notificacionResumen != null)
             {
-                // Si no hay habitación por desbloquear, llama directamente al resumen
                 notificacionResumen.MostrarNotificacion();
             }
         }
         else if (notificacionResumen != null)
         {
-            // En caso de diálogo por defecto
             notificacionResumen.MostrarNotificacion();
         }
     }

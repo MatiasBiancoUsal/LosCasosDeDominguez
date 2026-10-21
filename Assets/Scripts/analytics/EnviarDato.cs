@@ -37,15 +37,14 @@ public class EnviarDato : MonoBehaviour
     }
 
     // 2-Dolores. Activar el evento cuando el usuario realiza todos los interrogatorios finales
-    public void EventoInterrogacionFinal(float nombreSospechoso, float nombreDialogo)
+    public void EventoInterrogacionFinal(string nombreSospechoso, string nombreDialogo)
     {
         CustomEvent eventoInterrogacion = new CustomEvent("InterrogacionFinal")
-        {
-            { "Nombre del sospechoso", nombreSospechoso },
-            { "Nombre del dialogo", nombreDialogo }
-        };
+    {
+        { "Nombre del sospechoso", nombreSospechoso },
+        { "Nombre del dialogo", nombreDialogo }
+    };
 
         AnalyticsService.Instance.RecordEvent(eventoInterrogacion);
-
     }
 }
