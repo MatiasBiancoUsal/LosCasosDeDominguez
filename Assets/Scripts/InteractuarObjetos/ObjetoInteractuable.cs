@@ -35,6 +35,11 @@ public class ObjetoInteractuable : MonoBehaviour
     private bool yaFueCompletado = false;
     private bool mensajeBloqueoMostrado = false;
 
+    [Header("Datos Analytics")]
+    public bool usarAnalisis;
+
+    public string nomreLlave;
+
     private void Awake()
     {
         detectorHover = GetComponent<DetectorHover>();
@@ -117,6 +122,17 @@ public class ObjetoInteractuable : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+
+        //evento
+        if (usarAnalisis)
+        {
+            EnviarDato.Singleton.EventoNombreLlave(nomreLlave, nombreHabitacionDesbloqueada);
+            Debug.Log("Llave Destruida");
+        }
+    }
+
     private void EjecutarInteraccion()
     {
         if (banderaAOtorgar != null && GameStateManager.Instance != null)
@@ -126,6 +142,7 @@ public class ObjetoInteractuable : MonoBehaviour
                 esPrimeraInteraccion = true;
 
                 GameStateManager.Instance.GuardarBandera(banderaAOtorgar);
+
 
                 if (!string.IsNullOrEmpty(nombreHabitacionDesbloqueada))
                 {

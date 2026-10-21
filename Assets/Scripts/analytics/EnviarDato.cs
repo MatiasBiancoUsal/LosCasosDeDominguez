@@ -1,4 +1,5 @@
 using Unity.Services.Analytics;
+using Unity.Services.Core;
 using UnityEngine;
 
 public class EnviarDato : MonoBehaviour
@@ -8,6 +9,20 @@ public class EnviarDato : MonoBehaviour
     private void Awake()
     {
         Singleton = this;
+    }
+
+    async void Start()
+    {
+        try
+        {
+            await UnityServices.InitializeAsync();
+
+            AnalyticsService.Instance.StartDataCollection();
+        }
+        catch
+        {
+            ///
+        }
     }
 
     // 1-Pilar. Activar el evento cuando se activa el dialogo
@@ -81,5 +96,19 @@ public class EnviarDato : MonoBehaviour
         };
 
         AnalyticsService.Instance.RecordEvent(eventoPuerta);
+    }
+
+    /// <summary>
+    /// Mora
+    /// </summary>
+    /// <param name="llave"></param>
+    /// <param name="habitacion"></param>
+    public void EventoNombreLlave(string llave, string habitacion)
+    {
+        CustomEvent llaves = new("agarrasteLaLlave")
+        {
+            {"Llave: ", "agarrasteLaLlave" },
+            {"Habitacion: ", habitacion}
+        };
     }
 }

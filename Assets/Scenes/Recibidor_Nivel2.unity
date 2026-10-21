@@ -5329,6 +5329,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: 5e408cb867f58b844958bbb5c9472433, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: 
+  esInterrogatorioFinal: 0
 --- !u!114 &852912212 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7933537592511172752, guid: 74f5e89274628aa46a8c7647e7fc285d, type: 3}
@@ -9122,6 +9123,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: 75ac4e67df9c88742be6017291f90e72, type: 2}
   notificacionResumen: {fileID: 90204767}
   nombreHabitacionActual: Recibidor_Nivel2
+  esInterrogatorioFinal: 0
 --- !u!114 &1328103649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10224,6 +10226,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 5e67284e77635f54e9c75646025f5461, type: 3}
     - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: nomreLlave
+      value: agarrasteLaLlave
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
+      propertyPath: usarAnalisis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7401161958050931342, guid: fc9ea291814263942abdf09035a580b0, type: 3}
       propertyPath: banderaAOtorgar
       value: 
       objectReference: {fileID: 11400000, guid: 7af009bd5b734be4fb7d84e7aeebbd62, type: 2}
@@ -10289,6 +10299,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2326522905189898335, guid: fc9ea291814263942abdf09035a580b0, type: 3}
   m_PrefabInstance: {fileID: 1578736238}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1582854938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582854940}
+  - component: {fileID: 1582854939}
+  m_Layer: 0
+  m_Name: datos_//////temp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1582854939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582854938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28370c53ebc472d44871d59a9fc09ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnviarDato
+--- !u!4 &1582854940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582854938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.60624, y: 1.16575, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583859003
 GameObject:
   m_ObjectHideFlags: 0
@@ -12184,6 +12238,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: e8630053439eb8c4488e95e6d44d3b40, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: Recibidor_Nivel2
+  esInterrogatorioFinal: 0
 --- !u!1 &1900764564
 GameObject:
   m_ObjectHideFlags: 0
@@ -14278,6 +14333,8 @@ MonoBehaviour:
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 
   notificacionResumen: {fileID: 0}
+  usarAnalisis: 0
+  nomreLlave: 
 --- !u!114 &2109982376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15042,3 +15099,4 @@ SceneRoots:
   - {fileID: 997679797}
   - {fileID: 416092227}
   - {fileID: 587208605}
+  - {fileID: 1582854940}
