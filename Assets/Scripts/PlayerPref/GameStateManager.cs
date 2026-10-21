@@ -122,7 +122,13 @@ public class GameStateManager : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("[GameStateManager] Progreso guardado automáticamente en: " + nombreEscena);
+
+        print($"[Analytics] Entrar habitacion -> Habitacion: {nombreEscena}, Tiempo de juego: {Time.realtimeSinceStartup}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (ISA)
+        // EnviarDato.Singleton.EventoEntrarHabitacion(nombreEscena, Time.realtimeSinceStartup);
     }
+
 
     public void ResetPlayerPrefs()
     {

@@ -13,12 +13,12 @@ public class EnviarDato : MonoBehaviour
     // 1-Pilar. Activar el evento cuando se activa el dialogo
     public void EventoDialogo(string nombrePersonaje, string nombreHabitacion, string nombreDialogo, bool esRepetido)
     {
-        CustomEvent empezarDialogo = new CustomEvent("Dialogo")
+        CustomEvent empezarDialogo = new CustomEvent("DialogoPersonaje")
         {
-            { "personaje_seleccionado", nombrePersonaje },
-            { "nombre_habitacion", nombreHabitacion },
-            { "nombre_dialogo", nombreDialogo },
-            { "es_repetido", esRepetido }
+            { "NombreDelSospechoso", nombrePersonaje },
+            { "NombreHabitacion", nombreHabitacion },
+            { "NombreDialogo", nombreDialogo },
+            { "DialogoRepetido", esRepetido }
         };
 
         AnalyticsService.Instance.RecordEvent(empezarDialogo);
@@ -29,22 +29,57 @@ public class EnviarDato : MonoBehaviour
     {
         CustomEvent eventoCulpable = new CustomEvent("ElegirCulpable")
         {
-            { "Final elegido", finalElegido }
+            { "FinalElegido", finalElegido }
         };
 
         AnalyticsService.Instance.RecordEvent(eventoCulpable);
-
     }
 
     // 2-Dolores. Activar el evento cuando el usuario realiza todos los interrogatorios finales
     public void EventoInterrogacionFinal(string nombreSospechoso, string nombreDialogo)
     {
         CustomEvent eventoInterrogacion = new CustomEvent("InterrogacionFinal")
-    {
-        { "Nombre del sospechoso", nombreSospechoso },
-        { "Nombre del dialogo", nombreDialogo }
-    };
+        {
+            { "NombreDelSospechoso", nombreSospechoso },
+            { "NombreDialogo", nombreDialogo }
+        };
 
         AnalyticsService.Instance.RecordEvent(eventoInterrogacion);
+    }
+
+    // 1-Isa. Activar el evento cuando el jugador acepta o rechaza la llamada
+    public void EventoAtenderLlamada(bool aceptoLlamada)
+    {
+        CustomEvent eventoLlamada = new CustomEvent("AtenderLlamada")
+        {
+            { "AceptarLlamada", aceptoLlamada }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoLlamada);
+    }
+
+    // 2-Isa. Activar el evento cuando el jugador entra a una habitacion
+    public void EventoEntrarHabitacion(string nombreHabitacion, float tiempoDeJuego)
+    {
+        CustomEvent eventoHabitacion = new CustomEvent("EntrarHabitacion")
+        {
+            { "NombreHabitacion", nombreHabitacion },
+            { "TiempoDeJuego", tiempoDeJuego }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoHabitacion);
+    }
+
+    // 3-Isa. Activar el evento cuando el jugador intenta abrir una puerta cerrada
+    public void EventoPuertaBloqueada(string nombreHabitacion, string habitacionDeseada, string pistaFaltante)
+    {
+        CustomEvent eventoPuerta = new CustomEvent("PuertaBloqueada")
+        {
+            { "NombreHabitacion", nombreHabitacion },
+            { "HabitacionDeseada", habitacionDeseada },
+            { "PistaFaltante", pistaFaltante }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoPuerta);
     }
 }
