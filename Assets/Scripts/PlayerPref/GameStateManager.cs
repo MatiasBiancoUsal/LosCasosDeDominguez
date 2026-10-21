@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Unity.Services.Analytics;
-using Unity.Services.Core;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -109,9 +107,6 @@ public class GameStateManager : MonoBehaviour
 
     private void AlCargarEscena(Scene escena, LoadSceneMode modo)
     {
-        // El GameStateManager está en varias escenas: solo el original manda el evento
-        if (Instance != this) return;
-
         string nombreEscena = escena.name;
 
         // Filtros de escenas que no cuentan como progreso
@@ -127,26 +122,6 @@ public class GameStateManager : MonoBehaviour
         PlayerPrefs.Save();
 
         Debug.Log("[GameStateManager] Progreso guardado automáticamente en: " + nombreEscena);
-
-        // Evento EntrarHabitacion analitycs (isa)
-        float tiempoJuego = Time.realtimeSinceStartup;
-        print($"Evento EntrarHabitacion. Parametros nombreHabitacion: {nombreEscena}, tiempoJuego: {tiempoJuego}");
-
-        CustomEvent evento = new CustomEvent("EntrarHabitacion")
-        {
-            { "NombreHabitacion", nombreEscena },
-            { "TiempoDeJuego", tiempoJuego }
-        };
-
-        if (UnityServices.State == ServicesInitializationState.Initialized)
-        {
-            AnalyticsService.Instance.RecordEvent(evento);
-            AnalyticsService.Instance.Flush();
-        }
-        else
-        {
-            Debug.LogWarning("Analytics no inicializado: arranca el juego desde el Menu");
-        }
     }
 
     public void ResetPlayerPrefs()

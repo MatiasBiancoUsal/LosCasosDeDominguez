@@ -1,6 +1,4 @@
 using System.Collections;
-using Unity.Services.Analytics;
-using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -32,7 +30,6 @@ public class Puertas : MonoBehaviour
     private DetectorHover detectorHover;
     private bool cargandoEscena = false;
     private Coroutine rutinaOcultarMensaje;
-    
 
     private void Awake()
     {
@@ -76,36 +73,12 @@ public class Puertas : MonoBehaviour
             Debug.Log($"[Puertas] Transición hacia: {nombreDeLaEscena}");
             SceneManager.LoadSceneAsync(nombreDeLaEscena);
         }
-        else // analityc parametro puertas (isa)
+        else
         {
             Debug.Log("[Puertas] Puerta bloqueada. Falta pista.");
-
-            string habitacion = SceneManager.GetActiveScene().name;
-            string pista = banderaRequerida != null ? banderaRequerida.name : "Ninguna";
-
-            print($"Evento PuertaBloqueada. Parametros nombreHabitacion: {habitacion}, habitacionDestino: {nombreDeLaEscena}, pistaFaltante: {pista}");
-
-            CustomEvent evento = new CustomEvent("PuertaBloqueada")
-        {
-        { "NombreHabitacion", habitacion },
-        { "HabitacionDeseada", nombreDeLaEscena },
-        { "PistaFaltante", pista }
-        };
-
-            if (UnityServices.State == ServicesInitializationState.Initialized)
-            {
-                AnalyticsService.Instance.RecordEvent(evento);
-                AnalyticsService.Instance.Flush();
-            }
-            else
-            {
-                Debug.LogWarning("Analytics no inicializado: arranca el juego desde el Menu");
-            }
-
             MostrarMensajeBloqueado();
         }
     }
-    
 
     private void MostrarMensajeBloqueado()
     {
