@@ -53,6 +53,14 @@ public class GameStateManager : MonoBehaviour
 
         Debug.Log($"[GameStateManager] BANDERA GUARDADA EXITOSAMENTE: {flag.name} (ID: {flag.Id})");
 
+        string nombreMision = flag.name;
+        float tiempoEnLaMision = Time.realtimeSinceStartup;
+
+        print($"[Analytics] MisionCompletada -> NombreMision: {nombreMision}, TiempoEnLaMision: {tiempoEnLaMision}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
+        EnviarDato.Singleton.EventoMisionCompletada(nombreMision, tiempoEnLaMision);
+
         OnBanderaObtenida?.Invoke(flag);
     }
 
@@ -128,7 +136,6 @@ public class GameStateManager : MonoBehaviour
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (ISA)
         // EnviarDato.Singleton.EventoEntrarHabitacion(nombreEscena, Time.realtimeSinceStartup);
     }
-
 
     public void ResetPlayerPrefs()
     {

@@ -111,4 +111,16 @@ public class EnviarDato : MonoBehaviour
             {"Habitacion: ", habitacion}
         };
     }
+
+    //candu
+    public void EventoMisionCompletada(string nombreMision, float tiempoEnLaMision)
+    {
+        CustomEvent eventoMision = new CustomEvent("MisionCompletada")
+        {
+            { "NombreMision", nombreMision },
+            { "TiempoEnLaMision", tiempoEnLaMision }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoMision);
+    }
 }
