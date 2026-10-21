@@ -36,6 +36,8 @@ public class ActivarDialogo : MonoBehaviour
     private DetectorHover hover;
     private CondicionDialogo? dialogoSeleccionadoActual;
 
+    [SerializeField] public string nombreHabitacionActual;
+
     private void Awake()
     {
         hover = GetComponent<DetectorHover>();
@@ -50,10 +52,6 @@ public class ActivarDialogo : MonoBehaviour
             if (hover != null && hover.MouseEstaEncima)
             {
                 EvaluarYIniciarDialogo();
-
-              
-                //EnviarDato.Singleton.EventoDialogo(gameObject.name);
-                print($"[ActivarDialogo] Se inició el diálogo del objeto {gameObject.name}.");
             }
         }
     }
@@ -64,6 +62,7 @@ public class ActivarDialogo : MonoBehaviour
 
         DialogoSistema dialogoAProcesar = null;
         dialogoSeleccionadoActual = null;
+        bool esRepetido = false;
 
         foreach (var cond in dialogosPosibles)
         {
@@ -90,6 +89,7 @@ public class ActivarDialogo : MonoBehaviour
         if (dialogoAProcesar == null)
         {
             dialogoAProcesar = dialogoPorDefecto;
+            esRepetido = true;
         }
 
         if (dialogoAProcesar != null)
@@ -97,6 +97,10 @@ public class ActivarDialogo : MonoBehaviour
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado -= OnDialogoFinalizado;
             DialogoManager_Definitivo.Instance.OnDialogoFinalizado += OnDialogoFinalizado;
 
+            print($"[Analytics] Enviando Dialogo -> Personaje: {gameObject.name}, Habitación: {nombreHabitacionActual}, Diálogo: {dialogoAProcesar.name}, Repetido: {esRepetido}");
+
+            //DESACTIVAR PARA QUE MANDE EL DATO
+            //EnviarDato.Singleton.EventoDialogo(gameObject.name, nombreHabitacionActual, dialogoAProcesar.name, esRepetido);
 
             DialogoManager_Definitivo.Instance.IniciarDialogo(dialogoAProcesar);
         }
@@ -153,4 +157,4 @@ public class ActivarDialogo : MonoBehaviour
             notificacionResumen.MostrarNotificacion();
         }
     }
-} //cambio para probar
+}

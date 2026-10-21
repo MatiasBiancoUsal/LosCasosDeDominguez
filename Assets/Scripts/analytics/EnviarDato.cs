@@ -2,27 +2,26 @@ using Unity.Services.Analytics;
 using UnityEngine;
 
 public class EnviarDato : MonoBehaviour
-
 {
     public static EnviarDato Singleton;
 
-
     private void Awake()
-
     {
         Singleton = this;
     }
 
     // 1-Pilar. Activar el evento cuando se activa el dialogo
-    public void EventoDialogo(string nombrePersonaje)
+    public void EventoDialogo(string nombrePersonaje, string nombreHabitacion, string nombreDialogo, bool esRepetido)
     {
         CustomEvent empezarDialogo = new CustomEvent("Dialogo")
         {
-            { "personaje seleccionado", nombrePersonaje }
+            { "personaje_seleccionado", nombrePersonaje },
+            { "nombre_habitacion", nombreHabitacion },
+            { "nombre_dialogo", nombreDialogo },
+            { "es_repetido", esRepetido }
         };
 
         AnalyticsService.Instance.RecordEvent(empezarDialogo);
-
     }
 
     // 1-Dolores. Activar el evento cuando el jugador elige al culpable final
