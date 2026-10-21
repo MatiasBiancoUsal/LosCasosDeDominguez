@@ -11,7 +11,7 @@ public class ControladorLlamada : MonoBehaviour
         print($"Evento AtenderLlamada. Parametro aceptarLlamada: {true}");
         CustomEvent evento = new CustomEvent("AtenderLlamada")
         {
-            { "aceptarLlamada", true }
+            { "AceptarLlamada", true }
         };
         AnalyticsService.Instance.RecordEvent(evento);
         AnalyticsService.Instance.Flush();
@@ -24,7 +24,7 @@ public class ControladorLlamada : MonoBehaviour
         print($"Evento AtenderLlamada. Parametro aceptarLlamada: {false}");
         CustomEvent evento = new CustomEvent("AtenderLlamada")
         {
-            { "aceptarLlamada", false }
+            { "AceptarLlamada", false }
         };
         AnalyticsService.Instance.RecordEvent(evento);
         AnalyticsService.Instance.Flush();

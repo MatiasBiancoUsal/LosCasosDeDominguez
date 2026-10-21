@@ -87,9 +87,9 @@ public class Puertas : MonoBehaviour
 
             CustomEvent evento = new CustomEvent("PuertaBloqueada")
         {
-        { "nombreHabitacion", habitacion },
-        { "habitacionDestino", nombreDeLaEscena },
-        { "pistaFaltante", pista }
+        { "NombreHabitacion", habitacion },
+        { "HabitacionDestino", nombreDeLaEscena },
+        { "PistaFaltante", pista }
         };
 
             if (UnityServices.State == ServicesInitializationState.Initialized)
