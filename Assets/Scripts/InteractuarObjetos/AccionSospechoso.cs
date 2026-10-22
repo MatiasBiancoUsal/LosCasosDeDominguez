@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class AccionSospechoso : MonoBehaviour, IAccionInteractuable
 {
-    [Header("Configuración de Inspección")]
+    [Header("Configuraciï¿½n de Inspecciï¿½n")]
     [SerializeField] private SuspectData suspectData;
     [SerializeField] private InspectionManager inspectionManager;
     [SerializeField] private GameObject inspectionPanel;
@@ -39,7 +39,7 @@ public class AccionSospechoso : MonoBehaviour, IAccionInteractuable
         print($"[Analytics] InspeccionarSospechoso -> Nombre del sospechoso: {nombreSospechoso}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Maia)
-        // EnviarDato.Singleton.EventoInspeccionarSospechoso(nombreSospechoso);
+        EnviarDato.Singleton.EventoInspeccionarSospechoso(nombreSospechoso);
     }
 
     public void CerrarPanel()

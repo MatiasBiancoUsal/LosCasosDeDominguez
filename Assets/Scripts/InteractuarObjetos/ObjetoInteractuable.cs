@@ -133,7 +133,7 @@ public class ObjetoInteractuable : MonoBehaviour
         print($"[Analytics] Interaccion Bloqueada -> NombreObjeto: {nombreObjeto}, PistaFaltante: {pistaFaltante}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
-        // EnviarDato.Singleton.EventoInteraccionBloqueada(nombreObjeto, pistaFaltante);
+        EnviarDato.Singleton.EventoInteraccionBloqueada(nombreObjeto, pistaFaltante);
     }
 
 

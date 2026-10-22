@@ -134,7 +134,7 @@ public class GameStateManager : MonoBehaviour
         print($"[Analytics] Entrar habitacion -> Habitacion: {nombreEscena}, Tiempo de juego: {Time.realtimeSinceStartup}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (ISA)
-        // EnviarDato.Singleton.EventoEntrarHabitacion(nombreEscena, Time.realtimeSinceStartup);
+        EnviarDato.Singleton.EventoEntrarHabitacion(nombreEscena, Time.realtimeSinceStartup);
     }
 
     public void ResetPlayerPrefs()

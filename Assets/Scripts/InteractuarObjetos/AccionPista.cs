@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class AccionPista : MonoBehaviour, IAccionInteractuable
 {
-    [Header("Configuración de Pista")]
+    [Header("Configuraciï¿½n de Pista")]
     [SerializeField] private PistasScriptable datosDelObjeto;
 
     private bool panelAbierto = false;
@@ -38,7 +38,7 @@ public class AccionPista : MonoBehaviour, IAccionInteractuable
         print($"[Analytics] InspeccionarObjeto -> NombreObjeto: {nombreObjeto}, NombreHabitacion: {nombreHabitacion}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Maia)
-        // EnviarDato.Singleton.EventoInspeccionarObjeto(nombreObjeto, nombreHabitacion);
+        EnviarDato.Singleton.EventoInspeccionarObjeto(nombreObjeto, nombreHabitacion);
     }
 
     public void CerrarPanel()

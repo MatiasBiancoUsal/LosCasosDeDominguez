@@ -80,7 +80,7 @@ public class Puertas : MonoBehaviour
             print($"[Analytics] Puerta bloqueada -> Habitacion: {SceneManager.GetActiveScene().name}, Deseada: {nombreDeLaEscena}, Pista faltante: {banderaRequerida.name}");
 
             // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (ISA)
-            // EnviarDato.Singleton.EventoPuertaBloqueada(SceneManager.GetActiveScene().name, nombreDeLaEscena, banderaRequerida.name);
+            EnviarDato.Singleton.EventoPuertaBloqueada(SceneManager.GetActiveScene().name, nombreDeLaEscena, banderaRequerida.name);
 
             MostrarMensajeBloqueado();
         }

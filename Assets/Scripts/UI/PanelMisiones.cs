@@ -27,7 +27,7 @@ public class PanelMisiones : MonoBehaviour
             print($"[Analytics] Abrir Panel Misiones -> NombreHabitacion: {habitacionActual}");
 
             // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
-            // EnviarDato.Singleton.EventoAbrirPanelMisiones(habitacionActual);
+            EnviarDato.Singleton.EventoAbrirPanelMisiones(habitacionActual);
         }
         else
         {

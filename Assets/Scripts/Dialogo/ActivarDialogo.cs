@@ -106,7 +106,7 @@ public class ActivarDialogo : MonoBehaviour
                 print($"[Analytics] Interrogatorio Final -> Sospechoso: {gameObject.name}, Diálogo: {dialogoAProcesar.name}");
 
                 // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
-                // EnviarDato.Singleton.EventoInterrogacionFinal(gameObject.name, dialogoAProcesar.name);
+                EnviarDato.Singleton.EventoInterrogacionFinal(gameObject.name, dialogoAProcesar.name);
             }
             else
             {
@@ -114,7 +114,7 @@ public class ActivarDialogo : MonoBehaviour
                 print($"[Analytics] Enviando Dialogo -> Personaje: {gameObject.name}, Habitación: {nombreHabitacionActual}, Diálogo: {dialogoAProcesar.name}, Repetido: {esRepetido}");
 
                 // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
-                // EnviarDato.Singleton.EventoDialogo(gameObject.name, nombreHabitacionActual, dialogoAProcesar.name, esRepetido);
+                EnviarDato.Singleton.EventoDialogo(gameObject.name, nombreHabitacionActual, dialogoAProcesar.name, esRepetido);
             }
 
             DialogoManager_Definitivo.Instance.IniciarDialogo(dialogoAProcesar);
