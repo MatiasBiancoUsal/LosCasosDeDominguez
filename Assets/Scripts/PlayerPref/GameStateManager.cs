@@ -54,12 +54,12 @@ public class GameStateManager : MonoBehaviour
         Debug.Log($"[GameStateManager] BANDERA GUARDADA EXITOSAMENTE: {flag.name} (ID: {flag.Id})");
 
         string nombreMision = flag.name;
-        float tiempoEnLaMision = Time.realtimeSinceStartup;
+        float tiempoMision = Time.realtimeSinceStartup;
 
-        print($"[Analytics] MisionCompletada -> NombreMision: {nombreMision}, TiempoEnLaMision: {tiempoEnLaMision}");
+        print($"[Analytics] MisionCompletada -> NombreMision: {nombreMision}, TiempoMision: {tiempoMision}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO
-        EnviarDato.Singleton.EventoMisionCompletada(nombreMision, tiempoEnLaMision);
+        EnviarDato.Singleton.EventoMisionCompletada(nombreMision, tiempoMision);
 
         OnBanderaObtenida?.Invoke(flag);
     }

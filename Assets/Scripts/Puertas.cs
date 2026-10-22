@@ -77,7 +77,7 @@ public class Puertas : MonoBehaviour
         {
             Debug.Log("[Puertas] Puerta bloqueada. Falta pista.");
 
-            print($"[Analytics] Puerta bloqueada -> Habitacion: {SceneManager.GetActiveScene().name}, Deseada: {nombreDeLaEscena}, Pista faltante: {banderaRequerida.name}");
+            print($"[Analytics] Puerta bloqueada -> Habitacion: {SceneManager.GetActiveScene().name}, Destino: {nombreDeLaEscena}, Pista faltante: {banderaRequerida.name}");
 
             // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (ISA)
             EnviarDato.Singleton.EventoPuertaBloqueada(SceneManager.GetActiveScene().name, nombreDeLaEscena, banderaRequerida.name);

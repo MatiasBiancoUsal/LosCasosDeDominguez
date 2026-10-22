@@ -86,12 +86,12 @@ public class EnviarDato : MonoBehaviour
     }
 
     // 3-Isa. Activar el evento cuando el jugador intenta abrir una puerta cerrada
-    public void EventoPuertaBloqueada(string nombreHabitacion, string habitacionDeseada, string pistaFaltante)
+    public void EventoPuertaBloqueada(string nombreHabitacion, string habitacionDestino, string pistaFaltante)
     {
         CustomEvent eventoPuerta = new CustomEvent("PuertaBloqueada")
         {
             { "NombreHabitacion", nombreHabitacion },
-            { "HabitacionDeseada", habitacionDeseada },
+            { "HabitacionDestino", habitacionDestino },
             { "PistaFaltante", pistaFaltante }
         };
 
@@ -112,12 +112,12 @@ public class EnviarDato : MonoBehaviour
     }
 
     // 1-Cande. Activar el evento cuando se completa una mision
-    public void EventoMisionCompletada(string nombreMision, float tiempoEnLaMision)
+    public void EventoMisionCompletada(string nombreMision, float tiempoMision)
     {
         CustomEvent eventoMision = new CustomEvent("MisionCompletada")
         {
             { "NombreMision", nombreMision },
-            { "TiempoEnLaMision", tiempoEnLaMision }
+            { "TiempoMision", tiempoMision }
         };
 
         AnalyticsService.Instance.RecordEvent(eventoMision);
