@@ -98,8 +98,7 @@ public class EnviarDato : MonoBehaviour
         AnalyticsService.Instance.RecordEvent(eventoPuerta);
     }
 
-    /// <summary>
-    /// Mora
+    //  1-Mora. Activar el evento cuando el jugador agarra una llave
     /// </summary>
     /// <param name="llave"></param>
     /// <param name="habitacion"></param>
@@ -112,7 +111,7 @@ public class EnviarDato : MonoBehaviour
         };
     }
 
-    //candu
+    // 1-Cande. Activar el evento cuando se completa una mision
     public void EventoMisionCompletada(string nombreMision, float tiempoEnLaMision)
     {
         CustomEvent eventoMision = new CustomEvent("MisionCompletada")
