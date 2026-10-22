@@ -107,9 +107,9 @@ public class SelectorCulpable : MonoBehaviour
         print($"[Analytics] Se votó al sospechoso: {nombreSospechoso} (Cargando escena: {nombreEscenaFinal})");
 
         //DESCOENTARLO PARA QUE ENVIE EL DATO
-        if (enviardato.singleton != null)
+        if (EnviarDato.Singleton != null)
         {
-            enviardato.singleton.eventoelegirculpable(nombresospechoso);
+            EnviarDato.Singleton.EventoElegirCulpable(nombreSospechoso);
         }
 
         if (!string.IsNullOrEmpty(nombreEscenaFinal))
