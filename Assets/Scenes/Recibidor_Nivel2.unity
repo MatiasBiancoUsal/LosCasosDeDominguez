@@ -2000,6 +2000,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 12.780579
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191941255399458705, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -92.016235
+      objectReference: {fileID: 0}
     - target: {fileID: 4415323767927313332, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1
@@ -4255,7 +4263,6 @@ GameObject:
   - component: {fileID: 564546936}
   - component: {fileID: 564546935}
   - component: {fileID: 564546934}
-  - component: {fileID: 564546932}
   - component: {fileID: 564546938}
   m_Layer: 5
   m_Name: Mision 18
@@ -4264,21 +4271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &564546932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564546931}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd682a5c2301d2b4b9b45ce102a6f3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
-  flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  flagNecesaria2: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
-  flagAotorgar: {fileID: 11400000, guid: de12748e4bd2f3e4f86677e42aa0e5a0, type: 2}
 --- !u!114 &564546934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4374,7 +4366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85d02d54942ec1499e7a84f1f1116ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MostrarPanelDelay4
-  papel: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
+  flagNecesaria: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
   panel: {fileID: 1395648078}
   panelAnterior1: {fileID: 1525250467}
   panelAnterior2: {fileID: 288384313}
@@ -4882,7 +4874,6 @@ GameObject:
   - component: {fileID: 781060546}
   - component: {fileID: 781060545}
   - component: {fileID: 781060544}
-  - component: {fileID: 781060542}
   - component: {fileID: 781060547}
   m_Layer: 5
   m_Name: Mision Hablar c/ sospechosos
@@ -4911,21 +4902,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &781060542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781060539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd682a5c2301d2b4b9b45ce102a6f3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
-  flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  flagNecesaria2: {fileID: 0}
-  flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
 --- !u!114 &781060544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9227,7 +9203,6 @@ GameObject:
   - component: {fileID: 1355844652}
   - component: {fileID: 1355844651}
   - component: {fileID: 1355844650}
-  - component: {fileID: 1355844655}
   - component: {fileID: 1355844654}
   m_Layer: 5
   m_Name: Mision 15
@@ -9335,21 +9310,6 @@ MonoBehaviour:
   panel: {fileID: 288384313}
   panelAnterior: {fileID: 1525250467}
   delayDespuesDeCerrar: 0.3
---- !u!114 &1355844655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355844648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd682a5c2301d2b4b9b45ce102a6f3fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OtorgarFlag2
-  flagNecesaria1: {fileID: 11400000, guid: ba7559af0cf56a64eace5a89445766a5, type: 2}
-  flagNecesaria2: {fileID: 0}
-  flagAotorgar: {fileID: 11400000, guid: 96083bd6672c6e84e84d93c5b040760b, type: 2}
 --- !u!1 &1364161585
 GameObject:
   m_ObjectHideFlags: 0

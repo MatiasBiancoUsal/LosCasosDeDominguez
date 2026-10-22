@@ -98,7 +98,7 @@ public class MostrarPanelConFlag : MonoBehaviour
         print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
 
         // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
-        // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
+        EnviarDato.Singleton.EventoNuevaMision(nombreMision);
     }
 }
 
