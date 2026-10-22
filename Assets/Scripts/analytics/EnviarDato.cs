@@ -86,12 +86,12 @@ public class EnviarDato : MonoBehaviour
     }
 
     // 3-Isa. Activar el evento cuando el jugador intenta abrir una puerta cerrada
-    public void EventoPuertaBloqueada(string nombreHabitacion, string habitacionDestino, string pistaFaltante)
+    public void EventoPuertaBloqueada(string nombreHabitacion, string habitacionDeseada, string pistaFaltante)
     {
         CustomEvent eventoPuerta = new CustomEvent("PuertaBloqueada")
         {
             { "NombreHabitacion", nombreHabitacion },
-            { "HabitacionDestino", habitacionDestino },
+            { "HabitacionDeseada", habitacionDeseada },
             { "PistaFaltante", pistaFaltante }
         };
 
