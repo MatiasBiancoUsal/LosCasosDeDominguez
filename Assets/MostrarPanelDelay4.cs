@@ -4,125 +4,156 @@ using System.Collections;
 
 public class MostrarPanelDelay4 : MonoBehaviour
 {
-    [Header("Flag necesaria para activar")]
-    public GameFlag papel;
+    [Header("Flag que activa el panel")]
+    public GameFlag flagNecesaria;
 
-    [Header("Panel a mostrar (Este Panel / Panel 3)")]
+    [Header("Panel a mostrar")]
     public GameObject panel;
 
-    [Header("Paneles que deben estar cerrados primero")]
+    [Header("Paneles que deben cerrarse primero")]
     public GameObject panelAnterior1;
     public GameObject panelAnterior2;
     public GameObject panelAnterior3;
 
-    [Header("Delay después de que se cierren los tres paneles")]
-    [SerializeField] private float delayDespuesDeCerrar = 0.3f;
+    [Header("Delay después de cerrar los tres paneles")]
+    [SerializeField] private float delayDespuesDeCerrar = 0.5f;
 
-    private bool contadorSeAbrioAlgunaVez = false;
-    private bool procesandoApertura = false;
+    private bool esperandoPanel = false;
     private bool panelMostrado = false;
-    private bool puedoCerrarConX = false;
+    private bool esperandoDelay = false;
 
-    private string ClaveNotificacion => "MostrarPanelDelay_TresPapelesUnir";
+    // Clave para recordar que este cartel ya apareció
+    private string ClaveNotificacion
+    {
+        get
+        {
+            if (flagNecesaria == null)
+                return "";
+
+            return "MostrarPanelDelay_" + flagNecesaria.Id;
+        }
+    }
 
     private void Start()
     {
-#if UNITY_EDITOR
-        PlayerPrefs.DeleteKey(ClaveNotificacion);
-#endif
+        if (GameStateManager.Instance == null)
+            return;
+
+        // Si la flag ya fue obtenida anteriormente,
+        // esperamos a que se cierren los tres paneles,
+        // siempre que la notificación no se haya mostrado.
+        if (GameStateManager.Instance.TieneBandera(flagNecesaria) &&
+            !PanelYaMostrado())
+        {
+            esperandoPanel = true;
+        }
+
+        // Escuchamos cuando se obtiene una nueva flag
+        GameStateManager.Instance.OnBanderaObtenida += AlObtenerBandera;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.OnBanderaObtenida -= AlObtenerBandera;
+        }
     }
 
     private void Update()
     {
-        if (panel == null) return;
-
-        // Si el panel ya está visible
-        if (panelMostrado)
+        // Esperamos a que los tres paneles estén cerrados
+        if (esperandoPanel && !panelMostrado && !esperandoDelay)
         {
-            if (puedoCerrarConX && Input.GetKeyDown(KeyCode.X))
+            bool p1Cerrado = panelAnterior1 == null || !panelAnterior1.activeSelf;
+            bool p2Cerrado = panelAnterior2 == null || !panelAnterior2.activeSelf;
+            bool p3Cerrado = panelAnterior3 == null || !panelAnterior3.activeSelf;
+
+            if (p1Cerrado && p2Cerrado && p3Cerrado)
             {
-                panel.SetActive(false);
-                panelMostrado = false;
-                puedoCerrarConX = false;
-
-                Debug.Log("[MostrarPanelDelay2] Panel cerrado con X.");
+                StartCoroutine(MostrarConDelay());
             }
-
-            return;
         }
 
-        // Si ya se mostró o está abriéndose, no hacemos nada
-        if (PlayerPrefs.GetInt(ClaveNotificacion, 0) == 1 || procesandoApertura)
-            return;
-
-        // Evaluamos si el jugador tiene la flag
-        if (TengoElPapel())
+        // Cerrar este panel con X
+        if (panelMostrado &&
+            panel != null &&
+            panel.activeSelf &&
+            Input.GetKeyDown(KeyCode.X))
         {
-            // Detectamos si el segundo panel estuvo abierto
-            if (panelAnterior2 != null && panelAnterior2.activeSelf)
-            {
-                contadorSeAbrioAlgunaVez = true;
-            }
-
-            // Comprobamos que los tres paneles estén cerrados
-            bool p1Cerrado = (panelAnterior1 == null || !panelAnterior1.activeSelf);
-            bool p2Cerrado = (panelAnterior2 == null || !panelAnterior2.activeSelf);
-            bool p3Cerrado = (panelAnterior3 == null || !panelAnterior3.activeSelf);
-
-            if (p1Cerrado && p2Cerrado && p3Cerrado && contadorSeAbrioAlgunaVez)
-            {
-                StartCoroutine(MostrarSecuencia());
-            }
+            panel.SetActive(false);
+            panelMostrado = false;
         }
     }
 
-    private IEnumerator MostrarSecuencia()
+    private IEnumerator MostrarConDelay()
     {
-        procesandoApertura = true;
+        esperandoDelay = true;
 
-        // Esperamos a que se suelte la tecla X
-        while (Input.GetKey(KeyCode.X))
-        {
-            yield return null;
-        }
+        Debug.Log("[MostrarPanelDelay] Los tres paneles anteriores están cerrados. Esperando " +
+                  delayDespuesDeCerrar + " segundos...");
 
         yield return new WaitForSeconds(delayDespuesDeCerrar);
 
-        // Verificación final
-        bool p1Cerrado = (panelAnterior1 == null || !panelAnterior1.activeSelf);
-        bool p2Cerrado = (panelAnterior2 == null || !panelAnterior2.activeSelf);
-        bool p3Cerrado = (panelAnterior3 == null || !panelAnterior3.activeSelf);
+        // Volvemos a comprobar que los tres paneles sigan cerrados
+        bool p1Cerrado = panelAnterior1 == null || !panelAnterior1.activeSelf;
+        bool p2Cerrado = panelAnterior2 == null || !panelAnterior2.activeSelf;
+        bool p3Cerrado = panelAnterior3 == null || !panelAnterior3.activeSelf;
 
-        if (p1Cerrado && p2Cerrado && p3Cerrado)
+        if (!p1Cerrado || !p2Cerrado || !p3Cerrado)
         {
-            PlayerPrefs.SetInt(ClaveNotificacion, 1);
-            PlayerPrefs.Save();
-
-            panel.SetActive(true);
-            panelMostrado = true;
-
-            // Evitamos que la misma X cierre inmediatamente este panel
-            yield return new WaitForSeconds(0.2f);
-            puedoCerrarConX = true;
-
-            Debug.Log("[MostrarPanelDelay2] ¡ÉXITO! Panel abierto correctamente.");
-
-            // --- ANALYTICS ---
-            string nombreMision = papel != null ? papel.name : panel.name;
-            print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
-
-            // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
-            // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
+            Debug.Log("[MostrarPanelDelay] Un panel anterior volvió a abrirse. Cancelando.");
+            esperandoDelay = false;
+            yield break;
         }
 
-        procesandoApertura = false;
+        MostrarPanel();
+
+        esperandoDelay = false;
     }
 
-    private bool TengoElPapel()
+    private void AlObtenerBandera(GameFlag bandera)
     {
-        if (GameStateManager.Instance == null) return false;
+        if (bandera == flagNecesaria &&
+            !PanelYaMostrado())
+        {
+            esperandoPanel = true;
+        }
+    }
 
-        return papel != null &&
-               GameStateManager.Instance.TieneBandera(papel);
+    private bool PanelYaMostrado()
+    {
+        if (string.IsNullOrEmpty(ClaveNotificacion))
+            return false;
+
+        return PlayerPrefs.GetInt(ClaveNotificacion, 0) == 1;
+    }
+
+    private void MostrarPanel()
+    {
+        if (panel == null)
+            return;
+
+        // Guardamos que este cartel ya apareció
+        PlayerPrefs.SetInt(ClaveNotificacion, 1);
+        PlayerPrefs.Save();
+
+        panel.SetActive(true);
+
+        esperandoPanel = false;
+        panelMostrado = true;
+
+        Debug.Log("[MostrarPanelDelay] Nuevo panel mostrado.");
+
+        // --- ANALYTICS ---
+        string nombreMision = flagNecesaria != null
+            ? flagNecesaria.name
+            : panel.name;
+
+        print($"[Analytics] Nueva Misión -> NombreMision: {nombreMision}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Lu)
+        // EnviarDato.Singleton.EventoNuevaMision(nombreMision);
     }
 }
+
