@@ -29,6 +29,17 @@ public class AccionSospechoso : MonoBehaviour, IAccionInteractuable
 
         inspectionManager.SetSuspect(suspectData);
         panelAbierto = true;
+
+        inspectionManager.SetSuspect(suspectData);
+        panelAbierto = true;
+
+        // ANALYTICS - Maia
+        string nombreSospechoso = suspectData.suspectName;
+
+        print($"[Analytics] InspeccionarSospechoso -> Nombre del sospechoso: {nombreSospechoso}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Maia)
+        // EnviarDato.Singleton.EventoInspeccionarSospechoso(nombreSospechoso);
     }
 
     public void CerrarPanel()

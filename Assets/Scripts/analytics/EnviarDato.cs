@@ -157,4 +157,27 @@ public class EnviarDato : MonoBehaviour
 
         AnalyticsService.Instance.RecordEvent(eventoBloqueo);
     }
+
+    //1- Maia. Activar el evento cuando el jugador inspecciona un sospechoso.
+    public void EventoInspeccionarSospechoso(string nombreSospechoso)
+    {
+        CustomEvent eventoSospechoso = new CustomEvent("InspeccionarSospechoso")
+        {
+            { "NombreDelSospechoso", nombreSospechoso }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoSospechoso);
+    }
+
+    //2- Maia. Activar el evento cuando el jugador inspecciona un objeto.
+    public void EventoInspeccionarObjeto(string nombreObjeto, string nombreHabitacion)
+    {
+        CustomEvent eventoObjeto = new CustomEvent("InspeccionarObjeto")
+        {
+            { "NombreObjeto", nombreObjeto },
+            { "NombreHabitacion", nombreHabitacion }
+        };
+
+        AnalyticsService.Instance.RecordEvent(eventoObjeto);
+    }
 }

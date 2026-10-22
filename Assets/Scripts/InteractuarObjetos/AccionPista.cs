@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class AccionPista : MonoBehaviour, IAccionInteractuable
 {
     [Header("Configuración de Pista")]
@@ -27,6 +27,18 @@ public class AccionPista : MonoBehaviour, IAccionInteractuable
 
         ObjetoInfoManager.Instance.MostrarInfo(datosDelObjeto);
         panelAbierto = true;
+
+        ObjetoInfoManager.Instance.MostrarInfo(datosDelObjeto);
+        panelAbierto = true;
+
+        // ANALYTICS - Maia
+        string nombreObjeto = datosDelObjeto.nombreObjeto;
+        string nombreHabitacion = SceneManager.GetActiveScene().name;
+
+        print($"[Analytics] InspeccionarObjeto -> NombreObjeto: {nombreObjeto}, NombreHabitacion: {nombreHabitacion}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Maia)
+        // EnviarDato.Singleton.EventoInspeccionarObjeto(nombreObjeto, nombreHabitacion);
     }
 
     public void CerrarPanel()
