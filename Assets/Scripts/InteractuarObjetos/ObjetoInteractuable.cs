@@ -136,17 +136,18 @@ public class ObjetoInteractuable : MonoBehaviour
         EnviarDato.Singleton.EventoInteraccionBloqueada(nombreObjeto, pistaFaltante);
     }
 
-
-
-    private void OnDestroy()
+    // --- FUNCIÓN SEPARADA PARA RECOGIDA DE LLAVE ---
+    private void RegistrarAnalyticsLlave()
     {
+        if (!usarAnalisis) return;
 
-        //evento
-        if (usarAnalisis)
-        {
-            EnviarDato.Singleton.EventoNombreLlave(nomreLlave, nombreHabitacionDesbloqueada);
-            Debug.Log("Llave Destruida");
-        }
+        string llave = !string.IsNullOrEmpty(nomreLlave) ? nomreLlave : gameObject.name;
+        string habitacion = !string.IsNullOrEmpty(nombreHabitacionDesbloqueada) ? nombreHabitacionDesbloqueada : "SinEspecificar";
+
+        print($"[Analytics] Agarraste La Llave -> Llave: {llave}, Habitacion: {habitacion}");
+
+        // SACAR DE COMENTARIO ASI SE ENVIA EL DATO (Mora)
+        EnviarDato.Singleton.EventoNombreLlave(llave, habitacion);
     }
 
     private void EjecutarInteraccion()
@@ -167,6 +168,9 @@ public class ObjetoInteractuable : MonoBehaviour
                         nombreHabitacionDesbloqueada
                     );
                 }
+
+                // REGISTRO DE ANALYTICS LLAVES
+                RegistrarAnalyticsLlave();
             }
         }
 

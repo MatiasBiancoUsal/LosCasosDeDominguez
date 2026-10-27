@@ -102,13 +102,15 @@ public class EnviarDato : MonoBehaviour
     /// </summary>
     /// <param name="llave"></param>
     /// <param name="habitacion"></param>
-    public void EventoNombreLlave(string llave, string habitacion)
+    public void EventoNombreLlave(string nombreLlave, string habitacion)
     {
         CustomEvent llaves = new("agarrasteLaLlave")
         {
-            {"Llave: ", "agarrasteLaLlave" },
-            {"Habitacion: ", habitacion}
+            {"Llave", nombreLlave},
+            {"Habitacion", habitacion}
         };
+
+        AnalyticsService.Instance.RecordEvent(llaves);
     }
 
     // 1-Cande. Activar el evento cuando se completa una mision
