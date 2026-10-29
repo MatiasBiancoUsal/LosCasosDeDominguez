@@ -3884,6 +3884,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: d836c3844bc8c0e47bc4fbc5cf2a88f1, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: GranSalon_Nivel3
+  esInterrogatorioFinal: 0
 --- !u!114 &476647980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,6 +7533,7 @@ GameObject:
   - component: {fileID: 886880086}
   - component: {fileID: 886880087}
   - component: {fileID: 886880088}
+  - component: {fileID: 886880089}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -7627,6 +7629,18 @@ MonoBehaviour:
   flagNecesaria8: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
   flagNecesaria9: {fileID: 11400000, guid: b5e10939a4b39bd4db783a1f9eb7b675, type: 2}
   flagAotorgar: {fileID: 11400000, guid: 3cdc587c3985753469c041fd6876c8c7, type: 2}
+--- !u!114 &886880089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886880084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28370c53ebc472d44871d59a9fc09ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnviarDato
 --- !u!1 &928972598
 GameObject:
   m_ObjectHideFlags: 0
@@ -8449,6 +8463,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: 9d6cb1dd68619e149b24b959c5eb6a5f, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: GranSalon_Nivel3
+  esInterrogatorioFinal: 0
 --- !u!114 &1000985089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17216,6 +17231,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: 3b870b74258035d45ab64d91a68d17fd, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: GranSalon_Nivel3
+  esInterrogatorioFinal: 0
 --- !u!114 &2083881899
 MonoBehaviour:
   m_ObjectHideFlags: 0

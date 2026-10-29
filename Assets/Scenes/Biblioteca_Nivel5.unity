@@ -13027,6 +13027,7 @@ GameObject:
   - component: {fileID: 2007541442}
   - component: {fileID: 2007541443}
   - component: {fileID: 2007541444}
+  - component: {fileID: 2007541445}
   m_Layer: 0
   m_Name: _MANAGERS
   m_TagString: Untagged
@@ -13151,6 +13152,18 @@ MonoBehaviour:
   flagNecesaria8: {fileID: 11400000, guid: b2e3f9cf2b969d142a6fe301fc37eac9, type: 2}
   flagNecesaria9: {fileID: 11400000, guid: b5e10939a4b39bd4db783a1f9eb7b675, type: 2}
   flagAotorgar: {fileID: 11400000, guid: 3cdc587c3985753469c041fd6876c8c7, type: 2}
+--- !u!114 &2007541445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007541438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28370c53ebc472d44871d59a9fc09ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnviarDato
 --- !u!114 &2016929589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2699632368964044030, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
@@ -14520,6 +14533,7 @@ MonoBehaviour:
   dialogoPorDefecto: {fileID: 11400000, guid: d05d622238b25c4479cf114197e0d96b, type: 2}
   notificacionResumen: {fileID: 0}
   nombreHabitacionActual: Biblioteca_Nivel5
+  esInterrogatorioFinal: 0
 --- !u!1 &2140884364
 GameObject:
   m_ObjectHideFlags: 0
@@ -14662,6 +14676,8 @@ MonoBehaviour:
   destruirAlInteractuar: 0
   nombreHabitacionDesbloqueada: 
   notificacionResumen: {fileID: 0}
+  usarAnalisis: 0
+  nomreLlave: 
 --- !u!114 &1955978574626924082
 MonoBehaviour:
   m_ObjectHideFlags: 0

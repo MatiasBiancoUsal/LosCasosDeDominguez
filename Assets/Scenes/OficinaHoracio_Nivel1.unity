@@ -1244,6 +1244,8 @@ MonoBehaviour:
     banderaRequerida: {fileID: 0}
   dialogoPorDefecto: {fileID: 11400000, guid: f14e80fc89101e74ca09a7c938913e47, type: 2}
   notificacionResumen: {fileID: 0}
+  nombreHabitacionActual: 
+  esInterrogatorioFinal: 0
 --- !u!1 &331733454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,6 +3444,7 @@ GameObject:
   - component: {fileID: 822305730}
   - component: {fileID: 822305728}
   - component: {fileID: 822305731}
+  - component: {fileID: 822305732}
   m_Layer: 0
   m_Name: _MANAGERS_
   m_TagString: Untagged
@@ -3530,6 +3533,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlagInicial
   flag: {fileID: 11400000, guid: 5ae859ea15120ea4391bfde77771f607, type: 2}
+--- !u!114 &822305732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822305727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28370c53ebc472d44871d59a9fc09ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnviarDato
 --- !u!114 &872520491 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 934117113928662135, guid: 9f1e3b5b3360830498d8c245aeda50f3, type: 3}
@@ -6420,6 +6435,8 @@ MonoBehaviour:
     banderaRequerida: {fileID: 0}
   dialogoPorDefecto: {fileID: 11400000, guid: ac9d0383273bd2e4f9ebc04fa1ae974a, type: 2}
   notificacionResumen: {fileID: 0}
+  nombreHabitacionActual: 
+  esInterrogatorioFinal: 0
 --- !u!114 &1565070229
 MonoBehaviour:
   m_ObjectHideFlags: 0
